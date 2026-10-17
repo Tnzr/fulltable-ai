@@ -218,7 +218,7 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
               })}
 
             <div data-vid="dzbfki1" className="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: px(HOME_POINT.lng) + '%', top: py(HOME_POINT.lat) + '%' }} title={HOME_POINT.name}>
-              <span data-vid="9tdt1wv" className="block h-5 w-5 rounded-full border-2 border-white shadow" style={{ background: 'var(--primary)' }} />
+              <span data-vid="9tdt1wv" className="block h-5 w-5 rounded-full border-4 border-white shadow" style={{ background: 'var(--foreground)' }} />
             </div>
 
             {restaurants.map((r) => (
@@ -266,7 +266,7 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
                   className="absolute -translate-x-1/2 -translate-y-1/2"
                   style={{ left: px(e.lng) + '%', top: py(e.lat) - 1.5 + '%' }}
                 >
-                  <span data-vid="as5iali" className={'block h-4 w-4 rotate-45 border-2 border-white shadow ' + (active ? 'ring-2 ring-primary' : '')} style={{ background: 'var(--chart-4, var(--primary))' }} />
+                  <span data-vid="as5iali" className={'block h-4 w-4 rotate-45 border-2 border-white shadow ' + (active ? 'ring-2 ring-primary' : '')} style={{ background: 'var(--chart-5, var(--destructive))' }} />
                   {active && <span data-vid="wavn3xk" className="absolute left-5 top-0 whitespace-nowrap rounded bg-background/95 px-1 type-meta text-foreground">{e.title}</span>}
                 </button>
               );
@@ -279,9 +279,10 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
             </div>
 
             <div data-vid="rst0003" className="pointer-events-none absolute bottom-6 left-2 flex flex-col gap-1 rounded bg-background/90 p-2 type-meta text-foreground">
-              <span data-vid="rst0004">Large dot: your restaurant</span>
-              <span data-vid="rst0005">Square: signed restaurants ({restaurants.length})</span>
-              <span data-vid="rst0006">Circle: organizers. Diamond: events</span>
+              <span data-vid="rst0004" className="flex items-center gap-2"><span data-vid="lg00001" className="block h-3 w-3 rounded-full border-2 border-white" style={{ background: 'var(--foreground)' }} />Your restaurant</span>
+              <span data-vid="rst0005" className="flex items-center gap-2"><span data-vid="lg00002" className="block h-3 w-3 rounded-sm border border-white" style={{ background: 'var(--chart-1, var(--primary))' }} />Signed restaurants ({restaurants.length})</span>
+              <span data-vid="rst0006" className="flex items-center gap-2"><span data-vid="lg00003" className="block h-3 w-3 rounded-full border border-white" style={{ background: 'var(--chart-2, var(--primary))' }} />Organizers ({visibleOrganizers.length})</span>
+              <span data-vid="lg00004" className="flex items-center gap-2"><span data-vid="lg00005" className="block h-3 w-3 rotate-45 border border-white" style={{ background: 'var(--chart-5, var(--destructive))' }} />Events ({visibleEvents.length})</span>
             </div>
 
             <span data-vid="dzov0qb" className="pointer-events-none absolute bottom-1 right-2 rounded bg-background/80 px-1 type-meta text-text-muted">
