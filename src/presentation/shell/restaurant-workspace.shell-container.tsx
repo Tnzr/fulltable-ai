@@ -36,6 +36,10 @@ const ROLES: ShellViewModel['roles'] = [
   {
     "id": "66f9b39f-1b6a-4241-8983-963d1158d0e6",
     "label": "Owner / General Manager"
+  },
+  {
+    "id": "system-administrator",
+    "label": "System Administrator"
   }
 ];
 const NO_GATING_KEY = '*';
@@ -260,9 +264,33 @@ const SURFACES: Readonly<Record<string, SurfaceData>> = {
           "order": 14,
           "icon": "Map"
         }
+      ],
+      "system-administrator": [
+        {
+          "slug": "admin-crm",
+          "href": "/admin-crm",
+          "label": "Admin CRM",
+          "order": 0,
+          "icon": "Shield"
+        },
+        {
+          "slug": "event-sourcing",
+          "href": "/event-sourcing",
+          "label": "Event Sourcing",
+          "order": 13,
+          "icon": "Radio"
+        },
+        {
+          "slug": "network-map",
+          "href": "/network-map",
+          "label": "Network Map",
+          "order": 14,
+          "icon": "Map"
+        }
       ]
     },
     "actions": {
+      "system-administrator": [],
       "b77bd2b8-7a5e-4453-a037-47c144aae8ee": [],
       "30e7aab9-09cc-4e04-a748-9bbe383665ad": [],
       "66f9b39f-1b6a-4241-8983-963d1158d0e6": []
@@ -628,6 +656,11 @@ const ROUTES: readonly { readonly path: string; readonly slug: string; readonly 
   {
     "path": "/network-map",
     "slug": "network-map",
+    "surface": "restaurant-workspace"
+  },
+  {
+    "path": "/admin-crm",
+    "slug": "admin-crm",
     "surface": "restaurant-workspace"
   }
 ];

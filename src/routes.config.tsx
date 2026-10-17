@@ -257,6 +257,17 @@ function Guarded_staff_scheduling() {
   );
 }
 
+const LazyScreen_admin_crm = lazy(() => import('./presentation/containers/admin-crm.container'));
+function Guarded_admin_crm() {
+  return (
+    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
+      <Suspense fallback={<LoadingFallback />}>
+        <LazyScreen_admin_crm />
+      </Suspense>
+    </AuthGuard>
+  );
+}
+
 const LazyScreen_network_map = lazy(() => import('./presentation/containers/network-map.container'));
 function Guarded_network_map() {
   return (
@@ -767,6 +778,18 @@ export const routes: AppRoute[] = [
     order: null,
     visibility: null,
     Component: Guarded_network_map,
+    ErrorBoundary: ErrorBoundary,
+  },
+  {
+    slug: "admin-crm",
+    path: "/admin-crm",
+    handle: { surface: "restaurant-workspace", frame: "desktop" },
+    layoutType: "dashboard",
+    name: "Admin CRM",
+    icon: null,
+    order: null,
+    visibility: null,
+    Component: Guarded_admin_crm,
     ErrorBoundary: ErrorBoundary,
   },
   {
