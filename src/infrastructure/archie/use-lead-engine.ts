@@ -19,7 +19,7 @@ interface SourcesData {
 }
 
 interface ScrapeData {
-  leadEngineScrapeEventSource: {
+  leadEngineScrapeEventSourceV2: {
     eventsExtracted: number | null
     organizersExtracted: number | null
     rejectedReason: string | null
@@ -27,8 +27,8 @@ interface ScrapeData {
 }
 
 const SOURCES_QUERY = `query LeadSources { eventSource(first: 50) { items { id name committed } } }`
-const SCRAPE_MUTATION = `mutation Scrape($sourceId: String!) {
-  leadEngineScrapeEventSource(sourceId: $sourceId) { eventsExtracted organizersExtracted rejectedReason }
+const SCRAPE_MUTATION = `mutation Scrape($sourceId: ID!, $maxListings: Int) {
+  leadEngineScrapeEventSourceV2(sourceId: $sourceId, maxListings: $maxListings) { eventsExtracted organizersExtracted rejectedReason }
 }`
 
 /** Admin-triggered lead engine: lists sources and runs the scrape function per source, capped by max listings. */
@@ -72,13 +72,13 @@ export function useLeadEngine() {
             lines.push({ sourceName: s.name, events: 0, organizers: 0, note: 'Skipped: the max listings limit was already reached.' })
             continue
           }
-          const res = await client.graphql.mutate<ScrapeData>(SCRAPE_MUTATION, { sourceId: s.id })
-          if (res.error !== null || res.data === null || res.data.leadEngineScrapeEventSource === null) {
+          const res = await client.graphql.mutate<ScrapeData>(SCRAPE_MUTATION, { sourceId: s.id, maxListings: Math.max(1, maxListings - total) })
+          if (res.error !== null || res.data === null || res.data.leadEngineScrapeEventSourceV2 === null) {
             const detail = res.error !== null ? res.error.message : 'no data returned';
             lines.push({ sourceName: s.name, events: 0, organizers: 0, note: 'Engine error: ' + detail.slice(0, 300) })
             continue
           }
-          const r = res.data.leadEngineScrapeEventSource
+          const r = res.data.leadEngineScrapeEventSourceV2
           const events = r.eventsExtracted ?? 0
           total += events
           lines.push({ sourceName: s.name, events, organizers: r.organizersExtracted ?? 0, note: r.rejectedReason })
