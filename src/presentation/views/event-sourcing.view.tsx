@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { PageHead, StatusChip, EmptyState } from '@/components';
+import { events as sharedEvents, organizers as sharedOrganizers, stageLabel, stageTone } from '@/lib/network-data';
 
 export type EventTab = 'events' | 'organizers' | 'routing' | 'indicators' | 'sources';
 
@@ -14,24 +15,41 @@ export interface EventSourcingViewProps {
 
 type Tone = 'ok' | 'info' | 'pending' | 'warn' | 'danger' | 'neutral';
 
-const events: readonly { id: string; name: string; date: string; size: string; lead: string; stage: string; tone: Tone; why: string; source: string; verified: string; missing: string }[] = [
-  { id: 'e1', name: 'Harbor Rowing Club regatta dinner', date: 'Mar 14', size: '120', lead: 'Sports club', stage: 'Qualified', tone: 'ok', why: 'Falls on a quiet Tuesday evening and the group is 3 miles away.', source: 'Official club site (permitted page)', verified: 'Verified 2 days ago', missing: 'None' },
-  { id: 'e2', name: 'Riverside Tech Meetup, monthly', date: 'Mar 20', size: '60', lead: 'Corporate team', stage: 'Deduplicated', tone: 'info', why: 'Recurs monthly and fits the weekday lunch gap.', source: 'Ticketmaster listing', verified: 'Verified 6 days ago', missing: 'Organizer contact route' },
-  { id: 'e3', name: 'Lakeview Alumni Reunion weekend', date: 'Apr 4', size: '200', lead: 'Alumni group', stage: 'Discovered', tone: 'pending', why: 'Large visiting group, but dining demand is not confirmed.', source: 'Pasted link', verified: 'Not yet verified', missing: 'Group size, sponsorship check' },
-  { id: 'e4', name: 'Downtown Arts Walk', date: 'Apr 18', size: '800', lead: 'Public festival', stage: 'Needs review', tone: 'warn', why: 'Major event. Attendance is not proof of dining demand and no discount is triggered.', source: 'City events calendar', verified: 'Verified 9 days ago', missing: 'Existing dining sponsorships' },
-];
+const events: readonly { id: string; name: string; date: string; size: string; lead: string; stage: string; tone: Tone; why: string; source: string; verified: string; missing: string }[] = sharedEvents.map((e) => ({
+  id: e.id,
+  name: e.title,
+  date: e.date,
+  size: String(e.size),
+  lead: e.category,
+  stage: stageLabel[e.stage],
+  tone: stageTone[e.stage],
+  why: e.why,
+  source: e.source,
+  verified: e.verification === 'VERIFIED' ? 'Verified' : 'Not yet verified',
+  missing: e.missing,
+}));
 
-const organizers: readonly { id: string; name: string; type: string; events: string; contact: string; status: string; tone: Tone }[] = [
-  { id: 'o1', name: 'Harbor Rowing Club', type: 'Sports club', events: '3 upcoming', contact: 'Business contact route on file', status: 'Qualified', tone: 'ok' },
-  { id: 'o2', name: 'Riverside Tech Meetup', type: 'Corporate community', events: '12 recurring', contact: 'Missing', status: 'Needs contact route', tone: 'warn' },
-  { id: 'o3', name: 'Lakeview Alumni Association', type: 'Alumni group', events: '1 upcoming', contact: 'Business contact route on file', status: 'Discovered', tone: 'pending' },
-];
+const organizers: readonly { id: string; name: string; type: string; events: string; contact: string; status: string; tone: Tone }[] = sharedOrganizers.map((o) => {
+  const count = sharedEvents.filter((e) => e.organizerId === o.id).length;
+  return {
+    id: o.id,
+    name: o.name,
+    type: o.type + ', ' + o.area,
+    events: count + ' upcoming',
+    contact: o.contact ?? 'Missing',
+    status: o.verification === 'VERIFIED' ? 'Verified' : o.contact === null ? 'Needs contact route' : 'Unverified',
+    tone: o.verification === 'VERIFIED' ? 'ok' : o.contact === null ? 'warn' : 'pending',
+  };
+});
 
-const routing: readonly { gap: string; event: string; fit: string; limit: string }[] = [
-  { gap: 'Tue Mar 14, 6:00 pm', event: 'Harbor Rowing Club regatta dinner', fit: 'Fits 120 seats', limit: 'Partner seats' },
-  { gap: 'Wed Mar 20, 12:00 pm', event: 'Riverside Tech Meetup', fit: 'Fits 60 seats', limit: 'Kitchen capacity' },
-  { gap: 'Fri Apr 4, 7:00 pm', event: 'Lakeview Alumni Reunion', fit: 'Conflict', limit: 'Protected period' },
-];
+const routing: readonly { gap: string; event: string; fit: string; limit: string }[] = sharedEvents
+  .filter((e) => e.stage !== 'discovered')
+  .map((e) => ({
+    gap: e.date,
+    event: e.title,
+    fit: e.stage === 'needs_review' ? 'Conflict, needs review' : 'Fits ' + e.size + ' seats',
+    limit: e.stage === 'needs_review' ? 'Protected period' : e.recurring ? 'Kitchen capacity' : 'Partner seats',
+  }));
 
 const indicators: readonly { name: string; value: string; note: string }[] = [
   { name: 'Event size', value: '60 to 200 guests', note: 'Assumption: about 40 percent of attendees dine nearby.' },
