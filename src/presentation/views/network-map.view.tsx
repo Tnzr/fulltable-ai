@@ -254,6 +254,11 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
 
             {visibleEvents.map((e) => {
               const active = selection !== null && selection.kind === 'event' && selection.id === e.id;
+              let h = 0;
+              for (let i = 0; i < e.id.length; i++) h = (h * 31 + e.id.charCodeAt(i)) % 360;
+              const ang = (h * Math.PI) / 180;
+              const dx = Math.round(Math.cos(ang) * 20);
+              const dy = Math.round(Math.sin(ang) * 20);
               return (
                 <button data-vid="qcljyak"
                   key={e.id}
@@ -264,7 +269,7 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
                   aria-label={'Event: ' + e.title}
                   aria-pressed={active}
                   className="absolute -translate-x-1/2 -translate-y-1/2"
-                  style={{ left: px(e.lng) + '%', top: py(e.lat) - 1.5 + '%' }}
+                  style={{ left: px(e.lng) + '%', top: py(e.lat) + '%', marginLeft: dx, marginTop: dy }}
                 >
                   <span data-vid="as5iali" className={'block h-4 w-4 rotate-45 border-2 border-white shadow ' + (active ? 'ring-2 ring-primary' : '')} style={{ background: 'var(--chart-5, var(--destructive))' }} />
                   {active && <span data-vid="wavn3xk" className="absolute left-5 top-0 whitespace-nowrap rounded bg-background/95 px-1 type-meta text-foreground">{e.title}</span>}
