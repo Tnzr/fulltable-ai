@@ -11,4 +11,4 @@ Claude Code-specific notes for this repo:
 - Prefer `bun run <script>` over invoking `vite`/`tsc` directly — the scripts in `package.json`
   can pick up flags or steps you'd otherwise miss.
 - Don't add a test runner, linter, or formatter that isn't already a dependency without asking —
-  this template is deliberately dependency-light.
+  this template is deliberately dependency-light. 
