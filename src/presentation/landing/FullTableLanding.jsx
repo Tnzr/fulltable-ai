@@ -60,7 +60,7 @@ class FullTableLandingInner extends React.Component {
           messages: history
         });
       }
-    } catch (e) { reply = this.FALLBACK; }
+    } catch (e) { reply = this.FALLBACK + ' [DEBUG ' + String((e && (e.code || e.name)) || '') + ': ' + String((e && e.message) || e) + ']'; }
     this.setState(s => ({ msgs: [...s.msgs, { who: 'ai', text: reply || this.FALLBACK }], busy: false }));
   };
   status(base) {
@@ -1316,7 +1316,7 @@ class FullTableLandingInner extends React.Component {
                 {" "}
                 <div style={{ display: "flex", gap: "8px", padding: "12px", borderTop: "1px solid rgba(73,44,72,0.1)" }}>
                   {" "}
-                  <input value={input} onChange={onInput} onKeyDown={onKey} placeholder="Ask about bookings, sourcing, insights\u2026" style={{ flex: "1", minWidth: "0", border: "1px solid rgba(73,44,72,0.18)", background: "#FFF7EB", borderRadius: "999px", padding: "12px 16px", font: "inherit", fontSize: "15px", color: "#492C48", outline: "none" }} />
+                  <input value={input} onChange={onInput} onKeyDown={onKey} placeholder="Ask about bookings, sourcing, insights…" style={{ flex: "1", minWidth: "0", border: "1px solid rgba(73,44,72,0.18)", background: "#FFF7EB", borderRadius: "999px", padding: "12px 16px", font: "inherit", fontSize: "15px", color: "#492C48", outline: "none" }} />
                   {" "}
                   <button onClick={sendNow} aria-label="Send" style={{ all: "unset", cursor: "pointer", width: "44px", height: "44px", borderRadius: "50%", background: "#492C48", color: "#FFF7EB", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px", flex: "none" }}>
                     {"\u2192"}
