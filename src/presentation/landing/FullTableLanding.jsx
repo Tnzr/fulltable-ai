@@ -142,6 +142,9 @@ class FullTableLandingInner extends React.Component {
             <a href="#how" style={{ color: "#492C48", opacity: "0.82" }}>
               {"How it works"}
             </a>
+            <a href="/growth-diagnostic" style={{ color: "#492C48", opacity: "0.82" }}>
+              {"Revenue calculator"}
+            </a>
             {" "}
             <a href="#sourcing" style={{ color: "#492C48", opacity: "0.82" }}>
               {"Event sourcing"}
