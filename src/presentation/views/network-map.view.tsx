@@ -6,6 +6,7 @@ import {
   distanceMiles,
   events,
   organizers,
+  restaurants,
   stageLabel,
   stageTone,
 } from '@/lib/network-data';
@@ -220,6 +221,17 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
               <span data-vid="9tdt1wv" className="block h-5 w-5 rounded-full border-2 border-white shadow" style={{ background: 'var(--primary)' }} />
             </div>
 
+            {restaurants.map((r) => (
+              <div data-vid="rst0001"
+                key={'rest-' + r.id}
+                className="absolute -translate-x-1/2 -translate-y-1/2"
+                style={{ left: px(r.lng) + '%', top: py(r.lat) + '%' }}
+                title={r.name + ' (' + r.tier.toLowerCase() + ' tier)' + (r.nearHotel ? ', near a hotel' : '')}
+              >
+                <span data-vid="rst0002" className="block h-3.5 w-3.5 rounded-sm border-2 border-white shadow" style={{ background: 'var(--chart-1, var(--primary))' }} />
+              </div>
+            ))}
+
             {visibleOrganizers.map((o) => {
               const active = selection !== null && selection.kind === 'organizer' && selection.id === o.id;
               return (
@@ -264,6 +276,12 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
               <button data-vid="3hnz099" type="button" aria-label="Zoom in" onPointerDown={(e) => e.stopPropagation()} onClick={() => props.onZoom(1)} className={btn}>+</button>
               <button data-vid="0jc4cl6" type="button" aria-label="Zoom out" onPointerDown={(e) => e.stopPropagation()} onClick={() => props.onZoom(-1)} className={btn}>-</button>
               <button data-vid="ts33yjf" type="button" aria-label="Recenter on your restaurant" onPointerDown={(e) => e.stopPropagation()} onClick={props.onRecenter} className={btn}>Home</button>
+            </div>
+
+            <div data-vid="rst0003" className="pointer-events-none absolute bottom-6 left-2 flex flex-col gap-1 rounded bg-background/90 p-2 type-meta text-foreground">
+              <span data-vid="rst0004">Large dot: your restaurant</span>
+              <span data-vid="rst0005">Square: signed restaurants ({restaurants.length})</span>
+              <span data-vid="rst0006">Circle: organizers. Diamond: events</span>
             </div>
 
             <span data-vid="dzov0qb" className="pointer-events-none absolute bottom-1 right-2 rounded bg-background/80 px-1 type-meta text-text-muted">

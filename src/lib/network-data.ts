@@ -33,6 +33,16 @@ export interface NetworkEvent {
   readonly lng: number;
 }
 
+export interface DirectoryRestaurant {
+  readonly id: string;
+  readonly name: string;
+  readonly tier: string;
+  readonly area: string;
+  readonly lat: number;
+  readonly lng: number;
+  readonly nearHotel: boolean;
+}
+
 export const HOME_POINT = { lat: 25.7617, lng: -80.1918, name: 'Lumen Table (sample), Brickell' } as const;
 
 const sources: readonly string[] = ['Google Places directory', 'Ticketmaster Discovery', 'Scrape.do official local sites', 'Pasted link', 'Overture Maps directory'];
@@ -164,6 +174,12 @@ export const stageTone: Record<FunnelStage, 'ok' | 'info' | 'pending' | 'warn'> 
 export let organizers: readonly NetworkOrganizer[] = sampleOrganizers;
 export let events: readonly NetworkEvent[] = sampleEvents;
 export let categories: readonly string[] = Array.from(new Set(sampleEvents.map((e) => e.category)));
+
+export let restaurants: readonly DirectoryRestaurant[] = [];
+
+export function setRestaurants(next: readonly DirectoryRestaurant[]): void {
+  restaurants = next;
+}
 
 export function setNetworkData(nextEvents: readonly NetworkEvent[], nextOrganizers: readonly NetworkOrganizer[]): void {
   events = nextEvents;

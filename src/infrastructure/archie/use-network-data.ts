@@ -1,13 +1,14 @@
 import { useArchieClient } from '@archie/react-sdk'
 import { useMemo } from 'react'
-import type { FunnelStage, NetworkEvent, NetworkOrganizer, Verification } from '@/lib/network-data'
+import type { DirectoryRestaurant, FunnelStage, NetworkEvent, NetworkOrganizer, Verification } from '@/lib/network-data'
 
 interface Row {
+  restaurantAccount: { items: { id: string; name: string; tier: string | null; address: string | null; latitude: number | string | null; longitude: number | string | null; nearHotel: boolean | null }[] }
   organizer: { items: { id: string; name: string; organizerType: string | null; address: string | null; latitude: number | string | null; longitude: number | string | null; businessContactRoute: string | null; verificationStatus: string | null }[] }
   upcomingEvent: { items: { id: string; title: string; startsAt: string | null; latitude: number | string | null; longitude: number | string | null; expectedSize: number | null; category: string | null; isRecurring: boolean | null; funnelStage: string | null; matchExplanation: string | null; verificationStatus: string | null; missingFields: string | null; organizer: { id: string } | null; source: { name: string } | null }[] }
 }
 
-const QUERY = `query NetData { upcomingEvent(first: 500, orderBy: { startsAt: ASC }) { items { id title startsAt latitude longitude expectedSize category isRecurring funnelStage matchExplanation verificationStatus missingFields organizer { id } source { name } } } organizer(first: 500) { items { id name organizerType address latitude longitude businessContactRoute verificationStatus } } }`
+const QUERY = `query NetData { restaurantAccount(first: 200, filter: { inDirectory: { equals: true } }) { items { id name tier address latitude longitude nearHotel } } upcomingEvent(first: 500, orderBy: { startsAt: ASC }) { items { id title startsAt latitude longitude expectedSize category isRecurring funnelStage matchExplanation verificationStatus missingFields organizer { id } source { name } } } organizer(first: 500) { items { id name organizerType address latitude longitude businessContactRoute verificationStatus } } }`
 
 const STAGES: readonly FunnelStage[] = ['discovered', 'deduplicated', 'qualified', 'needs_review']
 
@@ -32,7 +33,7 @@ export function useNetworkData() {
   const client = useArchieClient()
   return useMemo(
     () => ({
-      async load(): Promise<{ events: NetworkEvent[]; organizers: NetworkOrganizer[] } | null> {
+      async load(): Promise<{ events: NetworkEvent[]; organizers: NetworkOrganizer[]; restaurants: DirectoryRestaurant[] } | null> {
         const res = await client.graphql.query<Row>(QUERY)
         if (res.error !== null || res.data === null) return null
         const orgs: NetworkOrganizer[] = []
@@ -76,8 +77,15 @@ export function useNetworkData() {
             lng,
           })
         }
-        if (evs.length === 0 && orgs.length === 0) return null
-        return { events: evs, organizers: orgs }
+        const rests: DirectoryRestaurant[] = []
+        for (const r of res.data.restaurantAccount.items) {
+          const lat = num(r.latitude)
+          const lng = num(r.longitude)
+          if (lat === null || lng === null) continue
+          rests.push({ id: r.id, name: r.name, tier: r.tier ?? 'BASIC', area: r.address ?? 'Miami, FL', lat, lng, nearHotel: r.nearHotel === true })
+        }
+        if (evs.length === 0 && orgs.length === 0 && rests.length === 0) return null
+        return { events: evs, organizers: orgs, restaurants: rests }
       },
     }),
     [client],
