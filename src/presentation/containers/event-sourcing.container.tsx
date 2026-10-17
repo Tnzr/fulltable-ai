@@ -44,9 +44,16 @@ export default function EventSourcingContainer(): React.ReactElement {
       setNotice('Paste a link first.');
       return;
     }
-    setNotice('Link received as a sample. It is marked unverified and cannot be used for outreach until a person verifies it.');
-    setLink('');
-  }, [link]);
+    void engine.addLink(link.trim()).then((err) => {
+      if (err !== null) {
+        setNotice(err);
+        return;
+      }
+      setNotice('Link saved to the events registry as unverified. It cannot be used for outreach until a person verifies it.');
+      setLink('');
+      refresh();
+    });
+  }, [link, engine, refresh]);
 
   const toggle = React.useCallback((id: string) => {
     setPicked((p) => (p.includes(id) ? p.filter((x) => x !== id) : [...p, id]));

@@ -41,6 +41,29 @@ export function useLeadEngine() {
         if (res.error !== null || res.data === null) return []
         return res.data.eventSource.items.map((s) => ({ id: s.id, name: s.name, committed: s.committed === true }))
       },
+      async addLink(url: string): Promise<string | null> {
+        let host = url
+        try {
+          host = new URL(url).hostname.replace(/^www\./, '')
+        } catch {
+          return 'That is not a valid link.'
+        }
+        const res = await client.graphql.mutate<{ createUpcomingEvent: { id: string } | null }>(
+          `mutation AddLink($input: UpcomingEventCreateInput!) { createUpcomingEvent(input: $input) { id } }`,
+          {
+            input: {
+              title: 'Pasted event from ' + host,
+              sourceLink: url,
+              funnelStage: 'discovered',
+              verificationStatus: 'UNVERIFIED',
+              matchExplanation: 'Added from a pasted link. Details to be completed and verified by a person.',
+              missingFields: 'date, venue, expected size, organizer',
+            },
+          },
+        )
+        if (res.error !== null || res.data === null) return 'Could not save the link: ' + res.error?.message.slice(0, 200)
+        return null
+      },
       async run(sources: readonly LeadSource[], maxListings: number): Promise<LeadRunLine[]> {
         const lines: LeadRunLine[] = []
         let total = 0
