@@ -339,7 +339,7 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
             {visibleEvents.length === 0 ? (
               <p data-vid="aodjd5w" className="mt-3 type-body text-text-muted">{standard ? 'No events match these preferences.' : 'Events unlock on Standard.'}</p>
             ) : (
-              <ul data-vid="7fzy435" className="mt-3 flex flex-col gap-2">
+              <ul data-vid="7fzy435" className="mt-3 flex max-h-96 flex-col gap-2 overflow-y-auto pr-1">
                 {visibleEvents.map((e) => (
                   <li data-vid="8jyghsg" key={e.id}>
                     <button data-vid="nhtlihh"
@@ -359,7 +359,7 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
 
           <section data-vid="dpm86ws" className="rounded-card border border-border p-4">
             <h2 data-vid="nssl3ga" className="type-row-title text-foreground">Organizers ({visibleOrganizers.length})</h2>
-            <ul data-vid="3v0kmxz" className="mt-3 flex flex-col gap-2">
+            <ul data-vid="3v0kmxz" className="mt-3 flex max-h-80 flex-col gap-2 overflow-y-auto pr-1">
               {visibleOrganizers.map((o) => (
                 <li data-vid="nehjduf" key={o.id}>
                   <button data-vid="720qad5"

@@ -190,9 +190,9 @@ export function EventSourcingView(props: EventSourcingViewProps): React.ReactEle
       </div>
 
       {tab === 'events' && (
-        <div data-vid="mgww7np" className="overflow-x-auto">
+        <div data-vid="mgww7np" className="max-h-[28rem] overflow-auto rounded-card border border-border">
           <table data-vid="vjljz1l" className="w-full min-w-[56rem]">
-            <thead data-vid="ddtvb45">
+            <thead data-vid="ddtvb45" className="sticky top-0 z-10 bg-background">
               <tr data-vid="28dzehj">
                 <th data-vid="up6qzgl" className={th}>Event</th><th data-vid="7oce644" className={th}>Date</th><th data-vid="cv104mj" className={th}>Size</th>
                 <th data-vid="yg88txs" className={th}>Stage</th><th data-vid="naum63s" className={th}>Why it matches</th><th data-vid="k4iep0i" className={th}>Source</th><th data-vid="ahv8dfh" className={th}>Missing</th>
@@ -216,9 +216,9 @@ export function EventSourcingView(props: EventSourcingViewProps): React.ReactEle
       )}
 
       {tab === 'organizers' && (
-        <div data-vid="46e5uyw" className="overflow-x-auto">
+        <div data-vid="46e5uyw" className="max-h-[28rem] overflow-auto rounded-card border border-border">
           <table data-vid="e7ctyhl" className="w-full min-w-[40rem]">
-            <thead data-vid="wbkmoie">
+            <thead data-vid="wbkmoie" className="sticky top-0 z-10 bg-background">
               <tr data-vid="m41hudh"><th data-vid="czt7bl2" className={th}>Organizer</th><th data-vid="0q0y7mi" className={th}>Type</th><th data-vid="6l7lted" className={th}>Events</th><th data-vid="dv4084c" className={th}>Contact route</th><th data-vid="rvlva7l" className={th}>Status</th></tr>
             </thead>
             <tbody data-vid="xfcmr3e">
