@@ -11,6 +11,20 @@ export interface EventSourcingViewProps {
   readonly onLinkChange: (value: string) => void;
   readonly onLinkSubmit: () => void;
   readonly linkNotice: string | null;
+  readonly engine: EngineProps;
+}
+
+export interface EngineProps {
+  readonly sources: readonly { id: string; name: string; committed: boolean; selected: boolean }[];
+  readonly maxListings: number;
+  readonly radius: number;
+  readonly running: boolean;
+  readonly lines: readonly { sourceName: string; events: number; organizers: number; note: string | null }[];
+  readonly message: string | null;
+  readonly onToggle: (id: string) => void;
+  readonly onMax: (value: number) => void;
+  readonly onRadius: (value: number) => void;
+  readonly onRun: () => void;
 }
 
 type Tone = 'ok' | 'info' | 'pending' | 'warn' | 'danger' | 'neutral';
@@ -96,6 +110,36 @@ export function EventSourcingView(props: EventSourcingViewProps): React.ReactEle
           </li>
         ))}
       </ol>
+
+      <section data-vid="eng0001" aria-label="Run lead engine" className="flex flex-col gap-3 rounded-card border border-border p-4">
+        <h2 data-vid="eng0002" className="type-row-title text-foreground">Run lead engine</h2>
+        <p data-vid="eng0003" className="type-body text-text-muted">Pulls upcoming Miami events and organizers from the sources you tick. Only sources marked committed will run.</p>
+        <div data-vid="eng0004" className="flex flex-wrap gap-4">
+          {props.engine.sources.map((s) => (
+            <label data-vid="eng0005" key={s.id} className="flex min-h-11 items-center gap-2 type-body text-text-body">
+              <input data-vid="eng0006" type="checkbox" checked={s.selected} disabled={!s.committed || props.engine.running} onChange={() => props.engine.onToggle(s.id)} />
+              {s.name}{s.committed ? '' : ' (not cleared)'}
+            </label>
+          ))}
+        </div>
+        <div data-vid="eng0007" className="flex flex-wrap items-end gap-4">
+          <label data-vid="eng0008" className="flex flex-col gap-1 type-meta text-text-muted">Radius from downtown: {props.engine.radius} miles
+            <input data-vid="eng0009" type="range" min={3} max={10} value={props.engine.radius} onChange={(e) => props.engine.onRadius(Number(e.target.value))} />
+          </label>
+          <label data-vid="eng0010" className="flex flex-col gap-1 type-meta text-text-muted">Max listings
+            <input data-vid="eng0011" type="number" min={1} max={200} value={props.engine.maxListings} onChange={(e) => props.engine.onMax(Number(e.target.value))} className="min-h-11 w-28 rounded-md border border-border-strong bg-background px-3 type-body" />
+          </label>
+          <button data-vid="eng0012" type="button" disabled={props.engine.running} onClick={props.engine.onRun} className="min-h-11 rounded-md bg-primary px-4 type-body text-primary-foreground">{props.engine.running ? 'Running...' : 'Run engine'}</button>
+        </div>
+        {props.engine.message !== null && <p data-vid="eng0013" role="status" className="type-body text-text-body">{props.engine.message}</p>}
+        {props.engine.lines.length > 0 && (
+          <ul data-vid="eng0014" className="flex flex-col gap-1">
+            {props.engine.lines.map((l) => (
+              <li data-vid="eng0015" key={l.sourceName} className="type-body text-text-body">{l.sourceName}: {l.events} events, {l.organizers} organizers{l.note !== null ? ' - ' + l.note : ''}</li>
+            ))}
+          </ul>
+        )}
+      </section>
 
       <form data-vid="2nmbtbk"
         className="flex flex-col gap-2 rounded-card border border-border p-4 sm:flex-row sm:items-end"
