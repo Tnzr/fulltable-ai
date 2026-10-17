@@ -2,9 +2,11 @@
 // regeneration does not overwrite it. Ported 1:1 from "FullTable AI Landing 1.html" (Claude Design export):
 // markup and inline styles unchanged; style-hover rules -> CSS classes (fth-N); x-dc logic class -> React.Component.
 // Deviations from the HTML: the three "Sign in" links go to the app login route (loginHref) instead of "#signin";
-// the assistant uses window.claude.complete when present, otherwise the design's own FALLBACK reply.
+// the assistant calls Archie AI (aiChat, project default model) through src/client/landing-assistant.js, falling back to
+// window.claude.complete when present, otherwise the design's own FALLBACK reply. "Powered by" subtitle removed.
 import * as React from "react";
 import { HERO_SRC } from "./landing-assets";
+import { useLandingAssistant } from "@/client/landing-assistant";
 
 const LANDING_CSS = `@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap');
 html{scroll-behavior:smooth}
@@ -46,13 +48,18 @@ class FullTableLandingInner extends React.Component {
     const msgs = [...this.state.msgs, { who: 'me', text }];
     this.setState({ msgs, input: '', busy: true, chatOpen: true });
     let reply;
+    const history = msgs.slice(1).map(m => ({ role: m.who === 'me' ? 'user' : 'assistant', content: m.text }));
     try {
-      if (!(typeof window !== 'undefined' && window.claude && window.claude.complete)) throw new Error('no model bridge');
-      reply = await window.claude.complete({
-        model: this.props.assistantModel ?? 'claude-haiku-4-5',
-        max_tokens: 300, system: this.SYS,
-        messages: msgs.slice(1).map(m => ({ role: m.who === 'me' ? 'user' : 'assistant', content: m.text }))
-      });
+      if (this.props.ask) {
+        reply = await this.props.ask({ system: this.SYS, maxTokens: 300, messages: history });
+      } else {
+        if (!(typeof window !== 'undefined' && window.claude && window.claude.complete)) throw new Error('no model bridge');
+        reply = await window.claude.complete({
+          model: this.props.assistantModel ?? 'claude-haiku-4-5',
+          max_tokens: 300, system: this.SYS,
+          messages: history
+        });
+      }
     } catch (e) { reply = this.FALLBACK; }
     this.setState(s => ({ msgs: [...s.msgs, { who: 'ai', text: reply || this.FALLBACK }], busy: false }));
   };
@@ -1261,9 +1268,6 @@ class FullTableLandingInner extends React.Component {
                     <span style={{ fontFamily: "'Outfit',sans-serif", fontSize: "17px", fontWeight: "600" }}>
                       {"FullTable Assistant"}
                     </span>
-                    <span style={{ fontSize: "12px", color: "rgba(255,247,235,0.72)" }}>
-                      {"Powered by Claude "}<span>{modelLabel}</span>{" \u00b7 set by your admin"}
-                    </span>
                   </div>
                   {" "}
                   <button onClick={closeChat} aria-label="Close" style={{ all: "unset", cursor: "pointer", width: "32px", height: "32px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", background: "rgba(255,247,235,0.12)" }}>
@@ -1335,7 +1339,8 @@ class FullTableLandingInner extends React.Component {
 
 /** @param {{ loginHref?: string, showShapes?: boolean, showAssistant?: boolean, assistantModel?: string }} props */
 export function FullTableLanding(props) {
-  return <FullTableLandingInner {...props} />;
+  const ask = useLandingAssistant();
+  return <FullTableLandingInner {...props} ask={ask} />;
 }
 
 export default FullTableLanding;
