@@ -94,6 +94,10 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
   const [prefs, setPrefs] = useState<Prefs>(INITIAL_PREFS);
   const [theme, setTheme] = useState("system");
   const [securitySaved, setSecuritySaved] = useState<string | null>(null);
+  const [editingName, setEditingName] = useState(false);
+  const [firstDraft, setFirstDraft] = useState(user?.firstName ?? "");
+  const [lastDraft, setLastDraft] = useState(user?.lastName ?? "");
+  const [nameSaved, setNameSaved] = useState(false);
 
   const dirty =
     prefs.signin !== saved.signin ||
@@ -226,6 +230,47 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
             <Field2 data-vid="liig00c" label={t("account.63dceb88")} value={user?.phone} />
             <Field2 data-vid="3rygstn" label={t("account.14736a2e")} value={user?.role ?? t("account.801ba134")} />
           </div>
+          {user ? (
+            editingName ? (
+              <form
+                className="mt-4 flex flex-wrap items-end gap-3"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  props.onUpdateUser(user.id, { firstName: firstDraft.trim(), lastName: lastDraft.trim() });
+                  setEditingName(false);
+                  setNameSaved(true);
+                }}
+              >
+                <div className="flex flex-col gap-1.5">
+                  <Label htmlFor="profile-first">First name</Label>
+                  <Input id="profile-first" value={firstDraft} onChange={(e) => setFirstDraft(e.target.value)} className="border-border-strong" />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <Label htmlFor="profile-last">Last name</Label>
+                  <Input id="profile-last" value={lastDraft} onChange={(e) => setLastDraft(e.target.value)} className="border-border-strong" />
+                </div>
+                <Button type="submit" className="min-h-11">Save name</Button>
+                <Button type="button" variant="outline" className="min-h-11 border-border-strong" onClick={() => setEditingName(false)}>Cancel</Button>
+              </form>
+            ) : (
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="min-h-11 border-border-strong"
+                  onClick={() => {
+                    setFirstDraft(user.firstName ?? "");
+                    setLastDraft(user.lastName ?? "");
+                    setNameSaved(false);
+                    setEditingName(true);
+                  }}
+                >
+                  Edit name
+                </Button>
+                {nameSaved ? <span className="type-caption text-text-muted" aria-live="polite">Name update sent. Email and phone are edited under Security.</span> : null}
+              </div>
+            )
+          ) : null}
         </SectionCard>
 
         <div data-vid="8tfzekm" id="language" className="scroll-mt-4">

@@ -70,7 +70,7 @@ export interface AccountScreenViewModel {
   /** Deletes a `ActiveSession` by id. Returns `void`: the write is the container's. */
   readonly onDeleteActiveSession: (id: ActiveSessionId) => void;
   /** Updates an existing `User`. The patch is partial by definition. Returns `void`. */
-  readonly onUpdateUser: (id: UserId, patch: Pick<UpdateUser, 'email' | 'phone'>) => void;
+  readonly onUpdateUser: (id: UserId, patch: Pick<UpdateUser, 'email' | 'phone' | 'firstName' | 'lastName'>) => void;
   /** Static write availability: render disabled-with-reason from it, never guess. */
   readonly availability: AccountScreenViewModelAvailability;
   /** Navigates to another screen by route (`/slug`). The view never imports the

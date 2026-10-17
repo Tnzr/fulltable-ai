@@ -206,7 +206,7 @@ export function AccountScreenContainer(
   );
 
   const onUpdateUser = React.useCallback(
-    (id: UserId, patch: Pick<UpdateUser, 'email' | 'phone'>): void => {
+    (id: UserId, patch: Pick<UpdateUser, 'email' | 'phone' | 'firstName' | 'lastName'>): void => {
       setWriteError(null);
       void repositories.user
         .update(id, patch)
