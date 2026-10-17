@@ -67,7 +67,7 @@ const orgRows: readonly OrgRow[] = [
   ['Sunny Isles Hospitality Group', 'Hospitality association', 'Sunny Isles Beach', 25.95, -80.123, false, false],
 ];
 
-export const organizers: readonly NetworkOrganizer[] = orgRows.map((r, i) => ({
+const sampleOrganizers: readonly NetworkOrganizer[] = orgRows.map((r, i) => ({
   id: 'o' + (i + 1),
   name: r[0],
   type: r[1],
@@ -126,8 +126,8 @@ const whyByStage: Record<FunnelStage, string> = {
   needs_review: 'Needs review. Attendance is not proof of dining demand and no discount is triggered.',
 };
 
-export const events: readonly NetworkEvent[] = evRows.map((r, i) => {
-  const org = organizers[r[1]];
+const sampleEvents: readonly NetworkEvent[] = evRows.map((r, i) => {
+  const org = sampleOrganizers[r[1]];
   return {
     id: 'e' + (i + 1),
     title: r[0],
@@ -160,7 +160,16 @@ export const stageTone: Record<FunnelStage, 'ok' | 'info' | 'pending' | 'warn'> 
   needs_review: 'warn',
 };
 
-export const categories: readonly string[] = Array.from(new Set(events.map((e) => e.category)));
+// Live bindings: they start as the bundled sample and are replaced by the database rows once loaded.
+export let organizers: readonly NetworkOrganizer[] = sampleOrganizers;
+export let events: readonly NetworkEvent[] = sampleEvents;
+export let categories: readonly string[] = Array.from(new Set(sampleEvents.map((e) => e.category)));
+
+export function setNetworkData(nextEvents: readonly NetworkEvent[], nextOrganizers: readonly NetworkOrganizer[]): void {
+  events = nextEvents;
+  organizers = nextOrganizers;
+  categories = Array.from(new Set(nextEvents.map((e) => e.category)));
+}
 
 export function distanceMiles(aLat: number, aLng: number, bLat: number, bLng: number): number {
   const rad = Math.PI / 180;

@@ -29,7 +29,8 @@ export interface EngineProps {
 
 type Tone = 'ok' | 'info' | 'pending' | 'warn' | 'danger' | 'neutral';
 
-const events: readonly { id: string; name: string; date: string; size: string; lead: string; stage: string; tone: Tone; why: string; source: string; verified: string; missing: string }[] = sharedEvents.map((e) => ({
+function deriveEvents(): readonly { id: string; name: string; date: string; size: string; lead: string; stage: string; tone: Tone; why: string; source: string; verified: string; missing: string }[] {
+  return sharedEvents.map((e) => ({
   id: e.id,
   name: e.title,
   date: e.date,
@@ -41,9 +42,11 @@ const events: readonly { id: string; name: string; date: string; size: string; l
   source: e.source,
   verified: e.verification === 'VERIFIED' ? 'Verified' : 'Not yet verified',
   missing: e.missing,
-}));
+  }));
+}
 
-const organizers: readonly { id: string; name: string; type: string; events: string; contact: string; status: string; tone: Tone }[] = sharedOrganizers.map((o) => {
+function deriveOrganizers(): readonly { id: string; name: string; type: string; events: string; contact: string; status: string; tone: Tone }[] {
+  return sharedOrganizers.map((o) => {
   const count = sharedEvents.filter((e) => e.organizerId === o.id).length;
   return {
     id: o.id,
@@ -54,9 +57,11 @@ const organizers: readonly { id: string; name: string; type: string; events: str
     status: o.verification === 'VERIFIED' ? 'Verified' : o.contact === null ? 'Needs contact route' : 'Unverified',
     tone: o.verification === 'VERIFIED' ? 'ok' : o.contact === null ? 'warn' : 'pending',
   };
-});
+  });
+}
 
-const routing: readonly { gap: string; event: string; fit: string; limit: string }[] = sharedEvents
+function deriveRouting(): readonly { gap: string; event: string; fit: string; limit: string }[] {
+  return sharedEvents
   .filter((e) => e.stage !== 'discovered')
   .map((e) => ({
     gap: e.date,
@@ -64,6 +69,7 @@ const routing: readonly { gap: string; event: string; fit: string; limit: string
     fit: e.stage === 'needs_review' ? 'Conflict, needs review' : 'Fits ' + e.size + ' seats',
     limit: e.stage === 'needs_review' ? 'Protected period' : e.recurring ? 'Kitchen capacity' : 'Partner seats',
   }));
+}
 
 const indicators: readonly { name: string; value: string; note: string }[] = [
   { name: 'Event size', value: '60 to 200 guests', note: 'Assumption: about 40 percent of attendees dine nearby.' },
@@ -96,6 +102,9 @@ const td = 'px-3 py-3 type-body text-text-body align-top';
 
 export function EventSourcingView(props: EventSourcingViewProps): React.ReactElement {
   const { tab } = props;
+  const events = deriveEvents();
+  const organizers = deriveOrganizers();
+  const routing = deriveRouting();
   return (
     <div data-vid="t4zp9xc" className="flex flex-col gap-6 p-6">
       <PageHead data-vid="og0tm7e"

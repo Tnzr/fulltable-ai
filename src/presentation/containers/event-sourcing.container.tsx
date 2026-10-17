@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { EventSourcingView, type EventTab } from '../views/event-sourcing.view';
+import { setNetworkData } from '@/lib/network-data';
+import { useNetworkData } from '@/infrastructure/archie/use-network-data';
 import { useLeadEngine, type LeadSource, type LeadRunLine } from '@/infrastructure/archie/use-lead-engine';
 
 export default function EventSourcingContainer(): React.ReactElement {
@@ -7,6 +9,18 @@ export default function EventSourcingContainer(): React.ReactElement {
   const [link, setLink] = React.useState('');
   const [notice, setNotice] = React.useState<string | null>(null);
   const engine = useLeadEngine();
+  const network = useNetworkData();
+  const [, setVersion] = React.useState(0);
+  const refresh = React.useCallback(() => {
+    void network.load().then((data) => {
+      if (data === null) return;
+      setNetworkData(data.events, data.organizers);
+      setVersion((v) => v + 1);
+    });
+  }, [network]);
+  React.useEffect(() => {
+    refresh();
+  }, [refresh]);
   const [sources, setSources] = React.useState<readonly LeadSource[]>([]);
   const [picked, setPicked] = React.useState<readonly string[]>([]);
   const [maxListings, setMaxListings] = React.useState(25);
@@ -51,12 +65,13 @@ export default function EventSourcingContainer(): React.ReactElement {
       .run(chosen, Math.max(1, maxListings))
       .then((result) => {
         setLines(result);
+        refresh();
         const total = result.reduce((n, l) => n + l.events, 0);
         setMessage('Run finished: ' + total + ' events found (limit ' + maxListings + '). The radius of ' + radius + ' miles is applied when events are matched to your restaurant.');
       })
       .catch(() => setMessage('The run failed. Nothing was changed by this click.'))
       .finally(() => setRunning(false));
-  }, [engine, sources, picked, maxListings, radius]);
+  }, [engine, sources, picked, maxListings, radius, refresh]);
 
   return (
     <EventSourcingView data-vid="nh9yh05"

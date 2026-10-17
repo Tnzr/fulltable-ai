@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { HOME_POINT, categories, events, organizers } from '@/lib/network-data';
+import { HOME_POINT, categories, events, organizers, setNetworkData } from '@/lib/network-data';
+import { useNetworkData } from '@/infrastructure/archie/use-network-data';
 import {
   NetworkMapView,
   VIEW_H,
@@ -30,6 +31,21 @@ export default function NetworkMapContainer(): React.ReactElement {
   const [camera, setCamera] = React.useState<MapCamera>(HOME_CAMERA);
   const [selection, setSelection] = React.useState<MapSelection | null>(null);
   const [profile, setProfile] = React.useState<MapProfile>({ categories: categories, minSize: 0, verifiedOnly: false });
+
+  const network = useNetworkData();
+  const [, setVersion] = React.useState(0);
+  React.useEffect(() => {
+    let alive = true;
+    void network.load().then((data) => {
+      if (!alive || data === null) return;
+      setNetworkData(data.events, data.organizers);
+      setProfile((p) => ({ ...p, categories }));
+      setVersion((v) => v + 1);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [network]);
 
   const onPan = React.useCallback((fx: number, fy: number) => {
     setCamera((c) => {
