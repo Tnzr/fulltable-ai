@@ -60,7 +60,7 @@ class FullTableLandingInner extends React.Component {
           messages: history
         });
       }
-    } catch (e) { reply = this.FALLBACK + ' [DEBUG ' + String((e && (e.code || e.name)) || '') + ': ' + String((e && e.message) || e) + ']'; }
+    } catch (e) { if (typeof console !== 'undefined') console.warn('[FullTable assistant] Archie AI call failed', e); reply = this.FALLBACK; }
     this.setState(s => ({ msgs: [...s.msgs, { who: 'ai', text: reply || this.FALLBACK }], busy: false }));
   };
   status(base) {
