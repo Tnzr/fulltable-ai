@@ -1,0 +1,703 @@
+{
+  "meta": {
+    "version": 2,
+    "projectId": "cd5bb92f-b5ac-4a8c-a9d2-a06401ce184f",
+    "schemaHash": "144237e61567b5dd2749b25a83ae24d5cb0aa251ea4efe9704e437b73f1ab478",
+    "protoHash": "sha256:58ae656f1c4a1631327299aaf4027ed82fb12eb5a272d64dc647a96ce2e42e10",
+    "model": "C6",
+    "generatedAt": "2026-10-17T18:56:53.916Z",
+    "llmResolved": 12,
+    "unmapped": 2
+  },
+  "entities": [
+    {
+      "proto": "AgentTask",
+      "target": "AgentTask",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "agent",
+          "target": "agent",
+          "confidence": 0.98
+        },
+        {
+          "proto": "completedAt",
+          "target": "completedAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "createdAt",
+          "target": "createdAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "goalId",
+          "target": "goalId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "status",
+          "target": "status",
+          "confidence": 0.97
+        },
+        {
+          "proto": "summary",
+          "target": "summary",
+          "confidence": 0.98
+        },
+        {
+          "proto": "title",
+          "target": "title",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "ApprovalItem",
+      "target": "ApprovalItem",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "createdAt",
+          "target": "createdAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "decidedAt",
+          "target": "decidedAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "decisionNote",
+          "target": "decisionNote",
+          "confidence": 0.98
+        },
+        {
+          "proto": "exceededLimit",
+          "target": "exceededLimit",
+          "confidence": 0.98
+        },
+        {
+          "proto": "itemType",
+          "target": "itemType",
+          "confidence": 0.98
+        },
+        {
+          "proto": "opportunityId",
+          "target": "opportunityId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "requestedTerms",
+          "target": "requestedTerms",
+          "confidence": 0.98
+        },
+        {
+          "proto": "status",
+          "target": "status",
+          "confidence": 0.97
+        },
+        {
+          "proto": "title",
+          "target": "title",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "BookingOccurrence",
+      "target": "BookingOccurrence",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "bindingLimit",
+          "target": "bindingLimit",
+          "confidence": 0.97
+        },
+        {
+          "proto": "bookingSeriesId",
+          "target": "bookingSeriesId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "bookingValue",
+          "target": "bookingValue",
+          "confidence": 0.98
+        },
+        {
+          "proto": "fitStatus",
+          "target": "fitStatus",
+          "confidence": 0.97
+        },
+        {
+          "proto": "kitchenCapacityAvailable",
+          "target": "kitchenCapacityAvailable",
+          "confidence": 0.98
+        },
+        {
+          "proto": "partnerSeatsAvailable",
+          "target": "partnerSeatsAvailable",
+          "confidence": 0.98
+        },
+        {
+          "proto": "serviceDate",
+          "target": "serviceDate",
+          "confidence": 0.98
+        },
+        {
+          "proto": "staffingCapacityAvailable",
+          "target": "staffingCapacityAvailable",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "BookingSeries",
+      "target": "BookingSeries",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "confirmedAt",
+          "target": "confirmedAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "createdAt",
+          "target": "createdAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "occurrenceCount",
+          "target": "occurrenceCount",
+          "confidence": 0.98
+        },
+        {
+          "proto": "partnerId",
+          "target": "partnerId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "proposalId",
+          "target": "proposalId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "seatsPerOccurrence",
+          "target": "seatsPerOccurrence",
+          "confidence": 0.98
+        },
+        {
+          "proto": "serviceDate",
+          "target": "serviceDate",
+          "confidence": 0.98
+        },
+        {
+          "proto": "serviceWindowId",
+          "target": "serviceWindowId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "status",
+          "target": "status",
+          "confidence": 0.97
+        },
+        {
+          "proto": "title",
+          "target": "title",
+          "confidence": 0.98
+        },
+        {
+          "proto": "totalValue",
+          "target": "totalValue",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "CoordinatorPermission",
+      "target": null,
+      "confidence": 0.85,
+      "fields": []
+    },
+    {
+      "proto": "DemoSeedState",
+      "target": null,
+      "confidence": 0.9,
+      "fields": []
+    },
+    {
+      "proto": "Goal",
+      "target": "Goal",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "approvedAt",
+          "target": "approvedAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "createdAt",
+          "target": "createdAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "description",
+          "target": "description",
+          "confidence": 0.98
+        },
+        {
+          "proto": "planAssumptions",
+          "target": "planAssumptions",
+          "confidence": 0.98
+        },
+        {
+          "proto": "status",
+          "target": "status",
+          "confidence": 0.97
+        },
+        {
+          "proto": "targetRevenue",
+          "target": "targetRevenue",
+          "confidence": 0.98
+        },
+        {
+          "proto": "targetSeats",
+          "target": "targetSeats",
+          "confidence": 0.98
+        },
+        {
+          "proto": "targetWindowId",
+          "target": "targetWindowId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "title",
+          "target": "title",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "Menu",
+      "target": "Menu",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "maxDiscount",
+          "target": "maxDiscount",
+          "confidence": 0.98
+        },
+        {
+          "proto": "minimumSpend",
+          "target": "minimumSpend",
+          "confidence": 0.98
+        },
+        {
+          "proto": "name",
+          "target": "name",
+          "confidence": 0.98
+        },
+        {
+          "proto": "pricePerPerson",
+          "target": "pricePerPerson",
+          "confidence": 0.98
+        },
+        {
+          "proto": "servingCost",
+          "target": "servingCost",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "Opportunity",
+      "target": "Opportunity",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "createdAt",
+          "target": "createdAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "estimatedValue",
+          "target": "estimatedValue",
+          "confidence": 0.98
+        },
+        {
+          "proto": "goalId",
+          "target": "goalId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "matchExplanation",
+          "target": "matchExplanation",
+          "confidence": 0.98
+        },
+        {
+          "proto": "matchScore",
+          "target": "matchScore",
+          "confidence": 0.98
+        },
+        {
+          "proto": "nextAction",
+          "target": "nextAction",
+          "confidence": 0.98
+        },
+        {
+          "proto": "nextActionDueDate",
+          "target": "nextActionDueDate",
+          "confidence": 0.98
+        },
+        {
+          "proto": "partnerId",
+          "target": "partnerId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "serviceWindowId",
+          "target": "serviceWindowId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "status",
+          "target": "status",
+          "confidence": 0.97
+        },
+        {
+          "proto": "title",
+          "target": "title",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "OutreachMessage",
+      "target": "OutreachMessage",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "body",
+          "target": "body",
+          "confidence": 0.98
+        },
+        {
+          "proto": "conversationNotes",
+          "target": "conversationNotes",
+          "confidence": 0.98
+        },
+        {
+          "proto": "createdAt",
+          "target": "createdAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "opportunityId",
+          "target": "opportunityId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "replyText",
+          "target": "replyText",
+          "confidence": 0.98
+        },
+        {
+          "proto": "sentAt",
+          "target": "sentAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "status",
+          "target": "status",
+          "confidence": 0.97
+        },
+        {
+          "proto": "subject",
+          "target": "subject",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "Partner",
+      "target": "Partner",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "budgetPerPerson",
+          "target": "budgetPerPerson",
+          "confidence": 0.98
+        },
+        {
+          "proto": "contactName",
+          "target": "contactName",
+          "confidence": 0.98
+        },
+        {
+          "proto": "contactStatus",
+          "target": "contactStatus",
+          "confidence": 0.97
+        },
+        {
+          "proto": "createdAt",
+          "target": "createdAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "groupSize",
+          "target": "groupSize",
+          "confidence": 0.98
+        },
+        {
+          "proto": "location",
+          "target": "location",
+          "confidence": 0.98
+        },
+        {
+          "proto": "missingFields",
+          "target": "missingFields",
+          "confidence": 0.98
+        },
+        {
+          "proto": "name",
+          "target": "name",
+          "confidence": 0.98
+        },
+        {
+          "proto": "notes",
+          "target": "notes",
+          "confidence": 0.98
+        },
+        {
+          "proto": "type",
+          "target": "type",
+          "confidence": 0.97
+        },
+        {
+          "proto": "typicalSchedule",
+          "target": "typicalSchedule",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "Proposal",
+      "target": "Proposal",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "createdAt",
+          "target": "createdAt",
+          "confidence": 0.98
+        },
+        {
+          "proto": "discountPercent",
+          "target": "discountPercent",
+          "confidence": 0.98
+        },
+        {
+          "proto": "groupSize",
+          "target": "groupSize",
+          "confidence": 0.98
+        },
+        {
+          "proto": "menuId",
+          "target": "menuId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "minimumSpend",
+          "target": "minimumSpend",
+          "confidence": 0.98
+        },
+        {
+          "proto": "opportunityId",
+          "target": "opportunityId",
+          "confidence": 0.98
+        },
+        {
+          "proto": "recurrence",
+          "target": "recurrence",
+          "confidence": 0.98
+        },
+        {
+          "proto": "startDate",
+          "target": "startDate",
+          "confidence": 0.98
+        },
+        {
+          "proto": "status",
+          "target": "status",
+          "confidence": 0.97
+        },
+        {
+          "proto": "terms",
+          "target": "terms",
+          "confidence": 0.98
+        },
+        {
+          "proto": "title",
+          "target": "title",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "ServiceWindow",
+      "target": "ServiceWindow",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "dayOfWeek",
+          "target": "dayOfWeek",
+          "confidence": 0.97
+        },
+        {
+          "proto": "name",
+          "target": "name",
+          "confidence": 0.98
+        },
+        {
+          "proto": "regularGuestBuffer",
+          "target": "regularGuestBuffer",
+          "confidence": 0.98
+        },
+        {
+          "proto": "seatCapacity",
+          "target": "seatCapacity",
+          "confidence": 0.98
+        },
+        {
+          "proto": "startTime",
+          "target": "startTime",
+          "confidence": 0.98
+        },
+        {
+          "proto": "windowType",
+          "target": "windowType",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    },
+    {
+      "proto": "SocialKpi",
+      "target": "SocialKpi",
+      "confidence": 0.98,
+      "fields": [
+        {
+          "proto": "channel",
+          "target": "channel",
+          "confidence": 0.97
+        },
+        {
+          "proto": "name",
+          "target": "name",
+          "confidence": 0.98
+        },
+        {
+          "proto": "notes",
+          "target": "notes",
+          "confidence": 0.98
+        },
+        {
+          "proto": "periodStart",
+          "target": "periodStart",
+          "confidence": 0.98
+        },
+        {
+          "proto": "value",
+          "target": "value",
+          "confidence": 0.98
+        }
+      ],
+      "requiredRelations": []
+    }
+  ],
+  "enumValueMap": {
+    "AgentTask.status": {
+      "Awaiting approval": "AWAITING_APPROVAL",
+      "Blocked": "BLOCKED",
+      "Completed": "COMPLETED",
+      "Paused": "PAUSED",
+      "Queued": "QUEUED"
+    },
+    "ApprovalItem.status": {
+      "Approved": "APPROVED",
+      "Delegated": "DELEGATED",
+      "Pending": "PENDING",
+      "Rejected": "REJECTED"
+    },
+    "BookingOccurrence.bindingLimit": {
+      "closed_date": "CLOSED_DATE",
+      "kitchen": "KITCHEN",
+      "partner_seats": "PARTNER_SEATS",
+      "protected_period": "PROTECTED_PERIOD",
+      "staffing": "STAFFING"
+    },
+    "BookingOccurrence.fitStatus": {
+      "conflict": "CONFLICT",
+      "fits": "FITS"
+    },
+    "BookingSeries.status": {
+      "Cancelled": "CANCELLED",
+      "Confirmed": "CONFIRMED",
+      "Draft": "DRAFT",
+      "Previewed": "PREVIEWED"
+    },
+    "Goal.status": {
+      "Approved": "APPROVED",
+      "Plan proposed": "PLAN_PROPOSED",
+      "Rejected": "REJECTED",
+      "Submitted": "SUBMITTED"
+    },
+    "Opportunity.status": {
+      "Confirmed": "CONFIRMED",
+      "Identified": "IDENTIFIED",
+      "Lost": "LOST",
+      "Negotiation": "NEGOTIATION",
+      "Proposal": "PROPOSAL"
+    },
+    "OutreachMessage.status": {
+      "Approved": "APPROVED",
+      "Draft": "DRAFT",
+      "Pending approval": "PENDING_APPROVAL",
+      "Replied": "REPLIED",
+      "Sent (simulated)": "SENT_SIMULATED"
+    },
+    "Partner.contactStatus": {
+      "contacted": "CONTACTED",
+      "not_contacted": "NOT_CONTACTED",
+      "replied": "REPLIED",
+      "active": null
+    },
+    "Proposal.status": {
+      "APPROVED": "APPROVED"
+    },
+    "ServiceWindow.dayOfWeek": {
+      "fri": "FRI",
+      "mon": "MON",
+      "sat": "SAT",
+      "sun": "SUN",
+      "thu": "THU",
+      "tue": "TUE",
+      "wed": "WED"
+    },
+    "SocialKpi.channel": {
+      "facebook": "FACEBOOK",
+      "instagram": "INSTAGRAM",
+      "linkedin": "LINKEDIN",
+      "tiktok": "TIKTOK"
+    }
+  }
+}
