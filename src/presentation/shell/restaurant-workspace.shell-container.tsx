@@ -662,6 +662,11 @@ const ROUTES: readonly { readonly path: string; readonly slug: string; readonly 
     "path": "/admin-crm",
     "slug": "admin-crm",
     "surface": "restaurant-workspace"
+  },
+  {
+    "path": "/growth-diagnostic",
+    "slug": "growth-diagnostic",
+    "surface": "public"
   }
 ];
 const FIRST_SURFACE = "restaurant-workspace";

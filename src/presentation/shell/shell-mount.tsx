@@ -135,6 +135,10 @@ const ROUTES: readonly { readonly path: string; readonly surface: string }[] = [
   {
     "path": "/admin-crm",
     "surface": "restaurant-workspace"
+  },
+  {
+    "path": "/growth-diagnostic",
+    "surface": "public"
   }
 ];
 

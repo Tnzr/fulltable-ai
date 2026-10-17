@@ -574,6 +574,11 @@ const ROUTES: readonly { readonly path: string; readonly slug: string; readonly 
     "surface": "public"
   },
   {
+    "path": "/growth-diagnostic",
+    "slug": "growth-diagnostic",
+    "surface": "public"
+  },
+  {
     "path": "/staff-scheduling",
     "slug": "staff-scheduling",
     "surface": "restaurant-workspace"

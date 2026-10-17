@@ -257,6 +257,15 @@ function Guarded_staff_scheduling() {
   );
 }
 
+const LazyScreen_growth_diagnostic = lazy(() => import('./presentation/containers/growth-diagnostic.container'));
+function Screen_growth_diagnostic() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <LazyScreen_growth_diagnostic />
+    </Suspense>
+  );
+}
+
 const LazyScreen_admin_crm = lazy(() => import('./presentation/containers/admin-crm.container'));
 function Guarded_admin_crm() {
   return (
@@ -790,6 +799,18 @@ export const routes: AppRoute[] = [
     order: null,
     visibility: null,
     Component: Guarded_admin_crm,
+    ErrorBoundary: ErrorBoundary,
+  },
+  {
+    slug: "growth-diagnostic",
+    path: "/growth-diagnostic",
+    handle: { surface: "public" },
+    layoutType: "public",
+    name: "Growth Diagnostic",
+    icon: null,
+    order: null,
+    visibility: null,
+    Component: Screen_growth_diagnostic,
     ErrorBoundary: ErrorBoundary,
   },
   {
