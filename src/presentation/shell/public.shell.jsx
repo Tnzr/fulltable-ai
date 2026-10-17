@@ -28,7 +28,7 @@ export function PublicShell({ vm, children }) {
       </a>
       <header data-vid="823427ef" className="sticky top-0 z-40 shrink-0 border-b border-chrome-border bg-chrome text-chrome-foreground">
         <div data-vid="7ad887ed" className="mx-auto flex h-(--topbar-h) w-full max-w-(--content-max) items-center gap-8 px-(--container-padding)">
-          <a data-vid="5264ce6d" href="home.html" aria-label={name} data-slot="brand" className="flex min-w-0 shrink-0 items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          <a data-vid="5264ce6d" href="/home" aria-label={name} data-slot="brand" className="flex min-w-0 shrink-0 items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
             {light ? (
               <>
                 <img data-vid="03db6baa" src={light} alt="" className="h-7 w-auto dark:hidden" />
@@ -55,7 +55,7 @@ export function PublicShell({ vm, children }) {
             ))}
           </nav>
           <a data-vid="33f62460"
-            href="login.html"
+            href="/login"
             className="type-meta text-chrome-foreground ml-auto flex min-h-11 items-center whitespace-nowrap rounded-md px-3 md:ml-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             {t('public.bfd402b2')}

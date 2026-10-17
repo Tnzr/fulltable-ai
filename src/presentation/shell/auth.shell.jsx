@@ -24,7 +24,7 @@ export function AuthShell({ vm, children }) {
 
       <header data-vid="082a276b" className="flex h-(--topbar-h) shrink-0 items-center border-b border-chrome-border bg-chrome px-(--container-padding) text-chrome-foreground">
         <a data-vid="5fd7bcb3"
-          href="/"
+          href="/home"
           data-slot="brand"
           className="type-card-title inline-flex items-center gap-2 whitespace-nowrap rounded-control text-chrome-foreground focus-visible:ring-2 focus-visible:ring-ring"
         >
