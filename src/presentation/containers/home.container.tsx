@@ -209,6 +209,29 @@ export function HomeScreenContainer(
 
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
+// /home is a public landing page: it renders for everyone (any role, or no session) and the
+// view reads no data, so it must not query protected tables (that would fail when signed out).
 export default function HomeScreenRoute(): React.ReactElement {
-  return <HomeScreenContainer view={HomeView} />;
+  const navigate = useAppNavigate();
+  const routeParams = useParams();
+  const [searchParams] = useSearchParams();
+  const query: Readonly<Record<string, string | undefined>> = React.useMemo(
+    () => ({ ...Object.fromEntries(searchParams.entries()), ...routeParams }),
+    [routeParams, searchParams],
+  );
+  return (
+    <HomeView
+      BookingOccurrence={[]}
+      BookingOccurrenceNotice={null}
+      BookingSeries={[]}
+      BookingSeriesNotice={null}
+      Partner={[]}
+      PartnerNotice={null}
+      loading={false}
+      error={null}
+      navigate={navigate}
+      href={href}
+      query={query}
+    />
+  );
 }
