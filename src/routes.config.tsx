@@ -257,6 +257,17 @@ function Guarded_staff_scheduling() {
   );
 }
 
+const LazyScreen_event_sourcing = lazy(() => import('./presentation/containers/event-sourcing.container'));
+function Guarded_event_sourcing() {
+  return (
+    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
+      <Suspense fallback={<LoadingFallback />}>
+        <LazyScreen_event_sourcing />
+      </Suspense>
+    </AuthGuard>
+  );
+}
+
 const LazyScreen_login = lazy(() => import('./presentation/containers/login.container'));
 function Screen_login() {
   return (
@@ -721,6 +732,18 @@ export const routes: AppRoute[] = [
     order: null,
     visibility: null,
     Component: Guarded_staff_scheduling,
+    ErrorBoundary: ErrorBoundary,
+  },
+  {
+    slug: "event-sourcing",
+    path: "/event-sourcing",
+    handle: { surface: "restaurant-workspace", frame: "desktop" },
+    layoutType: "dashboard",
+    name: "Event Sourcing",
+    icon: null,
+    order: null,
+    visibility: null,
+    Component: Guarded_event_sourcing,
     ErrorBoundary: ErrorBoundary,
   },
   {
