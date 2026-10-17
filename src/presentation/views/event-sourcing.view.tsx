@@ -83,30 +83,30 @@ const td = 'px-3 py-3 type-body text-text-body align-top';
 export function EventSourcingView(props: EventSourcingViewProps): React.ReactElement {
   const { tab } = props;
   return (
-    <div className="flex flex-col gap-6 p-6">
-      <PageHead
+    <div data-vid="t4zp9xc" className="flex flex-col gap-6 p-6">
+      <PageHead data-vid="og0tm7e"
         title="Event Sourcing"
         description="A running registry of upcoming events and organizers for the next 12 months, routed to your quiet hours. Sample data, shown as signals with stated assumptions."
       />
 
-      <ol className="flex flex-wrap gap-2" aria-label="Sourcing funnel">
+      <ol data-vid="0o3yk0t" className="flex flex-wrap gap-2" aria-label="Sourcing funnel">
         {funnel.map((step, i) => (
-          <li key={step} className="rounded-full border border-border bg-surface-sunken px-3 py-1 type-meta text-text-body">
+          <li data-vid="gpwqrqv" key={step} className="rounded-full border border-border bg-surface-sunken px-3 py-1 type-meta text-text-body">
             {i + 1}. {step}
           </li>
         ))}
       </ol>
 
-      <form
+      <form data-vid="2nmbtbk"
         className="flex flex-col gap-2 rounded-card border border-border p-4 sm:flex-row sm:items-end"
         onSubmit={(e) => {
           e.preventDefault();
           props.onLinkSubmit();
         }}
       >
-        <div className="flex flex-1 flex-col gap-1">
-          <label htmlFor="event-link" className="type-row-title text-foreground">Paste an event or organizer link</label>
-          <input
+        <div data-vid="11llo3d" className="flex flex-1 flex-col gap-1">
+          <label data-vid="2j8jllj" htmlFor="event-link" className="type-row-title text-foreground">Paste an event or organizer link</label>
+          <input data-vid="yv8a4pe"
             id="event-link"
             type="url"
             value={props.linkValue}
@@ -115,15 +115,15 @@ export function EventSourcingView(props: EventSourcingViewProps): React.ReactEle
             className="min-h-11 rounded-md border border-border-strong bg-background px-3 type-body"
           />
         </div>
-        <button type="submit" className="min-h-11 rounded-md bg-primary px-4 type-body text-primary-foreground">Add to registry</button>
+        <button data-vid="8aqt581" type="submit" className="min-h-11 rounded-md bg-primary px-4 type-body text-primary-foreground">Add to registry</button>
       </form>
       {props.linkNotice !== null && (
-        <p role="status" className="type-body text-text-body">{props.linkNotice}</p>
+        <p data-vid="j13fxby" role="status" className="type-body text-text-body">{props.linkNotice}</p>
       )}
 
-      <div role="tablist" aria-label="Event Sourcing sections" className="flex flex-wrap gap-2 border-b border-border">
+      <div data-vid="wv2lp1d" role="tablist" aria-label="Event Sourcing sections" className="flex flex-wrap gap-2 border-b border-border">
         {tabs.map((t) => (
-          <button
+          <button data-vid="l66y9eh"
             key={t.id}
             role="tab"
             type="button"
@@ -137,24 +137,24 @@ export function EventSourcingView(props: EventSourcingViewProps): React.ReactEle
       </div>
 
       {tab === 'events' && (
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[56rem]">
-            <thead>
-              <tr>
-                <th className={th}>Event</th><th className={th}>Date</th><th className={th}>Size</th>
-                <th className={th}>Stage</th><th className={th}>Why it matches</th><th className={th}>Source</th><th className={th}>Missing</th>
+        <div data-vid="mgww7np" className="overflow-x-auto">
+          <table data-vid="vjljz1l" className="w-full min-w-[56rem]">
+            <thead data-vid="ddtvb45">
+              <tr data-vid="28dzehj">
+                <th data-vid="up6qzgl" className={th}>Event</th><th data-vid="7oce644" className={th}>Date</th><th data-vid="cv104mj" className={th}>Size</th>
+                <th data-vid="yg88txs" className={th}>Stage</th><th data-vid="naum63s" className={th}>Why it matches</th><th data-vid="k4iep0i" className={th}>Source</th><th data-vid="ahv8dfh" className={th}>Missing</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody data-vid="6ca449v">
               {events.map((e) => (
-                <tr key={e.id} className="border-t border-border">
-                  <td className={td}><span className="type-row-title text-foreground">{e.name}</span><br />{e.lead}</td>
-                  <td className={td}>{e.date}</td>
-                  <td className={td}>{e.size}</td>
-                  <td className={td}><StatusChip label={e.stage} tone={e.tone} /></td>
-                  <td className={td}>{e.why}</td>
-                  <td className={td}>{e.source}<br /><span className="text-text-muted">{e.verified}</span></td>
-                  <td className={td}>{e.missing}</td>
+                <tr data-vid="yxmbsyd" key={e.id} className="border-t border-border">
+                  <td data-vid="kp4ww8s" className={td}><span data-vid="jbin7zk" className="type-row-title text-foreground">{e.name}</span><br data-vid="5shxluk" />{e.lead}</td>
+                  <td data-vid="makgkiq" className={td}>{e.date}</td>
+                  <td data-vid="5yilygk" className={td}>{e.size}</td>
+                  <td data-vid="1w8w038" className={td}><StatusChip data-vid="0ixylal" label={e.stage} tone={e.tone} /></td>
+                  <td data-vid="4lcv9w7" className={td}>{e.why}</td>
+                  <td data-vid="d17uoss" className={td}>{e.source}<br data-vid="s7rca37" /><span data-vid="a2zxsck" className="text-text-muted">{e.verified}</span></td>
+                  <td data-vid="xc1tvqx" className={td}>{e.missing}</td>
                 </tr>
               ))}
             </tbody>
@@ -163,19 +163,19 @@ export function EventSourcingView(props: EventSourcingViewProps): React.ReactEle
       )}
 
       {tab === 'organizers' && (
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[40rem]">
-            <thead>
-              <tr><th className={th}>Organizer</th><th className={th}>Type</th><th className={th}>Events</th><th className={th}>Contact route</th><th className={th}>Status</th></tr>
+        <div data-vid="46e5uyw" className="overflow-x-auto">
+          <table data-vid="e7ctyhl" className="w-full min-w-[40rem]">
+            <thead data-vid="wbkmoie">
+              <tr data-vid="m41hudh"><th data-vid="czt7bl2" className={th}>Organizer</th><th data-vid="0q0y7mi" className={th}>Type</th><th data-vid="6l7lted" className={th}>Events</th><th data-vid="dv4084c" className={th}>Contact route</th><th data-vid="rvlva7l" className={th}>Status</th></tr>
             </thead>
-            <tbody>
+            <tbody data-vid="xfcmr3e">
               {organizers.map((o) => (
-                <tr key={o.id} className="border-t border-border">
-                  <td className={td}><span className="type-row-title text-foreground">{o.name}</span></td>
-                  <td className={td}>{o.type}</td>
-                  <td className={td}>{o.events}</td>
-                  <td className={td}>{o.contact}</td>
-                  <td className={td}><StatusChip label={o.status} tone={o.tone} /></td>
+                <tr data-vid="zpi9t5r" key={o.id} className="border-t border-border">
+                  <td data-vid="srh6lvt" className={td}><span data-vid="7kd657r" className="type-row-title text-foreground">{o.name}</span></td>
+                  <td data-vid="g11hlvs" className={td}>{o.type}</td>
+                  <td data-vid="ifzbyt0" className={td}>{o.events}</td>
+                  <td data-vid="49ncdcy" className={td}>{o.contact}</td>
+                  <td data-vid="zi2722k" className={td}><StatusChip data-vid="cfp37lh" label={o.status} tone={o.tone} /></td>
                 </tr>
               ))}
             </tbody>
@@ -184,14 +184,14 @@ export function EventSourcingView(props: EventSourcingViewProps): React.ReactEle
       )}
 
       {tab === 'routing' && (
-        <div className="flex flex-col gap-3">
-          <p className="type-body text-text-body">Qualified entries matched to your calendar gaps. The limit shown is the one that governs each date. Routing never sends anything: outreach needs approval.</p>
-          <ul className="flex flex-col gap-2">
+        <div data-vid="6j7jafp" className="flex flex-col gap-3">
+          <p data-vid="bva6b3b" className="type-body text-text-body">Qualified entries matched to your calendar gaps. The limit shown is the one that governs each date. Routing never sends anything: outreach needs approval.</p>
+          <ul data-vid="wgv4xkm" className="flex flex-col gap-2">
             {routing.map((r) => (
-              <li key={r.gap} className="flex flex-col gap-1 rounded-card border border-border p-4">
-                <span className="type-row-title text-foreground">{r.gap}</span>
-                <span className="type-body text-text-body">{r.event}</span>
-                <span className="type-meta text-text-muted">{r.fit}. Binding limit: {r.limit}.</span>
+              <li data-vid="scyw9vh" key={r.gap} className="flex flex-col gap-1 rounded-card border border-border p-4">
+                <span data-vid="hr7ow43" className="type-row-title text-foreground">{r.gap}</span>
+                <span data-vid="lq5nv9a" className="type-body text-text-body">{r.event}</span>
+                <span data-vid="rei59iu" className="type-meta text-text-muted">{r.fit}. Binding limit: {r.limit}.</span>
               </li>
             ))}
           </ul>
@@ -199,35 +199,35 @@ export function EventSourcingView(props: EventSourcingViewProps): React.ReactEle
       )}
 
       {tab === 'indicators' && (
-        <div className="flex flex-col gap-3">
-          <ul className="grid gap-3 sm:grid-cols-2">
+        <div data-vid="l3z3qmb" className="flex flex-col gap-3">
+          <ul data-vid="fgevm9n" className="grid gap-3 sm:grid-cols-2">
             {indicators.map((i) => (
-              <li key={i.name} className="flex flex-col gap-1 rounded-card border border-border p-4">
-                <span className="type-meta text-text-muted">{i.name}</span>
-                <span className="type-row-title text-foreground">{i.value}</span>
-                <span className="type-body text-text-body">{i.note}</span>
+              <li data-vid="7bh1l2p" key={i.name} className="flex flex-col gap-1 rounded-card border border-border p-4">
+                <span data-vid="ammpnww" className="type-meta text-text-muted">{i.name}</span>
+                <span data-vid="62713ke" className="type-row-title text-foreground">{i.value}</span>
+                <span data-vid="qixrnyn" className="type-body text-text-body">{i.note}</span>
               </li>
             ))}
           </ul>
-          <p className="type-meta text-text-muted">Signals, not guaranteed forecasts. Event attendance is not proof of dining demand, and a major event never triggers a discount on its own.</p>
+          <p data-vid="kdrcqsu" className="type-meta text-text-muted">Signals, not guaranteed forecasts. Event attendance is not proof of dining demand, and a major event never triggers a discount on its own.</p>
         </div>
       )}
 
       {tab === 'sources' && (
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[48rem]">
-            <thead>
-              <tr><th className={th}>Source</th><th className={th}>Permitted access</th><th className={th}>Method</th><th className={th}>Refresh</th><th className={th}>Last review</th><th className={th}>Status</th></tr>
+        <div data-vid="sq8vuxo" className="overflow-x-auto">
+          <table data-vid="sun5u4m" className="w-full min-w-[48rem]">
+            <thead data-vid="1zqnejc">
+              <tr data-vid="4u2iwvv"><th data-vid="88d89no" className={th}>Source</th><th data-vid="j5tb3sb" className={th}>Permitted access</th><th data-vid="08lr6ox" className={th}>Method</th><th data-vid="rm7jxaz" className={th}>Refresh</th><th data-vid="1cara9c" className={th}>Last review</th><th data-vid="4dwxgzu" className={th}>Status</th></tr>
             </thead>
-            <tbody>
+            <tbody data-vid="41d8nc1">
               {sources.map((s) => (
-                <tr key={s.name} className="border-t border-border">
-                  <td className={td}><span className="type-row-title text-foreground">{s.name}</span></td>
-                  <td className={td}>{s.access}</td>
-                  <td className={td}>{s.method}</td>
-                  <td className={td}>{s.cadence}</td>
-                  <td className={td}>{s.reviewed}</td>
-                  <td className={td}><StatusChip label={s.status} tone={s.tone} /></td>
+                <tr data-vid="r59btsu" key={s.name} className="border-t border-border">
+                  <td data-vid="psfamo5" className={td}><span data-vid="w32svos" className="type-row-title text-foreground">{s.name}</span></td>
+                  <td data-vid="m1ssdci" className={td}>{s.access}</td>
+                  <td data-vid="x629zsn" className={td}>{s.method}</td>
+                  <td data-vid="pcy701w" className={td}>{s.cadence}</td>
+                  <td data-vid="pkndr2j" className={td}>{s.reviewed}</td>
+                  <td data-vid="0r4lv13" className={td}><StatusChip data-vid="g594s9t" label={s.status} tone={s.tone} /></td>
                 </tr>
               ))}
             </tbody>
@@ -235,7 +235,7 @@ export function EventSourcingView(props: EventSourcingViewProps): React.ReactEle
         </div>
       )}
 
-      {events.length === 0 && <EmptyState title="No events yet" description="Paste a link to add the first one." />}
+      {events.length === 0 && <EmptyState data-vid="im1pbh7" title="No events yet" description="Paste a link to add the first one." />}
     </div>
   );
 }

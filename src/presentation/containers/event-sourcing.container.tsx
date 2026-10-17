@@ -16,7 +16,7 @@ export default function EventSourcingContainer(): React.ReactElement {
   }, [link]);
 
   return (
-    <EventSourcingView
+    <EventSourcingView data-vid="nh9yh05"
       tab={tab}
       onTab={setTab}
       linkValue={link}

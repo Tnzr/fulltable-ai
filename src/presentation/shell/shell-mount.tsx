@@ -166,11 +166,11 @@ export function ShellMount({ children }: { readonly children: ReactNode }) {
   const surface = surfaceOf(pathname);
   const Shell = surface === undefined ? undefined : SHELL_OF_SURFACE[surface];
   const showAssistant = surface !== 'auth' && pathname !== '/sign-out';
-  const body = Shell === undefined ? <>{children}</> : <Shell>{children}</Shell>;
+  const body = Shell === undefined ? <>{children}</> : <Shell data-vid="q3jdu87">{children}</Shell>;
   return (
     <>
       {body}
-      {showAssistant && <AiAssistant signedIn={surface === 'restaurant-workspace'} />}
+      {showAssistant && <AiAssistant data-vid="w78do1n" signedIn={surface === 'restaurant-workspace'} />}
     </>
   );
 }

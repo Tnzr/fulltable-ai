@@ -18,28 +18,28 @@ export function VerifyEmailView(props: AuthViewModel): React.ReactElement {
   const error = props.error;
 
   return (
-    <div className="flex flex-1 flex-col items-center justify-center gap-(--section-gap) bg-background px-(--container-padding) py-(--section-gap)">
-      <section className="flex w-full max-w-md flex-col items-center gap-(--component-gap) text-center">
-        <h1 className="type-section md:type-page-title text-foreground [overflow-wrap:anywhere]">
+    <div data-vid="adt46bg" className="flex flex-1 flex-col items-center justify-center gap-(--section-gap) bg-background px-(--container-padding) py-(--section-gap)">
+      <section data-vid="noao830" className="flex w-full max-w-md flex-col items-center gap-(--component-gap) text-center">
+        <h1 data-vid="tmudc7d" className="type-section md:type-page-title text-foreground [overflow-wrap:anywhere]">
           {t('verify-email.9cf0651f')}
         </h1>
-        <p className="type-body text-text-body">
+        <p data-vid="tpvoas6" className="type-body text-text-body">
           {t('verify-email.e1bb527e')}{" "}
-          <span className="type-mono-id [overflow-wrap:anywhere]">{address}</span>{t('verify-email.30f3e3ed')}
+          <span data-vid="iueez0u" className="type-mono-id [overflow-wrap:anywhere]">{address}</span>{t('verify-email.30f3e3ed')}
         </p>
       </section>
 
-      <section className="w-full max-w-md rounded-card border border-border bg-card p-(--card-padding) text-card-foreground">
+      <section data-vid="ykwuzpc" className="w-full max-w-md rounded-card border border-border bg-card p-(--card-padding) text-card-foreground">
         {verified ? (
-          <Alert>
-            <CircleCheck className="size-4" />
-            <AlertTitle>{t('verify-email.2a28b404')}</AlertTitle>
-            <AlertDescription>
+          <Alert data-vid="mjmy7h1">
+            <CircleCheck data-vid="vgnoyh4" className="size-4" />
+            <AlertTitle data-vid="gawgx7g">{t('verify-email.2a28b404')}</AlertTitle>
+            <AlertDescription data-vid="m007e2w">
               {address} {t('verify-email.ef545ca9')}
             </AlertDescription>
           </Alert>
         ) : (
-          <form
+          <form data-vid="4noa47u"
             onSubmit={(e) => {
               e.preventDefault();
               props.onSubmit();
@@ -47,12 +47,12 @@ export function VerifyEmailView(props: AuthViewModel): React.ReactElement {
             noValidate
             className="flex flex-col items-center gap-(--component-gap)"
           >
-            <FieldGroup className="w-full items-center">
-              <Field data-invalid={error ? true : undefined} className="items-center">
-                <label htmlFor="verify-code" className="type-eyebrow text-text-muted">
+            <FieldGroup data-vid="g03g19h" className="w-full items-center">
+              <Field data-vid="a4u492b" data-invalid={error ? true : undefined} className="items-center">
+                <label data-vid="kofkb12" htmlFor="verify-code" className="type-eyebrow text-text-muted">
                   {t('verify-email.e8491064')}
                 </label>
-                <InputOTP
+                <InputOTP data-vid="2baebeb"
                   id="verify-code"
                   maxLength={6}
                   value={props.code}
@@ -62,19 +62,19 @@ export function VerifyEmailView(props: AuthViewModel): React.ReactElement {
                   autoComplete="one-time-code"
                   aria-invalid={error ? true : undefined}
                 >
-                  <InputOTPGroup>
-                    <InputOTPSlot index={0} className="size-11" />
-                    <InputOTPSlot index={1} className="size-11" />
-                    <InputOTPSlot index={2} className="size-11" />
-                    <InputOTPSlot index={3} className="size-11" />
-                    <InputOTPSlot index={4} className="size-11" />
-                    <InputOTPSlot index={5} className="size-11" />
+                  <InputOTPGroup data-vid="c91szhb">
+                    <InputOTPSlot data-vid="9d2q1rt" index={0} className="size-11" />
+                    <InputOTPSlot data-vid="2tiw1xh" index={1} className="size-11" />
+                    <InputOTPSlot data-vid="2evz12g" index={2} className="size-11" />
+                    <InputOTPSlot data-vid="pny7vua" index={3} className="size-11" />
+                    <InputOTPSlot data-vid="1ermmin" index={4} className="size-11" />
+                    <InputOTPSlot data-vid="w9xyfio" index={5} className="size-11" />
                   </InputOTPGroup>
                 </InputOTP>
-                {error ? <FieldError errors={[{ message: error }]} /> : null}
+                {error ? <FieldError data-vid="n6dszbg" errors={[{ message: error }]} /> : null}
               </Field>
             </FieldGroup>
-            <Button type="submit" disabled={props.loading} className="min-h-11 w-full">
+            <Button data-vid="y53810m" type="submit" disabled={props.loading} className="min-h-11 w-full">
               {t('verify-email.93d8e8ea')}
             </Button>
           </form>
@@ -82,8 +82,8 @@ export function VerifyEmailView(props: AuthViewModel): React.ReactElement {
       </section>
 
       {verified ? null : (
-        <section className="flex w-full max-w-md flex-col items-center gap-2 text-center">
-          <button
+        <section data-vid="6m4789k" className="flex w-full max-w-md flex-col items-center gap-2 text-center">
+          <button data-vid="rff9047"
             type="button"
             onClick={() => setResent(true)}
             className="type-meta min-h-11 text-text-link underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-ring"
@@ -91,11 +91,11 @@ export function VerifyEmailView(props: AuthViewModel): React.ReactElement {
             {t('verify-email.b9745740')}
           </button>
           {resent ? (
-            <p className="type-caption text-text-muted" aria-live="polite">
+            <p data-vid="1bk17o9" className="type-caption text-text-muted" aria-live="polite">
               {t('verify-email.87de4f6a')}
             </p>
           ) : null}
-          <button
+          <button data-vid="lyq11qo"
             type="button"
             onClick={() => props.navigate(routes.login())}
             className="type-meta inline-flex min-h-11 items-center text-text-link underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-ring"

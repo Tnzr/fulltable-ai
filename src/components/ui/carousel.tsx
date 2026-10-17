@@ -105,7 +105,7 @@ function Carousel({
   }, [api, onSelect])
 
   return (
-    <CarouselContext.Provider
+    <CarouselContext.Provider data-vid="xqumu1w"
       value={{
         carouselRef,
         api: api,
@@ -118,7 +118,7 @@ function Carousel({
         canScrollNext,
       }}
     >
-      <div
+      <div data-vid="iqybabb"
         onKeyDownCapture={handleKeyDown}
         className={cn("relative", className)}
         role="region"
@@ -139,12 +139,12 @@ function CarouselContent({
   const { carouselRef, orientation } = useCarousel()
 
   return (
-    <div
+    <div data-vid="pddm41u"
       ref={carouselRef}
       className="overflow-hidden"
       data-slot="carousel-content"
     >
-      <div
+      <div data-vid="3xl5goq"
         className={cn(
           "flex",
           orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
@@ -163,7 +163,7 @@ function CarouselItem({
   const { orientation } = useCarousel()
 
   return (
-    <div
+    <div data-vid="olnknrp"
       role="group"
       aria-roledescription="slide"
       data-slot="carousel-item"
@@ -187,7 +187,7 @@ function CarouselPrevious({
   const t = useChrome()
 
   return (
-    <Button
+    <Button data-vid="neyoz1z"
       data-slot="carousel-previous"
       variant={variant}
       size={size}
@@ -202,8 +202,8 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeftIcon />
-      <span className="sr-only">{t("kit.carousel.previous")}</span>
+      <ChevronLeftIcon data-vid="dtl8i8r" />
+      <span data-vid="des4sqp" className="sr-only">{t("kit.carousel.previous")}</span>
     </Button>
   )
 }
@@ -218,7 +218,7 @@ function CarouselNext({
   const t = useChrome()
 
   return (
-    <Button
+    <Button data-vid="4jgem04"
       data-slot="carousel-next"
       variant={variant}
       size={size}
@@ -233,8 +233,8 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRightIcon />
-      <span className="sr-only">{t("kit.carousel.next")}</span>
+      <ChevronRightIcon data-vid="pzvtvjm" />
+      <span data-vid="a28qnox" className="sr-only">{t("kit.carousel.next")}</span>
     </Button>
   )
 }

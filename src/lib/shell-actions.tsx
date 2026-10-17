@@ -159,22 +159,22 @@ export function ShellPalette({ actions, open, onOpenChange, placeholder: placeho
   const byKind = new Map<string, ShellRecord[]>()
   for (const r of list(actions?.records)) byKind.set(r.kind, [...(byKind.get(r.kind) ?? []), r])
   return (
-    <CommandDialog open={open} onOpenChange={onOpenChange} title={t("kit.shell.searchTitle")} description={placeholder}>
-      <Command>
-        <CommandInput placeholder={placeholder} />
-        <CommandList>
-          <CommandEmpty>{t("kit.shell.nothingMatches")}</CommandEmpty>
+    <CommandDialog data-vid="3iun5om" open={open} onOpenChange={onOpenChange} title={t("kit.shell.searchTitle")} description={placeholder}>
+      <Command data-vid="z9fi6a2">
+        <CommandInput data-vid="ccs91wx" placeholder={placeholder} />
+        <CommandList data-vid="j2jvu1n">
+          <CommandEmpty data-vid="0ttas53">{t("kit.shell.nothingMatches")}</CommandEmpty>
           {routes.length ? (
-            <CommandGroup heading={t("kit.shell.screens")}>
+            <CommandGroup data-vid="dtpgfaf" heading={t("kit.shell.screens")}>
               {routes.map((r) => (
-                <CommandItem key={r.href} value={`screen ${r.title} ${r.group ?? ""}`} onSelect={() => select(r.href)}>{r.title}</CommandItem>
+                <CommandItem data-vid="ad7zewy" key={r.href} value={`screen ${r.title} ${r.group ?? ""}`} onSelect={() => select(r.href)}>{r.title}</CommandItem>
               ))}
             </CommandGroup>
           ) : null}
           {[...byKind].map(([kind, rows]) => (
-            <CommandGroup key={kind} heading={kind}>
+            <CommandGroup data-vid="1bkpyob" key={kind} heading={kind}>
               {rows.map((r) => (
-                <CommandItem key={r.href} value={`${kind} ${r.label}`} onSelect={() => select(r.href)}>{r.label}</CommandItem>
+                <CommandItem data-vid="53ctlt2" key={r.href} value={`${kind} ${r.label}`} onSelect={() => select(r.href)}>{r.label}</CommandItem>
               ))}
             </CommandGroup>
           ))}
@@ -188,17 +188,17 @@ export function ShellPalette({ actions, open, onOpenChange, placeholder: placeho
 export function ShellHelp({ actions, open, onOpenChange, onCloseAutoFocus }: ShellDialogProps) {
   const t = useChrome()
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent onCloseAutoFocus={onCloseAutoFocus}>
-        <DialogHeader>
-          <DialogTitle>{t("kit.shell.helpTitle")}</DialogTitle>
-          <DialogDescription>{t("kit.shell.helpDescription")}</DialogDescription>
+    <Dialog data-vid="s7ze06u" open={open} onOpenChange={onOpenChange}>
+      <DialogContent data-vid="vdw1uoz" onCloseAutoFocus={onCloseAutoFocus}>
+        <DialogHeader data-vid="37srp6a">
+          <DialogTitle data-vid="2qwt94g">{t("kit.shell.helpTitle")}</DialogTitle>
+          <DialogDescription data-vid="x7wffag">{t("kit.shell.helpDescription")}</DialogDescription>
         </DialogHeader>
-        <ul className="flex flex-col gap-3">
+        <ul data-vid="uzcjdiy" className="flex flex-col gap-3">
           {shortcutsOf(actions, t).map((s) => (
-            <li key={s.label} className="flex items-center justify-between gap-4">
-              <span className="type-body">{s.label}{s.also ? <span className="type-meta text-text-muted"> ({s.also})</span> : null}</span>
-              <span className="flex shrink-0 gap-1">{s.keys.map((k) => <Kbd key={k}>{k}</Kbd>)}</span>
+            <li data-vid="kn1qtgu" key={s.label} className="flex items-center justify-between gap-4">
+              <span data-vid="1cattz3" className="type-body">{s.label}{s.also ? <span data-vid="bswt6dk" className="type-meta text-text-muted"> ({s.also})</span> : null}</span>
+              <span data-vid="e40yu1l" className="flex shrink-0 gap-1">{s.keys.map((k) => <Kbd data-vid="xlnfvas" key={k}>{k}</Kbd>)}</span>
             </li>
           ))}
         </ul>
@@ -213,11 +213,11 @@ export function ShellAbout({ actions, open, onOpenChange, onCloseAutoFocus }: Sh
   const a = actions?.about
   if (!a?.name) return null
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent onCloseAutoFocus={onCloseAutoFocus}>
-        <DialogHeader>
-          <DialogTitle>{t("kit.shell.aboutTitle", { name: a.name })}</DialogTitle>
-          <DialogDescription>{a.description || a.name}</DialogDescription>
+    <Dialog data-vid="qn32xvj" open={open} onOpenChange={onOpenChange}>
+      <DialogContent data-vid="wrx4yh7" onCloseAutoFocus={onCloseAutoFocus}>
+        <DialogHeader data-vid="ywpqekm">
+          <DialogTitle data-vid="41pvykl">{t("kit.shell.aboutTitle", { name: a.name })}</DialogTitle>
+          <DialogDescription data-vid="2ro4brm">{a.description || a.name}</DialogDescription>
         </DialogHeader>
       </DialogContent>
     </Dialog>
@@ -230,18 +230,18 @@ export function ShellNotifications({ actions }: { actions?: MaybeShellActions })
   const n = actions?.notifications
   if (!n || !list(n.items).length) return null
   return (
-    <div className="flex flex-col gap-3">
-      <p className="type-eyebrow text-text-muted">{t("kit.shell.notifications")}</p>
-      <ul className="flex flex-col gap-3">
+    <div data-vid="9oaqfd6" className="flex flex-col gap-3">
+      <p data-vid="iysqe6j" className="type-eyebrow text-text-muted">{t("kit.shell.notifications")}</p>
+      <ul data-vid="ior2cuh" className="flex flex-col gap-3">
         {list(n.items).map((it, i) => (
-          <li key={i} className="flex flex-col gap-0.5">
-            <span className="type-row-title">{it.title}</span>
-            {it.body ? <span className="type-meta text-text-muted">{it.body}</span> : null}
-            {it.at ? <span className="type-caption text-text-muted">{formatDateTime(it.at)}</span> : null}
+          <li data-vid="lb6tdn6" key={i} className="flex flex-col gap-0.5">
+            <span data-vid="tjzjkgg" className="type-row-title">{it.title}</span>
+            {it.body ? <span data-vid="zv9vx7h" className="type-meta text-text-muted">{it.body}</span> : null}
+            {it.at ? <span data-vid="lbeagaz" className="type-caption text-text-muted">{formatDateTime(it.at)}</span> : null}
           </li>
         ))}
       </ul>
-      {n.href ? <a href={n.href} className="type-meta text-text-link underline">{t("kit.shell.viewAllNotifications")}</a> : null}
+      {n.href ? <a data-vid="2jr09f1" href={n.href} className="type-meta text-text-link underline">{t("kit.shell.viewAllNotifications")}</a> : null}
     </div>
   )
 }
@@ -266,16 +266,16 @@ export function ShellNotificationsPopover({
 }): ReactElement | null {
   if (!hasShellActions(actions).notifications) return null
   return (
-    <Popover>
-      <PopoverTrigger asChild>{children}</PopoverTrigger>
-      <PopoverContent
+    <Popover data-vid="abqwb4y">
+      <PopoverTrigger data-vid="z47d52v" asChild>{children}</PopoverTrigger>
+      <PopoverContent data-vid="03flrw7"
         data-shell-popover="notifications"
         align={align}
         side={side}
         collisionPadding={pad}
         style={{ width: shellPopoverWidth(pad), maxWidth: shellPopoverWidth(pad), maxHeight: "var(--radix-popover-content-available-height)", overflowY: "auto" }}
       >
-        <ShellNotifications actions={actions} />
+        <ShellNotifications data-vid="hmz5iei" actions={actions} />
       </PopoverContent>
     </Popover>
   )
@@ -322,13 +322,13 @@ function IdentityHeader({ persona }: { persona?: ShellIdentityPersona | null }) 
   const email = persona?.email?.trim() ?? ""
   const initials = persona?.initials?.trim() || initialsOf(name)
   return (
-    <div data-slot="identity-menu-header" className="flex flex-col items-center gap-1 px-3 pt-4 pb-3 text-center">
-      <Avatar className="mb-1 size-14">
-        <AvatarFallback className="text-lg font-medium">{initials || <User aria-hidden className="size-6" />}</AvatarFallback>
+    <div data-vid="wt108ra" data-slot="identity-menu-header" className="flex flex-col items-center gap-1 px-3 pt-4 pb-3 text-center">
+      <Avatar data-vid="2l7vqkg" className="mb-1 size-14">
+        <AvatarFallback data-vid="3uc3qf3" className="text-lg font-medium">{initials || <User data-vid="njya08l" aria-hidden className="size-6" />}</AvatarFallback>
       </Avatar>
-      {name ? <p data-slot="persona-name" className="type-row-title max-w-full truncate">{name}</p> : null}
-      {role ? <p data-slot="persona-role" className="type-meta max-w-full truncate text-text-muted">{role}</p> : null}
-      {email ? <p data-slot="persona-email" className="type-meta max-w-full truncate text-text-muted">{email}</p> : null}
+      {name ? <p data-vid="16dsc22" data-slot="persona-name" className="type-row-title max-w-full truncate">{name}</p> : null}
+      {role ? <p data-vid="birbrz5" data-slot="persona-role" className="type-meta max-w-full truncate text-text-muted">{role}</p> : null}
+      {email ? <p data-vid="119is6y" data-slot="persona-email" className="type-meta max-w-full truncate text-text-muted">{email}</p> : null}
     </div>
   )
 }
@@ -339,17 +339,17 @@ function ThemeRow() {
   const Current = mode === "dark" ? Moon : mode === "system" ? Monitor : Sun
   const names = { light: t("kit.shell.themeLight"), dark: t("kit.shell.themeDark"), system: t("kit.shell.themeSystem") }
   return (
-    <DropdownMenuSub>
-      <DropdownMenuSubTrigger className={rowClass} data-slot="identity-menu-theme">
-        <Current aria-hidden className="size-4 text-text-muted" />
-        <span>{t("kit.shell.theme")}</span>{" "}
-        <span className="type-meta flex-1 text-right text-text-muted">{names[mode]}</span>
+    <DropdownMenuSub data-vid="pp9r91n">
+      <DropdownMenuSubTrigger data-vid="ygrgexl" className={rowClass} data-slot="identity-menu-theme">
+        <Current data-vid="rqauuo1" aria-hidden className="size-4 text-text-muted" />
+        <span data-vid="k1roo5i">{t("kit.shell.theme")}</span>{" "}
+        <span data-vid="niutevs" className="type-meta flex-1 text-right text-text-muted">{names[mode]}</span>
       </DropdownMenuSubTrigger>
-      <DropdownMenuSubContent>
-        <DropdownMenuRadioGroup value={mode} onValueChange={setMode} aria-label={t("kit.shell.theme")}>
-          <DropdownMenuRadioItem value="light"><Sun aria-hidden className="size-4" />{names.light}</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="dark"><Moon aria-hidden className="size-4" />{names.dark}</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="system"><Monitor aria-hidden className="size-4" />{names.system}</DropdownMenuRadioItem>
+      <DropdownMenuSubContent data-vid="s1b70dv">
+        <DropdownMenuRadioGroup data-vid="ky4zb63" value={mode} onValueChange={setMode} aria-label={t("kit.shell.theme")}>
+          <DropdownMenuRadioItem data-vid="qphzcv2" value="light"><Sun data-vid="moqjk9t" aria-hidden className="size-4" />{names.light}</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem data-vid="qg8abwm" value="dark"><Moon data-vid="h7d3av3" aria-hidden className="size-4" />{names.dark}</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem data-vid="ulmdfjc" value="system"><Monitor data-vid="7bfwefj" aria-hidden className="size-4" />{names.system}</DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuSubContent>
     </DropdownMenuSub>
@@ -371,7 +371,7 @@ export function ShellIdentityMenuBody({
   const row = (r: IdentityRow) => {
     switch (r.kind) {
       case "theme":
-        return <ThemeRow key="theme" />
+        return <ThemeRow data-vid="jlv1lf8" key="theme" />
       case "profile":
       case "preferences":
       case "billing":
@@ -379,38 +379,38 @@ export function ShellIdentityMenuBody({
         const Icon = ICONS[r.kind]
         const label = r.label || t(r.kind === "profile" ? "kit.shell.myAccount" : `kit.shell.${r.kind}`)
         return (
-          <DropdownMenuItem key={r.kind} asChild className={rowClass}>
-            <a href={r.href}><Icon aria-hidden className="text-text-muted" />{label}</a>
+          <DropdownMenuItem data-vid="66usime" key={r.kind} asChild className={rowClass}>
+            <a data-vid="wil1h7d" href={r.href}><Icon data-vid="0rh849n" aria-hidden className="text-text-muted" />{label}</a>
           </DropdownMenuItem>
         )
       }
       case "language":
         return (
-          <DropdownMenuItem key="language" asChild className={rowClass}>
+          <DropdownMenuItem data-vid="qel2o0k" key="language" asChild className={rowClass}>
             {/* the name is "Language: English", not the two spans run together ("LanguageEnglish") */}
-            <a href={r.href} aria-label={r.value ? `${r.label || t("kit.shell.language")}: ${r.value}` : undefined}>
-              <Languages aria-hidden className="text-text-muted" />
-              <span>{r.label || t("kit.shell.language")}</span>
-              {r.value ? <span aria-hidden className="type-meta ml-auto text-text-muted">{r.value}</span> : null}
+            <a data-vid="14m3qn4" href={r.href} aria-label={r.value ? `${r.label || t("kit.shell.language")}: ${r.value}` : undefined}>
+              <Languages data-vid="ewelm4t" aria-hidden className="text-text-muted" />
+              <span data-vid="vdjzmpb">{r.label || t("kit.shell.language")}</span>
+              {r.value ? <span data-vid="u5tpy6t" aria-hidden className="type-meta ml-auto text-text-muted">{r.value}</span> : null}
             </a>
           </DropdownMenuItem>
         )
       case "help":
         return (
-          <DropdownMenuItem key="help" className={rowClass} onSelect={onHelp}>
-            <HelpCircle aria-hidden className="text-text-muted" />{t("kit.shell.help")}
+          <DropdownMenuItem data-vid="7femc75" key="help" className={rowClass} onSelect={onHelp}>
+            <HelpCircle data-vid="ru0c01m" aria-hidden className="text-text-muted" />{t("kit.shell.help")}
           </DropdownMenuItem>
         )
       case "about":
         return (
-          <DropdownMenuItem key="about" className={rowClass} onSelect={onAbout}>
-            <Info aria-hidden className="text-text-muted" />{t("kit.shell.aboutTitle", { name: r.label ?? "" })}
+          <DropdownMenuItem data-vid="un0mcbh" key="about" className={rowClass} onSelect={onAbout}>
+            <Info data-vid="dpfk0vd" aria-hidden className="text-text-muted" />{t("kit.shell.aboutTitle", { name: r.label ?? "" })}
           </DropdownMenuItem>
         )
       case "signOut":
         return (
-          <DropdownMenuItem key="signOut" asChild variant={signOutVariant} className={rowClass}>
-            <a href={r.href}><LogOut aria-hidden className={cn(signOutVariant === "default" && "text-text-muted")} />{t("kit.shell.signOut")}</a>
+          <DropdownMenuItem data-vid="4uuknv0" key="signOut" asChild variant={signOutVariant} className={rowClass}>
+            <a data-vid="jkzndbu" href={r.href}><LogOut data-vid="me99dd6" aria-hidden className={cn(signOutVariant === "default" && "text-text-muted")} />{t("kit.shell.signOut")}</a>
           </DropdownMenuItem>
         )
       default:
@@ -419,15 +419,15 @@ export function ShellIdentityMenuBody({
   }
   return (
     <>
-      <IdentityHeader persona={persona} />
-      {plan.account.length ? <><DropdownMenuSeparator />{plan.account.map(row)}</> : null}
-      {plan.product.length ? <><DropdownMenuSeparator />{plan.product.map(row)}</> : null}
-      {plan.signOut ? <><DropdownMenuSeparator />{row(plan.signOut)}</> : null}
+      <IdentityHeader data-vid="11vxcc7" persona={persona} />
+      {plan.account.length ? <><DropdownMenuSeparator data-vid="am51krz" />{plan.account.map(row)}</> : null}
+      {plan.product.length ? <><DropdownMenuSeparator data-vid="fys6wxr" />{plan.product.map(row)}</> : null}
+      {plan.signOut ? <><DropdownMenuSeparator data-vid="cmwcul4" />{row(plan.signOut)}</> : null}
       {plan.legal.length ? (
-        <DropdownMenuGroup aria-label={t("kit.shell.legal")} data-slot="identity-menu-footer" className="flex flex-wrap justify-center gap-x-1 border-t border-border px-1 pt-1.5 pb-1 mt-1">
+        <DropdownMenuGroup data-vid="btnl0w9" aria-label={t("kit.shell.legal")} data-slot="identity-menu-footer" className="flex flex-wrap justify-center gap-x-1 border-t border-border px-1 pt-1.5 pb-1 mt-1">
           {plan.legal.map((l) => (
-            <DropdownMenuItem key={`${l.href}|${l.label}`} asChild className="type-caption w-auto px-1.5 py-0.5 text-text-muted">
-              <a href={l.href}>{l.label}</a>
+            <DropdownMenuItem data-vid="nutfmtk" key={`${l.href}|${l.label}`} asChild className="type-caption w-auto px-1.5 py-0.5 text-text-muted">
+              <a data-vid="4wx6hr1" href={l.href}>{l.label}</a>
             </DropdownMenuItem>
           ))}
         </DropdownMenuGroup>
@@ -469,9 +469,9 @@ export function ShellIdentityMenu({
   const maskProps = mask === undefined ? {} : { "data-fidelity-mask": mask }
   return (
     <>
-      <DropdownMenu modal={false}>
-        <DropdownMenuTrigger asChild>
-          <button
+      <DropdownMenu data-vid="4154sxu" modal={false}>
+        <DropdownMenuTrigger data-vid="tfgtyq7" asChild>
+          <button data-vid="y718snr"
             ref={triggerRef}
             type="button"
             aria-label={name ? `${t("kit.shell.account")}: ${name}` : t("kit.shell.account")}
@@ -479,12 +479,12 @@ export function ShellIdentityMenu({
             {...maskProps}
             className={cn("inline-flex size-9 shrink-0 items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring max-md:size-11", className)}
           >
-            <Avatar>
-              <AvatarFallback>{initials || <User aria-hidden className="size-4" />}</AvatarFallback>
+            <Avatar data-vid="jj5u8jw">
+              <AvatarFallback data-vid="zwo2zd4">{initials || <User data-vid="g5ngmog" aria-hidden className="size-4" />}</AvatarFallback>
             </Avatar>
           </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent
+        <DropdownMenuContent data-vid="kldvhnx"
           align={align}
           side={side}
           collisionPadding={SHELL_POPOVER_PAD}
@@ -493,7 +493,7 @@ export function ShellIdentityMenu({
           {...maskProps}
           className="w-72 max-w-[calc(100vw-1.5rem)] p-1"
         >
-          <ShellIdentityMenuBody
+          <ShellIdentityMenuBody data-vid="ielhwv1"
             persona={persona}
             actions={actions}
             has={has}
@@ -504,8 +504,8 @@ export function ShellIdentityMenu({
           />
         </DropdownMenuContent>
       </DropdownMenu>
-      {onHelp ? null : <ShellHelp actions={actions} open={helpOpen} onOpenChange={setHelpOpen} onCloseAutoFocus={focusTrigger} />}
-      {onAbout ? null : <ShellAbout actions={actions} open={aboutOpen} onOpenChange={setAboutOpen} onCloseAutoFocus={focusTrigger} />}
+      {onHelp ? null : <ShellHelp data-vid="uwb8yd6" actions={actions} open={helpOpen} onOpenChange={setHelpOpen} onCloseAutoFocus={focusTrigger} />}
+      {onAbout ? null : <ShellAbout data-vid="om9oovo" actions={actions} open={aboutOpen} onOpenChange={setAboutOpen} onCloseAutoFocus={focusTrigger} />}
     </>
   )
 }

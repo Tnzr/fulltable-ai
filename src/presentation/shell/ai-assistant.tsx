@@ -66,18 +66,18 @@ export function AiAssistant({ signedIn }: Props): React.ReactElement {
   }, [draft, signedIn]);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2">
+    <div data-vid="g0uznrn" className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2">
       {open && (
-        <section aria-label="AI Assistant" className="flex h-96 w-80 max-w-[calc(100vw-2rem)] flex-col rounded-lg border border-border bg-background shadow-lg">
-          <header className="flex items-center justify-between border-b border-border px-4 py-3">
-            <h2 className="type-row-title text-foreground">AI Assistant</h2>
-            <button type="button" onClick={() => setOpen(false)} aria-label="Close assistant" className="min-h-11 min-w-11 type-body text-text-muted">
+        <section data-vid="i1mnde2" aria-label="AI Assistant" className="flex h-96 w-80 max-w-[calc(100vw-2rem)] flex-col rounded-lg border border-border bg-background shadow-lg">
+          <header data-vid="eaj3y7j" className="flex items-center justify-between border-b border-border px-4 py-3">
+            <h2 data-vid="s2qnmwr" className="type-row-title text-foreground">AI Assistant</h2>
+            <button data-vid="ixw6aho" type="button" onClick={() => setOpen(false)} aria-label="Close assistant" className="min-h-11 min-w-11 type-body text-text-muted">
               Close
             </button>
           </header>
-          <ul className="flex flex-1 flex-col gap-2 overflow-y-auto p-3" aria-live="polite">
+          <ul data-vid="9hq3ief" className="flex flex-1 flex-col gap-2 overflow-y-auto p-3" aria-live="polite">
             {messages.map((m) => (
-              <li
+              <li data-vid="bq6ftcz"
                 key={m.id}
                 className={'max-w-[85%] rounded-md px-3 py-2 type-body ' + (m.from === 'user' ? 'self-end bg-primary text-primary-foreground' : 'self-start bg-muted text-foreground')}
               >
@@ -85,25 +85,25 @@ export function AiAssistant({ signedIn }: Props): React.ReactElement {
               </li>
             ))}
           </ul>
-          <form
+          <form data-vid="egkdbhs"
             className="flex gap-2 border-t border-border p-3"
             onSubmit={(e) => {
               e.preventDefault();
               send();
             }}
           >
-            <input
+            <input data-vid="nz98if7"
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
               aria-label="Message"
               placeholder="Ask a question"
               className="min-h-11 min-w-0 flex-1 rounded-md border border-border bg-background px-3 type-body text-foreground"
             />
-            <button type="submit" className="min-h-11 rounded-md bg-primary px-3 type-body text-primary-foreground">Send</button>
+            <button data-vid="wpqazsr" type="submit" className="min-h-11 rounded-md bg-primary px-3 type-body text-primary-foreground">Send</button>
           </form>
         </section>
       )}
-      <button
+      <button data-vid="t6u3c1p"
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}

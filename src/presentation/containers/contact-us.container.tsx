@@ -50,11 +50,11 @@ export function ContactUsScreenContainer(
     query,
   };
 
-  return <View {...vm} />;
+  return <View data-vid="ce94clq" {...vm} />;
 }
 
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function ContactUsScreenRoute(): React.ReactElement {
-  return <ContactUsScreenContainer view={ContactUsView} />;
+  return <ContactUsScreenContainer data-vid="r0zxkj5" view={ContactUsView} />;
 }

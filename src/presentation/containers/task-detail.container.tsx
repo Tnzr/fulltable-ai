@@ -155,11 +155,11 @@ export function TaskDetailScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="6il5dko" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="hd1gqpc" error={loadError} onRetry={reload} />
       ) : (
-        <View {...vm} />
+        <View data-vid="n2mndus" {...vm} />
       )}
     </>
   );
@@ -168,5 +168,5 @@ export function TaskDetailScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function TaskDetailScreenRoute(): React.ReactElement {
-  return <TaskDetailScreenContainer view={TaskDetailView} />;
+  return <TaskDetailScreenContainer data-vid="2vrjg7c" view={TaskDetailView} />;
 }

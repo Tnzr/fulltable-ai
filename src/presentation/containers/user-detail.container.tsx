@@ -231,11 +231,11 @@ export function UserDetailScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="y8mirth" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="2n7is7s" error={loadError} onRetry={reload} />
       ) : (
-        <View {...vm} />
+        <View data-vid="k6o6msk" {...vm} />
       )}
     </>
   );
@@ -244,5 +244,5 @@ export function UserDetailScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function UserDetailScreenRoute(): React.ReactElement {
-  return <UserDetailScreenContainer view={UserDetailView} />;
+  return <UserDetailScreenContainer data-vid="p1z84l2" view={UserDetailView} />;
 }

@@ -296,18 +296,18 @@ export function ApprovalsScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="rgd6a0d" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="8ar1xsm" error={loadError} onRetry={reload} />
       ) : (
         <>
           {writeError !== null && (
-            <div
+            <div data-vid="b99tllx"
               role="alert"
               data-write-alert=""
               className="flex items-start justify-between gap-3 border-b border-red-300 bg-red-50 px-4 py-2 text-sm text-red-900"
             >
-              <span>
+              <span data-vid="m35urus">
                 {(writeError.detail ?? '').startsWith('unavailable:')
                   ? t(`_reason.${(writeError.detail ?? '').slice('unavailable:'.length).split('|')[0]}`)
                   : t(
@@ -316,13 +316,13 @@ export function ApprovalsScreenContainer(
                         : '_app.write-error.failed',
                     )}
               </span>
-              <button type="button" aria-label="Dismiss" onClick={() => setWriteError(null)}>
+              <button data-vid="2bk1ott" type="button" aria-label="Dismiss" onClick={() => setWriteError(null)}>
                 ×
               </button>
             </div>
           )}
           {truncatedCap !== null && (
-            <div
+            <div data-vid="21s3gg4"
               role="status"
               data-truncation-banner=""
               className="border-b border-amber-300 bg-amber-50 px-4 py-2 text-sm text-amber-900"
@@ -330,7 +330,7 @@ export function ApprovalsScreenContainer(
               {t('_app.truncated', { limit: truncatedCap.toLocaleString() })}
             </div>
           )}
-          <View {...vm} />
+          <View data-vid="ph2dsgr" {...vm} />
         </>
       )}
     </>
@@ -340,5 +340,5 @@ export function ApprovalsScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function ApprovalsScreenRoute(): React.ReactElement {
-  return <ApprovalsScreenContainer view={ApprovalsView} />;
+  return <ApprovalsScreenContainer data-vid="z07aqlt" view={ApprovalsView} />;
 }

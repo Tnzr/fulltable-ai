@@ -50,11 +50,11 @@ export function NotFoundScreenContainer(
     query,
   };
 
-  return <View {...vm} />;
+  return <View data-vid="nyjr82p" {...vm} />;
 }
 
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function NotFoundScreenRoute(): React.ReactElement {
-  return <NotFoundScreenContainer view={NotFoundView} />;
+  return <NotFoundScreenContainer data-vid="ruqjbde" view={NotFoundView} />;
 }

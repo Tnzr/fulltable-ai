@@ -39,12 +39,12 @@ function SectionCard(props: {
   children: React.ReactNode;
 }): React.ReactElement {
   return (
-    <Card id={props.id} className="scroll-mt-4">
-      <CardHeader>
-        <CardTitle className="type-card-title">{props.title}</CardTitle>
-        {props.description ? <CardDescription className="type-meta text-text-muted">{props.description}</CardDescription> : null}
+    <Card data-vid="5wmoq6c" id={props.id} className="scroll-mt-4">
+      <CardHeader data-vid="kpylj2x">
+        <CardTitle data-vid="mo5bplw" className="type-card-title">{props.title}</CardTitle>
+        {props.description ? <CardDescription data-vid="dhty29y" className="type-meta text-text-muted">{props.description}</CardDescription> : null}
       </CardHeader>
-      <CardContent className="flex flex-col gap-(--component-gap)">{props.children}</CardContent>
+      <CardContent data-vid="6qtb1ge" className="flex flex-col gap-(--component-gap)">{props.children}</CardContent>
     </Card>
   );
 }
@@ -57,26 +57,26 @@ function ActionRow(props: {
 }): React.ReactElement {
   const Icon = props.icon;
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3 py-3">
-      <div className="flex min-w-0 flex-1 items-start gap-3">
-        <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center text-text-muted">
-          <Icon className="size-5" />
+    <div data-vid="4l20w68" className="flex flex-wrap items-center justify-between gap-3 py-3">
+      <div data-vid="id04omu" className="flex min-w-0 flex-1 items-start gap-3">
+        <span data-vid="iyo39bb" className="mt-0.5 flex size-5 shrink-0 items-center justify-center text-text-muted">
+          <Icon data-vid="keuwocl" className="size-5" />
         </span>
-        <div className="min-w-0">
-          <p className="type-row-title">{props.title}</p>
-          <p className="type-meta text-text-muted">{props.text}</p>
+        <div data-vid="2i3uet2" className="min-w-0">
+          <p data-vid="syzp75s" className="type-row-title">{props.title}</p>
+          <p data-vid="32sff3j" className="type-meta text-text-muted">{props.text}</p>
         </div>
       </div>
-      <div className="shrink-0">{props.children}</div>
+      <div data-vid="2sehcl5" className="shrink-0">{props.children}</div>
     </div>
   );
 }
 
 function Field2(props: { label: string; value: React.ReactNode }): React.ReactElement {
   return (
-    <div className="min-w-40 flex-1">
-      <p className="type-eyebrow text-text-muted">{props.label}</p>
-      <p className="type-body break-words text-foreground">{props.value || "—"}</p>
+    <div data-vid="1rcyu78" className="min-w-40 flex-1">
+      <p data-vid="i9zcw1k" className="type-eyebrow text-text-muted">{props.label}</p>
+      <p data-vid="38fs4sk" className="type-body break-words text-foreground">{props.value || "—"}</p>
     </div>
   );
 }
@@ -183,16 +183,16 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
   const unavailableNote = t("account.46e07ed9");
 
   return (
-    <MotionConfig reducedMotion="user">
-      <div className="flex max-w-3xl flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
-        <header className="flex flex-col gap-(--component-gap)">
-          <div>
-            <h1 className="type-page-title">{t("account.271c62fa")}</h1>
-            <p className="type-body text-text-muted">{t("account.70b2ed42")}</p>
+    <MotionConfig data-vid="l1oryrm" reducedMotion="user">
+      <div data-vid="juu281w" className="flex max-w-3xl flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
+        <header data-vid="lw7db5p" className="flex flex-col gap-(--component-gap)">
+          <div data-vid="elqf77u">
+            <h1 data-vid="4ifhztr" className="type-page-title">{t("account.271c62fa")}</h1>
+            <p data-vid="zl5hh1t" className="type-body text-text-muted">{t("account.70b2ed42")}</p>
           </div>
-          <nav aria-label={t("account.b8bbb7db")} className="flex gap-2 overflow-x-auto border-b border-border">
+          <nav data-vid="fuvd3w3" aria-label={t("account.b8bbb7db")} className="flex gap-2 overflow-x-auto border-b border-border">
             {sections.map((s) => (
-              <button
+              <button data-vid="r78hiky"
                 type="button"
                 key={s.id}
                 disabled
@@ -205,10 +205,10 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
           </nav>
         </header>
 
-        <SectionCard id="profile" title={t("account.d696a35b.sectioncard-attr-title")} description={t("account.e9a5e5ca")}>
-          <div className="flex flex-wrap items-center gap-(--component-gap)">
-            <div className="size-16 shrink-0 overflow-hidden rounded-full border border-border">
-              <Picture
+        <SectionCard data-vid="70gnor1" id="profile" title={t("account.d696a35b.sectioncard-attr-title")} description={t("account.e9a5e5ca")}>
+          <div data-vid="wagj1kj" className="flex flex-wrap items-center gap-(--component-gap)">
+            <div data-vid="yc0g3cj" className="size-16 shrink-0 overflow-hidden rounded-full border border-border">
+              <Picture data-vid="pw8zr9q"
                 src={user?.avatar?.src}
                 intent={user?.avatar?.scene}
                 alt={`${t("account.e3934b65")} ${fullName}`}
@@ -216,81 +216,81 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
                 className="size-16"
               />
             </div>
-            <div className="min-w-0 flex-1">
-              <p className="type-row-title break-words">{fullName || "—"}</p>
-              <p className="type-meta text-text-muted break-words">{user?.role ?? t("account.801ba134")}</p>
+            <div data-vid="j3k07jf" className="min-w-0 flex-1">
+              <p data-vid="8nba9u3" className="type-row-title break-words">{fullName || "—"}</p>
+              <p data-vid="wycythd" className="type-meta text-text-muted break-words">{user?.role ?? t("account.801ba134")}</p>
             </div>
           </div>
-          <div className="flex flex-wrap gap-x-(--component-gap) gap-y-3">
-            <Field2 label={t("account.969ccbd3")} value={user?.email} />
-            <Field2 label={t("account.63dceb88")} value={user?.phone} />
-            <Field2 label={t("account.14736a2e")} value={user?.role ?? t("account.801ba134")} />
+          <div data-vid="iv67uzw" className="flex flex-wrap gap-x-(--component-gap) gap-y-3">
+            <Field2 data-vid="zob70da" label={t("account.969ccbd3")} value={user?.email} />
+            <Field2 data-vid="liig00c" label={t("account.63dceb88")} value={user?.phone} />
+            <Field2 data-vid="3rygstn" label={t("account.14736a2e")} value={user?.role ?? t("account.801ba134")} />
           </div>
         </SectionCard>
 
-        <div id="language" className="scroll-mt-4">
-          <Card>
-            <CardHeader>
-              <CardTitle className="type-card-title">{t("account.003e8754")}</CardTitle>
-              <CardDescription className="type-meta text-text-muted">{t("account.2d10df79")}</CardDescription>
+        <div data-vid="8tfzekm" id="language" className="scroll-mt-4">
+          <Card data-vid="oynu1zx">
+            <CardHeader data-vid="hss4gft">
+              <CardTitle data-vid="aznd6ws" className="type-card-title">{t("account.003e8754")}</CardTitle>
+              <CardDescription data-vid="mn31ib3" className="type-meta text-text-muted">{t("account.2d10df79")}</CardDescription>
             </CardHeader>
-            <CardContent className="flex flex-col gap-(--component-gap)">
-              <div className="grid grid-cols-[repeat(auto-fill,minmax(11rem,1fr))] gap-3">
-                <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="lang-select">{t("account.a4fe6526")}</Label>
-                  <Select
+            <CardContent data-vid="pixg9v7" className="flex flex-col gap-(--component-gap)">
+              <div data-vid="wmrvk04" className="grid grid-cols-[repeat(auto-fill,minmax(11rem,1fr))] gap-3">
+                <div data-vid="e9d568b" className="flex flex-col gap-1.5">
+                  <Label data-vid="ut2f016" htmlFor="lang-select">{t("account.a4fe6526")}</Label>
+                  <Select data-vid="9kxglm2"
                     value={lang}
                     onValueChange={(v) => {
                       setLang(v);
                       previewLanguage();
                     }}
                   >
-                    <SelectTrigger id="lang-select" className="w-full min-h-11 border-border-strong">
-                      <SelectValue />
+                    <SelectTrigger data-vid="3thrnin" id="lang-select" className="w-full min-h-11 border-border-strong">
+                      <SelectValue data-vid="0q3lz5k" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent data-vid="zmb0tli">
                       {languages.map((l) => (
-                        <SelectItem key={l.value} value={l.value}>{l.label}</SelectItem>
+                        <SelectItem data-vid="kq1cjp0" key={l.value} value={l.value}>{l.label}</SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="region">{t("account.d3a008ef")}</Label>
-                  <Input id="region" value={region} onChange={(e) => setRegion(e.target.value)} className="border-border-strong" />
+                <div data-vid="d7yhl4r" className="flex flex-col gap-1.5">
+                  <Label data-vid="xyexbq9" htmlFor="region">{t("account.d3a008ef")}</Label>
+                  <Input data-vid="26z6adh" id="region" value={region} onChange={(e) => setRegion(e.target.value)} className="border-border-strong" />
                 </div>
-                <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="datefmt">{t("account.43123f5c")}</Label>
-                  <Select value={dateFormat} onValueChange={setDateFormat}>
-                    <SelectTrigger id="datefmt" className="w-full min-h-11 border-border-strong">
-                      <SelectValue />
+                <div data-vid="54s54kv" className="flex flex-col gap-1.5">
+                  <Label data-vid="up9phjg" htmlFor="datefmt">{t("account.43123f5c")}</Label>
+                  <Select data-vid="x89j3i5" value={dateFormat} onValueChange={setDateFormat}>
+                    <SelectTrigger data-vid="fex7jk8" id="datefmt" className="w-full min-h-11 border-border-strong">
+                      <SelectValue data-vid="hakrgqh" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent data-vid="yywdu03">
                       {DATE_FORMATS.map((f) => (
-                        <SelectItem key={f} value={f}>{f}</SelectItem>
+                        <SelectItem data-vid="l5pkv7w" key={f} value={f}>{f}</SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
                 </div>
               </div>
               {notice ? (
-                <Alert className="border-status-info bg-status-info-bg text-status-info-ink">
-                  <AlertDescription className="text-status-info-ink">{t("account.d9691cba")}</AlertDescription>
+                <Alert data-vid="epkn1ey" className="border-status-info bg-status-info-bg text-status-info-ink">
+                  <AlertDescription data-vid="6z9001s" className="text-status-info-ink">{t("account.d9691cba")}</AlertDescription>
                 </Alert>
               ) : null}
             </CardContent>
-            <CardFooter>
-              <Button variant="outline" className="min-h-11 border-border-strong" data-agent-id="job:select-language" onClick={previewLanguage}>
+            <CardFooter data-vid="up65390">
+              <Button data-vid="6isq0pz" variant="outline" className="min-h-11 border-border-strong" data-agent-id="job:select-language" onClick={previewLanguage}>
                 {t("account.f733b1b2")}
               </Button>
             </CardFooter>
           </Card>
         </div>
 
-        <SectionCard id="security" title={t("account.8f6fb4eb.sectioncard-attr-title")} description={t("account.5462374c")}>
-          <div className="divide-y divide-border">
-            <ActionRow icon={KeyRound} title={t("account.3f9c991f")} text={t("account.5462374c")}>
-              <Button
+        <SectionCard data-vid="tmjp8eh" id="security" title={t("account.8f6fb4eb.sectioncard-attr-title")} description={t("account.5462374c")}>
+          <div data-vid="wu6tt2n" className="divide-y divide-border">
+            <ActionRow data-vid="8bckcm3" icon={KeyRound} title={t("account.3f9c991f")} text={t("account.5462374c")}>
+              <Button data-vid="ipxfx3c"
                 variant="outline"
                 className="min-h-11 border-border-strong"
                 onClick={() => props.navigate(routes["forgot-password"]())}
@@ -298,27 +298,27 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
                 {t("account.88d42039")}
               </Button>
             </ActionRow>
-            <ActionRow icon={LogOut} title={t("account.d28874d5.actionrow-attr-title")} text={unavailableNote}>
-              <Button variant="outline" disabled className="min-h-11 border-border-strong">
+            <ActionRow data-vid="w2qse0f" icon={LogOut} title={t("account.d28874d5.actionrow-attr-title")} text={unavailableNote}>
+              <Button data-vid="hxnb3ko" variant="outline" disabled className="min-h-11 border-border-strong">
                 {t("account.33486f37")}
               </Button>
             </ActionRow>
-            <ActionRow icon={MonitorSmartphone} title={t("account.0fa0b317.actionrow-attr-title")} text={sessionCount}>
-              <Button variant="outline" disabled className="min-h-11 border-border-strong">
+            <ActionRow data-vid="m3s03j9" icon={MonitorSmartphone} title={t("account.0fa0b317.actionrow-attr-title")} text={sessionCount}>
+              <Button data-vid="o41ladz" variant="outline" disabled className="min-h-11 border-border-strong">
                 {t("account.97b74c6a")}
               </Button>
             </ActionRow>
           </div>
 
-          <form onSubmit={securityForm.handleSubmit(onSaveSecurity)} noValidate className="flex flex-col gap-3">
-            <FieldGroup>
-              <Controller
+          <form data-vid="os6zac4" onSubmit={securityForm.handleSubmit(onSaveSecurity)} noValidate className="flex flex-col gap-3">
+            <FieldGroup data-vid="y9nw6yl">
+              <Controller data-vid="cxh32cf"
                 name="email"
                 control={securityForm.control}
                 render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor={field.name}>{t("account.d0b42cf6")}</FieldLabel>
-                    <Input
+                  <Field data-vid="2b1joml" data-invalid={fieldState.invalid}>
+                    <FieldLabel data-vid="suzibal" htmlFor={field.name}>{t("account.d0b42cf6")}</FieldLabel>
+                    <Input data-vid="uipfuds"
                       {...field}
                       id={field.name}
                       type="email"
@@ -326,18 +326,18 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
                       aria-invalid={fieldState.invalid}
                       className="border-border-strong"
                     />
-                    <FieldDescription>{t("account.a66f454b")}</FieldDescription>
-                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                    <FieldDescription data-vid="gx44pk7">{t("account.a66f454b")}</FieldDescription>
+                    {fieldState.invalid && <FieldError data-vid="o45aubl" errors={[fieldState.error]} />}
                   </Field>
                 )}
               />
-              <Controller
+              <Controller data-vid="fy4mnus"
                 name="phone"
                 control={securityForm.control}
                 render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor={field.name}>{t("account.8b69b7c7")}</FieldLabel>
-                    <Input
+                  <Field data-vid="0mjb7zn" data-invalid={fieldState.invalid}>
+                    <FieldLabel data-vid="4493oh5" htmlFor={field.name}>{t("account.8b69b7c7")}</FieldLabel>
+                    <Input data-vid="68kv3ee"
                       {...field}
                       id={field.name}
                       type="tel"
@@ -345,14 +345,14 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
                       aria-invalid={fieldState.invalid}
                       className="border-border-strong"
                     />
-                    <FieldDescription>{t("account.23c2ed31")}</FieldDescription>
-                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                    <FieldDescription data-vid="nwtg7oa">{t("account.23c2ed31")}</FieldDescription>
+                    {fieldState.invalid && <FieldError data-vid="eryukcp" errors={[fieldState.error]} />}
                   </Field>
                 )}
               />
             </FieldGroup>
-            <div className="flex flex-wrap items-center gap-3">
-              <Button
+            <div data-vid="9hqb299" className="flex flex-wrap items-center gap-3">
+              <Button data-vid="mrl0yy3"
                 type="submit"
                 className="min-h-11"
                 disabled={securityForm.formState.isSubmitting || !user || !props.availability.onUpdateUser.available}
@@ -360,76 +360,76 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
                 {t("account.f146a82d")}
               </Button>
               {securitySaved ? (
-                <span className="type-caption text-text-muted" aria-live="polite">
+                <span data-vid="xj8sjlk" className="type-caption text-text-muted" aria-live="polite">
                   {t("account.b5c120b3")} {securitySaved}.
                 </span>
               ) : null}
             </div>
           </form>
 
-          <div className="flex flex-col gap-3 rounded-card border border-dashed border-border-strong p-(--card-padding)">
-            <div data-scope="mock" className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex min-w-0 flex-1 items-start gap-3">
-                <Mail className="mt-0.5 size-5 shrink-0 text-text-muted" />
-                <div className="min-w-0">
-                  <p className="type-row-title">{t("account.ff2ec261")}</p>
-                  <p className="type-meta text-text-muted">{t("account.e96e2e36")}</p>
+          <div data-vid="dpbkx9g" className="flex flex-col gap-3 rounded-card border border-dashed border-border-strong p-(--card-padding)">
+            <div data-vid="ran1inb" data-scope="mock" className="flex flex-wrap items-center justify-between gap-3">
+              <div data-vid="ak9e87c" className="flex min-w-0 flex-1 items-start gap-3">
+                <Mail data-vid="pylsyt2" className="mt-0.5 size-5 shrink-0 text-text-muted" />
+                <div data-vid="tces3qs" className="min-w-0">
+                  <p data-vid="2aiuqef" className="type-row-title">{t("account.ff2ec261")}</p>
+                  <p data-vid="h3y7xda" className="type-meta text-text-muted">{t("account.e96e2e36")}</p>
                 </div>
               </div>
-              <Badge variant="outline" className="type-eyebrow shrink-0 whitespace-nowrap">{t("account.46e07ed9")}</Badge>
+              <Badge data-vid="bdd9ofz" variant="outline" className="type-eyebrow shrink-0 whitespace-nowrap">{t("account.46e07ed9")}</Badge>
             </div>
-            <div data-scope="mock" className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex min-w-0 flex-1 items-start gap-3">
-                <ShieldCheck className="mt-0.5 size-5 shrink-0 text-text-muted" />
-                <div className="min-w-0">
-                  <p className="type-row-title">{t("account.b6824cc8")}</p>
-                  <p className="type-meta text-text-muted">{t("account.3fd60786")}</p>
+            <div data-vid="aelar8w" data-scope="mock" className="flex flex-wrap items-center justify-between gap-3">
+              <div data-vid="13xqhbe" className="flex min-w-0 flex-1 items-start gap-3">
+                <ShieldCheck data-vid="gycsdrq" className="mt-0.5 size-5 shrink-0 text-text-muted" />
+                <div data-vid="f7kdo3v" className="min-w-0">
+                  <p data-vid="8rrepkp" className="type-row-title">{t("account.b6824cc8")}</p>
+                  <p data-vid="3ofx9io" className="type-meta text-text-muted">{t("account.3fd60786")}</p>
                 </div>
               </div>
-              <Badge variant="outline" className="type-eyebrow shrink-0 whitespace-nowrap">{t("account.46e07ed9")}</Badge>
+              <Badge data-vid="hduby0z" variant="outline" className="type-eyebrow shrink-0 whitespace-nowrap">{t("account.46e07ed9")}</Badge>
             </div>
           </div>
         </SectionCard>
 
-        <Card id="active-devices" data-archie-section="account-sessions" className="scroll-mt-4">
-          <CardHeader>
-            <CardTitle className="type-card-title">{t("account.0fa0b317.cardtitle")}</CardTitle>
-            <CardDescription className="type-meta text-text-muted">{t("account.8c8dbab3")}</CardDescription>
+        <Card data-vid="32fkgl1" id="active-devices" data-archie-section="account-sessions" className="scroll-mt-4">
+          <CardHeader data-vid="iijgzn9">
+            <CardTitle data-vid="x088roi" className="type-card-title">{t("account.0fa0b317.cardtitle")}</CardTitle>
+            <CardDescription data-vid="ajzdesw" className="type-meta text-text-muted">{t("account.8c8dbab3")}</CardDescription>
           </CardHeader>
-          <CardContent className="flex flex-col gap-(--component-gap)">
-            <ul className="divide-y divide-border">
-              <AnimatePresence initial={false}>
+          <CardContent data-vid="5rzmvue" className="flex flex-col gap-(--component-gap)">
+            <ul data-vid="fsgvj15" className="divide-y divide-border">
+              <AnimatePresence data-vid="pnx26k9" initial={false}>
                 {props.sessions.map((s) => (
-                  <motion.li
+                  <motion.li data-vid="i1i5p4h"
                     key={s.id}
                     layout
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.2 }}
                     className="overflow-hidden"
                   >
-                    <div className="flex flex-wrap items-center justify-between gap-3 py-3">
-                      <div className="min-w-0 flex-1">
-                        <p className="type-row-title break-words">{s.device ?? t("account.06c4a77e")}</p>
-                        <p className="type-meta text-text-muted break-words">{s.userAgent ?? "—"}</p>
-                        <p className="type-mono-id text-text-muted">
+                    <div data-vid="hnkmw99" className="flex flex-wrap items-center justify-between gap-3 py-3">
+                      <div data-vid="fd3tdvk" className="min-w-0 flex-1">
+                        <p data-vid="fmggx1b" className="type-row-title break-words">{s.device ?? t("account.06c4a77e")}</p>
+                        <p data-vid="4qbbxsh" className="type-meta text-text-muted break-words">{s.userAgent ?? "—"}</p>
+                        <p data-vid="ld8691y" className="type-mono-id text-text-muted">
                           {t("account.830ec7f8")} {s.lastUsedAt ? formatDateTime(s.lastUsedAt) : "—"}
                         </p>
                       </div>
                       {s.current ? (
-                        <Badge variant="secondary" className="shrink-0 whitespace-nowrap">{t("account.d052579c")}</Badge>
+                        <Badge data-vid="zcljwis" variant="secondary" className="shrink-0 whitespace-nowrap">{t("account.d052579c")}</Badge>
                       ) : (
-                        <AlertDialog>
-                          <AlertDialogTrigger asChild>
-                            <Button variant="outline" className="min-h-11 shrink-0 border-border-strong">{t("account.48f0d3d3.button")}</Button>
+                        <AlertDialog data-vid="t0rzv00">
+                          <AlertDialogTrigger data-vid="zi4vp5p" asChild>
+                            <Button data-vid="9xlw8i0" variant="outline" className="min-h-11 shrink-0 border-border-strong">{t("account.48f0d3d3.button")}</Button>
                           </AlertDialogTrigger>
-                          <AlertDialogContent>
-                            <AlertDialogHeader>
-                              <AlertDialogTitle>{t("account.48f0d3d3.alertdialogtitle")} {s.device ?? t("account.cf3cc23e")}?</AlertDialogTitle>
-                              <AlertDialogDescription>{t("account.789649fe")}</AlertDialogDescription>
+                          <AlertDialogContent data-vid="p56pc9o">
+                            <AlertDialogHeader data-vid="iq5ilan">
+                              <AlertDialogTitle data-vid="al0rig8">{t("account.48f0d3d3.alertdialogtitle")} {s.device ?? t("account.cf3cc23e")}?</AlertDialogTitle>
+                              <AlertDialogDescription data-vid="63qrjz9">{t("account.789649fe")}</AlertDialogDescription>
                             </AlertDialogHeader>
-                            <AlertDialogFooter>
-                              <AlertDialogCancel>{t("account.12769537")}</AlertDialogCancel>
-                              <AlertDialogAction onClick={() => props.onDeleteActiveSession(s.id)}>
+                            <AlertDialogFooter data-vid="i70j72k">
+                              <AlertDialogCancel data-vid="941zi0j">{t("account.12769537")}</AlertDialogCancel>
+                              <AlertDialogAction data-vid="trbq1s9" onClick={() => props.onDeleteActiveSession(s.id)}>
                                 {t("account.a8ad849f")}
                               </AlertDialogAction>
                             </AlertDialogFooter>
@@ -441,19 +441,19 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
                 ))}
               </AnimatePresence>
             </ul>
-            <div>
-              <AlertDialog>
-                <AlertDialogTrigger asChild>
-                  <Button variant="outline" className="min-h-11 border-border-strong">{t("account.d28874d5.button")}</Button>
+            <div data-vid="krrg0vf">
+              <AlertDialog data-vid="07pfhwh">
+                <AlertDialogTrigger data-vid="jqn1jvs" asChild>
+                  <Button data-vid="umnv4kj" variant="outline" className="min-h-11 border-border-strong">{t("account.d28874d5.button")}</Button>
                 </AlertDialogTrigger>
-                <AlertDialogContent>
-                  <AlertDialogHeader>
-                    <AlertDialogTitle>{t("account.d10e6816")}</AlertDialogTitle>
-                    <AlertDialogDescription>{t("account.33133ae8")}</AlertDialogDescription>
+                <AlertDialogContent data-vid="w6wnk82">
+                  <AlertDialogHeader data-vid="gzwnite">
+                    <AlertDialogTitle data-vid="dwptp7f">{t("account.d10e6816")}</AlertDialogTitle>
+                    <AlertDialogDescription data-vid="kjrsjh6">{t("account.33133ae8")}</AlertDialogDescription>
                   </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel>{t("account.b0a1ca80")}</AlertDialogCancel>
-                    <AlertDialogAction
+                  <AlertDialogFooter data-vid="jljrjvn">
+                    <AlertDialogCancel data-vid="w2l7or0">{t("account.b0a1ca80")}</AlertDialogCancel>
+                    <AlertDialogAction data-vid="ypoc44c"
                       onClick={() => {
                         props.sessionsAll.forEach((r) => {
                           if (!r.current) props.onDeleteActiveSession(r.id);
@@ -469,31 +469,31 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
           </CardContent>
         </Card>
 
-        <Card id="notifications" className="scroll-mt-4">
-          <CardHeader>
-            <CardTitle className="type-card-title">{t("account.78801183.cardtitle")}</CardTitle>
-            <CardDescription className="type-meta text-text-muted">{t("account.c2015636")}</CardDescription>
+        <Card data-vid="yszld3z" id="notifications" className="scroll-mt-4">
+          <CardHeader data-vid="d3lafvn">
+            <CardTitle data-vid="ss5djbh" className="type-card-title">{t("account.78801183.cardtitle")}</CardTitle>
+            <CardDescription data-vid="m9pehhn" className="type-meta text-text-muted">{t("account.c2015636")}</CardDescription>
           </CardHeader>
-          <CardContent className="flex flex-col gap-(--component-gap)">
-            <div className="flex items-center justify-end border-b border-border pb-2">
-              <span className="type-eyebrow w-16 text-center text-text-muted">{t("account.a2de1567")}</span>
+          <CardContent data-vid="unnfkk3" className="flex flex-col gap-(--component-gap)">
+            <div data-vid="s9rmvzy" className="flex items-center justify-end border-b border-border pb-2">
+              <span data-vid="qvmytkm" className="type-eyebrow w-16 text-center text-text-muted">{t("account.a2de1567")}</span>
             </div>
             {groups.map((g) => (
-              <div key={g.group} className="flex flex-col">
-                <p className="type-eyebrow pb-1 text-text-muted">{g.group}</p>
-                <ul className="divide-y divide-border">
+              <div data-vid="iiw8ddq" key={g.group} className="flex flex-col">
+                <p data-vid="tajihy0" className="type-eyebrow pb-1 text-text-muted">{g.group}</p>
+                <ul data-vid="1ywcdro" className="divide-y divide-border">
                   {g.rows.map((r) => (
-                    <li key={r.key} className="flex min-h-11 items-center justify-between gap-3 py-2">
-                      <Label htmlFor={`n-${r.key}`} className="type-body min-w-0 flex-1">
-                        <span className="min-w-0 break-words">{r.label}</span>
+                    <li data-vid="no619d7" key={r.key} className="flex min-h-11 items-center justify-between gap-3 py-2">
+                      <Label data-vid="c1abzku" htmlFor={`n-${r.key}`} className="type-body min-w-0 flex-1">
+                        <span data-vid="39ntivm" className="min-w-0 break-words">{r.label}</span>
                         {r.mandatory ? (
-                          <span className="type-caption inline-flex items-center gap-1 pl-2 text-text-muted">
-                            <Lock className="size-3.5" /> {t("account.4850b174")}
+                          <span data-vid="ijafl8k" className="type-caption inline-flex items-center gap-1 pl-2 text-text-muted">
+                            <Lock data-vid="cx8u4tu" className="size-3.5" /> {t("account.4850b174")}
                           </span>
                         ) : null}
                       </Label>
-                      <div className="flex w-16 justify-center">
-                        <Switch
+                      <div data-vid="2sgo7dp" className="flex w-16 justify-center">
+                        <Switch data-vid="k9gq2he"
                           id={`n-${r.key}`}
                           checked={r.mandatory ? true : prefs[r.key]}
                           disabled={r.mandatory}
@@ -506,18 +506,18 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
               </div>
             ))}
           </CardContent>
-          <CardFooter className="flex flex-wrap items-center gap-3">
-            <Button className="min-h-11" disabled={!dirty} onClick={() => setSaved(prefs)}>
+          <CardFooter data-vid="0ywv8qx" className="flex flex-wrap items-center gap-3">
+            <Button data-vid="px35wn9" className="min-h-11" disabled={!dirty} onClick={() => setSaved(prefs)}>
               {t("account.089e57e3")}
             </Button>
-            <span className="type-caption text-text-muted" aria-live="polite">
+            <span data-vid="d43eg0n" className="type-caption text-text-muted" aria-live="polite">
               {dirty ? t("account.4e0a4324") : t("account.c53de73b")}
             </span>
           </CardFooter>
         </Card>
 
-        <SectionCard id="appearance" title={t("account.3907fa7f.sectioncard-attr-title")} description={t("account.7e34cfe8")}>
-          <ToggleGroup
+        <SectionCard data-vid="xbmnfi1" id="appearance" title={t("account.3907fa7f.sectioncard-attr-title")} description={t("account.7e34cfe8")}>
+          <ToggleGroup data-vid="qnwrn7e"
             type="single"
             variant="outline"
             value={theme}
@@ -527,30 +527,30 @@ export function AccountView(props: AccountScreenViewModel): React.ReactElement {
             className="flex-wrap justify-start"
             aria-label={t("account.efb52e71")}
           >
-            <ToggleGroupItem value="light" className="min-h-11 min-w-24 border-border-strong">{t("account.dbcd5e7b")}</ToggleGroupItem>
-            <ToggleGroupItem value="dark" className="min-h-11 min-w-24 border-border-strong">{t("account.60acc53f")}</ToggleGroupItem>
-            <ToggleGroupItem value="system" className="min-h-11 min-w-24 border-border-strong">{t("account.6725e7bb")}</ToggleGroupItem>
+            <ToggleGroupItem data-vid="6ysr1re" value="light" className="min-h-11 min-w-24 border-border-strong">{t("account.dbcd5e7b")}</ToggleGroupItem>
+            <ToggleGroupItem data-vid="7uojwpq" value="dark" className="min-h-11 min-w-24 border-border-strong">{t("account.60acc53f")}</ToggleGroupItem>
+            <ToggleGroupItem data-vid="bj7il3k" value="system" className="min-h-11 min-w-24 border-border-strong">{t("account.6725e7bb")}</ToggleGroupItem>
           </ToggleGroup>
         </SectionCard>
 
-        <Card id="activity" className="scroll-mt-4" data-anchor="data:UserActivity">
-          <CardHeader>
-            <CardTitle className="type-card-title">{t("account.6cb44b56")}</CardTitle>
-            <CardDescription className="type-meta text-text-muted">{t("account.0b832866")}</CardDescription>
+        <Card data-vid="0wvzmmo" id="activity" className="scroll-mt-4" data-anchor="data:UserActivity">
+          <CardHeader data-vid="scgeq3h">
+            <CardTitle data-vid="n93f8a1" className="type-card-title">{t("account.6cb44b56")}</CardTitle>
+            <CardDescription data-vid="4no66f1" className="type-meta text-text-muted">{t("account.0b832866")}</CardDescription>
           </CardHeader>
-          <CardContent className="flex flex-col gap-(--component-gap)">
+          <CardContent data-vid="nofsxta" className="flex flex-col gap-(--component-gap)">
             {days.length === 0 ? (
-              <p className="type-body text-text-muted">{t("account.f9772e20")}</p>
+              <p data-vid="2htpwzy" className="type-body text-text-muted">{t("account.f9772e20")}</p>
             ) : (
               days.map((d) => (
-                <div key={d.day} className="flex flex-col">
-                  <p className="type-eyebrow pb-1 text-text-muted">{formatDate(d.day)}</p>
-                  <ul className="divide-y divide-border">
+                <div data-vid="qtaxbem" key={d.day} className="flex flex-col">
+                  <p data-vid="y6qu10g" className="type-eyebrow pb-1 text-text-muted">{formatDate(d.day)}</p>
+                  <ul data-vid="jrzyqas" className="divide-y divide-border">
                     {d.rows.map((r) => (
-                      <li key={r.id} className="flex flex-wrap items-baseline gap-x-4 gap-y-1 py-3">
-                        <span className="type-mono-id shrink-0 whitespace-nowrap text-text-muted">{formatTime(r.createdAt)}</span>
-                        <span className="type-body min-w-0 flex-1 break-words">{r.operation}</span>
-                        <span className="type-mono-id min-w-0 break-all text-text-muted">
+                      <li data-vid="iwdbjjb" key={r.id} className="flex flex-wrap items-baseline gap-x-4 gap-y-1 py-3">
+                        <span data-vid="5b4c55i" className="type-mono-id shrink-0 whitespace-nowrap text-text-muted">{formatTime(r.createdAt)}</span>
+                        <span data-vid="hcv2ppp" className="type-body min-w-0 flex-1 break-words">{r.operation}</span>
+                        <span data-vid="wixjbgk" className="type-mono-id min-w-0 break-all text-text-muted">
                           {r.tableName}{r.rowPk ? ` · ${r.rowPk}` : ""}
                         </span>
                       </li>

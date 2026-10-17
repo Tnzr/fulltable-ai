@@ -72,8 +72,8 @@ export function MyTasksView(props: MyTasksScreenViewModel): React.ReactElement {
   const selected = rows.find((x) => x.id === selectedId) ?? rows[0] ?? null;
 
   const AtRisk = () => (
-    <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-badge border border-status-warning bg-status-warning-bg px-2 py-0.5 type-eyebrow text-status-warning-ink">
-      <AlertTriangle className="size-3" aria-hidden="true" />
+    <span data-vid="shl85wm" className="inline-flex items-center gap-1 whitespace-nowrap rounded-badge border border-status-warning bg-status-warning-bg px-2 py-0.5 type-eyebrow text-status-warning-ink">
+      <AlertTriangle data-vid="bzqgfm7" className="size-3" aria-hidden="true" />
       {t("my-tasks.490c67a2")}
     </span>
   );
@@ -81,17 +81,17 @@ export function MyTasksView(props: MyTasksScreenViewModel): React.ReactElement {
     x.dueAt ? formatDate(String(x.dueAt)) : t("my-tasks.6139ed04");
 
   const filterSelect = (value: string, onChange: (v: string) => void, label: string, options: string[]) => (
-    <Select value={value} onValueChange={onChange}>
-      <SelectTrigger aria-label={label} className="min-h-11 min-w-36 flex-1 border-border-strong md:h-9 lg:flex-none">
-        <SelectValue />
+    <Select data-vid="o8nhcoz" value={value} onValueChange={onChange}>
+      <SelectTrigger data-vid="eds8d8c" aria-label={label} className="min-h-11 min-w-36 flex-1 border-border-strong md:h-9 lg:flex-none">
+        <SelectValue data-vid="bapdv42" />
       </SelectTrigger>
-      <SelectContent>
-        <SelectItem value="all">
+      <SelectContent data-vid="xwz476x">
+        <SelectItem data-vid="gowj8fo" value="all">
           {label}
           {t("my-tasks.7cd4db6d")}
         </SelectItem>
         {options.map((o) => (
-          <SelectItem key={o} value={o}>
+          <SelectItem data-vid="q180mym" key={o} value={o}>
             {o}
           </SelectItem>
         ))}
@@ -100,17 +100,17 @@ export function MyTasksView(props: MyTasksScreenViewModel): React.ReactElement {
   );
 
   return (
-    <MotionConfig reducedMotion="user">
-      <div className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
-        <header className="flex flex-col gap-(--component-gap) md:flex-row md:items-end md:justify-between">
-          <div className="flex min-w-0 flex-col gap-1">
-            <p className="type-eyebrow text-text-muted">{t("my-tasks.6c655305")}</p>
-            <h1 className="type-page-title">{t("my-tasks.faf87355")}</h1>
-            <p className="type-meta text-text-muted tabular-nums">
+    <MotionConfig data-vid="uidwv6p" reducedMotion="user">
+      <div data-vid="14amc0z" className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
+        <header data-vid="z7aevat" className="flex flex-col gap-(--component-gap) md:flex-row md:items-end md:justify-between">
+          <div data-vid="j5ck2eu" className="flex min-w-0 flex-col gap-1">
+            <p data-vid="07l4tcg" className="type-eyebrow text-text-muted">{t("my-tasks.6c655305")}</p>
+            <h1 data-vid="3mdm37k" className="type-page-title">{t("my-tasks.faf87355")}</h1>
+            <p data-vid="46ggmon" className="type-meta text-text-muted tabular-nums">
               {all.length} {t("my-tasks.0f9f0d27")} {dueTodayCount} {t("my-tasks.c3f9637c")}
             </p>
           </div>
-          <ToggleGroup
+          <ToggleGroup data-vid="yn5hlvp"
             type="single"
             value={segment}
             onValueChange={(v) => v && setSegment(v)}
@@ -118,20 +118,20 @@ export function MyTasksView(props: MyTasksScreenViewModel): React.ReactElement {
             aria-label={t("my-tasks.11ee1b7e")}
             className="self-start"
           >
-            <ToggleGroupItem value="all" className="min-h-11 border-border-strong px-4 md:min-h-9">
+            <ToggleGroupItem data-vid="ocvdh42" value="all" className="min-h-11 border-border-strong px-4 md:min-h-9">
               {t("my-tasks.cb664823")}
             </ToggleGroupItem>
-            <ToggleGroupItem value="decision" className="min-h-11 border-border-strong px-4 md:min-h-9">
+            <ToggleGroupItem data-vid="4himr2x" value="decision" className="min-h-11 border-border-strong px-4 md:min-h-9">
               {t("my-tasks.a7e901c4")}
             </ToggleGroupItem>
           </ToggleGroup>
         </header>
 
-        <section aria-label={t("my-tasks.546ebb8e")} className="flex flex-col gap-3">
-          <div className="flex flex-wrap items-center gap-(--component-gap)">
-            <div className="flex min-h-11 w-full min-w-0 items-center gap-2 rounded-control border border-border-strong bg-card px-3 focus-within:ring-2 focus-within:ring-ring md:min-h-9 md:w-80">
-              <Search className="size-4 shrink-0 text-text-muted" aria-hidden="true" />
-              <Input
+        <section data-vid="ss47ak5" aria-label={t("my-tasks.546ebb8e")} className="flex flex-col gap-3">
+          <div data-vid="yg37pgf" className="flex flex-wrap items-center gap-(--component-gap)">
+            <div data-vid="mj9tn2u" className="flex min-h-11 w-full min-w-0 items-center gap-2 rounded-control border border-border-strong bg-card px-3 focus-within:ring-2 focus-within:ring-ring md:min-h-9 md:w-80">
+              <Search data-vid="zftcdpr" className="size-4 shrink-0 text-text-muted" aria-hidden="true" />
+              <Input data-vid="42d9hrz"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t("my-tasks.c6113f32")}
@@ -143,34 +143,34 @@ export function MyTasksView(props: MyTasksScreenViewModel): React.ReactElement {
             {filterSelect(type, setType, t("my-tasks.11ee1b7e"), types)}
             {filterSelect(priority, setPriority, t("my-tasks.3092a5f0"), priorities)}
             {filtersOn && (
-              <Button variant="ghost" onClick={clear} className="min-h-11 md:min-h-9">
+              <Button data-vid="9kfcnly" variant="ghost" onClick={clear} className="min-h-11 md:min-h-9">
                 {t("my-tasks.7179ea00")}
               </Button>
             )}
           </div>
           {filtersOn && (
-            <p className="type-caption text-text-muted tabular-nums">
+            <p data-vid="szay6h7" className="type-caption text-text-muted tabular-nums">
               {rows.length} {t("my-tasks.28391d3b")} {all.length} {t("my-tasks.08515408")}
             </p>
           )}
         </section>
 
         {all.length === 0 ? (
-          <EmptyState title={t("my-tasks.7c7c5293")} description={t("my-tasks.377375bf")} />
+          <EmptyState data-vid="6wha1ci" title={t("my-tasks.7c7c5293")} description={t("my-tasks.377375bf")} />
         ) : rows.length === 0 ? (
-          <EmptyState
+          <EmptyState data-vid="f2k1ebc"
             filtered
             title={t("my-tasks.2153a33f")}
             description={t("my-tasks.e7ccff7d")}
             onAction={clear}
           />
         ) : (
-          <div className="grid items-start gap-(--section-gap) lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)]">
-            <section
+          <div data-vid="zmwoqi4" className="grid items-start gap-(--section-gap) lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)]">
+            <section data-vid="cbahg1b"
               aria-label={t("my-tasks.6daed5b2.section-attr-aria-label")}
               className="min-w-0 overflow-hidden rounded-card border border-border bg-card"
             >
-              <Queue
+              <Queue data-vid="y0c83uw"
                 rows={rows}
                 id="id"
                 title={t("my-tasks.aaf23206")}
@@ -184,32 +184,32 @@ export function MyTasksView(props: MyTasksScreenViewModel): React.ReactElement {
                 filteredEmptyLabel={t("my-tasks.2153a33f")}
                 className="min-w-0"
               />
-              <ul className="max-h-[36rem] divide-y divide-border overflow-y-auto">
-                <AnimatePresence initial={false}>
+              <ul data-vid="6fpbeyx" className="max-h-[36rem] divide-y divide-border overflow-y-auto">
+                <AnimatePresence data-vid="bfpggz2" initial={false}>
                   {rows.map((row) => {
                     const on = selected !== null && selected.id === row.id;
                     return (
-                      <motion.li key={row.id} layout exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
-                        <button
+                      <motion.li data-vid="f8ijv63" key={row.id} layout exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
+                        <button data-vid="cf9cmsq"
                           type="button"
                           onClick={() => setSelectedId(row.id)}
                           aria-current={on ? "true" : undefined}
                           className={`grid min-h-20 w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-3 border-l-2 px-4 py-3 text-left transition-colors focus-visible:ring-2 focus-visible:ring-ring ${on ? "border-primary bg-muted" : "border-transparent hover:bg-muted"}`}
                         >
-                          <span className="flex min-w-0 flex-col gap-1">
-                            <span className="type-row-title min-w-0 break-words">{row.title}</span>
-                            <span className="type-meta truncate text-text-muted">
-                              {row.type} · {row.assignee} · <span>{dueText(row)}</span>
+                          <span data-vid="0gi3809" className="flex min-w-0 flex-col gap-1">
+                            <span data-vid="7naaish" className="type-row-title min-w-0 break-words">{row.title}</span>
+                            <span data-vid="lvmrlfa" className="type-meta truncate text-text-muted">
+                              {row.type} · {row.assignee} · <span data-vid="0p2h1tp">{dueText(row)}</span>
                             </span>
                           </span>
-                          <span className="flex flex-col items-end gap-1">
-                            <Badge variant="outline" className="whitespace-nowrap border-border-strong text-text-body">
+                          <span data-vid="coowdl6" className="flex flex-col items-end gap-1">
+                            <Badge data-vid="cjqlvx6" variant="outline" className="whitespace-nowrap border-border-strong text-text-body">
                               {row.priority}
                             </Badge>
                             {isAtRisk(row) ? (
-                              <AtRisk />
+                              <AtRisk data-vid="pdqlf62" />
                             ) : (
-                              <span className="whitespace-nowrap type-caption text-text-muted">{row.status}</span>
+                              <span data-vid="4od8e7u" className="whitespace-nowrap type-caption text-text-muted">{row.status}</span>
                             )}
                           </span>
                         </button>
@@ -221,8 +221,8 @@ export function MyTasksView(props: MyTasksScreenViewModel): React.ReactElement {
             </section>
 
             {selected && (
-              <AnimatePresence initial={false} mode="wait">
-                <motion.article
+              <AnimatePresence data-vid="zkvdf9w" initial={false} mode="wait">
+                <motion.article data-vid="qcsy70u"
                   key={selected.id}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -230,98 +230,98 @@ export function MyTasksView(props: MyTasksScreenViewModel): React.ReactElement {
                   aria-label={t("my-tasks.1a3f175b")}
                   className="flex min-w-0 flex-col gap-(--component-gap) rounded-card border border-border bg-card p-(--card-padding) lg:sticky lg:top-(--shell-header-h,var(--topbar-h,0px)) lg:max-h-[calc(100dvh-var(--shell-header-h,var(--topbar-h,0px)))] lg:overflow-y-auto"
                 >
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="type-mono-id text-text-muted">{selected.id}</span>
-                    <Badge variant="outline" className="whitespace-nowrap border-border-strong text-text-body">
+                  <div data-vid="es6hl0g" className="flex flex-wrap items-center gap-2">
+                    <span data-vid="1b1my83" className="type-mono-id text-text-muted">{selected.id}</span>
+                    <Badge data-vid="egl8h1h" variant="outline" className="whitespace-nowrap border-border-strong text-text-body">
                       {selected.type}
                     </Badge>
-                    <Badge variant="outline" className="whitespace-nowrap border-border-strong text-text-body">
+                    <Badge data-vid="oi3vkfa" variant="outline" className="whitespace-nowrap border-border-strong text-text-body">
                       {selected.priority} {t("my-tasks.3092a5f0")}
                     </Badge>
-                    <Badge variant="outline" className="whitespace-nowrap border-border-strong text-text-body">
+                    <Badge data-vid="m8eodlw" variant="outline" className="whitespace-nowrap border-border-strong text-text-body">
                       {selected.status}
                     </Badge>
-                    {isAtRisk(selected) && <AtRisk />}
+                    {isAtRisk(selected) && <AtRisk data-vid="ydqt6xs" />}
                   </div>
-                  <h2 className="type-section [overflow-wrap:anywhere]">{selected.title}</h2>
+                  <h2 data-vid="62ygzwm" className="type-section [overflow-wrap:anywhere]">{selected.title}</h2>
 
-                  <dl className="flex flex-wrap gap-x-(--section-gap) gap-y-3">
-                    <div className="shrink-0">
-                      <dt className="type-eyebrow text-text-muted">{t("my-tasks.9071738f")}</dt>
-                      <dd className="type-body tabular-nums whitespace-nowrap">
-                        <span>{dueText(selected)}</span>
+                  <dl data-vid="dpdvw4s" className="flex flex-wrap gap-x-(--section-gap) gap-y-3">
+                    <div data-vid="laa0the" className="shrink-0">
+                      <dt data-vid="27joglp" className="type-eyebrow text-text-muted">{t("my-tasks.9071738f")}</dt>
+                      <dd data-vid="3fwn2re" className="type-body tabular-nums whitespace-nowrap">
+                        <span data-vid="yit8854">{dueText(selected)}</span>
                       </dd>
                     </div>
-                    <div className="shrink-0">
-                      <dt className="type-eyebrow text-text-muted">{t("my-tasks.0653cccd")}</dt>
-                      <dd className="type-body whitespace-nowrap">{selected.slaStatus ?? "—"}</dd>
+                    <div data-vid="i5zl7oi" className="shrink-0">
+                      <dt data-vid="4wb25gi" className="type-eyebrow text-text-muted">{t("my-tasks.0653cccd")}</dt>
+                      <dd data-vid="0je4szv" className="type-body whitespace-nowrap">{selected.slaStatus ?? "—"}</dd>
                     </div>
-                    <div className="min-w-0">
-                      <dt className="type-eyebrow text-text-muted">{t("my-tasks.e083bd83")}</dt>
-                      <dd className="type-body">{selected.process ?? "—"}</dd>
+                    <div data-vid="di2d3xx" className="min-w-0">
+                      <dt data-vid="mvu6zqf" className="type-eyebrow text-text-muted">{t("my-tasks.e083bd83")}</dt>
+                      <dd data-vid="i4xltqz" className="type-body">{selected.process ?? "—"}</dd>
                     </div>
-                    <div className="min-w-0">
-                      <dt className="type-eyebrow text-text-muted">{t("my-tasks.08ee4565")}</dt>
-                      <dd className="type-body flex items-center gap-1.5">
-                        <UserRound className="size-4 text-text-muted" aria-hidden="true" />
+                    <div data-vid="tsbmr6w" className="min-w-0">
+                      <dt data-vid="gygb50d" className="type-eyebrow text-text-muted">{t("my-tasks.08ee4565")}</dt>
+                      <dd data-vid="odlgcbq" className="type-body flex items-center gap-1.5">
+                        <UserRound data-vid="btzjz3p" className="size-4 text-text-muted" aria-hidden="true" />
                         {selected.assignee ?? "—"}
                       </dd>
                     </div>
                   </dl>
 
-                  <p className="type-body max-w-prose text-text-body">
+                  <p data-vid="og05fpx" className="type-body max-w-prose text-text-body">
                     {selected.description ?? t("my-tasks.ccccbf57")}
                   </p>
 
-                  <div className="flex flex-wrap items-center gap-x-(--component-gap) gap-y-3 border-t border-border pt-(--component-gap)">
+                  <div data-vid="7hd8syq" className="flex flex-wrap items-center gap-x-(--component-gap) gap-y-3 border-t border-border pt-(--component-gap)">
                     {isDecision(selected) ? (
                       <>
-                        <Button disabled className="min-h-11 md:min-h-9">
+                        <Button data-vid="tbk6jg6" disabled className="min-h-11 md:min-h-9">
                           {t("my-tasks.70784108")}
                         </Button>
-                        <Button variant="outline" disabled className="min-h-11 border-border-strong md:min-h-9">
+                        <Button data-vid="lpyzygc" variant="outline" disabled className="min-h-11 border-border-strong md:min-h-9">
                           {t("my-tasks.a7b87f68")}
                         </Button>
-                        <Button variant="outline" disabled className="min-h-11 border-border-strong md:min-h-9">
+                        <Button data-vid="67uxfri" variant="outline" disabled className="min-h-11 border-border-strong md:min-h-9">
                           {t("my-tasks.ab604a36")}
                         </Button>
                       </>
                     ) : (
                       <>
-                        <Button variant="outline" disabled className="min-h-11 border-border-strong md:min-h-9">
+                        <Button data-vid="zjlj4n8" variant="outline" disabled className="min-h-11 border-border-strong md:min-h-9">
                           {t("my-tasks.6470f48e")}
                         </Button>
-                        <Select value="" disabled>
-                          <SelectTrigger
+                        <Select data-vid="cq7yufq" value="" disabled>
+                          <SelectTrigger data-vid="pt9x94m"
                             aria-label={t("my-tasks.a14e88fc")}
                             className="h-11 min-w-44 border-border-strong md:h-9"
                           >
-                            <SelectValue placeholder={t("my-tasks.8a740308")} />
+                            <SelectValue data-vid="3c5ea9q" placeholder={t("my-tasks.8a740308")} />
                           </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="none">{t("my-tasks.8a740308")}</SelectItem>
+                          <SelectContent data-vid="y7pdrg5">
+                            <SelectItem data-vid="eb2upce" value="none">{t("my-tasks.8a740308")}</SelectItem>
                           </SelectContent>
                         </Select>
                       </>
                     )}
-                    <p className="type-caption text-text-muted">{t("_reason.escritura-no-disponible")}</p>
+                    <p data-vid="r2e9srh" className="type-caption text-text-muted">{t("_reason.escritura-no-disponible")}</p>
                   </div>
 
-                  <div className="flex flex-wrap gap-x-(--component-gap) gap-y-2">
-                    <button
+                  <div data-vid="vsl50ly" className="flex flex-wrap gap-x-(--component-gap) gap-y-2">
+                    <button data-vid="6abjrkd"
                       type="button"
                       onClick={() => props.navigate(routes["task-detail"]({ id: selected.id }))}
                       className="inline-flex min-h-11 items-center gap-1 type-meta text-text-link hover:underline focus-visible:ring-2 focus-visible:ring-ring md:min-h-9"
                     >
-                      {t("my-tasks.37fcd3f1")} <ArrowRight className="size-4" aria-hidden="true" />
+                      {t("my-tasks.37fcd3f1")} <ArrowRight data-vid="aczge1f" className="size-4" aria-hidden="true" />
                     </button>
                     {/booking|kitchen|capacity/i.test(`${selected.process ?? ""} ${selected.title}`) && (
-                      <button
+                      <button data-vid="h4bx08n"
                         type="button"
                         onClick={() => props.navigate(routes["service-calendar"]())}
                         className="inline-flex min-h-11 items-center gap-1 type-meta text-text-link hover:underline focus-visible:ring-2 focus-visible:ring-ring md:min-h-9"
                       >
-                        <CalendarDays className="size-4" aria-hidden="true" /> {t("my-tasks.98880215")}
+                        <CalendarDays data-vid="e80i3kq" className="size-4" aria-hidden="true" /> {t("my-tasks.98880215")}
                       </button>
                     )}
                   </div>

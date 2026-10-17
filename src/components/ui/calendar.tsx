@@ -144,7 +144,7 @@ function Calendar({
   }
 
   return (
-    <DayPicker
+    <DayPicker data-vid="mxh9ma4"
       showOutsideDays={showOutsideDays}
       className={cn(
         "group/calendar bg-background p-2 [--cell-radius:var(--radius-md)] [--cell-size:--spacing(7)] in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent",
@@ -256,7 +256,7 @@ function Calendar({
       components={{
         Root: ({ className, rootRef, ...props }) => {
           return (
-            <div
+            <div data-vid="i6zgcrt"
               data-slot="calendar"
               ref={rootRef}
               className={cn(className)}
@@ -267,27 +267,27 @@ function Calendar({
         Chevron: ({ className, orientation, ...props }) => {
           if (orientation === "left") {
             return (
-              <ChevronLeftIcon className={cn("size-4", className)} {...props} />
+              <ChevronLeftIcon data-vid="kx7oq1a" className={cn("size-4", className)} {...props} />
             )
           }
 
           if (orientation === "right") {
             return (
-              <ChevronRightIcon className={cn("size-4", className)} {...props} />
+              <ChevronRightIcon data-vid="p1h6dqz" className={cn("size-4", className)} {...props} />
             )
           }
 
           return (
-            <ChevronDownIcon className={cn("size-4", className)} {...props} />
+            <ChevronDownIcon data-vid="4i9cuzk" className={cn("size-4", className)} {...props} />
           )
         },
         DayButton: ({ ...props }) => (
-          <CalendarDayButton {...props} />
+          <CalendarDayButton data-vid="cb7qsbs" {...props} />
         ),
         WeekNumber: ({ children, ...props }) => {
           return (
-            <td {...props}>
-              <div className="flex size-(--cell-size) items-center justify-center text-center">
+            <td data-vid="tgjph4n" {...props}>
+              <div data-vid="7pznvu6" className="flex size-(--cell-size) items-center justify-center text-center">
                 {children}
               </div>
             </td>
@@ -315,7 +315,7 @@ function CalendarDayButton({
   }, [modifiers.focused])
 
   return (
-    <Button
+    <Button data-vid="fn8w7ys"
       ref={ref}
       variant="ghost"
       size="icon"

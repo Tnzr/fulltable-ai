@@ -11,7 +11,7 @@ function Pagination({
 }: React.ComponentProps<"nav">) {
   const t = useChrome()
   return (
-    <nav
+    <nav data-vid="0gjqnbg"
       role="navigation"
       aria-label={t("kit.pagination.label")}
       data-slot="pagination"
@@ -26,7 +26,7 @@ function PaginationContent({
   ...props
 }: React.ComponentProps<"ul">) {
   return (
-    <ul
+    <ul data-vid="w0p4hor"
       data-slot="pagination-content"
       className={cn("flex items-center gap-0.5", className)}
       {...props}
@@ -37,7 +37,7 @@ function PaginationContent({
 function PaginationItem({
   ...props
 }: React.ComponentProps<"li">) {
-  return <li data-slot="pagination-item" {...props} />
+  return <li data-vid="sz0qspv" data-slot="pagination-item" {...props} />
 }
 
 function PaginationLink({
@@ -50,13 +50,13 @@ function PaginationLink({
 } & Pick<React.ComponentProps<typeof Button>, "size"> &
   React.ComponentProps<"a">) {
   return (
-    <Button
+    <Button data-vid="hdhemxv"
       asChild
       variant={isActive ? "outline" : "ghost"}
       size={size}
       className={cn(className)}
     >
-      <a
+      <a data-vid="qs7ga8t"
         aria-current={isActive ? "page" : undefined}
         data-slot="pagination-link"
         data-active={isActive}
@@ -75,14 +75,14 @@ function PaginationPrevious({
 }) {
   const t = useChrome()
   return (
-    <PaginationLink
+    <PaginationLink data-vid="ud04xej"
       aria-label={t("kit.pagination.goPrevious")}
       size="default"
       className={cn("pl-1.5!", className)}
       {...props}
     >
-      <ChevronLeftIcon data-icon="inline-start" />
-      <span className="hidden sm:block">{text ?? t("kit.pagination.previous")}</span>
+      <ChevronLeftIcon data-vid="dyk6thu" data-icon="inline-start" />
+      <span data-vid="a3l0zxt" className="hidden sm:block">{text ?? t("kit.pagination.previous")}</span>
     </PaginationLink>
   )
 }
@@ -96,14 +96,14 @@ function PaginationNext({
 }) {
   const t = useChrome()
   return (
-    <PaginationLink
+    <PaginationLink data-vid="71s7rjb"
       aria-label={t("kit.pagination.goNext")}
       size="default"
       className={cn("pr-1.5!", className)}
       {...props}
     >
-      <span className="hidden sm:block">{text ?? t("kit.pagination.next")}</span>
-      <ChevronRightIcon data-icon="inline-end" />
+      <span data-vid="pmmupdx" className="hidden sm:block">{text ?? t("kit.pagination.next")}</span>
+      <ChevronRightIcon data-vid="9epwf2a" data-icon="inline-end" />
     </PaginationLink>
   )
 }
@@ -114,7 +114,7 @@ function PaginationEllipsis({
 }: React.ComponentProps<"span">) {
   const t = useChrome()
   return (
-    <span
+    <span data-vid="js7v64l"
       aria-hidden
       data-slot="pagination-ellipsis"
       className={cn(
@@ -123,9 +123,9 @@ function PaginationEllipsis({
       )}
       {...props}
     >
-      <MoreHorizontalIcon
+      <MoreHorizontalIcon data-vid="6kk8lvx"
       />
-      <span className="sr-only">{t("kit.pagination.more")}</span>
+      <span data-vid="7jlbczp" className="sr-only">{t("kit.pagination.more")}</span>
     </span>
   )
 }

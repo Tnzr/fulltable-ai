@@ -35,8 +35,8 @@ function stageOf(status: unknown): number {
 
 function Mark({ children }: { children: React.ReactNode }): React.ReactElement {
   return (
-    <Badge variant="outline" className="whitespace-nowrap border-border-strong text-text-body">
-      <span className="size-2 rounded-full bg-text-muted" aria-hidden="true" />
+    <Badge data-vid="rf578ob" variant="outline" className="whitespace-nowrap border-border-strong text-text-body">
+      <span data-vid="liy97p6" className="size-2 rounded-full bg-text-muted" aria-hidden="true" />
       {children}
     </Badge>
   );
@@ -61,14 +61,14 @@ export function TaskDetailView(props: TaskDetailScreenViewModel): React.ReactEle
 
   if (!task) {
     return (
-      <div className="px-(--container-padding) py-(--section-gap)">
-        <Empty>
-          <EmptyHeader>
-            <EmptyTitle>{t("task-detail.b19fa293")}</EmptyTitle>
-            <EmptyDescription>{t("task-detail.6a9f873c")}</EmptyDescription>
+      <div data-vid="75bn30q" className="px-(--container-padding) py-(--section-gap)">
+        <Empty data-vid="s0mbbcq">
+          <EmptyHeader data-vid="wghh00a">
+            <EmptyTitle data-vid="bc3hidz">{t("task-detail.b19fa293")}</EmptyTitle>
+            <EmptyDescription data-vid="vzi3kpp">{t("task-detail.6a9f873c")}</EmptyDescription>
           </EmptyHeader>
-          <EmptyContent>
-            <Button variant="outline" onClick={() => props.navigate(routes["my-tasks"]())}>
+          <EmptyContent data-vid="1ja0bqc">
+            <Button data-vid="8vl9r2r" variant="outline" onClick={() => props.navigate(routes["my-tasks"]())}>
               {t("task-detail.8f367631")}
             </Button>
           </EmptyContent>
@@ -84,9 +84,9 @@ export function TaskDetailView(props: TaskDetailScreenViewModel): React.ReactEle
   const reason = t("_reason.escritura-no-disponible");
 
   return (
-    <div className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
-      <header className="flex flex-col gap-(--component-gap)">
-        <a
+    <div data-vid="r2dpkg0" className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
+      <header data-vid="3be2ugf" className="flex flex-col gap-(--component-gap)">
+        <a data-vid="5dyeumc"
           href={routes["my-tasks"]()}
           onClick={(e) => {
             e.preventDefault();
@@ -94,111 +94,111 @@ export function TaskDetailView(props: TaskDetailScreenViewModel): React.ReactEle
           }}
           className="type-meta inline-flex min-h-11 w-fit items-center gap-2 text-text-link hover:underline"
         >
-          <ArrowLeft className="size-4" /> {t("task-detail.faf87355")}
+          <ArrowLeft data-vid="dy0636q" className="size-4" /> {t("task-detail.faf87355")}
         </a>
-        <div className="flex flex-col gap-(--component-gap) md:flex-row md:items-start md:justify-between">
-          <div className="min-w-0 flex flex-col gap-2">
-            <p className="type-eyebrow text-text-muted">{task.process}</p>
-            <h1 className="type-page-title [overflow-wrap:anywhere]">{task.title}</h1>
-            <div className="flex flex-wrap gap-2">
-              <Mark>{task.type}</Mark>
-              <Mark>
+        <div data-vid="ep2quvb" className="flex flex-col gap-(--component-gap) md:flex-row md:items-start md:justify-between">
+          <div data-vid="y5d0sle" className="min-w-0 flex flex-col gap-2">
+            <p data-vid="2i5o5l8" className="type-eyebrow text-text-muted">{task.process}</p>
+            <h1 data-vid="sxk353a" className="type-page-title [overflow-wrap:anywhere]">{task.title}</h1>
+            <div data-vid="qd3rr9f" className="flex flex-wrap gap-2">
+              <Mark data-vid="4wjt0co">{task.type}</Mark>
+              <Mark data-vid="hytxhm3">
                 {task.priority} {t("task-detail.3092a5f0")}
               </Mark>
-              <Mark>
+              <Mark data-vid="9pg1iz3">
                 {t("task-detail.dc8f9087")} {task.slaStatus}
               </Mark>
             </div>
-            <p className="type-meta text-text-muted">
+            <p data-vid="504022a" className="type-meta text-text-muted">
               {t("task-detail.08ee4565")} {who} {t("task-detail.99f0204f")}{" "}
-              <span className="font-mono tabular-nums">{formatDate(task.dueAt)}</span>
+              <span data-vid="v27brik" className="font-mono tabular-nums">{formatDate(task.dueAt)}</span>
             </p>
           </div>
-          <Button variant="outline" className="min-h-11 shrink-0" onClick={() => setOpen(true)}>
-            <UserRoundPen className="size-4" /> {t("task-detail.4591c339")}
+          <Button data-vid="wh6k0r3" variant="outline" className="min-h-11 shrink-0" onClick={() => setOpen(true)}>
+            <UserRoundPen data-vid="h70q1gv" className="size-4" /> {t("task-detail.4591c339")}
           </Button>
         </div>
       </header>
 
-      <section aria-labelledby="ladder" className="flex flex-col gap-(--component-gap) border-t border-border pt-(--component-gap)">
-        <h2 id="ladder" className="type-section">{t("task-detail.2fb8248a")}</h2>
-        <Stepper steps={STAGES} current={current} label={t("task-detail.0d056c41")} />
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Button className="min-h-11" disabled>
+      <section data-vid="eobceym" aria-labelledby="ladder" className="flex flex-col gap-(--component-gap) border-t border-border pt-(--component-gap)">
+        <h2 data-vid="22pkx82" id="ladder" className="type-section">{t("task-detail.2fb8248a")}</h2>
+        <Stepper data-vid="oc2yiet" steps={STAGES} current={current} label={t("task-detail.0d056c41")} />
+        <div data-vid="bnsrjw5" className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <Button data-vid="1ac3ec7" className="min-h-11" disabled>
             {done ? t("task-detail.6d291878") : canDecide ? t("task-detail.6007acbe") : t("task-detail.f9126d25")}
           </Button>
-          <Button variant="outline" className="min-h-11" disabled>
+          <Button data-vid="o6r1ovf" variant="outline" className="min-h-11" disabled>
             {t("task-detail.a7b87f68")}
           </Button>
-          <span className="type-meta text-text-muted">{reason}</span>
+          <span data-vid="aea4dpn" className="type-meta text-text-muted">{reason}</span>
         </div>
       </section>
 
       {canDecide && (
-        <section aria-labelledby="decision" className="flex flex-col gap-(--component-gap) rounded-card border border-border bg-card p-(--card-padding)">
-          <h2 id="decision" className="type-section">{t("task-detail.f4d18e70")}</h2>
-          <p className="type-body text-text-body">{t("task-detail.5c7ddb3e")}</p>
-          <Textarea
+        <section data-vid="7vz1sra" aria-labelledby="decision" className="flex flex-col gap-(--component-gap) rounded-card border border-border bg-card p-(--card-padding)">
+          <h2 data-vid="ex2323r" id="decision" className="type-section">{t("task-detail.f4d18e70")}</h2>
+          <p data-vid="89aexa3" className="type-body text-text-body">{t("task-detail.5c7ddb3e")}</p>
+          <Textarea data-vid="xcvse74"
             value={note}
             onChange={(e) => setNote(e.target.value)}
             placeholder={t("task-detail.f8331fd2")}
             aria-label={t("task-detail.f8bc3ebe")}
             className="border-border-strong"
           />
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button variant="outline" className="min-h-11" disabled>
+          <div data-vid="tfzr0su" className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button data-vid="2tbhedd" variant="outline" className="min-h-11" disabled>
               {t("task-detail.6007acbe")}
             </Button>
-            <Button variant="outline" className="min-h-11" disabled>
+            <Button data-vid="ntoey74" variant="outline" className="min-h-11" disabled>
               {t("task-detail.ab604a36")}
             </Button>
-            <span className="type-meta text-text-muted" role="status">{reason}</span>
+            <span data-vid="9xsugp2" className="type-meta text-text-muted" role="status">{reason}</span>
           </div>
         </section>
       )}
 
-      <section aria-labelledby="context" className="flex flex-col gap-(--component-gap)">
-        <h2 id="context" className="type-section">{t("task-detail.00a28cad")}</h2>
-        <Tabs defaultValue="description">
-          <TabsList variant="line">
-            <TabsTrigger value="description">{t("task-detail.526e0087")}</TabsTrigger>
-            <TabsTrigger value="details">{t("task-detail.45989de4")}</TabsTrigger>
-            <TabsTrigger value="linked">{t("task-detail.bfda026e")}</TabsTrigger>
+      <section data-vid="vn7agrd" aria-labelledby="context" className="flex flex-col gap-(--component-gap)">
+        <h2 data-vid="qwyqliu" id="context" className="type-section">{t("task-detail.00a28cad")}</h2>
+        <Tabs data-vid="0myanle" defaultValue="description">
+          <TabsList data-vid="pjvqwm6" variant="line">
+            <TabsTrigger data-vid="zgyswb5" value="description">{t("task-detail.526e0087")}</TabsTrigger>
+            <TabsTrigger data-vid="on70i2t" value="details">{t("task-detail.45989de4")}</TabsTrigger>
+            <TabsTrigger data-vid="hlhqxpm" value="linked">{t("task-detail.bfda026e")}</TabsTrigger>
           </TabsList>
-          <TabsContent value="description" className="max-w-prose pt-3">
-            <p className="type-body text-text-body">{task.description}</p>
+          <TabsContent data-vid="ulyb79l" value="description" className="max-w-prose pt-3">
+            <p data-vid="jhm1p4v" className="type-body text-text-body">{task.description}</p>
           </TabsContent>
-          <TabsContent value="details" className="pt-3">
-            <dl className="flex flex-wrap gap-x-(--section-gap) gap-y-3">
-              <div className="shrink-0">
-                <dt className="type-eyebrow text-text-muted">{t("task-detail.3092a5f0")}</dt>
-                <dd className="type-body whitespace-nowrap tabular-nums">{task.priority}</dd>
+          <TabsContent data-vid="ukg2yui" value="details" className="pt-3">
+            <dl data-vid="ihgmkl5" className="flex flex-wrap gap-x-(--section-gap) gap-y-3">
+              <div data-vid="h6jthy8" className="shrink-0">
+                <dt data-vid="vf20a05" className="type-eyebrow text-text-muted">{t("task-detail.3092a5f0")}</dt>
+                <dd data-vid="lwpdssx" className="type-body whitespace-nowrap tabular-nums">{task.priority}</dd>
               </div>
-              <div className="shrink-0">
-                <dt className="type-eyebrow text-text-muted">{t("task-detail.5e20d20e")}</dt>
-                <dd className="type-body whitespace-nowrap tabular-nums">{who}</dd>
+              <div data-vid="c9oq0f2" className="shrink-0">
+                <dt data-vid="ev13n08" className="type-eyebrow text-text-muted">{t("task-detail.5e20d20e")}</dt>
+                <dd data-vid="1faslc7" className="type-body whitespace-nowrap tabular-nums">{who}</dd>
               </div>
-              <div className="shrink-0">
-                <dt className="type-eyebrow text-text-muted">{t("task-detail.2fb8248a")}</dt>
-                <dd className="type-body whitespace-nowrap tabular-nums">{task.process}</dd>
+              <div data-vid="6le9t51" className="shrink-0">
+                <dt data-vid="cvg1li1" className="type-eyebrow text-text-muted">{t("task-detail.2fb8248a")}</dt>
+                <dd data-vid="9tsdsa0" className="type-body whitespace-nowrap tabular-nums">{task.process}</dd>
               </div>
-              <div className="shrink-0">
-                <dt className="type-eyebrow text-text-muted">{t("task-detail.99f0204f")}</dt>
-                <dd className="type-body whitespace-nowrap tabular-nums">{formatDate(task.dueAt)}</dd>
+              <div data-vid="57i4pn0" className="shrink-0">
+                <dt data-vid="6l2knid" className="type-eyebrow text-text-muted">{t("task-detail.99f0204f")}</dt>
+                <dd data-vid="0ssyzwq" className="type-body whitespace-nowrap tabular-nums">{formatDate(task.dueAt)}</dd>
               </div>
-              <div className="shrink-0">
-                <dt className="type-eyebrow text-text-muted">{t("task-detail.dc8f9087")}</dt>
-                <dd className="type-body whitespace-nowrap tabular-nums">{task.slaStatus}</dd>
+              <div data-vid="jioy1y2" className="shrink-0">
+                <dt data-vid="u21c2t4" className="type-eyebrow text-text-muted">{t("task-detail.dc8f9087")}</dt>
+                <dd data-vid="r3pha5c" className="type-body whitespace-nowrap tabular-nums">{task.slaStatus}</dd>
               </div>
             </dl>
           </TabsContent>
-          <TabsContent value="linked" className="flex max-w-prose flex-col gap-2 pt-3">
-            <p className="type-body text-text-body">
+          <TabsContent data-vid="n5h8ot8" value="linked" className="flex max-w-prose flex-col gap-2 pt-3">
+            <p data-vid="x2qiucu" className="type-body text-text-body">
               {t("task-detail.6cf71cfc")} {task.process}
               {t("task-detail.5af877d8")}
             </p>
-            <div className="flex flex-wrap gap-4">
-              <a
+            <div data-vid="m3eky67" className="flex flex-wrap gap-4">
+              <a data-vid="meouqta"
                 href={routes["deal-detail"]()}
                 onClick={(e) => {
                   e.preventDefault();
@@ -208,7 +208,7 @@ export function TaskDetailView(props: TaskDetailScreenViewModel): React.ReactEle
               >
                 {t("task-detail.20fd9462")}
               </a>
-              <a
+              <a data-vid="abg2flw"
                 href={routes["service-calendar"]()}
                 onClick={(e) => {
                   e.preventDefault();
@@ -223,31 +223,31 @@ export function TaskDetailView(props: TaskDetailScreenViewModel): React.ReactEle
         </Tabs>
       </section>
 
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{t("task-detail.a14e88fc")}</DialogTitle>
-            <DialogDescription>
+      <Dialog data-vid="3mwvao0" open={open} onOpenChange={setOpen}>
+        <DialogContent data-vid="mhen9zd">
+          <DialogHeader data-vid="3x4cexc">
+            <DialogTitle data-vid="rzehrch">{t("task-detail.a14e88fc")}</DialogTitle>
+            <DialogDescription data-vid="vd1taf8">
               {t("task-detail.d14bfa8f")}
               {task.title}”.
             </DialogDescription>
           </DialogHeader>
-          <Select value={pick} onValueChange={setPick}>
-            <SelectTrigger className="min-h-11 w-full border-border-strong" aria-label={t("task-detail.5e20d20e")}>
-              <SelectValue placeholder={t("task-detail.4f96d175")} />
+          <Select data-vid="rjfehjs" value={pick} onValueChange={setPick}>
+            <SelectTrigger data-vid="f06yd1p" className="min-h-11 w-full border-border-strong" aria-label={t("task-detail.5e20d20e")}>
+              <SelectValue data-vid="ffvjkwd" placeholder={t("task-detail.4f96d175")} />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent data-vid="dt0y8wb">
               {names.map((n) => (
-                <SelectItem key={n} value={n}>{n}</SelectItem>
+                <SelectItem data-vid="1fdqi5v" key={n} value={n}>{n}</SelectItem>
               ))}
             </SelectContent>
           </Select>
-          <p className="type-meta text-text-muted">{reason}</p>
-          <DialogFooter>
-            <DialogClose asChild>
-              <Button variant="outline" className="min-h-11">{t("task-detail.19766ed6")}</Button>
+          <p data-vid="xx31y8t" className="type-meta text-text-muted">{reason}</p>
+          <DialogFooter data-vid="gx17fc9">
+            <DialogClose data-vid="vf592zc" asChild>
+              <Button data-vid="4p18rss" variant="outline" className="min-h-11">{t("task-detail.19766ed6")}</Button>
             </DialogClose>
-            <Button variant="outline" className="min-h-11" disabled>
+            <Button data-vid="j4gshb7" variant="outline" className="min-h-11" disabled>
               {t("task-detail.bbaa5cb2")} {pick || "…"}
             </Button>
           </DialogFooter>

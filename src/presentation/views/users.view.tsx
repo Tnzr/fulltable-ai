@@ -110,130 +110,130 @@ export function UsersView(props: UsersScreenViewModel): React.ReactElement {
     sortKey === k ? (desc ? "descending" : "ascending") : "none";
 
   const sortHead = (k: SortKey, label: string) => (
-    <TableHead className="type-eyebrow" aria-sort={ariaSort(k)}>
-      <button type="button" onClick={() => toggleSort(k)} className="inline-flex min-h-11 items-center gap-1 md:min-h-0">
+    <TableHead data-vid="wb2rb3d" className="type-eyebrow" aria-sort={ariaSort(k)}>
+      <button data-vid="73fwb4a" type="button" onClick={() => toggleSort(k)} className="inline-flex min-h-11 items-center gap-1 md:min-h-0">
         {label}
-        <span aria-hidden="true">{arrow(k)}</span>
+        <span data-vid="f86nvzo" aria-hidden="true">{arrow(k)}</span>
       </button>
     </TableHead>
   );
 
   return (
-    <div className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
-      <header className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-        <div className="min-w-0">
-          <h1 className="type-page-title text-foreground">{t("users.6b0cc904")}</h1>
-          <p className="type-body text-text-muted">{t("users.b64cb46b")}</p>
+    <div data-vid="hs59rtv" className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
+      <header data-vid="bb0bv8m" className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div data-vid="nfyyu63" className="min-w-0">
+          <h1 data-vid="4scfbjd" className="type-page-title text-foreground">{t("users.6b0cc904")}</h1>
+          <p data-vid="631nuw4" className="type-body text-text-muted">{t("users.b64cb46b")}</p>
         </div>
-        <Dialog open={open} onOpenChange={setOpen}>
-          <DialogTrigger asChild>
-            <Button className="min-h-11 w-full sm:w-auto"><Plus className="size-4" />{t("users.08aa7a0b")}</Button>
+        <Dialog data-vid="a7om4gd" open={open} onOpenChange={setOpen}>
+          <DialogTrigger data-vid="tsvzjd8" asChild>
+            <Button data-vid="vqks6r9" className="min-h-11 w-full sm:w-auto"><Plus data-vid="e39gphn" className="size-4" />{t("users.08aa7a0b")}</Button>
           </DialogTrigger>
-          <DialogContent>
-            <form onSubmit={sendInvite} noValidate className="flex flex-col gap-(--component-gap)">
-              <DialogHeader>
-                <DialogTitle>{t("users.f7042c2c")}</DialogTitle>
-                <DialogDescription>{t("users.9a948bd4")}</DialogDescription>
+          <DialogContent data-vid="evjiupu">
+            <form data-vid="kppxlh3" onSubmit={sendInvite} noValidate className="flex flex-col gap-(--component-gap)">
+              <DialogHeader data-vid="gpzcnna">
+                <DialogTitle data-vid="c9nquj7">{t("users.f7042c2c")}</DialogTitle>
+                <DialogDescription data-vid="asayw6e">{t("users.9a948bd4")}</DialogDescription>
               </DialogHeader>
-              <FieldGroup>
-                <Field data-invalid={touched && !!emailError}>
-                  <FieldLabel htmlFor="invite-email">{t("users.969ccbd3.fieldlabel")}</FieldLabel>
-                  <Input id="invite-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} onBlur={() => setTouched(true)} aria-invalid={touched && !!emailError} autoComplete="off" className="border-border-strong min-h-11" />
-                  {touched && emailError && <FieldError errors={[{ message: emailError }]} />}
+              <FieldGroup data-vid="07xe61t">
+                <Field data-vid="sm8eiwz" data-invalid={touched && !!emailError}>
+                  <FieldLabel data-vid="f30q66k" htmlFor="invite-email">{t("users.969ccbd3.fieldlabel")}</FieldLabel>
+                  <Input data-vid="0le3xnp" id="invite-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} onBlur={() => setTouched(true)} aria-invalid={touched && !!emailError} autoComplete="off" className="border-border-strong min-h-11" />
+                  {touched && emailError && <FieldError data-vid="1250zf9" errors={[{ message: emailError }]} />}
                 </Field>
-                <Field data-invalid={touched && !role}>
-                  <FieldLabel htmlFor="invite-role">{t("users.14736a2e.fieldlabel")}</FieldLabel>
-                  <Select value={role} onValueChange={setRole}>
-                    <SelectTrigger id="invite-role" className="border-border-strong min-h-11" aria-invalid={touched && !role}><SelectValue placeholder={t("users.a49c49b0")} /></SelectTrigger>
-                    <SelectContent>
-                      {roleNames.map((r) => <SelectItem key={r} value={r}>{r}</SelectItem>)}
+                <Field data-vid="t17lyup" data-invalid={touched && !role}>
+                  <FieldLabel data-vid="elazjtr" htmlFor="invite-role">{t("users.14736a2e.fieldlabel")}</FieldLabel>
+                  <Select data-vid="fcawfzm" value={role} onValueChange={setRole}>
+                    <SelectTrigger data-vid="dak6av8" id="invite-role" className="border-border-strong min-h-11" aria-invalid={touched && !role}><SelectValue data-vid="wcygl0r" placeholder={t("users.a49c49b0")} /></SelectTrigger>
+                    <SelectContent data-vid="9571gr7">
+                      {roleNames.map((r) => <SelectItem data-vid="9b5nhfa" key={r} value={r}>{r}</SelectItem>)}
                     </SelectContent>
                   </Select>
-                  {touched && !role && <FieldError errors={[{ message: t("users.72a9352d") }]} />}
+                  {touched && !role && <FieldError data-vid="ehhpz34" errors={[{ message: t("users.72a9352d") }]} />}
                 </Field>
               </FieldGroup>
-              <DialogFooter>
-                <Button type="button" variant="ghost" onClick={() => setOpen(false)}>{t("users.19766ed6")}</Button>
-                <Button type="submit">{t("users.dba4038b")}</Button>
+              <DialogFooter data-vid="wyfb701">
+                <Button data-vid="97vza9f" type="button" variant="ghost" onClick={() => setOpen(false)}>{t("users.19766ed6")}</Button>
+                <Button data-vid="qf2pajv" type="submit">{t("users.dba4038b")}</Button>
               </DialogFooter>
             </form>
           </DialogContent>
         </Dialog>
       </header>
 
-      <Tabs value={tab} onValueChange={setTab} className="flex flex-col gap-(--component-gap)">
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-full overflow-x-auto">
-            <TabsList variant="line">
-              <TabsTrigger value="members" className="min-h-11">{t("users.ebc719b9")}{userCount})</TabsTrigger>
-              <TabsTrigger value="pending" className="min-h-11">{t("users.843b6cd7")}{pendingCount})</TabsTrigger>
-              <TabsTrigger value="roles" className="min-h-11">{t("users.7c259307")}{roleCount})</TabsTrigger>
+      <Tabs data-vid="w4avbjv" value={tab} onValueChange={setTab} className="flex flex-col gap-(--component-gap)">
+        <div data-vid="0pvtnu4" className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <div data-vid="qqvpir7" className="max-w-full overflow-x-auto">
+            <TabsList data-vid="7hdjjb5" variant="line">
+              <TabsTrigger data-vid="ub5fo5c" value="members" className="min-h-11">{t("users.ebc719b9")}{userCount})</TabsTrigger>
+              <TabsTrigger data-vid="t3sdqv1" value="pending" className="min-h-11">{t("users.843b6cd7")}{pendingCount})</TabsTrigger>
+              <TabsTrigger data-vid="8ks0su4" value="roles" className="min-h-11">{t("users.7c259307")}{roleCount})</TabsTrigger>
             </TabsList>
           </div>
           {tab === "members" && (
-            <div className="flex flex-wrap items-center gap-2">
-              <div className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-control border border-border-strong bg-card px-3 focus-within:ring-2 focus-within:ring-ring sm:w-72 sm:flex-none">
-                <Search className="size-4 shrink-0 text-text-muted" />
-                <input value={query} onChange={(e) => { setQuery(e.target.value); setPage(0); }} placeholder={t("users.04bf7b77")} aria-label={t("users.16585464")} className="type-body min-w-0 flex-1 bg-transparent outline-none placeholder:text-text-subtle" />
+            <div data-vid="o4xbx3l" className="flex flex-wrap items-center gap-2">
+              <div data-vid="v44weyi" className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-control border border-border-strong bg-card px-3 focus-within:ring-2 focus-within:ring-ring sm:w-72 sm:flex-none">
+                <Search data-vid="4ka2p5o" className="size-4 shrink-0 text-text-muted" />
+                <input data-vid="t6ypxlg" value={query} onChange={(e) => { setQuery(e.target.value); setPage(0); }} placeholder={t("users.04bf7b77")} aria-label={t("users.16585464")} className="type-body min-w-0 flex-1 bg-transparent outline-none placeholder:text-text-subtle" />
               </div>
-              <Select value={roleFilter} onValueChange={(v) => { setRoleFilter(v); setPage(0); }}>
-                <SelectTrigger className="min-h-11 w-40 border-border-strong" aria-label={t("users.67fd9c1a")}><SelectValue /></SelectTrigger>
-                <SelectContent>
-                  <SelectItem value={ALL}>{t("users.78f133af")}</SelectItem>
-                  {roleNames.map((r) => <SelectItem key={r} value={r}>{r}</SelectItem>)}
+              <Select data-vid="efsgb0y" value={roleFilter} onValueChange={(v) => { setRoleFilter(v); setPage(0); }}>
+                <SelectTrigger data-vid="b9217y1" className="min-h-11 w-40 border-border-strong" aria-label={t("users.67fd9c1a")}><SelectValue data-vid="dhx1tac" /></SelectTrigger>
+                <SelectContent data-vid="1eey2sv">
+                  <SelectItem data-vid="pb5qk9w" value={ALL}>{t("users.78f133af")}</SelectItem>
+                  {roleNames.map((r) => <SelectItem data-vid="na38ey1" key={r} value={r}>{r}</SelectItem>)}
                 </SelectContent>
               </Select>
-              <Select value={inviteFilter} onValueChange={(v) => { setInviteFilter(v); setPage(0); }}>
-                <SelectTrigger className="min-h-11 w-44 border-border-strong" aria-label={t("users.94d5a770")}><SelectValue /></SelectTrigger>
-                <SelectContent>
-                  <SelectItem value={ALL}>{t("users.8ee57323")}</SelectItem>
-                  <SelectItem value="invited">{t("users.7e614f2a")}</SelectItem>
-                  <SelectItem value="clear">{t("users.6bb43634")}</SelectItem>
+              <Select data-vid="vyy9jta" value={inviteFilter} onValueChange={(v) => { setInviteFilter(v); setPage(0); }}>
+                <SelectTrigger data-vid="9g6j5mz" className="min-h-11 w-44 border-border-strong" aria-label={t("users.94d5a770")}><SelectValue data-vid="csyaf3n" /></SelectTrigger>
+                <SelectContent data-vid="pneuznr">
+                  <SelectItem data-vid="5kymedd" value={ALL}>{t("users.8ee57323")}</SelectItem>
+                  <SelectItem data-vid="doe176j" value="invited">{t("users.7e614f2a")}</SelectItem>
+                  <SelectItem data-vid="sli0hnm" value="clear">{t("users.6bb43634")}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
           )}
         </div>
 
-        <TabsContent value="members" className="flex flex-col gap-3">
+        <TabsContent data-vid="vvlowvt" value="members" className="flex flex-col gap-3">
           {filtersOn && (
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="type-caption tabular-nums text-text-muted">{members.length} {t("users.28391d3b")} {userCount}</span>
-              <Button variant="ghost" size="sm" onClick={clear}>{t("users.7179ea00")}</Button>
+            <div data-vid="v0coxnu" className="flex flex-wrap items-center gap-3">
+              <span data-vid="aegqbxk" className="type-caption tabular-nums text-text-muted">{members.length} {t("users.28391d3b")} {userCount}</span>
+              <Button data-vid="rm9obi2" variant="ghost" size="sm" onClick={clear}>{t("users.7179ea00")}</Button>
             </div>
           )}
-          <div className="overflow-x-auto rounded-card border border-border bg-card">
+          <div data-vid="i7qfs71" className="overflow-x-auto rounded-card border border-border bg-card">
             {userCount === 0 ? (
-              <EmptyState title={t("users.669a52e9")} description={t("users.c276923e")} actionLabel={t("users.08aa7a0b")} onAction={() => setOpen(true)} />
+              <EmptyState data-vid="iyfzb6a" title={t("users.669a52e9")} description={t("users.c276923e")} actionLabel={t("users.08aa7a0b")} onAction={() => setOpen(true)} />
             ) : members.length === 0 ? (
-              <EmptyState filtered title={t("users.53ec2cf4")} description={t("users.6106b3c3")} onAction={clear} />
+              <EmptyState data-vid="ug24sr3" filtered title={t("users.53ec2cf4")} description={t("users.6106b3c3")} onAction={clear} />
             ) : (
-              <Table>
-                <TableHeader>
-                  <TableRow>
+              <Table data-vid="t2o7366">
+                <TableHeader data-vid="8kwie6a">
+                  <TableRow data-vid="yb5swa4">
                     {sortHead("name", t("users.dcd1d522"))}
                     {sortHead("email", t("users.969ccbd3.table-column"))}
-                    <TableHead className="type-eyebrow">{t("users.63dceb88")}</TableHead>
+                    <TableHead data-vid="sh9usi7" className="type-eyebrow">{t("users.63dceb88")}</TableHead>
                     {sortHead("role", t("users.14736a2e.table-column"))}
                     {sortHead("createdAt", t("users.9321bcc0"))}
                   </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody data-vid="3awx48j">
                   {pageRows.map((u) => (
-                    <TableRow key={u.id} className="border-b border-border">
-                      <TableCell className="min-w-0">
-                        <button type="button" onClick={() => props.navigate(routes["user-detail"]())} className="flex min-h-11 items-center gap-3 hover:underline focus-visible:ring-2 focus-visible:ring-ring">
-                          <Avatar className="size-8">
-                            {u.avatar?.src ? <AvatarImage src={u.avatar.src} alt="" /> : null}
-                            <AvatarFallback>{`${(u.firstName || "")[0] || ""}${(u.lastName || "")[0] || ""}`.toUpperCase()}</AvatarFallback>
+                    <TableRow data-vid="6gw62f2" key={u.id} className="border-b border-border">
+                      <TableCell data-vid="dt16ik4" className="min-w-0">
+                        <button data-vid="kfgxlea" type="button" onClick={() => props.navigate(routes["user-detail"]())} className="flex min-h-11 items-center gap-3 hover:underline focus-visible:ring-2 focus-visible:ring-ring">
+                          <Avatar data-vid="fltv2hl" className="size-8">
+                            {u.avatar?.src ? <AvatarImage data-vid="c5x74ad" src={u.avatar.src} alt="" /> : null}
+                            <AvatarFallback data-vid="gelf41l">{`${(u.firstName || "")[0] || ""}${(u.lastName || "")[0] || ""}`.toUpperCase()}</AvatarFallback>
                           </Avatar>
-                          <span className="type-row-title truncate">{u.firstName} {u.lastName}</span>
+                          <span data-vid="mzwv7ty" className="type-row-title truncate">{u.firstName} {u.lastName}</span>
                         </button>
                       </TableCell>
-                      <TableCell className="min-w-0"><span className="type-body max-w-64 truncate text-text-body">{u.email}</span></TableCell>
-                      <TableCell className="min-w-0"><span className="type-mono-id whitespace-nowrap text-text-body">{u.phone || "—"}</span></TableCell>
-                      <TableCell className="min-w-0"><Badge variant="outline" className="rounded-badge border-border-strong whitespace-nowrap">{u.role || "—"}</Badge></TableCell>
-                      <TableCell className="min-w-0"><span className="type-meta whitespace-nowrap tabular-nums text-text-muted">{formatDate(u.createdAt)}</span></TableCell>
+                      <TableCell data-vid="q6l6flc" className="min-w-0"><span data-vid="j0irkc2" className="type-body max-w-64 truncate text-text-body">{u.email}</span></TableCell>
+                      <TableCell data-vid="2t9u9k9" className="min-w-0"><span data-vid="lqfftwo" className="type-mono-id whitespace-nowrap text-text-body">{u.phone || "—"}</span></TableCell>
+                      <TableCell data-vid="xcw16c5" className="min-w-0"><Badge data-vid="pog99xc" variant="outline" className="rounded-badge border-border-strong whitespace-nowrap">{u.role || "—"}</Badge></TableCell>
+                      <TableCell data-vid="zbnqe28" className="min-w-0"><span data-vid="n66i1hp" className="type-meta whitespace-nowrap tabular-nums text-text-muted">{formatDate(u.createdAt)}</span></TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -241,45 +241,45 @@ export function UsersView(props: UsersScreenViewModel): React.ReactElement {
             )}
           </div>
           {pageCount > 1 && (
-            <div className="flex items-center justify-between gap-3">
-              <Button variant="ghost" size="sm" className="min-h-11 md:min-h-8" onClick={() => setPage(Math.max(0, pageIndex - 1))} disabled={pageIndex <= 0}>{t("users.5d026d14")}</Button>
-              <span className="type-caption tabular-nums text-text-muted">{pageIndex + 1} {t("users.28391d3b")} {pageCount}</span>
-              <Button variant="ghost" size="sm" className="min-h-11 md:min-h-8" onClick={() => setPage(Math.min(pageCount - 1, pageIndex + 1))} disabled={pageIndex >= pageCount - 1}>{t("users.868d1670")}</Button>
+            <div data-vid="fzl2erg" className="flex items-center justify-between gap-3">
+              <Button data-vid="y12ul5d" variant="ghost" size="sm" className="min-h-11 md:min-h-8" onClick={() => setPage(Math.max(0, pageIndex - 1))} disabled={pageIndex <= 0}>{t("users.5d026d14")}</Button>
+              <span data-vid="nrdbo9d" className="type-caption tabular-nums text-text-muted">{pageIndex + 1} {t("users.28391d3b")} {pageCount}</span>
+              <Button data-vid="7x864q6" variant="ghost" size="sm" className="min-h-11 md:min-h-8" onClick={() => setPage(Math.min(pageCount - 1, pageIndex + 1))} disabled={pageIndex >= pageCount - 1}>{t("users.868d1670")}</Button>
             </div>
           )}
         </TabsContent>
 
-        <TabsContent value="pending">
-          <div className="overflow-x-auto rounded-card border border-border bg-card">
+        <TabsContent data-vid="ks9ltq5" value="pending">
+          <div data-vid="h3d7elx" className="overflow-x-auto rounded-card border border-border bg-card">
             {pendingCount === 0 ? (
-              <EmptyState icon={<UserX />} title={t("users.275814da")} description={t("users.3928e71e")} actionLabel={t("users.08aa7a0b")} onAction={() => setOpen(true)} />
+              <EmptyState data-vid="4c9t57k" icon={<UserX data-vid="phjb1r2" />} title={t("users.275814da")} description={t("users.3928e71e")} actionLabel={t("users.08aa7a0b")} onAction={() => setOpen(true)} />
             ) : (
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="type-eyebrow">{t("users.969ccbd3.tablehead")}</TableHead>
-                    <TableHead className="type-eyebrow">{t("users.14736a2e.tablehead")}</TableHead>
-                    <TableHead className="type-eyebrow">{t("users.c7a6f156")}</TableHead>
-                    <TableHead className="type-eyebrow">{t("users.c16bc82b")}</TableHead>
-                    <TableHead className="type-eyebrow">{t("users.f6725f3a")}</TableHead>
-                    <TableHead className="type-eyebrow text-right">{t("users.ff8059dc")}</TableHead>
+              <Table data-vid="p97zox2">
+                <TableHeader data-vid="4o2htf4">
+                  <TableRow data-vid="txdopai">
+                    <TableHead data-vid="cqxpjbs" className="type-eyebrow">{t("users.969ccbd3.tablehead")}</TableHead>
+                    <TableHead data-vid="r91eede" className="type-eyebrow">{t("users.14736a2e.tablehead")}</TableHead>
+                    <TableHead data-vid="3ff6le3" className="type-eyebrow">{t("users.c7a6f156")}</TableHead>
+                    <TableHead data-vid="7ti9p8z" className="type-eyebrow">{t("users.c16bc82b")}</TableHead>
+                    <TableHead data-vid="9nj5c5p" className="type-eyebrow">{t("users.f6725f3a")}</TableHead>
+                    <TableHead data-vid="mnjo0uo" className="type-eyebrow text-right">{t("users.ff8059dc")}</TableHead>
                   </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody data-vid="f1wzxyo">
                   {props.invitations.filter((i) => i.status === "Pending").map((i) => (
-                    <TableRow key={i.id} className="border-b border-border">
-                      <TableCell className="type-row-title max-w-64 truncate">{i.email}</TableCell>
-                      <TableCell className="whitespace-nowrap"><Badge variant="outline" className="rounded-badge border-border-strong">{i.role}</Badge></TableCell>
-                      <TableCell className="type-meta whitespace-nowrap text-text-muted">{i.invitedBy}</TableCell>
-                      <TableCell className="type-meta whitespace-nowrap tabular-nums text-text-muted">{formatDate(i.sentAt)}</TableCell>
-                      <TableCell className="type-meta whitespace-nowrap tabular-nums text-text-muted">{formatDate(i.expiresAt)}</TableCell>
-                      <TableCell className="text-right whitespace-nowrap">
-                        <div className="flex justify-end gap-2">
-                          <Button variant="outline" size="sm" className="min-h-11 border-border-strong md:min-h-8" disabled>
+                    <TableRow data-vid="hzt04sd" key={i.id} className="border-b border-border">
+                      <TableCell data-vid="vr34dnh" className="type-row-title max-w-64 truncate">{i.email}</TableCell>
+                      <TableCell data-vid="yddmtjk" className="whitespace-nowrap"><Badge data-vid="0x6v1q3" variant="outline" className="rounded-badge border-border-strong">{i.role}</Badge></TableCell>
+                      <TableCell data-vid="zxqd3uy" className="type-meta whitespace-nowrap text-text-muted">{i.invitedBy}</TableCell>
+                      <TableCell data-vid="nw89itw" className="type-meta whitespace-nowrap tabular-nums text-text-muted">{formatDate(i.sentAt)}</TableCell>
+                      <TableCell data-vid="gzf332p" className="type-meta whitespace-nowrap tabular-nums text-text-muted">{formatDate(i.expiresAt)}</TableCell>
+                      <TableCell data-vid="gc77tuw" className="text-right whitespace-nowrap">
+                        <div data-vid="ogc0rby" className="flex justify-end gap-2">
+                          <Button data-vid="zw1afxo" variant="outline" size="sm" className="min-h-11 border-border-strong md:min-h-8" disabled>
                             {t("users.1f948437")}
                           </Button>
-                          <span className="type-meta text-text-muted">{t("_reason.escritura-no-disponible")}</span>
-                          <Button variant="ghost" size="sm" className="min-h-11 md:min-h-8" onClick={() => props.onDeleteInvitation(i.id)}>{t("users.19766ed6")}</Button>
+                          <span data-vid="zmcf1st" className="type-meta text-text-muted">{t("_reason.escritura-no-disponible")}</span>
+                          <Button data-vid="lnh5nx4" variant="ghost" size="sm" className="min-h-11 md:min-h-8" onClick={() => props.onDeleteInvitation(i.id)}>{t("users.19766ed6")}</Button>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -290,40 +290,40 @@ export function UsersView(props: UsersScreenViewModel): React.ReactElement {
           </div>
         </TabsContent>
 
-        <TabsContent value="roles">
-          <div className="overflow-x-auto rounded-card border border-border bg-card">
+        <TabsContent data-vid="osydt7k" value="roles">
+          <div data-vid="mnddtze" className="overflow-x-auto rounded-card border border-border bg-card">
             {roleCount === 0 ? (
-              <EmptyState title={t("users.ca1f1c9d")} description={t("users.8bc37d1a")} />
+              <EmptyState data-vid="42rnjea" title={t("users.ca1f1c9d")} description={t("users.8bc37d1a")} />
             ) : (
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="type-eyebrow">{t("users.14736a2e.tablehead")}</TableHead>
-                    <TableHead className="type-eyebrow">{t("users.526e0087")}</TableHead>
-                    <TableHead className="type-eyebrow">{t("users.92340695.tablehead")}</TableHead>
-                    <TableHead className="type-eyebrow">{t("users.abccc78c")}</TableHead>
+              <Table data-vid="oflmtgi">
+                <TableHeader data-vid="tk3hssu">
+                  <TableRow data-vid="y94xz3h">
+                    <TableHead data-vid="84zx00y" className="type-eyebrow">{t("users.14736a2e.tablehead")}</TableHead>
+                    <TableHead data-vid="v93vzcy" className="type-eyebrow">{t("users.526e0087")}</TableHead>
+                    <TableHead data-vid="gw95d40" className="type-eyebrow">{t("users.92340695.tablehead")}</TableHead>
+                    <TableHead data-vid="3ceo70n" className="type-eyebrow">{t("users.abccc78c")}</TableHead>
                   </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody data-vid="6qtsuu5">
                   {props.roles.map((r) => {
                     const items = String(r.permissions || "").split(",").map((s) => s.trim()).filter(Boolean);
                     return (
-                      <TableRow key={r.id}>
-                        <TableCell className="type-row-title whitespace-nowrap align-top">{r.name}</TableCell>
-                        <TableCell className="type-body min-w-56 align-top text-text-body">{r.description}</TableCell>
-                        <TableCell className="align-top whitespace-nowrap">
-                          <span className={r.isActive ? "type-meta inline-flex items-center gap-1.5 rounded-badge bg-status-success-bg px-2 py-0.5 text-status-success-ink" : "type-meta inline-flex items-center gap-1.5 rounded-badge bg-status-neutral-bg px-2 py-0.5 text-status-neutral-ink"}>
-                            <span className={r.isActive ? "size-2 rounded-full bg-status-success" : "size-2 rounded-full border border-status-neutral"} aria-hidden="true" />
+                      <TableRow data-vid="rcv0vcq" key={r.id}>
+                        <TableCell data-vid="1wdbuxz" className="type-row-title whitespace-nowrap align-top">{r.name}</TableCell>
+                        <TableCell data-vid="sm3ouvb" className="type-body min-w-56 align-top text-text-body">{r.description}</TableCell>
+                        <TableCell data-vid="2ahzxzi" className="align-top whitespace-nowrap">
+                          <span data-vid="yubz4zk" className={r.isActive ? "type-meta inline-flex items-center gap-1.5 rounded-badge bg-status-success-bg px-2 py-0.5 text-status-success-ink" : "type-meta inline-flex items-center gap-1.5 rounded-badge bg-status-neutral-bg px-2 py-0.5 text-status-neutral-ink"}>
+                            <span data-vid="a1jdbe6" className={r.isActive ? "size-2 rounded-full bg-status-success" : "size-2 rounded-full border border-status-neutral"} aria-hidden="true" />
                             {r.isActive ? t("users.92340695.span") : t("users.ac7c949f")}
                           </span>
                         </TableCell>
-                        <TableCell className="min-w-64 align-top">
+                        <TableCell data-vid="y0lz6x1" className="min-w-64 align-top">
                           {items.length === 0 ? (
-                            <span className="text-text-muted">—</span>
+                            <span data-vid="2jb2bdm" className="text-text-muted">—</span>
                           ) : (
-                            <div className="flex flex-wrap gap-1.5">
+                            <div data-vid="q57uo42" className="flex flex-wrap gap-1.5">
                               {items.map((p) => (
-                                <Badge key={p} variant="outline" className="type-mono-id border-border-strong">{p}</Badge>
+                                <Badge data-vid="fxgsnf9" key={p} variant="outline" className="type-mono-id border-border-strong">{p}</Badge>
                               ))}
                             </div>
                           )}
@@ -338,10 +338,10 @@ export function UsersView(props: UsersScreenViewModel): React.ReactElement {
         </TabsContent>
       </Tabs>
 
-      <p className="type-meta flex flex-wrap items-center gap-2 border-t border-border pt-4 text-text-muted">
+      <p data-vid="myafwsn" className="type-meta flex flex-wrap items-center gap-2 border-t border-border pt-4 text-text-muted">
         {t("users.c4f69898")}
-        <button type="button" onClick={() => props.navigate(routes.audit())} className="inline-flex min-h-11 items-center gap-1 text-text-link hover:underline focus-visible:ring-2 focus-visible:ring-ring md:min-h-0">
-          {t("users.f540c7dc")} <ArrowRight className="size-4" />
+        <button data-vid="r352ywd" type="button" onClick={() => props.navigate(routes.audit())} className="inline-flex min-h-11 items-center gap-1 text-text-link hover:underline focus-visible:ring-2 focus-visible:ring-ring md:min-h-0">
+          {t("users.f540c7dc")} <ArrowRight data-vid="yyd5te6" className="size-4" />
         </button>
       </p>
     </div>

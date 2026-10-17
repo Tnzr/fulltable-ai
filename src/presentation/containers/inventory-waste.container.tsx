@@ -96,7 +96,7 @@ export default function InventoryWasteContainer(): React.ReactElement {
   ];
 
   return (
-    <InventoryWasteView
+    <InventoryWasteView data-vid="meent6y"
       occurrences={OCCURRENCES}
       selectedId={occurrence.id}
       onSelect={setSelectedId}

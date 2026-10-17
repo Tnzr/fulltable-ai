@@ -84,8 +84,8 @@ export function TeamTrackingView(props: TeamTrackingScreenViewModel): React.Reac
           : "bg-status-success-bg text-status-success-ink border-status-success";
     const Icon = level >= 2 ? AlertTriangle : level === 1 ? Clock : CheckCircle2;
     return (
-      <span className={`type-eyebrow inline-flex items-center gap-1.5 whitespace-nowrap rounded-badge border px-2 py-0.5 ${cls}`}>
-        <Icon className="size-3.5" aria-hidden="true" />
+      <span data-vid="lwa4va2" className={`type-eyebrow inline-flex items-center gap-1.5 whitespace-nowrap rounded-badge border px-2 py-0.5 ${cls}`}>
+        <Icon data-vid="qhdcxym" className="size-3.5" aria-hidden="true" />
         {level >= 2 ? t("team-tracking.d660945b.span") : ""}
       </span>
     );
@@ -93,42 +93,42 @@ export function TeamTrackingView(props: TeamTrackingScreenViewModel): React.Reac
 
   const slaCell = (v: string | null | undefined): React.ReactElement => {
     const level = slaLevel(v);
-    if (level === undefined) return <span className="type-meta text-text-muted">—</span>;
-    return <Chip level={level} />;
+    if (level === undefined) return <span data-vid="n5r252f" className="type-meta text-text-muted">—</span>;
+    return <Chip data-vid="dnedw4l" level={level} />;
   };
 
   if (props.error) {
     return (
-      <div className="flex flex-col gap-(--section-gap) p-(--container-padding)">
-        <h1 className="type-page-title">{t("team-tracking.82014be7")}</h1>
-        <p className="type-body text-text-muted">—</p>
+      <div data-vid="hkx3u8a" className="flex flex-col gap-(--section-gap) p-(--container-padding)">
+        <h1 data-vid="15azmk8" className="type-page-title">{t("team-tracking.82014be7")}</h1>
+        <p data-vid="vk13jtz" className="type-body text-text-muted">—</p>
       </div>
     );
   }
 
   return (
-    <MotionConfig reducedMotion="user">
-      <div className="flex flex-col gap-(--section-gap) p-(--container-padding)">
-        <header className="flex flex-col gap-2">
-          <div className="flex flex-wrap items-center gap-3">
-            <h1 className="type-page-title">{t("team-tracking.82014be7")}</h1>
-            <Badge variant="outline">{t("team-tracking.f65dbcc3")}</Badge>
+    <MotionConfig data-vid="r3hb47j" reducedMotion="user">
+      <div data-vid="o6n63nc" className="flex flex-col gap-(--section-gap) p-(--container-padding)">
+        <header data-vid="hwdel2r" className="flex flex-col gap-2">
+          <div data-vid="g2hkvln" className="flex flex-wrap items-center gap-3">
+            <h1 data-vid="wwlx054" className="type-page-title">{t("team-tracking.82014be7")}</h1>
+            <Badge data-vid="aiaof26" variant="outline">{t("team-tracking.f65dbcc3")}</Badge>
           </div>
-          <p className="type-body text-text-muted">
+          <p data-vid="0kt1lqk" className="type-body text-text-muted">
             — {t("team-tracking.366f8c36")} — {t("team-tracking.83768913")} {processes.length} {t("team-tracking.60ab3064")}
           </p>
         </header>
 
-        <section aria-labelledby="ph" className="flex flex-col gap-(--component-gap)">
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h2 id="ph" className="type-eyebrow text-text-muted">{t("team-tracking.731fdac7")}</h2>
-            <span className="type-caption text-text-muted">{t("team-tracking.a6c124bc")}</span>
+        <section data-vid="t6w2ok7" aria-labelledby="ph" className="flex flex-col gap-(--component-gap)">
+          <div data-vid="bo2z3x5" className="flex flex-wrap items-baseline justify-between gap-2">
+            <h2 data-vid="z3ws6k4" id="ph" className="type-eyebrow text-text-muted">{t("team-tracking.731fdac7")}</h2>
+            <span data-vid="21vt1ja" className="type-caption text-text-muted">{t("team-tracking.a6c124bc")}</span>
           </div>
-          <div className="flex gap-(--component-gap) overflow-x-auto pb-1 md:grid md:grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] md:overflow-visible">
+          <div data-vid="birf9wg" className="flex gap-(--component-gap) overflow-x-auto pb-1 md:grid md:grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] md:overflow-visible">
             {processes.map((name) => {
               const sel = process === name;
               return (
-                <motion.button
+                <motion.button data-vid="5us60xh"
                   key={name}
                   type="button"
                   aria-pressed={sel}
@@ -137,21 +137,21 @@ export function TeamTrackingView(props: TeamTrackingScreenViewModel): React.Reac
                   transition={{ duration: 0.15 }}
                   className={`flex min-h-36 w-64 shrink-0 flex-col gap-3 rounded-card border bg-card p-(--card-padding) text-left focus-visible:ring-2 focus-visible:ring-ring md:w-auto ${sel ? "border-2 border-brand-accent" : "border-border"}`}
                 >
-                  <div className="flex items-start justify-between gap-2">
-                    <span className="type-row-title min-w-0 break-words">{name}</span>
+                  <div data-vid="38fj4kb" className="flex items-start justify-between gap-2">
+                    <span data-vid="lxwnzed" className="type-row-title min-w-0 break-words">{name}</span>
                   </div>
-                  <div className="flex flex-wrap gap-x-6 gap-y-2">
-                    <div className="shrink-0">
-                      <div className="type-eyebrow text-text-muted">{t("team-tracking.ed077f3d.div")}</div>
-                      <div className="type-stat tabular-nums">—</div>
+                  <div data-vid="t4pcisf" className="flex flex-wrap gap-x-6 gap-y-2">
+                    <div data-vid="8qued6q" className="shrink-0">
+                      <div data-vid="ivcd088" className="type-eyebrow text-text-muted">{t("team-tracking.ed077f3d.div")}</div>
+                      <div data-vid="b7yl0uk" className="type-stat tabular-nums">—</div>
                     </div>
-                    <div className="shrink-0">
-                      <div className="type-eyebrow text-text-muted">{t("team-tracking.d660945b.div")}</div>
-                      <div className="type-stat tabular-nums">—</div>
+                    <div data-vid="je75h10" className="shrink-0">
+                      <div data-vid="l5oc4sp" className="type-eyebrow text-text-muted">{t("team-tracking.d660945b.div")}</div>
+                      <div data-vid="l4kqkjp" className="type-stat tabular-nums">—</div>
                     </div>
                   </div>
-                  <div className="mt-auto type-caption text-text-muted">
-                    {t("team-tracking.98440480")} <span className="font-mono tabular-nums">—</span>
+                  <div data-vid="3u9vvec" className="mt-auto type-caption text-text-muted">
+                    {t("team-tracking.98440480")} <span data-vid="ukyllp4" className="font-mono tabular-nums">—</span>
                   </div>
                 </motion.button>
               );
@@ -159,12 +159,12 @@ export function TeamTrackingView(props: TeamTrackingScreenViewModel): React.Reac
           </div>
         </section>
 
-        <section aria-labelledby="tk" className="flex flex-col gap-(--component-gap)">
-          <h2 id="tk" className="sr-only">{t("team-tracking.b3a60e61")}</h2>
-          <div className="flex flex-wrap items-center gap-3">
-            <div className="flex min-h-11 min-w-56 flex-1 items-center gap-2 rounded-control border border-border-strong bg-card px-3 focus-within:ring-2 focus-within:ring-ring md:max-w-sm">
-              <Search className="size-4 text-text-muted" aria-hidden="true" />
-              <input
+        <section data-vid="fhb6z2p" aria-labelledby="tk" className="flex flex-col gap-(--component-gap)">
+          <h2 data-vid="gw1sdf2" id="tk" className="sr-only">{t("team-tracking.b3a60e61")}</h2>
+          <div data-vid="tz8jncb" className="flex flex-wrap items-center gap-3">
+            <div data-vid="9cvywt9" className="flex min-h-11 min-w-56 flex-1 items-center gap-2 rounded-control border border-border-strong bg-card px-3 focus-within:ring-2 focus-within:ring-ring md:max-w-sm">
+              <Search data-vid="fvsnvly" className="size-4 text-text-muted" aria-hidden="true" />
+              <input data-vid="17vz6bs"
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder={t("team-tracking.b6b186eb.input-attr-placeholder")}
@@ -172,102 +172,102 @@ export function TeamTrackingView(props: TeamTrackingScreenViewModel): React.Reac
                 className="type-body min-w-0 flex-1 bg-transparent outline-none placeholder:text-text-subtle"
               />
             </div>
-            <Select value={process} onValueChange={setProcess}>
-              <SelectTrigger aria-label={t("team-tracking.e083bd83.selecttrigger-attr-aria-label")} className="min-h-11 min-w-44 border-border-strong"><SelectValue /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">{t("team-tracking.a3ec8f58")}</SelectItem>
-                {processes.map((p) => <SelectItem key={p} value={p}>{p}</SelectItem>)}
+            <Select data-vid="7irc0fm" value={process} onValueChange={setProcess}>
+              <SelectTrigger data-vid="9rptvkk" aria-label={t("team-tracking.e083bd83.selecttrigger-attr-aria-label")} className="min-h-11 min-w-44 border-border-strong"><SelectValue data-vid="1138jzl" /></SelectTrigger>
+              <SelectContent data-vid="x7ij39q">
+                <SelectItem data-vid="5x23l51" value="all">{t("team-tracking.a3ec8f58")}</SelectItem>
+                {processes.map((p) => <SelectItem data-vid="ep5attz" key={p} value={p}>{p}</SelectItem>)}
               </SelectContent>
             </Select>
-            <Select value={assignee} onValueChange={setAssignee}>
-              <SelectTrigger aria-label={t("team-tracking.5e20d20e.selecttrigger-attr-aria-label")} className="min-h-11 min-w-40 border-border-strong"><SelectValue /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">{t("team-tracking.c095ce22")}</SelectItem>
-                {people.map((p) => <SelectItem key={p} value={p}>{p}</SelectItem>)}
+            <Select data-vid="6qc2gqq" value={assignee} onValueChange={setAssignee}>
+              <SelectTrigger data-vid="qgyv8d3" aria-label={t("team-tracking.5e20d20e.selecttrigger-attr-aria-label")} className="min-h-11 min-w-40 border-border-strong"><SelectValue data-vid="2k958hi" /></SelectTrigger>
+              <SelectContent data-vid="609aetu">
+                <SelectItem data-vid="a5ykuy1" value="all">{t("team-tracking.c095ce22")}</SelectItem>
+                {people.map((p) => <SelectItem data-vid="11g7vcs" key={p} value={p}>{p}</SelectItem>)}
               </SelectContent>
             </Select>
-            <Select value={status} onValueChange={setStatus}>
-              <SelectTrigger aria-label={t("team-tracking.920e413c.selecttrigger-attr-aria-label")} className="min-h-11 min-w-36 border-border-strong"><SelectValue /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">{t("team-tracking.8ee57323")}</SelectItem>
-                {statuses.map((p) => <SelectItem key={p} value={p}>{p}</SelectItem>)}
+            <Select data-vid="bbd3anx" value={status} onValueChange={setStatus}>
+              <SelectTrigger data-vid="dx4jk26" aria-label={t("team-tracking.920e413c.selecttrigger-attr-aria-label")} className="min-h-11 min-w-36 border-border-strong"><SelectValue data-vid="69xltd9" /></SelectTrigger>
+              <SelectContent data-vid="ilbl0qi">
+                <SelectItem data-vid="f8zuwcb" value="all">{t("team-tracking.8ee57323")}</SelectItem>
+                {statuses.map((p) => <SelectItem data-vid="foqbt2l" key={p} value={p}>{p}</SelectItem>)}
               </SelectContent>
             </Select>
-            <Toggle variant="outline" pressed={false} disabled className="min-h-11 border-border-strong">
+            <Toggle data-vid="t9eyu1z" variant="outline" pressed={false} disabled className="min-h-11 border-border-strong">
               {t("team-tracking.a1836d2f")}
             </Toggle>
           </div>
 
           {(applied.length > 0 || q) && (
-            <div className="flex flex-wrap items-center gap-2">
+            <div data-vid="xek89fr" className="flex flex-wrap items-center gap-2">
               {applied.map((a) => (
-                <button key={a.k} type="button" onClick={a.clear} aria-label={`${t("team-tracking.23c5cdc6")} ${a.label}`}
+                <button data-vid="ba3385z" key={a.k} type="button" onClick={a.clear} aria-label={`${t("team-tracking.23c5cdc6")} ${a.label}`}
                   className="type-caption inline-flex min-h-8 items-center gap-1 rounded-badge border border-border-strong bg-card px-2 focus-visible:ring-2 focus-visible:ring-ring">
-                  {a.label}<X className="size-3.5" aria-hidden="true" />
+                  {a.label}<X data-vid="r7p4apl" className="size-3.5" aria-hidden="true" />
                 </button>
               ))}
-              <Button variant="ghost" size="sm" onClick={clearAll}>{t("team-tracking.29a390f9")}</Button>
+              <Button data-vid="kgqj1d9" variant="ghost" size="sm" onClick={clearAll}>{t("team-tracking.29a390f9")}</Button>
             </div>
           )}
 
-          <div className="overflow-x-auto rounded-card border border-border bg-card">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="type-eyebrow">{t("team-tracking.4bc74b21")}</TableHead>
-                  <TableHead className="type-eyebrow">{t("team-tracking.e083bd83.tablehead")}</TableHead>
-                  <TableHead className="type-eyebrow">{t("team-tracking.5e20d20e.tablehead")}</TableHead>
-                  <TableHead className="type-eyebrow">{t("team-tracking.920e413c.tablehead")}</TableHead>
-                  <TableHead className="type-eyebrow">{t("team-tracking.9071738f")}</TableHead>
-                  <TableHead className="type-eyebrow">{t("team-tracking.0653cccd")}</TableHead>
-                  <TableHead className="type-eyebrow text-right">{t("team-tracking.ff8059dc")}</TableHead>
+          <div data-vid="ijsw4un" className="overflow-x-auto rounded-card border border-border bg-card">
+            <Table data-vid="f1ad18n">
+              <TableHeader data-vid="tz7pnyt">
+                <TableRow data-vid="rj1g9zg">
+                  <TableHead data-vid="2l0814k" className="type-eyebrow">{t("team-tracking.4bc74b21")}</TableHead>
+                  <TableHead data-vid="bduyfha" className="type-eyebrow">{t("team-tracking.e083bd83.tablehead")}</TableHead>
+                  <TableHead data-vid="hirw421" className="type-eyebrow">{t("team-tracking.5e20d20e.tablehead")}</TableHead>
+                  <TableHead data-vid="lbom5ln" className="type-eyebrow">{t("team-tracking.920e413c.tablehead")}</TableHead>
+                  <TableHead data-vid="phb945l" className="type-eyebrow">{t("team-tracking.9071738f")}</TableHead>
+                  <TableHead data-vid="29gmoq6" className="type-eyebrow">{t("team-tracking.0653cccd")}</TableHead>
+                  <TableHead data-vid="xk1grop" className="type-eyebrow text-right">{t("team-tracking.ff8059dc")}</TableHead>
                 </TableRow>
               </TableHeader>
-              <TableBody>
+              <TableBody data-vid="wz3lkqj">
                 {visible.map((task) => (
-                  <TableRow key={task.id}>
-                    <TableCell className="max-w-72">
-                      <div className="flex min-w-0 items-center gap-2">
+                  <TableRow data-vid="kycj9ya" key={task.id}>
+                    <TableCell data-vid="aq6hv87" className="max-w-72">
+                      <div data-vid="fuhsmoq" className="flex min-w-0 items-center gap-2">
                         {task.priority === "High" && (
-                          <span className="type-eyebrow shrink-0 rounded-badge border border-border-strong px-1.5">{t("team-tracking.c4ebc6d4")}</span>
+                          <span data-vid="33t364p" className="type-eyebrow shrink-0 rounded-badge border border-border-strong px-1.5">{t("team-tracking.c4ebc6d4")}</span>
                         )}
-                        <a href={routes["task-detail"]({ id: task.id })} className="type-row-title block min-w-0 truncate text-text-link hover:underline">
+                        <a data-vid="8r8j4kx" href={routes["task-detail"]({ id: task.id })} className="type-row-title block min-w-0 truncate text-text-link hover:underline">
                           {task.title}
                         </a>
                       </div>
                     </TableCell>
-                    <TableCell className="type-meta whitespace-nowrap">{task.process ?? "—"}</TableCell>
-                    <TableCell className="type-meta whitespace-nowrap">{task.assignee ?? "—"}</TableCell>
-                    <TableCell>
-                      <span className="type-eyebrow whitespace-nowrap rounded-badge border border-status-neutral bg-status-neutral-bg px-2 py-0.5 text-status-neutral-ink">
+                    <TableCell data-vid="m6del3g" className="type-meta whitespace-nowrap">{task.process ?? "—"}</TableCell>
+                    <TableCell data-vid="xc9b532" className="type-meta whitespace-nowrap">{task.assignee ?? "—"}</TableCell>
+                    <TableCell data-vid="ykug8gx">
+                      <span data-vid="gsnpkgh" className="type-eyebrow whitespace-nowrap rounded-badge border border-status-neutral bg-status-neutral-bg px-2 py-0.5 text-status-neutral-ink">
                         {task.status ?? "—"}
                       </span>
                     </TableCell>
-                    <TableCell className="whitespace-nowrap">
-                      <span className="type-mono-id tabular-nums">{task.dueAt ? formatDateTime(task.dueAt) : "—"}</span>
+                    <TableCell data-vid="av6pgm1" className="whitespace-nowrap">
+                      <span data-vid="tjukduz" className="type-mono-id tabular-nums">{task.dueAt ? formatDateTime(task.dueAt) : "—"}</span>
                     </TableCell>
-                    <TableCell>{slaCell(task.slaStatus)}</TableCell>
-                    <TableCell>
-                      <div className="flex justify-end gap-1">
+                    <TableCell data-vid="w71722o">{slaCell(task.slaStatus)}</TableCell>
+                    <TableCell data-vid="d47rock">
+                      <div data-vid="glmavcx" className="flex justify-end gap-1">
                         {!isDone(task) && task.status !== "Escalated" && task.slaStatus === "At risk" && (
                           <>
-                            <Button variant="outline" size="sm" disabled>
+                            <Button data-vid="y6gz33q" variant="outline" size="sm" disabled>
                               {t("team-tracking.bc1593e5")}
-                              <ArrowUpRight className="size-4" aria-hidden="true" />
+                              <ArrowUpRight data-vid="jr7io16" className="size-4" aria-hidden="true" />
                             </Button>
-                            <span className="type-caption text-text-muted">{t("_reason.escritura-no-disponible")}</span>
+                            <span data-vid="9oiiqz0" className="type-caption text-text-muted">{t("_reason.escritura-no-disponible")}</span>
                           </>
                         )}
-                        <Button variant="ghost" size="sm" onClick={() => openReassign(task)}>{t("team-tracking.4591c339")}</Button>
+                        <Button data-vid="ptfbduw" variant="ghost" size="sm" onClick={() => openReassign(task)}>{t("team-tracking.4591c339")}</Button>
                       </div>
                     </TableCell>
                   </TableRow>
                 ))}
                 {!hasVisible && (
-                  <TableRow>
-                    <TableCell colSpan={7} className="py-10 text-center">
-                      <p className="type-body text-text-muted">{t("team-tracking.80532986")} {t("team-tracking.5d04cc6c")}</p>
-                      <Button variant="outline" size="sm" className="mt-3" onClick={clearAll}>{t("team-tracking.7179ea00")}</Button>
+                  <TableRow data-vid="j152lto">
+                    <TableCell data-vid="btdxrni" colSpan={7} className="py-10 text-center">
+                      <p data-vid="7wtq8w3" className="type-body text-text-muted">{t("team-tracking.80532986")} {t("team-tracking.5d04cc6c")}</p>
+                      <Button data-vid="yf202cr" variant="outline" size="sm" className="mt-3" onClick={clearAll}>{t("team-tracking.7179ea00")}</Button>
                     </TableCell>
                   </TableRow>
                 )}
@@ -275,25 +275,25 @@ export function TeamTrackingView(props: TeamTrackingScreenViewModel): React.Reac
             </Table>
           </div>
 
-          <div className="flex flex-col gap-(--component-gap)">
-            <h3 className="type-eyebrow text-text-muted">{t("team-tracking.16f0de8b")}</h3>
-            <div className="overflow-x-auto rounded-card border border-border bg-card">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="type-eyebrow">{t("team-tracking.8062dbb5.tablehead")}</TableHead>
-                    <TableHead className="type-eyebrow text-right">{t("team-tracking.ed077f3d.tablehead")}</TableHead>
-                    <TableHead className="type-eyebrow text-right">{t("team-tracking.d660945b.tablehead")}</TableHead>
-                    <TableHead className="type-eyebrow">{t("team-tracking.55898449")}</TableHead>
+          <div data-vid="vns9hsg" className="flex flex-col gap-(--component-gap)">
+            <h3 data-vid="l0tncb0" className="type-eyebrow text-text-muted">{t("team-tracking.16f0de8b")}</h3>
+            <div data-vid="iyk2btv" className="overflow-x-auto rounded-card border border-border bg-card">
+              <Table data-vid="6zmoaln">
+                <TableHeader data-vid="zyr94sj">
+                  <TableRow data-vid="jtqof6z">
+                    <TableHead data-vid="ta2nqbz" className="type-eyebrow">{t("team-tracking.8062dbb5.tablehead")}</TableHead>
+                    <TableHead data-vid="3ljrjmx" className="type-eyebrow text-right">{t("team-tracking.ed077f3d.tablehead")}</TableHead>
+                    <TableHead data-vid="bk9739u" className="type-eyebrow text-right">{t("team-tracking.d660945b.tablehead")}</TableHead>
+                    <TableHead data-vid="c0ksrqu" className="type-eyebrow">{t("team-tracking.55898449")}</TableHead>
                   </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody data-vid="2oyei79">
                   {people.map((p) => (
-                    <TableRow key={p}>
-                      <TableCell className="type-row-title whitespace-nowrap">{p}</TableCell>
-                      <TableCell className="text-right tabular-nums">—</TableCell>
-                      <TableCell className="text-right tabular-nums">—</TableCell>
-                      <TableCell>—</TableCell>
+                    <TableRow data-vid="a0u7ikj" key={p}>
+                      <TableCell data-vid="joejnyn" className="type-row-title whitespace-nowrap">{p}</TableCell>
+                      <TableCell data-vid="vxn4xi5" className="text-right tabular-nums">—</TableCell>
+                      <TableCell data-vid="qyh9v50" className="text-right tabular-nums">—</TableCell>
+                      <TableCell data-vid="0kqjgzg">—</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -302,35 +302,35 @@ export function TeamTrackingView(props: TeamTrackingScreenViewModel): React.Reac
           </div>
         </section>
 
-        <Dialog open={!!target} onOpenChange={(o) => { if (!o) setTarget(null); }}>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>{t("team-tracking.a14e88fc.dialogtitle")}</DialogTitle>
-              <DialogDescription>
+        <Dialog data-vid="gdtoht5" open={!!target} onOpenChange={(o) => { if (!o) setTarget(null); }}>
+          <DialogContent data-vid="kcrmiho">
+            <DialogHeader data-vid="d1huu7u">
+              <DialogTitle data-vid="9p4g4rk">{t("team-tracking.a14e88fc.dialogtitle")}</DialogTitle>
+              <DialogDescription data-vid="b0bqto5">
                 {target?.title}{t("team-tracking.2f7a85b4")} {target?.assignee ?? t("team-tracking.04225201")}.
               </DialogDescription>
             </DialogHeader>
-            <div className="flex flex-col gap-4">
-              <Field>
-                <FieldLabel htmlFor="rs-person">{t("team-tracking.8062dbb5.fieldlabel")}</FieldLabel>
-                <Select value={pick} onValueChange={setPick}>
-                  <SelectTrigger id="rs-person" className="min-h-11 border-border-strong">
-                    <SelectValue placeholder={t("team-tracking.4f96d175")} />
+            <div data-vid="qqhgr6p" className="flex flex-col gap-4">
+              <Field data-vid="tsarxgs">
+                <FieldLabel data-vid="s6nafx9" htmlFor="rs-person">{t("team-tracking.8062dbb5.fieldlabel")}</FieldLabel>
+                <Select data-vid="2mwv4ys" value={pick} onValueChange={setPick}>
+                  <SelectTrigger data-vid="1577w87" id="rs-person" className="min-h-11 border-border-strong">
+                    <SelectValue data-vid="a1gge9t" placeholder={t("team-tracking.4f96d175")} />
                   </SelectTrigger>
-                  <SelectContent>
-                    {people.map((p) => <SelectItem key={p} value={p}>{p}</SelectItem>)}
+                  <SelectContent data-vid="dsc6wdc">
+                    {people.map((p) => <SelectItem data-vid="2n56ae3" key={p} value={p}>{p}</SelectItem>)}
                   </SelectContent>
                 </Select>
               </Field>
-              <Field>
-                <FieldLabel htmlFor="rs-note">{t("team-tracking.f9b73e1a")}</FieldLabel>
-                <Textarea id="rs-note" value={note} onChange={(e) => setNote(e.target.value)} className="min-h-11" />
+              <Field data-vid="xmsosga">
+                <FieldLabel data-vid="6ll7hvy" htmlFor="rs-note">{t("team-tracking.f9b73e1a")}</FieldLabel>
+                <Textarea data-vid="m7qe6zi" id="rs-note" value={note} onChange={(e) => setNote(e.target.value)} className="min-h-11" />
               </Field>
-              <p className="type-caption text-text-muted">{t("_reason.escritura-no-disponible")}</p>
+              <p data-vid="aoljavb" className="type-caption text-text-muted">{t("_reason.escritura-no-disponible")}</p>
             </div>
-            <DialogFooter>
-              <Button variant="outline" onClick={() => setTarget(null)}>{t("team-tracking.19766ed6")}</Button>
-              <Button disabled>{t("team-tracking.a14e88fc.button")}</Button>
+            <DialogFooter data-vid="dgk69az">
+              <Button data-vid="2f7igqy" variant="outline" onClick={() => setTarget(null)}>{t("team-tracking.19766ed6")}</Button>
+              <Button data-vid="phhzs01" disabled>{t("team-tracking.a14e88fc.button")}</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>

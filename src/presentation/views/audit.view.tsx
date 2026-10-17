@@ -63,26 +63,26 @@ export function AuditView(props: AuditScreenViewModel): React.ReactElement {
     const a = actorOf(e);
     if (a.kind === "system")
       return (
-        <span className="inline-flex min-w-0 items-center gap-2">
-          <Bot className="size-4 shrink-0 text-text-muted" aria-hidden />
-          <Badge variant="outline" className="type-eyebrow">{t("audit.6725e7bb")}</Badge>
+        <span data-vid="yuaps3g" className="inline-flex min-w-0 items-center gap-2">
+          <Bot data-vid="58kh798" className="size-4 shrink-0 text-text-muted" aria-hidden />
+          <Badge data-vid="pj8wi5w" variant="outline" className="type-eyebrow">{t("audit.6725e7bb")}</Badge>
         </span>
       );
-    if (a.kind === "unresolved") return <span className="type-mono-id min-w-0 truncate">{a.name}</span>;
+    if (a.kind === "unresolved") return <span data-vid="f7372py" className="type-mono-id min-w-0 truncate">{a.name}</span>;
     return (
-      <span className="inline-flex min-w-0 items-center gap-2">
-        <UserIcon className="size-4 shrink-0 text-text-muted" aria-hidden />
-        <span className="type-row-title truncate">{a.name}</span>
+      <span data-vid="whs8u5z" className="inline-flex min-w-0 items-center gap-2">
+        <UserIcon data-vid="vctcsv8" className="size-4 shrink-0 text-text-muted" aria-hidden />
+        <span data-vid="p5boipo" className="type-row-title truncate">{a.name}</span>
       </span>
     );
   };
 
   const renderOp = (op: string): React.ReactElement => {
     const o = opInfo(op);
-    if (!o) return <span className="type-mono-id">{op}</span>;
+    if (!o) return <span data-vid="ml7icgf" className="type-mono-id">{op}</span>;
     return (
-      <span className="inline-flex items-center gap-2 type-body whitespace-nowrap">
-        <o.Icon className="size-4 text-text-muted" aria-hidden />
+      <span data-vid="q7f4uwi" className="inline-flex items-center gap-2 type-body whitespace-nowrap">
+        <o.Icon data-vid="6vzhk57" className="size-4 text-text-muted" aria-hidden />
         {o.label}
       </span>
     );
@@ -143,21 +143,21 @@ export function AuditView(props: AuditScreenViewModel): React.ReactElement {
   const eventCount = events.length;
 
   return (
-    <div className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
-      <header className="flex flex-col gap-1">
-        <h1 className="type-page-title">{t("audit.d52b4039")}</h1>
-        <p className="type-meta flex flex-wrap items-center gap-x-2 text-text-muted">
-          <Lock className="size-4" aria-hidden />
-          <span>{t("audit.5a269081")}</span>
-          <span className="tabular-nums">· {eventCount} {t("audit.862417b9")}</span>
+    <div data-vid="xq3tet5" className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
+      <header data-vid="s25woa4" className="flex flex-col gap-1">
+        <h1 data-vid="3i39srw" className="type-page-title">{t("audit.d52b4039")}</h1>
+        <p data-vid="ir1zhbw" className="type-meta flex flex-wrap items-center gap-x-2 text-text-muted">
+          <Lock data-vid="0bzfasg" className="size-4" aria-hidden />
+          <span data-vid="cvjxi31">{t("audit.5a269081")}</span>
+          <span data-vid="4m5b803" className="tabular-nums">· {eventCount} {t("audit.862417b9")}</span>
         </p>
       </header>
 
-      <section aria-label={t("audit.546ebb8e.section-attr-aria-label")} className="flex flex-col gap-(--component-gap)">
-        <div className="flex flex-wrap items-center gap-(--component-gap)">
-          <div className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-control border border-border-strong bg-card px-3 focus-within:ring-2 focus-within:ring-ring sm:max-w-sm md:min-h-9">
-            <Search className="size-4 shrink-0 text-text-muted" aria-hidden />
-            <input
+      <section data-vid="ta1udm7" aria-label={t("audit.546ebb8e.section-attr-aria-label")} className="flex flex-col gap-(--component-gap)">
+        <div data-vid="1v7lm7o" className="flex flex-wrap items-center gap-(--component-gap)">
+          <div data-vid="7jy01ep" className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-control border border-border-strong bg-card px-3 focus-within:ring-2 focus-within:ring-ring sm:max-w-sm md:min-h-9">
+            <Search data-vid="0e22cut" className="size-4 shrink-0 text-text-muted" aria-hidden />
+            <input data-vid="e54l0p4"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={t("audit.c0c22927")}
@@ -165,117 +165,117 @@ export function AuditView(props: AuditScreenViewModel): React.ReactElement {
               className="type-body min-w-0 flex-1 border-0 bg-transparent outline-none placeholder:text-text-subtle"
             />
           </div>
-          <Button
+          <Button data-vid="s9vkwk3"
             type="button"
             variant="outline"
             className="min-h-11 border-border-strong md:hidden"
             onClick={() => setFiltersOpen((v) => !v)}
             aria-expanded={filtersOpen}
           >
-            <SlidersHorizontal className="size-4" aria-hidden />
+            <SlidersHorizontal data-vid="adq53k2" className="size-4" aria-hidden />
             {t("audit.546ebb8e.button")}{activeCount ? ` (${activeCount})` : ""}
           </Button>
-          <div className="ml-auto flex flex-wrap items-center gap-3">
-            {activeCount > 0 && <span className="type-caption text-text-muted">{t("audit.13a30363")}</span>}
-            <Button type="button" variant="outline" className="min-h-11 border-border-strong md:min-h-9" disabled>
-              <Download className="size-4" aria-hidden />
+          <div data-vid="ydry07r" className="ml-auto flex flex-wrap items-center gap-3">
+            {activeCount > 0 && <span data-vid="q2aahfc" className="type-caption text-text-muted">{t("audit.13a30363")}</span>}
+            <Button data-vid="pogmgnz" type="button" variant="outline" className="min-h-11 border-border-strong md:min-h-9" disabled>
+              <Download data-vid="5dlj9c2" className="size-4" aria-hidden />
               {t("audit.36648955")} {rows.length} {rows.length === 1 ? t("audit.634768da") : t("audit.bc51e9e6")}
             </Button>
-            <span className="type-caption text-text-muted">{t("_reason.escritura-no-disponible")}</span>
+            <span data-vid="rjqtnrf" className="type-caption text-text-muted">{t("_reason.escritura-no-disponible")}</span>
           </div>
         </div>
 
-        <div className={cn(filtersOpen ? "grid" : "hidden", "gap-3 md:grid md:grid-cols-[repeat(auto-fill,minmax(11rem,1fr))]")}>
-          <div className="flex min-w-0 flex-col gap-1">
-            <Label className="type-eyebrow">{t("audit.449995c4.label")}</Label>
-            <Select value={actor} onValueChange={setActor}>
-              <SelectTrigger className="min-h-11 w-full border-border-strong md:min-h-9"><SelectValue /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">{t("audit.0e5b289d")}</SelectItem>
+        <div data-vid="6cvqlea" className={cn(filtersOpen ? "grid" : "hidden", "gap-3 md:grid md:grid-cols-[repeat(auto-fill,minmax(11rem,1fr))]")}>
+          <div data-vid="41xyztg" className="flex min-w-0 flex-col gap-1">
+            <Label data-vid="29yk8qp" className="type-eyebrow">{t("audit.449995c4.label")}</Label>
+            <Select data-vid="5iyjvem" value={actor} onValueChange={setActor}>
+              <SelectTrigger data-vid="xgfihrc" className="min-h-11 w-full border-border-strong md:min-h-9"><SelectValue data-vid="718ohho" /></SelectTrigger>
+              <SelectContent data-vid="w81rvnl">
+                <SelectItem data-vid="uqanhg6" value="all">{t("audit.0e5b289d")}</SelectItem>
                 {actors.map((a) => (
-                  <SelectItem key={a} value={a}>{a}</SelectItem>
+                  <SelectItem data-vid="w8l8ie8" key={a} value={a}>{a}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
           </div>
-          <div className="flex min-w-0 flex-col gap-1">
-            <Label className="type-eyebrow">{t("audit.16d1c905")}</Label>
-            <Select value={tableName} onValueChange={setTableName}>
-              <SelectTrigger className="min-h-11 w-full border-border-strong md:min-h-9"><SelectValue /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">{t("audit.2c3d84ee")}</SelectItem>
+          <div data-vid="79n9twv" className="flex min-w-0 flex-col gap-1">
+            <Label data-vid="jfqrys5" className="type-eyebrow">{t("audit.16d1c905")}</Label>
+            <Select data-vid="ccq20hl" value={tableName} onValueChange={setTableName}>
+              <SelectTrigger data-vid="0rxzcfb" className="min-h-11 w-full border-border-strong md:min-h-9"><SelectValue data-vid="gh3tx07" /></SelectTrigger>
+              <SelectContent data-vid="75ojxky">
+                <SelectItem data-vid="xbm1x06" value="all">{t("audit.2c3d84ee")}</SelectItem>
                 {tables.map((tn) => (
-                  <SelectItem key={tn} value={tn}>{tn}</SelectItem>
+                  <SelectItem data-vid="tznbojj" key={tn} value={tn}>{tn}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
           </div>
-          <div className="flex min-w-0 flex-col gap-1">
-            <Label htmlFor="audit-from" className="type-eyebrow">{t("audit.21819769")}</Label>
-            <Input id="audit-from" type="date" value={from} onChange={(e) => setFrom(e.target.value)} className="min-h-11 border-border-strong md:min-h-9" />
+          <div data-vid="13mf45z" className="flex min-w-0 flex-col gap-1">
+            <Label data-vid="5ffahyf" htmlFor="audit-from" className="type-eyebrow">{t("audit.21819769")}</Label>
+            <Input data-vid="tfdqlpl" id="audit-from" type="date" value={from} onChange={(e) => setFrom(e.target.value)} className="min-h-11 border-border-strong md:min-h-9" />
           </div>
-          <div className="flex min-w-0 flex-col gap-1">
-            <Label htmlFor="audit-to" className="type-eyebrow">{t("audit.f4b06ef6")}</Label>
-            <Input id="audit-to" type="date" value={to} onChange={(e) => setTo(e.target.value)} className="min-h-11 border-border-strong md:min-h-9" />
+          <div data-vid="m9m1fjj" className="flex min-w-0 flex-col gap-1">
+            <Label data-vid="fkfrdhs" htmlFor="audit-to" className="type-eyebrow">{t("audit.f4b06ef6")}</Label>
+            <Input data-vid="4euj6bl" id="audit-to" type="date" value={to} onChange={(e) => setTo(e.target.value)} className="min-h-11 border-border-strong md:min-h-9" />
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-          <span className="type-eyebrow text-text-muted">{t("audit.f148224a.span")}</span>
-          <ToggleGroup
+        <div data-vid="bzyzwji" className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <span data-vid="u1zhr1o" className="type-eyebrow text-text-muted">{t("audit.f148224a.span")}</span>
+          <ToggleGroup data-vid="a9gyaeu"
             type="single"
             variant="outline"
             value={moduleFacet}
             onValueChange={(v) => setModuleFacet(v || "all")}
             className="flex-wrap justify-start"
           >
-            <ToggleGroupItem value="all" className="min-h-11 border-border-strong px-3 md:min-h-9">
-              {t("audit.a52ace42")} <span className="ml-2 tabular-nums">{eventCount}</span>
+            <ToggleGroupItem data-vid="1pq7z1c" value="all" className="min-h-11 border-border-strong px-3 md:min-h-9">
+              {t("audit.a52ace42")} <span data-vid="lbw92b2" className="ml-2 tabular-nums">{eventCount}</span>
             </ToggleGroupItem>
           </ToggleGroup>
           {activeCount > 0 && (
             <>
-              <span className="type-caption tabular-nums text-text-muted">{rows.length} {t("audit.28391d3b")} {eventCount}</span>
-              <Button type="button" variant="ghost" size="sm" onClick={clear}>{t("audit.7179ea00")}</Button>
+              <span data-vid="4ir8wyn" className="type-caption tabular-nums text-text-muted">{rows.length} {t("audit.28391d3b")} {eventCount}</span>
+              <Button data-vid="kwhswh8" type="button" variant="ghost" size="sm" onClick={clear}>{t("audit.7179ea00")}</Button>
             </>
           )}
         </div>
       </section>
 
-      <section aria-label={t("audit.e2c8d39b")}>
+      <section data-vid="78lu8jm" aria-label={t("audit.e2c8d39b")}>
         {eventCount === 0 ? (
-          <EmptyState title={t("audit.7f2e6357")} description={t("audit.a87dcb85")} />
+          <EmptyState data-vid="vqo9fa2" title={t("audit.7f2e6357")} description={t("audit.a87dcb85")} />
         ) : rows.length === 0 ? (
-          <EmptyState filtered title={t("audit.046aea06")} description={t("audit.10a0a74f")} onAction={clear} />
+          <EmptyState data-vid="ovutuj5" filtered title={t("audit.046aea06")} description={t("audit.10a0a74f")} onAction={clear} />
         ) : (
           <>
-            <div className="hidden overflow-x-auto rounded-card border border-border bg-card md:block">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="type-eyebrow">{t("audit.cf9c7aa2.table-column")}</TableHead>
-                    <TableHead className="type-eyebrow">{t("audit.449995c4.table-column")}</TableHead>
-                    <TableHead className="type-eyebrow">{t("audit.64cff131.table-column")}</TableHead>
-                    <TableHead className="type-eyebrow">{t("audit.eb7a842f.table-column")}</TableHead>
-                    <TableHead className="type-eyebrow">{t("audit.f148224a.table-column")}</TableHead>
+            <div data-vid="xlcz2e9" className="hidden overflow-x-auto rounded-card border border-border bg-card md:block">
+              <Table data-vid="33bylav">
+                <TableHeader data-vid="6xxgd80">
+                  <TableRow data-vid="wsw3m3p">
+                    <TableHead data-vid="9bmy8wo" className="type-eyebrow">{t("audit.cf9c7aa2.table-column")}</TableHead>
+                    <TableHead data-vid="cdw43so" className="type-eyebrow">{t("audit.449995c4.table-column")}</TableHead>
+                    <TableHead data-vid="pit88vf" className="type-eyebrow">{t("audit.64cff131.table-column")}</TableHead>
+                    <TableHead data-vid="w3rnk9c" className="type-eyebrow">{t("audit.eb7a842f.table-column")}</TableHead>
+                    <TableHead data-vid="jmiluyu" className="type-eyebrow">{t("audit.f148224a.table-column")}</TableHead>
                   </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody data-vid="95f63ep">
                   {groups.map((g) => (
-                    <Fragment key={g.day}>
-                      <TableRow className="bg-surface-sunken hover:bg-surface-sunken">
-                        <TableCell colSpan={5} className="type-eyebrow text-text-muted">
+                    <Fragment data-vid="j157r4a" key={g.day}>
+                      <TableRow data-vid="1ozshi0" className="bg-surface-sunken hover:bg-surface-sunken">
+                        <TableCell data-vid="esyf49i" colSpan={5} className="type-eyebrow text-text-muted">
                           {formatWeekdayDate(g.day)}
                         </TableCell>
                       </TableRow>
                       {g.rows.map((e) => (
-                        <TableRow
+                        <TableRow data-vid="fghssxt"
                           key={e.id}
                           onClick={() => setSelected(e)}
                           className="cursor-pointer transition-colors hover:bg-muted"
                         >
-                          <TableCell className="max-w-64">
-                            <button
+                          <TableCell data-vid="3ub9phe" className="max-w-64">
+                            <button data-vid="nb3bk8x"
                               type="button"
                               onClick={() => setSelected(e)}
                               className="type-mono-id whitespace-nowrap rounded-sm text-left focus-visible:ring-2 focus-visible:ring-ring"
@@ -283,16 +283,16 @@ export function AuditView(props: AuditScreenViewModel): React.ReactElement {
                               {formatTime(e.createdAt)}
                             </button>
                           </TableCell>
-                          <TableCell className="max-w-64">{renderActor(e)}</TableCell>
-                          <TableCell className="max-w-64">{renderOp(e.operation)}</TableCell>
-                          <TableCell className="max-w-64">
-                            <span className="type-mono-id block truncate">
+                          <TableCell data-vid="hxpbh4w" className="max-w-64">{renderActor(e)}</TableCell>
+                          <TableCell data-vid="w59kmnb" className="max-w-64">{renderOp(e.operation)}</TableCell>
+                          <TableCell data-vid="zm0dv6b" className="max-w-64">
+                            <span data-vid="vfin7z1" className="type-mono-id block truncate">
                               {e.tableName}
                               {e.rowPk ? ` · ${e.rowPk}` : ""}
                             </span>
                           </TableCell>
-                          <TableCell className="max-w-64">
-                            <span className="type-meta block truncate text-text-muted">—</span>
+                          <TableCell data-vid="z3kihea" className="max-w-64">
+                            <span data-vid="x0h7a4p" className="type-meta block truncate text-text-muted">—</span>
                           </TableCell>
                         </TableRow>
                       ))}
@@ -302,25 +302,25 @@ export function AuditView(props: AuditScreenViewModel): React.ReactElement {
               </Table>
             </div>
 
-            <div className="flex flex-col gap-(--component-gap) md:hidden">
+            <div data-vid="kfjnc10" className="flex flex-col gap-(--component-gap) md:hidden">
               {groups.map((g) => (
-                <div key={g.day} className="flex flex-col">
-                  <h2 className="type-eyebrow border-b border-border py-2 text-text-muted">{formatWeekdayDate(g.day)}</h2>
-                  <ul>
+                <div data-vid="1dwkx1h" key={g.day} className="flex flex-col">
+                  <h2 data-vid="sd04zwx" className="type-eyebrow border-b border-border py-2 text-text-muted">{formatWeekdayDate(g.day)}</h2>
+                  <ul data-vid="p2upniq">
                     {g.rows.map((e) => (
-                      <li key={e.id} className="border-b border-border">
-                        <button
+                      <li data-vid="cm51kf0" key={e.id} className="border-b border-border">
+                        <button data-vid="mucrkpu"
                           type="button"
                           onClick={() => setSelected(e)}
                           className="flex min-h-14 w-full flex-col gap-1 py-2 text-left focus-visible:ring-2 focus-visible:ring-ring"
                         >
-                          <span className="flex min-w-0 items-center justify-between gap-3">
+                          <span data-vid="4xkf2uk" className="flex min-w-0 items-center justify-between gap-3">
                             {renderActor(e)}
                             {renderOp(e.operation)}
                           </span>
-                          <span className="flex min-w-0 items-center justify-between gap-3">
-                            <span className="type-mono-id min-w-0 truncate">{e.tableName}{e.rowPk ? ` · ${e.rowPk}` : ""}</span>
-                            <span className="type-mono-id whitespace-nowrap text-text-muted">{formatTime(e.createdAt)}</span>
+                          <span data-vid="uuspkkm" className="flex min-w-0 items-center justify-between gap-3">
+                            <span data-vid="pe2vb3a" className="type-mono-id min-w-0 truncate">{e.tableName}{e.rowPk ? ` · ${e.rowPk}` : ""}</span>
+                            <span data-vid="k1r0b5z" className="type-mono-id whitespace-nowrap text-text-muted">{formatTime(e.createdAt)}</span>
                           </span>
                         </button>
                       </li>
@@ -333,47 +333,47 @@ export function AuditView(props: AuditScreenViewModel): React.ReactElement {
         )}
       </section>
 
-      <Dialog open={!!selected} onOpenChange={(o) => !o && setSelected(null)}>
-        <DialogContent className="max-h-[85%] overflow-y-auto sm:max-w-xl">
+      <Dialog data-vid="q9zsxzz" open={!!selected} onOpenChange={(o) => !o && setSelected(null)}>
+        <DialogContent data-vid="rkzpkq4" className="max-h-[85%] overflow-y-auto sm:max-w-xl">
           {selected && (
             <>
-              <DialogHeader>
-                <DialogTitle className="type-card-title">
+              <DialogHeader data-vid="6pmu7q5">
+                <DialogTitle data-vid="k4m3len" className="type-card-title">
                   {opInfo(selected.operation)?.label ?? selected.operation} {selected.tableName}
                 </DialogTitle>
-                <DialogDescription className="type-meta">{t("audit.b61f8ff5")}</DialogDescription>
+                <DialogDescription data-vid="k3ed8vv" className="type-meta">{t("audit.b61f8ff5")}</DialogDescription>
               </DialogHeader>
-              <dl className="grid grid-cols-[repeat(auto-fit,minmax(9rem,1fr))] gap-x-(--component-gap) gap-y-3">
-                <div className="min-w-0">
-                  <dt className="type-eyebrow text-text-muted">{t("audit.449995c4.dt")}</dt>
-                  <dd className="mt-1">{renderActor(selected)}</dd>
+              <dl data-vid="yt3tgvz" className="grid grid-cols-[repeat(auto-fit,minmax(9rem,1fr))] gap-x-(--component-gap) gap-y-3">
+                <div data-vid="ij1lgax" className="min-w-0">
+                  <dt data-vid="lj1qbc3" className="type-eyebrow text-text-muted">{t("audit.449995c4.dt")}</dt>
+                  <dd data-vid="pah5kkb" className="mt-1">{renderActor(selected)}</dd>
                 </div>
-                <div className="min-w-0">
-                  <dt className="type-eyebrow text-text-muted">{t("audit.64cff131.dt")}</dt>
-                  <dd className="mt-1">{renderOp(selected.operation)}</dd>
+                <div data-vid="kx9ggru" className="min-w-0">
+                  <dt data-vid="ndu2sv6" className="type-eyebrow text-text-muted">{t("audit.64cff131.dt")}</dt>
+                  <dd data-vid="rxtcuq5" className="mt-1">{renderOp(selected.operation)}</dd>
                 </div>
-                <div className="min-w-0">
-                  <dt className="type-eyebrow text-text-muted">{t("audit.eb7a842f.dt")}</dt>
-                  <dd className="type-mono-id mt-1 break-all">{selected.tableName}{selected.rowPk ? ` · ${selected.rowPk}` : ""}</dd>
+                <div data-vid="vypr8t3" className="min-w-0">
+                  <dt data-vid="ltwj190" className="type-eyebrow text-text-muted">{t("audit.eb7a842f.dt")}</dt>
+                  <dd data-vid="iv8cys5" className="type-mono-id mt-1 break-all">{selected.tableName}{selected.rowPk ? ` · ${selected.rowPk}` : ""}</dd>
                 </div>
-                <div className="min-w-0">
-                  <dt className="type-eyebrow text-text-muted">{t("audit.cf9c7aa2.dt")}</dt>
-                  <dd className="type-mono-id mt-1">{formatDateTime(selected.createdAt)}</dd>
+                <div data-vid="8eikx11" className="min-w-0">
+                  <dt data-vid="im7us7m" className="type-eyebrow text-text-muted">{t("audit.cf9c7aa2.dt")}</dt>
+                  <dd data-vid="uawr2rg" className="type-mono-id mt-1">{formatDateTime(selected.createdAt)}</dd>
                 </div>
               </dl>
-              <div className="overflow-x-auto rounded-card border border-border">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="type-eyebrow">{t("audit.f45fc1df")}</TableHead>
-                      <TableHead className="type-eyebrow">{t("audit.9bb72500")}</TableHead>
-                      <TableHead className="type-eyebrow">{t("audit.7b68fe55")}</TableHead>
+              <div data-vid="orug1hd" className="overflow-x-auto rounded-card border border-border">
+                <Table data-vid="kq4qvsi">
+                  <TableHeader data-vid="f4v8xz1">
+                    <TableRow data-vid="p7af5a8">
+                      <TableHead data-vid="stvcsvl" className="type-eyebrow">{t("audit.f45fc1df")}</TableHead>
+                      <TableHead data-vid="1yi64aj" className="type-eyebrow">{t("audit.9bb72500")}</TableHead>
+                      <TableHead data-vid="xdgv839" className="type-eyebrow">{t("audit.7b68fe55")}</TableHead>
                     </TableRow>
                   </TableHeader>
-                  <TableBody>
+                  <TableBody data-vid="38gj6dy">
                     {diffKeys.length === 0 && (
-                      <TableRow>
-                        <TableCell colSpan={3} className="type-meta text-text-muted">{t("audit.8ef67cb6")}</TableCell>
+                      <TableRow data-vid="hlrwvhr">
+                        <TableCell data-vid="4qrsh3x" colSpan={3} className="type-meta text-text-muted">{t("audit.8ef67cb6")}</TableCell>
                       </TableRow>
                     )}
                     {diffKeys.map((k) => {
@@ -381,19 +381,19 @@ export function AuditView(props: AuditScreenViewModel): React.ReactElement {
                       const after = readKey(selected.newData, k);
                       const changed = show(before) !== show(after);
                       return (
-                        <TableRow key={k}>
-                          <TableCell className="type-mono-id">{k}</TableCell>
-                          <TableCell className={cn("type-mono-id", changed && "line-through")}>{show(before)}</TableCell>
-                          <TableCell className={cn("type-mono-id", changed && "bg-status-info-bg text-status-info-ink")}>{show(after)}</TableCell>
+                        <TableRow data-vid="4poc1g4" key={k}>
+                          <TableCell data-vid="tors9ui" className="type-mono-id">{k}</TableCell>
+                          <TableCell data-vid="uz4t7g3" className={cn("type-mono-id", changed && "line-through")}>{show(before)}</TableCell>
+                          <TableCell data-vid="qx21w82" className={cn("type-mono-id", changed && "bg-status-info-bg text-status-info-ink")}>{show(after)}</TableCell>
                         </TableRow>
                       );
                     })}
                   </TableBody>
                 </Table>
               </div>
-              <DialogFooter>
-                <DialogClose asChild>
-                  <Button type="button" variant="outline" className="min-h-11 border-border-strong">{t("audit.7d9eb7ac")}</Button>
+              <DialogFooter data-vid="0r1yz9i">
+                <DialogClose data-vid="he2mwes" asChild>
+                  <Button data-vid="3vdvba3" type="button" variant="outline" className="min-h-11 border-border-strong">{t("audit.7d9eb7ac")}</Button>
                 </DialogClose>
               </DialogFooter>
             </>

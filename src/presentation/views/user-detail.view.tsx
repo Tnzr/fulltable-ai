@@ -63,8 +63,8 @@ export function UserDetailView(props: UserDetailScreenViewModel): React.ReactEle
 
   if (!member) {
     return (
-      <div className="px-(--container-padding) py-(--section-gap)">
-        <EmptyState
+      <div data-vid="swrbfjj" className="px-(--container-padding) py-(--section-gap)">
+        <EmptyState data-vid="18r2bj7"
           title={t("user-detail.4902d47f")}
           description={t("user-detail.89d4c21b")}
           actionLabel={t("user-detail.6b0cc904")}
@@ -98,107 +98,107 @@ export function UserDetailView(props: UserDetailScreenViewModel): React.ReactEle
   void fields;
 
   return (
-    <div className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
-      <header className="flex flex-col gap-(--component-gap)">
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink
+    <div data-vid="d6jum03" className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
+      <header data-vid="b8lrya5" className="flex flex-col gap-(--component-gap)">
+        <Breadcrumb data-vid="ljnovcs">
+          <BreadcrumbList data-vid="l63xglj">
+            <BreadcrumbItem data-vid="7evg1d2">
+              <BreadcrumbLink data-vid="0xau2r0"
                 className="inline-flex min-h-6 items-center"
                 onClick={() => navigate(routes.users())}
               >
                 {t("user-detail.6b0cc904")}
               </BreadcrumbLink>
             </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem><BreadcrumbPage>{fullName}</BreadcrumbPage></BreadcrumbItem>
+            <BreadcrumbSeparator data-vid="ttu6ktl" />
+            <BreadcrumbItem data-vid="8fu32kv"><BreadcrumbPage data-vid="4exws4v">{fullName}</BreadcrumbPage></BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-          <Avatar className="size-16">
-            <AvatarFallback>{initials}</AvatarFallback>
+        <div data-vid="q2065u3" className="flex flex-col gap-4 sm:flex-row sm:items-center">
+          <Avatar data-vid="kjta540" className="size-16">
+            <AvatarFallback data-vid="j6l0lf7">{initials}</AvatarFallback>
           </Avatar>
-          <div className="min-w-0 flex-1">
-            <div className="flex flex-wrap items-center gap-3">
-              <h1 className="type-page-title [overflow-wrap:anywhere]">{fullName}</h1>
-              <Badge variant="outline" className="rounded-badge border-border-strong">
+          <div data-vid="das6oz5" className="min-w-0 flex-1">
+            <div data-vid="rl8m3bo" className="flex flex-wrap items-center gap-3">
+              <h1 data-vid="beqrsxz" className="type-page-title [overflow-wrap:anywhere]">{fullName}</h1>
+              <Badge data-vid="n4salnn" variant="outline" className="rounded-badge border-border-strong">
                 {t("user-detail.784a7208")}
               </Badge>
             </div>
-            <p className="type-body text-text-body [overflow-wrap:anywhere]">{member.email}</p>
-            <p className="type-caption text-text-muted">
-              {t("user-detail.d8c5670a")} <span className="font-mono tabular-nums">{formatDateTime(member.updatedAt)}</span>
-              {" · "}{t("user-detail.9321bcc0")} <span className="font-mono tabular-nums">{formatDateTime(member.createdAt)}</span>
+            <p data-vid="x4jvjxx" className="type-body text-text-body [overflow-wrap:anywhere]">{member.email}</p>
+            <p data-vid="3rs4b84" className="type-caption text-text-muted">
+              {t("user-detail.d8c5670a")} <span data-vid="mhzmg1c" className="font-mono tabular-nums">{formatDateTime(member.updatedAt)}</span>
+              {" · "}{t("user-detail.9321bcc0")} <span data-vid="bg746q2" className="font-mono tabular-nums">{formatDateTime(member.createdAt)}</span>
             </p>
           </div>
         </div>
       </header>
 
-      <Tabs defaultValue="profile" className="gap-(--section-gap)">
-        <TabsList variant="line">
-          <TabsTrigger value="profile" className="min-h-11">{t("user-detail.d696a35b.tabstrigger")}</TabsTrigger>
-          <TabsTrigger value="activity" className="min-h-11">{t("user-detail.38da1505")}</TabsTrigger>
+      <Tabs data-vid="0v2z75c" defaultValue="profile" className="gap-(--section-gap)">
+        <TabsList data-vid="3bnghbw" variant="line">
+          <TabsTrigger data-vid="33zsl25" value="profile" className="min-h-11">{t("user-detail.d696a35b.tabstrigger")}</TabsTrigger>
+          <TabsTrigger data-vid="tfs8efp" value="activity" className="min-h-11">{t("user-detail.38da1505")}</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="profile">
-          <div className="grid grid-cols-1 gap-(--section-gap) lg:grid-cols-3">
-            <section className="min-w-0 rounded-card border border-border bg-card p-(--card-padding) lg:col-span-2">
-              <h2 className="type-section mb-(--component-gap)">{t("user-detail.d696a35b.h2")}</h2>
-              <form onSubmit={form.handleSubmit(onSave)} noValidate>
-                <FieldGroup>
-                  <Controller
+        <TabsContent data-vid="5ou520e" value="profile">
+          <div data-vid="mpz81b1" className="grid grid-cols-1 gap-(--section-gap) lg:grid-cols-3">
+            <section data-vid="63iywm0" className="min-w-0 rounded-card border border-border bg-card p-(--card-padding) lg:col-span-2">
+              <h2 data-vid="3x0h9jn" className="type-section mb-(--component-gap)">{t("user-detail.d696a35b.h2")}</h2>
+              <form data-vid="2k306hl" onSubmit={form.handleSubmit(onSave)} noValidate>
+                <FieldGroup data-vid="17il5xx">
+                  <Controller data-vid="uqpwa5k"
                     name="firstName"
                     control={form.control}
                     render={({ field, fieldState }) => (
-                      <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor="firstName">{t("user-detail.d696a35b.h2")}</FieldLabel>
-                        <Input {...field} id="firstName" autoComplete="given-name" className="min-h-11 border-border-strong" aria-invalid={fieldState.invalid} />
-                        {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                      <Field data-vid="ciqp08x" data-invalid={fieldState.invalid}>
+                        <FieldLabel data-vid="ulzuvia" htmlFor="firstName">{t("user-detail.d696a35b.h2")}</FieldLabel>
+                        <Input data-vid="q94dirh" {...field} id="firstName" autoComplete="given-name" className="min-h-11 border-border-strong" aria-invalid={fieldState.invalid} />
+                        {fieldState.invalid && <FieldError data-vid="62vcw9s" errors={[fieldState.error]} />}
                       </Field>
                     )}
                   />
-                  <Controller
+                  <Controller data-vid="1f3do4v"
                     name="lastName"
                     control={form.control}
                     render={({ field, fieldState }) => (
-                      <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor="lastName">{t("user-detail.d696a35b.h2")}</FieldLabel>
-                        <Input {...field} id="lastName" autoComplete="family-name" className="min-h-11 border-border-strong" aria-invalid={fieldState.invalid} />
-                        {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                      <Field data-vid="oc6z1tb" data-invalid={fieldState.invalid}>
+                        <FieldLabel data-vid="7kgae8i" htmlFor="lastName">{t("user-detail.d696a35b.h2")}</FieldLabel>
+                        <Input data-vid="ranw8ik" {...field} id="lastName" autoComplete="family-name" className="min-h-11 border-border-strong" aria-invalid={fieldState.invalid} />
+                        {fieldState.invalid && <FieldError data-vid="yvdig8g" errors={[fieldState.error]} />}
                       </Field>
                     )}
                   />
-                  <Controller
+                  <Controller data-vid="4bp366v"
                     name="email"
                     control={form.control}
                     render={({ field, fieldState }) => (
-                      <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor="email">{t("user-detail.d696a35b.h2")}</FieldLabel>
-                        <Input {...field} id="email" autoComplete="email" className="min-h-11 border-border-strong" aria-invalid={fieldState.invalid} />
-                        <FieldDescription>{t("user-detail.6fcdac7c")}</FieldDescription>
-                        {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                      <Field data-vid="zsxr3wf" data-invalid={fieldState.invalid}>
+                        <FieldLabel data-vid="dog9ymp" htmlFor="email">{t("user-detail.d696a35b.h2")}</FieldLabel>
+                        <Input data-vid="o1cyb11" {...field} id="email" autoComplete="email" className="min-h-11 border-border-strong" aria-invalid={fieldState.invalid} />
+                        <FieldDescription data-vid="q8mz47c">{t("user-detail.6fcdac7c")}</FieldDescription>
+                        {fieldState.invalid && <FieldError data-vid="77r23db" errors={[fieldState.error]} />}
                       </Field>
                     )}
                   />
-                  <Controller
+                  <Controller data-vid="886qyn1"
                     name="phone"
                     control={form.control}
                     render={({ field, fieldState }) => (
-                      <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor="phone">{t("user-detail.d696a35b.h2")}</FieldLabel>
-                        <Input {...field} id="phone" autoComplete="tel" className="min-h-11 border-border-strong" aria-invalid={fieldState.invalid} placeholder={t("user-detail.f7164fe3")} />
-                        {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                      <Field data-vid="m4e2i1c" data-invalid={fieldState.invalid}>
+                        <FieldLabel data-vid="e956tfe" htmlFor="phone">{t("user-detail.d696a35b.h2")}</FieldLabel>
+                        <Input data-vid="3k42j7n" {...field} id="phone" autoComplete="tel" className="min-h-11 border-border-strong" aria-invalid={fieldState.invalid} placeholder={t("user-detail.f7164fe3")} />
+                        {fieldState.invalid && <FieldError data-vid="0cdbla9" errors={[fieldState.error]} />}
                       </Field>
                     )}
                   />
-                  <Field>
-                    <FieldLabel>{t("user-detail.14736a2e.fieldlabel")}</FieldLabel>
-                    <p className="type-body">—</p>
-                    <FieldDescription>{t("user-detail.da35d016")}</FieldDescription>
+                  <Field data-vid="rrn0cf8">
+                    <FieldLabel data-vid="sjs4h5z">{t("user-detail.14736a2e.fieldlabel")}</FieldLabel>
+                    <p data-vid="vizltja" className="type-body">—</p>
+                    <FieldDescription data-vid="52nit2l">{t("user-detail.da35d016")}</FieldDescription>
                   </Field>
                 </FieldGroup>
-                <div className="mt-(--section-gap) flex justify-end">
-                  <Button
+                <div data-vid="w5g1cd4" className="mt-(--section-gap) flex justify-end">
+                  <Button data-vid="7khmzxk"
                     type="submit"
                     className="min-h-11 max-md:w-full"
                     disabled={!available || !form.formState.isDirty || form.formState.isSubmitting}
@@ -209,38 +209,38 @@ export function UserDetailView(props: UserDetailScreenViewModel): React.ReactEle
               </form>
             </section>
 
-            <section className="min-w-0 self-start rounded-card border border-border bg-card p-(--card-padding)">
-              <h2 className="type-section mb-(--component-gap)">{t("user-detail.9eb9d46a")}</h2>
-              <p className="type-meta mb-(--component-gap) text-text-muted">
+            <section data-vid="id12lok" className="min-w-0 self-start rounded-card border border-border bg-card p-(--card-padding)">
+              <h2 data-vid="usib4yv" className="type-section mb-(--component-gap)">{t("user-detail.9eb9d46a")}</h2>
+              <p data-vid="2xojgvi" className="type-meta mb-(--component-gap) text-text-muted">
                 {t("user-detail.b0c7c85e")} {member.firstName}.
               </p>
             </section>
           </div>
         </TabsContent>
 
-        <TabsContent value="activity">
-          <section className="rounded-card border border-border bg-card p-(--card-padding)">
-            <div className="mb-(--component-gap) flex flex-wrap items-center justify-between gap-3">
-              <h2 className="type-section">{t("user-detail.8a23d134")}</h2>
-              <Button variant="ghost" className="min-h-11" onClick={() => navigate(routes.audit())}>
-                {t("user-detail.f540c7dc")} <ArrowRight className="size-4" />
+        <TabsContent data-vid="z6cxnzc" value="activity">
+          <section data-vid="7bl8x9a" className="rounded-card border border-border bg-card p-(--card-padding)">
+            <div data-vid="tlu0hft" className="mb-(--component-gap) flex flex-wrap items-center justify-between gap-3">
+              <h2 data-vid="ctb5zsh" className="type-section">{t("user-detail.8a23d134")}</h2>
+              <Button data-vid="iv2ppt7" variant="ghost" className="min-h-11" onClick={() => navigate(routes.audit())}>
+                {t("user-detail.f540c7dc")} <ArrowRight data-vid="pbnbnqi" className="size-4" />
               </Button>
             </div>
             {activity.length === 0 ? (
-              <EmptyState
-                icon={<History className="size-5" />}
+              <EmptyState data-vid="zukzcyv"
+                icon={<History data-vid="6c9gev1" className="size-5" />}
                 title={t("user-detail.fcfa3087")}
                 description={t("user-detail.f2906fb9")}
               />
             ) : (
-              <ol className="flex flex-col">
+              <ol data-vid="9bwjyjz" className="flex flex-col">
                 {activity.map((e, i) => (
-                  <li
+                  <li data-vid="9pqppjb"
                     key={e.id ?? i}
                     className="grid grid-cols-[minmax(0,1fr)] gap-1 border-t border-border py-3 first:border-t-0 sm:grid-cols-[minmax(0,12rem)_minmax(0,1fr)]"
                   >
-                    <span className="type-mono-id tabular-nums text-text-muted">{formatDateTime(e.createdAt)}</span>
-                    <span className="type-body truncate">{e.operation} · {e.tableName}</span>
+                    <span data-vid="atfkdad" className="type-mono-id tabular-nums text-text-muted">{formatDateTime(e.createdAt)}</span>
+                    <span data-vid="81qpvn7" className="type-body truncate">{e.operation} · {e.tableName}</span>
                   </li>
                 ))}
               </ol>
@@ -249,14 +249,14 @@ export function UserDetailView(props: UserDetailScreenViewModel): React.ReactEle
         </TabsContent>
       </Tabs>
 
-      <Dialog open={dialog === "remove"} onOpenChange={(o) => !o && close()}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{t("user-detail.c3812fc4")} {fullName} {t("user-detail.73faada0")}</DialogTitle>
-            <DialogDescription>{t("user-detail.0ec84506")}</DialogDescription>
+      <Dialog data-vid="lziggxw" open={dialog === "remove"} onOpenChange={(o) => !o && close()}>
+        <DialogContent data-vid="tls4wzf">
+          <DialogHeader data-vid="ibwjj15">
+            <DialogTitle data-vid="4yhyau3">{t("user-detail.c3812fc4")} {fullName} {t("user-detail.73faada0")}</DialogTitle>
+            <DialogDescription data-vid="duqq4x0">{t("user-detail.0ec84506")}</DialogDescription>
           </DialogHeader>
-          <DialogFooter>
-            <Button variant="outline" className="min-h-11" onClick={close}>{t("user-detail.19766ed6")}</Button>
+          <DialogFooter data-vid="uf6t8cw">
+            <Button data-vid="bn2p4z1" variant="outline" className="min-h-11" onClick={close}>{t("user-detail.19766ed6")}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

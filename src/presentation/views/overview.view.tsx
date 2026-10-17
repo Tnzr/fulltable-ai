@@ -169,32 +169,32 @@ export function OverviewView(props: OverviewScreenViewModel): React.ReactElement
   const awaiting = props.goals.filter((g) => g.status === "SUBMITTED" || g.status === "PLAN_PROPOSED").slice(0, 3);
 
   return (
-    <MotionConfig reducedMotion="user">
-      <div className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
-        <header className="flex flex-col gap-2">
-          <h1 className="type-page-title text-foreground">{t("overview.d4b1ea57")}</h1>
-          <p className="type-body flex flex-wrap items-center gap-x-3 gap-y-1 text-text-body">
+    <MotionConfig data-vid="3vwnsqq" reducedMotion="user">
+      <div data-vid="bpp4vnf" className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
+        <header data-vid="2tdwno2" className="flex flex-col gap-2">
+          <h1 data-vid="90gdqqt" className="type-page-title text-foreground">{t("overview.d4b1ea57")}</h1>
+          <p data-vid="dxb96t9" className="type-body flex flex-wrap items-center gap-x-3 gap-y-1 text-text-body">
             {activeGoal ? (
               <>
-                <span>{t("overview.6e13e322")} {activeGoal.title}</span>
-                <StatusMark entity="Goal" status={activeGoal.status} size="sm" />
+                <span data-vid="u5hddm1">{t("overview.6e13e322")} {activeGoal.title}</span>
+                <StatusMark data-vid="iwiyb4h" entity="Goal" status={activeGoal.status} size="sm" />
               </>
             ) : (
-              <span>{t("overview.f77b72d2")}</span>
+              <span data-vid="gxw3hx0">{t("overview.f77b72d2")}</span>
             )}
           </p>
         </header>
 
-        <section aria-labelledby="attn" className="flex flex-col gap-(--component-gap)">
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h2 id="attn" className="type-section text-foreground">
-              {taskFilter ? <StatusMark entity="AgentTask" status={taskFilter} size="sm" /> : t("overview.6250e5d7")}
+        <section data-vid="lfiigvf" aria-labelledby="attn" className="flex flex-col gap-(--component-gap)">
+          <div data-vid="jor8sjl" className="flex flex-wrap items-baseline justify-between gap-2">
+            <h2 data-vid="zq1tqhi" id="attn" className="type-section text-foreground">
+              {taskFilter ? <StatusMark data-vid="lh1c739" entity="AgentTask" status={taskFilter} size="sm" /> : t("overview.6250e5d7")}
             </h2>
-            <p className="type-caption text-text-muted tabular-nums">
+            <p data-vid="bc1vhie" className="type-caption text-text-muted tabular-nums">
               {taskFilter ? (
                 <>
                   {t("overview.d604310a")} {shown.length} {t("overview.28391d3b")} {rows.length}{" "}
-                  <button
+                  <button data-vid="4nf05du"
                     type="button"
                     onClick={() => setTaskFilter(null)}
                     className="text-text-link underline focus-visible:ring-2 focus-visible:ring-ring"
@@ -207,50 +207,50 @@ export function OverviewView(props: OverviewScreenViewModel): React.ReactElement
               )}
             </p>
           </div>
-          <div className="rounded-card border border-border bg-card">
+          <div data-vid="49052xa" className="rounded-card border border-border bg-card">
             {shown.length === 0 ? (
-              <EmptyState
+              <EmptyState data-vid="rl8tlii"
                 title={taskFilter ? t("overview.7b7a4864") : t("overview.9db14de2")}
                 description={taskFilter ? t("overview.c67f5841") : t("overview.6a4c36b2")}
                 filtered={!!taskFilter}
                 onAction={() => setTaskFilter(null)}
               />
             ) : (
-              <ul className="flex flex-col">
-                <AnimatePresence initial={false}>
+              <ul data-vid="takuenj" className="flex flex-col">
+                <AnimatePresence data-vid="qoqihvm" initial={false}>
                   {shown.map((r) => (
-                    <motion.li
+                    <motion.li data-vid="trla1st"
                       key={r.key}
                       layout
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.15 }}
                       className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-(--card-padding) py-3 last:border-b-0"
                     >
-                      <div className="flex min-w-0 flex-1 basis-64 flex-col gap-1">
-                        <div className="flex min-w-0 flex-wrap items-center gap-2">
+                      <div data-vid="ngqfrit" className="flex min-w-0 flex-1 basis-64 flex-col gap-1">
+                        <div data-vid="gmqbfoa" className="flex min-w-0 flex-wrap items-center gap-2">
                           {r.partner ? (
-                            <span className="inline-flex max-w-full items-center gap-2 rounded-badge bg-secondary-tone px-2 py-0.5 text-secondary-tone-foreground">
-                              <span className="type-meta truncate">{r.partner}</span>
+                            <span data-vid="xfi1o8h" className="inline-flex max-w-full items-center gap-2 rounded-badge bg-secondary-tone px-2 py-0.5 text-secondary-tone-foreground">
+                              <span data-vid="ti9ue5m" className="type-meta truncate">{r.partner}</span>
                             </span>
                           ) : null}
-                          <Badge variant="outline" className="shrink-0 whitespace-nowrap">{r.tag}</Badge>
+                          <Badge data-vid="5jyqsh1" variant="outline" className="shrink-0 whitespace-nowrap">{r.tag}</Badge>
                           {r.kind === "task" ? (
-                            <Badge variant="outline" className="shrink-0 whitespace-nowrap">{t("overview.923ff8a3")}</Badge>
+                            <Badge data-vid="dh3ie3d" variant="outline" className="shrink-0 whitespace-nowrap">{t("overview.923ff8a3")}</Badge>
                           ) : null}
                         </div>
-                        <p className="type-row-title truncate text-foreground">{r.title}</p>
-                        <p className="type-meta truncate text-text-muted">
+                        <p data-vid="dcq7kqg" className="type-row-title truncate text-foreground">{r.title}</p>
+                        <p data-vid="to26xbc" className="type-meta truncate text-text-muted">
                           {formatDate(r.at)}
                           {r.goalTitle ? ` · ${r.goalTitle}` : ""}
                           {r.limit ? <> {t("overview.1263011f")} {r.limit}</> : null}
                         </p>
                       </div>
                       {r.kind === "approval" ? (
-                        <Button size="sm" variant="outline" className="min-h-11 shrink-0 md:min-h-8" disabled>
+                        <Button data-vid="4j9x6sk" size="sm" variant="outline" className="min-h-11 shrink-0 md:min-h-8" disabled>
                           {t("_reason.escritura-no-disponible")}
                         </Button>
                       ) : (
-                        <Button
+                        <Button data-vid="mgfcg9g"
                           size="sm"
                           variant="outline"
                           className="min-h-11 shrink-0 md:min-h-8"
@@ -265,157 +265,157 @@ export function OverviewView(props: OverviewScreenViewModel): React.ReactElement
               </ul>
             )}
           </div>
-          <p className="type-caption text-text-muted">{t("overview.6a4a06f6")}</p>
+          <p data-vid="17v3dix" className="type-caption text-text-muted">{t("overview.6a4a06f6")}</p>
         </section>
 
-        <section aria-labelledby="wf" className="flex flex-col gap-(--component-gap)">
-          <h2 id="wf" className="type-eyebrow text-text-muted">
+        <section data-vid="0enxqke" aria-labelledby="wf" className="flex flex-col gap-(--component-gap)">
+          <h2 data-vid="nfq7i4p" id="wf" className="type-eyebrow text-text-muted">
             {t("overview.0f9fc1a7")} {derived.taskTotal} {t("overview.a31176b2")}
           </h2>
-          <div className="flex gap-(--component-gap) overflow-x-auto md:flex-wrap">
+          <div data-vid="4tbqohu" className="flex gap-(--component-gap) overflow-x-auto md:flex-wrap">
             {TASK_STATES.map((s) => {
               const on = taskFilter === s;
               return (
-                <button
+                <button data-vid="dy7karf"
                   key={s}
                   type="button"
                   aria-pressed={on}
                   onClick={() => setTaskFilter(on ? null : s)}
                   className={`flex min-h-11 min-w-40 shrink-0 flex-1 flex-col items-start gap-1 rounded-card border bg-card p-(--card-padding) text-left transition-colors focus-visible:ring-2 focus-visible:ring-ring ${on ? "border-primary" : "border-border-strong"}`}
                 >
-                  <StatusMark entity="AgentTask" status={s} size="sm" />
-                  <span className="type-stat tabular-nums text-foreground">{derived.counts[s] ?? 0}</span>
+                  <StatusMark data-vid="r4sbwuy" entity="AgentTask" status={s} size="sm" />
+                  <span data-vid="c1k2q9j" className="type-stat tabular-nums text-foreground">{derived.counts[s] ?? 0}</span>
                 </button>
               );
             })}
           </div>
         </section>
 
-        <section aria-labelledby="ms" className="flex flex-col gap-(--component-gap)">
-          <h2 id="ms" className="type-section text-foreground">{t("overview.d2e0f9d3")}</h2>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(11rem,1fr))] gap-(--component-gap)">
-            <article className="flex flex-col gap-2 rounded-card border border-border bg-card p-(--card-padding)">
-              <p className="type-eyebrow text-text-muted">{t("overview.ff164277")}</p>
-              <p className="type-row-title text-foreground">{t("_reason.escritura-no-disponible")}</p>
-              <p className="type-caption text-text-muted mt-auto">{t("overview.b5bc03cd")}</p>
+        <section data-vid="1xdmww0" aria-labelledby="ms" className="flex flex-col gap-(--component-gap)">
+          <h2 data-vid="kw9ne5i" id="ms" className="type-section text-foreground">{t("overview.d2e0f9d3")}</h2>
+          <div data-vid="5csqisc" className="grid grid-cols-[repeat(auto-fit,minmax(11rem,1fr))] gap-(--component-gap)">
+            <article data-vid="txif48r" className="flex flex-col gap-2 rounded-card border border-border bg-card p-(--card-padding)">
+              <p data-vid="i4h2wdq" className="type-eyebrow text-text-muted">{t("overview.ff164277")}</p>
+              <p data-vid="svqk4nh" className="type-row-title text-foreground">{t("_reason.escritura-no-disponible")}</p>
+              <p data-vid="cg8gb9u" className="type-caption text-text-muted mt-auto">{t("overview.b5bc03cd")}</p>
             </article>
-            <article className="flex flex-col gap-2 rounded-card border border-border bg-card p-(--card-padding)">
-              <p className="type-eyebrow text-text-muted">{t("overview.0aafb9e8")}</p>
-              <Money value={derived.confirmed} measure="confirmed" className="type-stat" />
-              <p className="type-caption text-text-muted mt-auto">{derived.confirmedSeries.length} {t("overview.915884d9")}</p>
+            <article data-vid="ty8fsjx" className="flex flex-col gap-2 rounded-card border border-border bg-card p-(--card-padding)">
+              <p data-vid="skb1c2h" className="type-eyebrow text-text-muted">{t("overview.0aafb9e8")}</p>
+              <Money data-vid="6vf3h15" value={derived.confirmed} measure="confirmed" className="type-stat" />
+              <p data-vid="x57uqaj" className="type-caption text-text-muted mt-auto">{derived.confirmedSeries.length} {t("overview.915884d9")}</p>
             </article>
-            <article className="flex flex-col gap-2 rounded-card border border-border bg-card p-(--card-padding)">
-              <p className="type-eyebrow text-text-muted">{t("overview.8de4e0ea")}</p>
-              <p className="type-row-title text-foreground">{t("overview.37e87849")}</p>
-              <p className="type-caption text-text-muted mt-auto">{t("overview.c88b332a")}</p>
+            <article data-vid="0ngbi9s" className="flex flex-col gap-2 rounded-card border border-border bg-card p-(--card-padding)">
+              <p data-vid="pibp8l3" className="type-eyebrow text-text-muted">{t("overview.8de4e0ea")}</p>
+              <p data-vid="2og2ti8" className="type-row-title text-foreground">{t("overview.37e87849")}</p>
+              <p data-vid="3797zhr" className="type-caption text-text-muted mt-auto">{t("overview.c88b332a")}</p>
             </article>
-            <article className="flex flex-col gap-2 rounded-card border border-border bg-card p-(--card-padding)">
-              <p className="type-eyebrow text-text-muted">{t("overview.34a9d379")}</p>
+            <article data-vid="s5dixlp" className="flex flex-col gap-2 rounded-card border border-border bg-card p-(--card-padding)">
+              <p data-vid="sxailzw" className="type-eyebrow text-text-muted">{t("overview.34a9d379")}</p>
               {derived.recurring > 0 ? (
-                <Measure value={derived.recurring} unit="partner" className="type-stat" />
+                <Measure data-vid="y0e0uci" value={derived.recurring} unit="partner" className="type-stat" />
               ) : (
-                <p className="type-row-title text-foreground">{t("overview.1ab8494d")}</p>
+                <p data-vid="jukzbj7" className="type-row-title text-foreground">{t("overview.1ab8494d")}</p>
               )}
-              <p className="type-caption text-text-muted mt-auto">{t("overview.2c700b90")}</p>
+              <p data-vid="7t4hj0h" className="type-caption text-text-muted mt-auto">{t("overview.2c700b90")}</p>
             </article>
-            <article className="flex flex-col gap-2 rounded-card border border-border bg-card p-(--card-padding)">
-              <p className="type-eyebrow text-text-muted">{t("overview.23f21c4a")}</p>
-              <p className="type-row-title text-foreground">{t("_reason.escritura-no-disponible")}</p>
-              <p className="type-caption text-text-muted mt-auto">{t("overview.33fc2a20")}</p>
+            <article data-vid="po599y4" className="flex flex-col gap-2 rounded-card border border-border bg-card p-(--card-padding)">
+              <p data-vid="jen1ie2" className="type-eyebrow text-text-muted">{t("overview.23f21c4a")}</p>
+              <p data-vid="qx76z9o" className="type-row-title text-foreground">{t("_reason.escritura-no-disponible")}</p>
+              <p data-vid="dcswy2z" className="type-caption text-text-muted mt-auto">{t("overview.33fc2a20")}</p>
             </article>
           </div>
         </section>
 
-        <section aria-labelledby="gl" className="flex flex-col gap-(--component-gap)">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <h2 id="gl" className="type-section text-foreground">{t("overview.93992aeb")}</h2>
-            <Dialog open={open} onOpenChange={setOpen}>
-              <DialogTrigger asChild>
-                <Button variant="outline" className="min-h-11 md:min-h-9">
-                  <Plus className="size-4" /> {t("overview.aca1cc14.button")}
+        <section data-vid="12b44oz" aria-labelledby="gl" className="flex flex-col gap-(--component-gap)">
+          <div data-vid="afvs7zy" className="flex flex-wrap items-center justify-between gap-3">
+            <h2 data-vid="jm0s0fk" id="gl" className="type-section text-foreground">{t("overview.93992aeb")}</h2>
+            <Dialog data-vid="0qsyq70" open={open} onOpenChange={setOpen}>
+              <DialogTrigger data-vid="ms228v6" asChild>
+                <Button data-vid="i96sdw3" variant="outline" className="min-h-11 md:min-h-9">
+                  <Plus data-vid="5zhsmi4" className="size-4" /> {t("overview.aca1cc14.button")}
                 </Button>
               </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>{t("overview.aca1cc14.dialogtitle")}</DialogTitle>
-                  <DialogDescription>{t("overview.20be316d")}</DialogDescription>
+              <DialogContent data-vid="z4psmk5">
+                <DialogHeader data-vid="kv3zqfy">
+                  <DialogTitle data-vid="j9j0and">{t("overview.aca1cc14.dialogtitle")}</DialogTitle>
+                  <DialogDescription data-vid="2ikvszt">{t("overview.20be316d")}</DialogDescription>
                 </DialogHeader>
-                <form
+                <form data-vid="k46xqd3"
                   onSubmit={form.handleSubmit(onSubmit)}
                   noValidate
                   className="flex flex-col gap-(--component-gap)"
                 >
-                  <FieldGroup>
-                    <Controller
+                  <FieldGroup data-vid="2jny30v">
+                    <Controller data-vid="tqlubvy"
                       name="title"
                       control={form.control}
                       render={({ field, fieldState }) => (
-                        <Field data-invalid={fieldState.invalid}>
-                          <FieldLabel htmlFor={field.name}>{t("overview.cdbf6975")}</FieldLabel>
-                          <Input {...field} id={field.name} aria-invalid={fieldState.invalid} autoComplete="off" />
-                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                        <Field data-vid="jnr8q3c" data-invalid={fieldState.invalid}>
+                          <FieldLabel data-vid="wptfsj5" htmlFor={field.name}>{t("overview.cdbf6975")}</FieldLabel>
+                          <Input data-vid="bq3pvfl" {...field} id={field.name} aria-invalid={fieldState.invalid} autoComplete="off" />
+                          {fieldState.invalid && <FieldError data-vid="rtrqii4" errors={[fieldState.error]} />}
                         </Field>
                       )}
                     />
-                    <Controller
+                    <Controller data-vid="vprgy2s"
                       name="description"
                       control={form.control}
                       render={({ field, fieldState }) => (
-                        <Field data-invalid={fieldState.invalid}>
-                          <FieldLabel htmlFor={field.name}>{t("overview.526e0087")}</FieldLabel>
-                          <Textarea {...field} id={field.name} aria-invalid={fieldState.invalid} />
-                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                        <Field data-vid="6n46iu1" data-invalid={fieldState.invalid}>
+                          <FieldLabel data-vid="1l040gj" htmlFor={field.name}>{t("overview.526e0087")}</FieldLabel>
+                          <Textarea data-vid="cvwd37s" {...field} id={field.name} aria-invalid={fieldState.invalid} />
+                          {fieldState.invalid && <FieldError data-vid="jgdrga2" errors={[fieldState.error]} />}
                         </Field>
                       )}
                     />
-                    <Controller
+                    <Controller data-vid="syikdkv"
                       name="targetWindowId"
                       control={form.control}
                       render={({ field, fieldState }) => (
-                        <Field data-invalid={fieldState.invalid}>
-                          <FieldLabel htmlFor={field.name}>{t("overview.bfad91f6")}</FieldLabel>
-                          <Select value={field.value} onValueChange={field.onChange}>
-                            <SelectTrigger id={field.name} aria-invalid={fieldState.invalid} className="w-full border-border-strong">
-                              <SelectValue placeholder={t("overview.76bb33d0")} />
+                        <Field data-vid="df2yx8k" data-invalid={fieldState.invalid}>
+                          <FieldLabel data-vid="qg5uchd" htmlFor={field.name}>{t("overview.bfad91f6")}</FieldLabel>
+                          <Select data-vid="034b7da" value={field.value} onValueChange={field.onChange}>
+                            <SelectTrigger data-vid="z5dnnrt" id={field.name} aria-invalid={fieldState.invalid} className="w-full border-border-strong">
+                              <SelectValue data-vid="z6g2rqg" placeholder={t("overview.76bb33d0")} />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent data-vid="dr5qhp0">
                               {props.serviceWindows.map((w) => (
-                                <SelectItem key={w.id} value={w.id}>{w.name}</SelectItem>
+                                <SelectItem data-vid="cob3w1p" key={w.id} value={w.id}>{w.name}</SelectItem>
                               ))}
                             </SelectContent>
                           </Select>
-                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                          {fieldState.invalid && <FieldError data-vid="dbxj4ap" errors={[fieldState.error]} />}
                         </Field>
                       )}
                     />
-                    <div className="grid grid-cols-[repeat(auto-fit,minmax(11rem,1fr))] gap-3">
-                      <Controller
+                    <div data-vid="hrkjk4a" className="grid grid-cols-[repeat(auto-fit,minmax(11rem,1fr))] gap-3">
+                      <Controller data-vid="6cumuz5"
                         name="targetSeats"
                         control={form.control}
                         render={({ field, fieldState }) => (
-                          <Field data-invalid={fieldState.invalid}>
-                            <FieldLabel htmlFor={field.name}>{t("overview.4162a7c8")}</FieldLabel>
-                            <Input {...field} id={field.name} type="number" inputMode="numeric" aria-invalid={fieldState.invalid} />
-                            {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                          <Field data-vid="xherql0" data-invalid={fieldState.invalid}>
+                            <FieldLabel data-vid="fdgy4vf" htmlFor={field.name}>{t("overview.4162a7c8")}</FieldLabel>
+                            <Input data-vid="03lakg0" {...field} id={field.name} type="number" inputMode="numeric" aria-invalid={fieldState.invalid} />
+                            {fieldState.invalid && <FieldError data-vid="aagqa77" errors={[fieldState.error]} />}
                           </Field>
                         )}
                       />
-                      <Controller
+                      <Controller data-vid="ru9h34f"
                         name="targetRevenue"
                         control={form.control}
                         render={({ field, fieldState }) => (
-                          <Field data-invalid={fieldState.invalid}>
-                            <FieldLabel htmlFor={field.name}>{t("overview.7ce4bbef")}</FieldLabel>
-                            <Input {...field} id={field.name} type="number" inputMode="numeric" aria-invalid={fieldState.invalid} />
-                            <FieldDescription>{t("overview.b8930822")}</FieldDescription>
-                            {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                          <Field data-vid="8dkv7vq" data-invalid={fieldState.invalid}>
+                            <FieldLabel data-vid="195p18u" htmlFor={field.name}>{t("overview.7ce4bbef")}</FieldLabel>
+                            <Input data-vid="t6bn6yf" {...field} id={field.name} type="number" inputMode="numeric" aria-invalid={fieldState.invalid} />
+                            <FieldDescription data-vid="rtzbt7w">{t("overview.b8930822")}</FieldDescription>
+                            {fieldState.invalid && <FieldError data-vid="9jvj084" errors={[fieldState.error]} />}
                           </Field>
                         )}
                       />
                     </div>
                   </FieldGroup>
-                  <DialogFooter>
-                    <Button type="submit" className="min-h-11 md:min-h-9" disabled={form.formState.isSubmitting}>
+                  <DialogFooter data-vid="9tectec">
+                    <Button data-vid="idogu2n" type="submit" className="min-h-11 md:min-h-9" disabled={form.formState.isSubmitting}>
                       {t("overview.a4b4e2b9")}
                     </Button>
                   </DialogFooter>
@@ -423,27 +423,27 @@ export function OverviewView(props: OverviewScreenViewModel): React.ReactElement
               </DialogContent>
             </Dialog>
           </div>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] items-start gap-(--component-gap)">
+          <div data-vid="s7ey2pu" className="grid grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] items-start gap-(--component-gap)">
             {activeGoal ? (
-              <GoalCard
+              <GoalCard data-vid="xxiw1qs"
                 goal={activeGoal}
                 targetWindow={props.serviceWindows.find((w) => w.id === activeGoal.targetWindowId)}
               />
             ) : null}
-            <div className="flex flex-col">
-              <p className="type-eyebrow text-text-muted pb-2">{t("overview.a0b5b7e9")}</p>
+            <div data-vid="51e62kf" className="flex flex-col">
+              <p data-vid="cdcv69y" className="type-eyebrow text-text-muted pb-2">{t("overview.a0b5b7e9")}</p>
               {awaiting.length === 0 ? (
-                <p className="type-body text-text-muted">{t("overview.abe521a4")}</p>
+                <p data-vid="ki1yvl6" className="type-body text-text-muted">{t("overview.abe521a4")}</p>
               ) : (
                 awaiting.map((g) => (
-                  <div key={g.id} className="flex flex-wrap items-center justify-between gap-2 border-t border-border py-3">
-                    <div className="min-w-0 flex-1 basis-48">
-                      <p className="type-row-title truncate text-foreground">{g.title}</p>
-                      <p className="type-meta text-text-muted tabular-nums">
-                        {g.targetSeats} {t("overview.356bdd5e")} <Money value={g.targetRevenue} measure="target" />
+                  <div data-vid="qg81sfp" key={g.id} className="flex flex-wrap items-center justify-between gap-2 border-t border-border py-3">
+                    <div data-vid="9mowrvz" className="min-w-0 flex-1 basis-48">
+                      <p data-vid="u0r35m4" className="type-row-title truncate text-foreground">{g.title}</p>
+                      <p data-vid="th19pez" className="type-meta text-text-muted tabular-nums">
+                        {g.targetSeats} {t("overview.356bdd5e")} <Money data-vid="ku9mmqy" value={g.targetRevenue} measure="target" />
                       </p>
                     </div>
-                    <StatusMark entity="Goal" status={g.status} size="sm" />
+                    <StatusMark data-vid="rco3bap" entity="Goal" status={g.status} size="sm" />
                   </div>
                 ))
               )}
@@ -451,36 +451,36 @@ export function OverviewView(props: OverviewScreenViewModel): React.ReactElement
           </div>
         </section>
 
-        <section aria-labelledby="nd" className="flex flex-col gap-(--component-gap)">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 id="nd" className="type-section text-foreground">{t("overview.ea53bfe0")}</h2>
-            <button
+        <section data-vid="a2guhaq" aria-labelledby="nd" className="flex flex-col gap-(--component-gap)">
+          <div data-vid="q80azs0" className="flex flex-wrap items-center justify-between gap-2">
+            <h2 data-vid="q4fj1tb" id="nd" className="type-section text-foreground">{t("overview.ea53bfe0")}</h2>
+            <button data-vid="ln46qkv"
               type="button"
               onClick={() => props.navigate(routes["service-calendar"]())}
               className="type-meta inline-flex min-h-11 items-center gap-1 text-text-link hover:underline md:min-h-0"
             >
-              {t("overview.70dee06c")} <ArrowRight className="size-4" />
+              {t("overview.70dee06c")} <ArrowRight data-vid="dkkseum" className="size-4" />
             </button>
           </div>
           {derived.nextDates.length === 0 ? (
-            <EmptyState title={t("overview.91ce5fe8")} description={t("overview.a85c3f4a")} />
+            <EmptyState data-vid="qzwicx5" title={t("overview.91ce5fe8")} description={t("overview.a85c3f4a")} />
           ) : (
-            <ul className="flex gap-(--component-gap) overflow-x-auto md:grid md:grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] md:overflow-visible">
+            <ul data-vid="yh37qyp" className="flex gap-(--component-gap) overflow-x-auto md:grid md:grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] md:overflow-visible">
               {derived.nextDates.map((o) => {
                 const s = props.bookingSeriesAll.find((x) => x.id === o.bookingSeriesId);
                 const conflict = o.fitStatus === "CONFLICT" || o.fitStatus === "IN_CONFLICT";
                 return (
-                  <li key={o.id} className="flex min-w-40 shrink-0 flex-col gap-2 rounded-card border border-border bg-card p-(--card-padding)">
-                    <p className="type-mono-id tabular-nums text-foreground">{formatDate(o.serviceDate)}</p>
-                    <p className="type-meta truncate text-text-muted">{partnerName(s?.partnerId) ?? "—"}</p>
-                    <StatusMark entity="FitStatus" status={o.fitStatus} size="sm" />
+                  <li data-vid="fdsp1ef" key={o.id} className="flex min-w-40 shrink-0 flex-col gap-2 rounded-card border border-border bg-card p-(--card-padding)">
+                    <p data-vid="tepj9ia" className="type-mono-id tabular-nums text-foreground">{formatDate(o.serviceDate)}</p>
+                    <p data-vid="wz34x7l" className="type-meta truncate text-text-muted">{partnerName(s?.partnerId) ?? "—"}</p>
+                    <StatusMark data-vid="hs2mrah" entity="FitStatus" status={o.fitStatus} size="sm" />
                     {conflict ? (
-                      <p className="type-caption flex items-center gap-1 text-status-danger-ink">
-                        <CircleAlert className="size-4 shrink-0" />
-                        <span>{String(o.bindingLimit)} {t("overview.94a15200")}</span>
+                      <p data-vid="zggh9dg" className="type-caption flex items-center gap-1 text-status-danger-ink">
+                        <CircleAlert data-vid="nmtkcpf" className="size-4 shrink-0" />
+                        <span data-vid="hvosbg9">{String(o.bindingLimit)} {t("overview.94a15200")}</span>
                       </p>
                     ) : (
-                      <p className="type-caption text-text-muted tabular-nums">{t("overview.f3b81325")} {o.partnerSeatsAvailable}</p>
+                      <p data-vid="3gwgd9f" className="type-caption text-text-muted tabular-nums">{t("overview.f3b81325")} {o.partnerSeatsAvailable}</p>
                     )}
                   </li>
                 );

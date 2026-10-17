@@ -42,36 +42,36 @@ export function AcceptInvitationPageView(props: AcceptInvitationPageViewProps) {
   const { t } = useTranslation();
   const editing = props.phase === 'form' || props.phase === 'submitting';
   return (
-    <main className="flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-4">
-      <Card className="w-full max-w-sm" data-archie-accept-invitation="v1">
-        <CardHeader>
-          <CardTitle>{t('_app.invite.title')}</CardTitle>
-          <CardDescription>{t('_app.invite.desc')}</CardDescription>
+    <main data-vid="of0xei2" className="flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-4">
+      <Card data-vid="x8gninn" className="w-full max-w-sm" data-archie-accept-invitation="v1">
+        <CardHeader data-vid="044u6om">
+          <CardTitle data-vid="6f1er7b">{t('_app.invite.title')}</CardTitle>
+          <CardDescription data-vid="5zg1yjm">{t('_app.invite.desc')}</CardDescription>
         </CardHeader>
         {props.phase === 'no-token' ? (
-          <CardContent>
-            <Alert variant="destructive">
-              <AlertDescription>{t('_app.invite.no-token')}</AlertDescription>
+          <CardContent data-vid="5rjcchw">
+            <Alert data-vid="gp3zrzn" variant="destructive">
+              <AlertDescription data-vid="m7869jc">{t('_app.invite.no-token')}</AlertDescription>
             </Alert>
           </CardContent>
         ) : null}
         {props.phase === 'invalid' ? (
-          <CardContent>
-            <Alert variant="destructive">
-              <AlertDescription>{t('_app.invite.invalid')}</AlertDescription>
+          <CardContent data-vid="pryg5nk">
+            <Alert data-vid="j645jaa" variant="destructive">
+              <AlertDescription data-vid="ecsx7g8">{t('_app.invite.invalid')}</AlertDescription>
             </Alert>
           </CardContent>
         ) : null}
         {props.phase === 'done' ? (
           <>
-            <CardContent>
-              <Alert role="status">
-                <AlertDescription>{t('_app.invite.success')}</AlertDescription>
+            <CardContent data-vid="1lb33w3">
+              <Alert data-vid="96xhupv" role="status">
+                <AlertDescription data-vid="4d38dx8">{t('_app.invite.success')}</AlertDescription>
               </Alert>
             </CardContent>
-            <CardFooter>
+            <CardFooter data-vid="osp2bdi">
               {props.continueHref !== null ? (
-                <a
+                <a data-vid="vyny1b0"
                   className="inline-flex h-9 w-full items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground hover:bg-primary/90"
                   href={props.continueHref}
                   {...(props.continueKind === 'redirect'
@@ -85,17 +85,17 @@ export function AcceptInvitationPageView(props: AcceptInvitationPageViewProps) {
           </>
         ) : null}
         {editing ? (
-          <form
+          <form data-vid="u105nc7"
             className="contents"
             onSubmit={(e) => {
               e.preventDefault();
               props.onSubmit();
             }}
           >
-            <CardContent className="grid gap-4">
-              <div className="grid gap-2">
-                <Label htmlFor="accept-invitation-password">{t('_app.invite.password-label')}</Label>
-                <Input
+            <CardContent data-vid="65exa3v" className="grid gap-4">
+              <div data-vid="wn6ujxp" className="grid gap-2">
+                <Label data-vid="97pdqgh" htmlFor="accept-invitation-password">{t('_app.invite.password-label')}</Label>
+                <Input data-vid="bmdhrzp"
                   id="accept-invitation-password"
                   type="password"
                   autoComplete="new-password"
@@ -104,9 +104,9 @@ export function AcceptInvitationPageView(props: AcceptInvitationPageViewProps) {
                   onChange={(e) => props.onPasswordChange(e.target.value)}
                 />
               </div>
-              <div className="grid gap-2">
-                <Label htmlFor="accept-invitation-confirm">{t('_app.invite.confirm')}</Label>
-                <Input
+              <div data-vid="szzxwki" className="grid gap-2">
+                <Label data-vid="18jlm49" htmlFor="accept-invitation-confirm">{t('_app.invite.confirm')}</Label>
+                <Input data-vid="gvpkkvt"
                   id="accept-invitation-confirm"
                   type="password"
                   autoComplete="new-password"
@@ -116,10 +116,10 @@ export function AcceptInvitationPageView(props: AcceptInvitationPageViewProps) {
                 />
               </div>
               {props.errorKeys.length > 0 ? (
-                <Alert variant="destructive">
-                  <AlertDescription>
+                <Alert data-vid="tn71z2r" variant="destructive">
+                  <AlertDescription data-vid="nu0cnsc">
                     {props.errorKeys.map((key) => (
-                      <span key={key} className="block">
+                      <span data-vid="x6anhnb" key={key} className="block">
                         {t(key)}
                       </span>
                     ))}
@@ -127,8 +127,8 @@ export function AcceptInvitationPageView(props: AcceptInvitationPageViewProps) {
                 </Alert>
               ) : null}
             </CardContent>
-            <CardFooter>
-              <Button
+            <CardFooter data-vid="ozaujf5">
+              <Button data-vid="pwrz137"
                 type="submit"
                 className="w-full"
                 disabled={props.phase === 'submitting'}

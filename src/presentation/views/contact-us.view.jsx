@@ -125,17 +125,17 @@ export function ContactUsView(props) {
                   <p data-vid="2aea51a6" className="type-body text-text-body">
                     {t('contact-us.586e07f4')} {sent.email}.
                   </p>
-                  <div className="flex flex-col gap-2 rounded-card border border-border bg-surface-sunken p-(--card-padding)">
-                    <p className="type-row-title text-foreground">First-pass contact check</p>
-                    <ul className="flex flex-col gap-1">
+                  <div data-vid="pe1nfk3" className="flex flex-col gap-2 rounded-card border border-border bg-surface-sunken p-(--card-padding)">
+                    <p data-vid="yvz6bxa" className="type-row-title text-foreground">First-pass contact check</p>
+                    <ul data-vid="7wib6j3" className="flex flex-col gap-1">
                       {sent.checks.map((c) => (
-                        <li key={c.label} className="type-body text-text-body">
-                          <span className="type-row-title">{c.label}: </span>
+                        <li data-vid="89vtmfv" key={c.label} className="type-body text-text-body">
+                          <span data-vid="uk5txgm" className="type-row-title">{c.label}: </span>
                           {c.ok ? "Passed. " : "Needs a person. "}{c.note}
                         </li>
                       ))}
                     </ul>
-                    <p className="type-meta text-text-muted">A Partnership Coordinator reviews every request before any reply. This simulated check approves nothing and no outreach starts without approval.</p>
+                    <p data-vid="x7g0oc8" className="type-meta text-text-muted">A Partnership Coordinator reviews every request before any reply. This simulated check approves nothing and no outreach starts without approval.</p>
                   </div>
                   <div data-vid="584217fa" className="flex flex-wrap gap-3">
                     <Button data-vid="bfe4aa39" variant="outline" className="min-h-11" onClick={() => { setSent(null); form.reset(); }}>
@@ -201,54 +201,54 @@ export function ContactUsView(props) {
                         </Field>
                       )}
                     />
-                    <Controller
+                    <Controller data-vid="h87i6e8"
                       name="role"
                       control={form.control}
                       render={({ field, fieldState }) => (
-                        <Field data-invalid={fieldState.invalid}>
-                          <FieldLabel htmlFor="role">Your role</FieldLabel>
-                          <Input {...field} id="role" autoComplete="organization-title" maxLength={80} aria-invalid={fieldState.invalid} className="min-h-11 border-border-strong" />
-                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                        <Field data-vid="ulmamnk" data-invalid={fieldState.invalid}>
+                          <FieldLabel data-vid="ehtlvtv" htmlFor="role">Your role</FieldLabel>
+                          <Input data-vid="bvb643a" {...field} id="role" autoComplete="organization-title" maxLength={80} aria-invalid={fieldState.invalid} className="min-h-11 border-border-strong" />
+                          {fieldState.invalid && <FieldError data-vid="0y3walg" errors={[fieldState.error]} />}
                         </Field>
                       )}
                     />
-                    <Controller
+                    <Controller data-vid="omo4q3x"
                       name="orgType"
                       control={form.control}
                       render={({ field, fieldState }) => (
-                        <Field data-invalid={fieldState.invalid}>
-                          <FieldLabel htmlFor="orgType">Type of organization</FieldLabel>
-                          <Select value={field.value} onValueChange={field.onChange}>
-                            <SelectTrigger id="orgType" aria-invalid={fieldState.invalid} className="w-full min-h-11 border-border-strong">
-                              <SelectValue placeholder="Choose one" />
+                        <Field data-vid="m6dqfc1" data-invalid={fieldState.invalid}>
+                          <FieldLabel data-vid="lkg3gmq" htmlFor="orgType">Type of organization</FieldLabel>
+                          <Select data-vid="y0rxgbc" value={field.value} onValueChange={field.onChange}>
+                            <SelectTrigger data-vid="faa8loh" id="orgType" aria-invalid={fieldState.invalid} className="w-full min-h-11 border-border-strong">
+                              <SelectValue data-vid="9mepayx" placeholder="Choose one" />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent data-vid="wlxg8zr">
                               {orgTypes.map((o) => (
-                                <SelectItem key={o} value={o}>{o}</SelectItem>
+                                <SelectItem data-vid="0s6k9b6" key={o} value={o}>{o}</SelectItem>
                               ))}
                             </SelectContent>
                           </Select>
-                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                          {fieldState.invalid && <FieldError data-vid="6yrn9ro" errors={[fieldState.error]} />}
                         </Field>
                       )}
                     />
-                    <Controller
+                    <Controller data-vid="f1vojo9"
                       name="groupSize"
                       control={form.control}
                       render={({ field, fieldState }) => (
-                        <Field data-invalid={fieldState.invalid}>
-                          <FieldLabel htmlFor="groupSize">Usual group size</FieldLabel>
-                          <Select value={field.value} onValueChange={field.onChange}>
-                            <SelectTrigger id="groupSize" aria-invalid={fieldState.invalid} className="w-full min-h-11 border-border-strong">
-                              <SelectValue placeholder="Choose one" />
+                        <Field data-vid="ddam6bj" data-invalid={fieldState.invalid}>
+                          <FieldLabel data-vid="3puatlk" htmlFor="groupSize">Usual group size</FieldLabel>
+                          <Select data-vid="ny9i1kz" value={field.value} onValueChange={field.onChange}>
+                            <SelectTrigger data-vid="5r9ybc9" id="groupSize" aria-invalid={fieldState.invalid} className="w-full min-h-11 border-border-strong">
+                              <SelectValue data-vid="ag9v1s9" placeholder="Choose one" />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent data-vid="34uitvf">
                               {groupSizes.map((g) => (
-                                <SelectItem key={g} value={g}>{g}</SelectItem>
+                                <SelectItem data-vid="skw5bxd" key={g} value={g}>{g}</SelectItem>
                               ))}
                             </SelectContent>
                           </Select>
-                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                          {fieldState.invalid && <FieldError data-vid="s5gsb0x" errors={[fieldState.error]} />}
                         </Field>
                       )}
                     />
@@ -297,13 +297,13 @@ export function ContactUsView(props) {
                         </Field>
                       )}
                     />
-                    <Controller
+                    <Controller data-vid="3jhzvyu"
                       name="consent"
                       control={form.control}
                       render={({ field, fieldState }) => (
-                        <Field data-invalid={fieldState.invalid}>
-                          <div className="flex items-start gap-3">
-                            <input
+                        <Field data-vid="nwemjzf" data-invalid={fieldState.invalid}>
+                          <div data-vid="dgp41q7" className="flex items-start gap-3">
+                            <input data-vid="57iptof"
                               id="consent"
                               type="checkbox"
                               checked={field.value === true}
@@ -312,9 +312,9 @@ export function ContactUsView(props) {
                               aria-invalid={fieldState.invalid}
                               className="mt-1 size-5 shrink-0 accent-primary"
                             />
-                            <label htmlFor="consent" className="type-body text-text-body">I agree that the FullTable AI team may contact me about this request. It is reviewed by a person before any reply.</label>
+                            <label data-vid="ezd4vhs" htmlFor="consent" className="type-body text-text-body">I agree that the FullTable AI team may contact me about this request. It is reviewed by a person before any reply.</label>
                           </div>
-                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                          {fieldState.invalid && <FieldError data-vid="vjbqv3v" errors={[fieldState.error]} />}
                         </Field>
                       )}
                     />

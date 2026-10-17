@@ -65,7 +65,7 @@ export default function GrowthDiagnosticContainer(): React.ReactElement {
   }, [values]);
 
   return (
-    <GrowthDiagnosticView
+    <GrowthDiagnosticView data-vid="sppuefo"
       values={values}
       onChange={onChange}
       eligible={num(values.seats) >= 40}

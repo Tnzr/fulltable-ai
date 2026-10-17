@@ -106,11 +106,11 @@ export function NotificationsScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="kgxfkox" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="a5uedj1" error={loadError} onRetry={reload} />
       ) : (
-        <View {...vm} />
+        <View data-vid="r6afv0x" {...vm} />
       )}
     </>
   );
@@ -119,5 +119,5 @@ export function NotificationsScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function NotificationsScreenRoute(): React.ReactElement {
-  return <NotificationsScreenContainer view={NotificationsView} />;
+  return <NotificationsScreenContainer data-vid="xlcwn3g" view={NotificationsView} />;
 }

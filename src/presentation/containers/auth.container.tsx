@@ -203,5 +203,5 @@ export function AuthContainer(props: AuthContainerProps): React.ReactElement {
     onSubmit,
     navigate,
   };
-  return <View {...vm} />;
+  return <View data-vid="ib4brfd" {...vm} />;
 }

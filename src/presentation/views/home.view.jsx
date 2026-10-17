@@ -6,5 +6,5 @@ import { FullTableLanding } from "@/presentation/landing/FullTableLanding";
 
 /** @param {import("@/application/view-models/home.vm").HomeScreenViewModel} props */
 export function HomeView(props) {
-  return <FullTableLanding loginHref={props.href("login")} />;
+  return <FullTableLanding data-vid="swkfxuo" loginHref={props.href("login")} />;
 }

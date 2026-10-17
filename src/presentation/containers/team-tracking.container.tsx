@@ -110,11 +110,11 @@ export function TeamTrackingScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="3n7imp3" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="vqkvqha" error={loadError} onRetry={reload} />
       ) : (
-        <View {...vm} />
+        <View data-vid="ok5wmcg" {...vm} />
       )}
     </>
   );
@@ -123,5 +123,5 @@ export function TeamTrackingScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function TeamTrackingScreenRoute(): React.ReactElement {
-  return <TeamTrackingScreenContainer view={TeamTrackingView} />;
+  return <TeamTrackingScreenContainer data-vid="nfv08rb" view={TeamTrackingView} />;
 }

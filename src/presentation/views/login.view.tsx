@@ -39,19 +39,19 @@ export function LoginView(props: AuthViewModel): React.ReactElement {
   };
 
   return (
-    <div className="flex flex-1 flex-col items-center justify-center bg-background px-(--container-padding) py-(--section-gap)">
-      <div className="flex w-full max-w-md flex-col gap-(--section-gap)">
-        <header className="flex flex-col items-center gap-2 text-center">
-          <p className="type-eyebrow text-text-muted">{t("login.97f163ee")}</p>
-          <h1 className="type-page-title text-foreground">{t("login.3461aa0f")}</h1>
-          <p className="type-body text-text-body">{t("login.37b01adf")}</p>
+    <div data-vid="938h5tr" className="flex flex-1 flex-col items-center justify-center bg-background px-(--container-padding) py-(--section-gap)">
+      <div data-vid="cz74e6e" className="flex w-full max-w-md flex-col gap-(--section-gap)">
+        <header data-vid="uhih82e" className="flex flex-col items-center gap-2 text-center">
+          <p data-vid="gpjkje6" className="type-eyebrow text-text-muted">{t("login.97f163ee")}</p>
+          <h1 data-vid="axgk7f3" className="type-page-title text-foreground">{t("login.3461aa0f")}</h1>
+          <p data-vid="26riq97" className="type-body text-text-body">{t("login.37b01adf")}</p>
         </header>
 
-        <section
+        <section data-vid="cbjpksm"
           aria-label={t("login.fe40fa30")}
           className="rounded-card border border-border bg-card p-(--card-padding) text-card-foreground"
         >
-          <form
+          <form data-vid="83bpset"
             onSubmit={(e) => {
               e.preventDefault();
               void form.handleSubmit(onValid)(e);
@@ -59,14 +59,14 @@ export function LoginView(props: AuthViewModel): React.ReactElement {
             noValidate
             className="flex flex-col gap-(--component-gap)"
           >
-            <FieldGroup>
-              <Controller
+            <FieldGroup data-vid="73c57b0">
+              <Controller data-vid="b91q2ri"
                 name="email"
                 control={form.control}
                 render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="login-email">{t("login.969ccbd3")}</FieldLabel>
-                    <Input
+                  <Field data-vid="dcl4lwo" data-invalid={fieldState.invalid}>
+                    <FieldLabel data-vid="ptqx11k" htmlFor="login-email">{t("login.969ccbd3")}</FieldLabel>
+                    <Input data-vid="d5dsmtv"
                       name={field.name}
                       ref={field.ref}
                       onBlur={field.onBlur}
@@ -81,18 +81,18 @@ export function LoginView(props: AuthViewModel): React.ReactElement {
                       aria-invalid={fieldState.invalid}
                       className="min-h-11 border-border-strong"
                     />
-                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                    {fieldState.invalid && <FieldError data-vid="akoq0w1" errors={[fieldState.error]} />}
                   </Field>
                 )}
               />
-              <Controller
+              <Controller data-vid="009gqgo"
                 name="password"
                 control={form.control}
                 render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="login-password">{t("login.e7cf3ef4")}</FieldLabel>
-                    <div className="flex items-center rounded-control border border-border-strong bg-background focus-within:ring-2 focus-within:ring-ring">
-                      <input
+                  <Field data-vid="jab5zy4" data-invalid={fieldState.invalid}>
+                    <FieldLabel data-vid="kh4xmqi" htmlFor="login-password">{t("login.e7cf3ef4")}</FieldLabel>
+                    <div data-vid="dwbfscq" className="flex items-center rounded-control border border-border-strong bg-background focus-within:ring-2 focus-within:ring-ring">
+                      <input data-vid="gt9mqis"
                         name={field.name}
                         ref={field.ref}
                         onBlur={field.onBlur}
@@ -107,7 +107,7 @@ export function LoginView(props: AuthViewModel): React.ReactElement {
                         aria-invalid={fieldState.invalid}
                         className="type-body min-h-11 min-w-0 flex-1 bg-transparent px-3 text-foreground outline-none"
                       />
-                      <Button
+                      <Button data-vid="ra8xpl2"
                         type="button"
                         variant="ghost"
                         size="icon"
@@ -116,29 +116,29 @@ export function LoginView(props: AuthViewModel): React.ReactElement {
                         aria-pressed={show}
                         onClick={() => setShow((v) => !v)}
                       >
-                        {show ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
+                        {show ? <EyeOff data-vid="p31bqdb" className="size-4" /> : <Eye data-vid="izh643q" className="size-4" />}
                       </Button>
                     </div>
-                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                    {fieldState.invalid && <FieldError data-vid="5vb7gru" errors={[fieldState.error]} />}
                   </Field>
                 )}
               />
             </FieldGroup>
 
             {props.error && (
-              <p role="alert" className="type-meta text-status-danger-ink">
+              <p data-vid="0gaj4ho" role="alert" className="type-meta text-status-danger-ink">
                 {props.error}
               </p>
             )}
 
-            <Button type="submit" className="min-h-11 w-full" disabled={props.loading}>
+            <Button data-vid="j42o9am" type="submit" className="min-h-11 w-full" disabled={props.loading}>
               {t("login.bfd402b2")}
             </Button>
           </form>
         </section>
 
-        <div className="flex flex-col items-center gap-2 text-center">
-          <Button
+        <div data-vid="gkebw6g" className="flex flex-col items-center gap-2 text-center">
+          <Button data-vid="apkli0u"
             type="button"
             variant="link"
             onClick={() => props.navigate(routes["forgot-password"]())}
@@ -146,7 +146,7 @@ export function LoginView(props: AuthViewModel): React.ReactElement {
           >
             {t("login.30c1d8d3")}
           </Button>
-          <p className="type-caption text-text-muted">{t("login.8edd3ab0")}</p>
+          <p data-vid="07ty5hs" className="type-caption text-text-muted">{t("login.8edd3ab0")}</p>
         </div>
       </div>
     </div>

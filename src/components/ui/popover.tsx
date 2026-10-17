@@ -5,13 +5,13 @@ import { Popover as PopoverPrimitive } from "radix-ui"
 function Popover({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Root>) {
-  return <PopoverPrimitive.Root data-slot="popover" {...props} />
+  return <PopoverPrimitive.Root data-vid="w0g4hva" data-slot="popover" {...props} />
 }
 
 function PopoverTrigger({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Trigger>) {
-  return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />
+  return <PopoverPrimitive.Trigger data-vid="qq9n0m1" data-slot="popover-trigger" {...props} />
 }
 
 function PopoverContent({
@@ -21,8 +21,8 @@ function PopoverContent({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Content>) {
   return (
-    <PopoverPrimitive.Portal>
-      <PopoverPrimitive.Content
+    <PopoverPrimitive.Portal data-vid="nzk8960">
+      <PopoverPrimitive.Content data-vid="m949rgo"
         data-slot="popover-content"
         align={align}
         sideOffset={sideOffset}
@@ -39,7 +39,7 @@ function PopoverContent({
 function PopoverAnchor({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Anchor>) {
-  return <PopoverPrimitive.Anchor data-slot="popover-anchor" {...props} />
+  return <PopoverPrimitive.Anchor data-vid="r8b7q92" data-slot="popover-anchor" {...props} />
 }
 
 function PopoverHeader({
@@ -47,7 +47,7 @@ function PopoverHeader({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div
+    <div data-vid="53fya7c"
       data-slot="popover-header"
       className={cn("flex flex-col gap-0.5 text-sm", className)}
       {...props}
@@ -60,7 +60,7 @@ function PopoverTitle({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div
+    <div data-vid="b0jvu6r"
       data-slot="popover-title"
       className={cn("font-medium", className)}
       {...props}
@@ -73,7 +73,7 @@ function PopoverDescription({
   ...props
 }: React.ComponentProps<"p">) {
   return (
-    <p
+    <p data-vid="sozn9no"
       data-slot="popover-description"
       className={cn("text-muted-foreground", className)}
       {...props}

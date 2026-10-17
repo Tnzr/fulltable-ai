@@ -34,15 +34,15 @@ export const defaultRoute = "overview";
 
 /** Ruta índice: '/' redirige a la defaultRoute — la raíz NUNCA renderiza un outlet vacío. */
 function RootRedirect() {
-  return <RoleLandingRedirect />;
+  return <RoleLandingRedirect data-vid="gl0xcaf" />;
 }
 
 const LazyScreen_overview = lazy(() => import('./presentation/containers/overview.container'));
 function Guarded_overview() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_overview />
+    <AuthGuard data-vid="zb37urv" loadingComponent={<LoadingFallback data-vid="4qv7dcl" />} fallback={<Navigate data-vid="tkyg3kr" to="/login" replace />}>
+      <Suspense data-vid="4b7c010" fallback={<LoadingFallback data-vid="ddtjhfv" />}>
+        <LazyScreen_overview data-vid="fjad9t0" />
       </Suspense>
     </AuthGuard>
   );
@@ -51,9 +51,9 @@ function Guarded_overview() {
 const LazyScreen_deal_detail = lazy(() => import('./presentation/containers/deal-detail.container'));
 function Guarded_deal_detail() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_deal_detail />
+    <AuthGuard data-vid="jih45bn" loadingComponent={<LoadingFallback data-vid="rn82rma" />} fallback={<Navigate data-vid="xr4ctdx" to="/login" replace />}>
+      <Suspense data-vid="y8pxipb" fallback={<LoadingFallback data-vid="x2dtzzt" />}>
+        <LazyScreen_deal_detail data-vid="qk9kcji" />
       </Suspense>
     </AuthGuard>
   );
@@ -62,9 +62,9 @@ function Guarded_deal_detail() {
 const LazyScreen_restaurant_settings = lazy(() => import('./presentation/containers/restaurant-settings.container'));
 function Guarded_restaurant_settings() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_restaurant_settings />
+    <AuthGuard data-vid="pm46veb" loadingComponent={<LoadingFallback data-vid="1tdo630" />} fallback={<Navigate data-vid="ous85lq" to="/login" replace />}>
+      <Suspense data-vid="890srft" fallback={<LoadingFallback data-vid="3m55wrm" />}>
+        <LazyScreen_restaurant_settings data-vid="e5m6y3t" />
       </Suspense>
     </AuthGuard>
   );
@@ -73,9 +73,9 @@ function Guarded_restaurant_settings() {
 const LazyScreen_user_detail = lazy(() => import('./presentation/containers/user-detail.container'));
 function Guarded_user_detail() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_user_detail />
+    <AuthGuard data-vid="q5shii7" loadingComponent={<LoadingFallback data-vid="del574a" />} fallback={<Navigate data-vid="tmaslc9" to="/login" replace />}>
+      <Suspense data-vid="l7jgu7j" fallback={<LoadingFallback data-vid="8oigc5e" />}>
+        <LazyScreen_user_detail data-vid="bwh9u30" />
       </Suspense>
     </AuthGuard>
   );
@@ -84,9 +84,9 @@ function Guarded_user_detail() {
 const LazyScreen_task_detail = lazy(() => import('./presentation/containers/task-detail.container'));
 function Guarded_task_detail() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_task_detail />
+    <AuthGuard data-vid="tv5ap6l" loadingComponent={<LoadingFallback data-vid="gpg4zia" />} fallback={<Navigate data-vid="i1pgold" to="/login" replace />}>
+      <Suspense data-vid="3t3cdih" fallback={<LoadingFallback data-vid="oalbkg6" />}>
+        <LazyScreen_task_detail data-vid="8yfdbm1" />
       </Suspense>
     </AuthGuard>
   );
@@ -95,9 +95,9 @@ function Guarded_task_detail() {
 const LazyScreen_service_calendar = lazy(() => import('./presentation/containers/service-calendar.container'));
 function Guarded_service_calendar() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_service_calendar />
+    <AuthGuard data-vid="f8izp8o" loadingComponent={<LoadingFallback data-vid="5jbqip2" />} fallback={<Navigate data-vid="sajkwbz" to="/login" replace />}>
+      <Suspense data-vid="qb1s1uo" fallback={<LoadingFallback data-vid="xco45rt" />}>
+        <LazyScreen_service_calendar data-vid="87lm5ew" />
       </Suspense>
     </AuthGuard>
   );
@@ -106,9 +106,9 @@ function Guarded_service_calendar() {
 const LazyScreen_team_tracking = lazy(() => import('./presentation/containers/team-tracking.container'));
 function Guarded_team_tracking() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_team_tracking />
+    <AuthGuard data-vid="7tox4as" loadingComponent={<LoadingFallback data-vid="s5m6uuo" />} fallback={<Navigate data-vid="crzewlj" to="/login" replace />}>
+      <Suspense data-vid="vfd28ti" fallback={<LoadingFallback data-vid="iqnlbdb" />}>
+        <LazyScreen_team_tracking data-vid="sjn411a" />
       </Suspense>
     </AuthGuard>
   );
@@ -117,9 +117,9 @@ function Guarded_team_tracking() {
 const LazyScreen_economic_impact = lazy(() => import('./presentation/containers/economic-impact.container'));
 function Guarded_economic_impact() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_economic_impact />
+    <AuthGuard data-vid="dumhtwq" loadingComponent={<LoadingFallback data-vid="mxwpuf4" />} fallback={<Navigate data-vid="e17svc6" to="/login" replace />}>
+      <Suspense data-vid="e7mkfwi" fallback={<LoadingFallback data-vid="i1237xa" />}>
+        <LazyScreen_economic_impact data-vid="f2hnt0e" />
       </Suspense>
     </AuthGuard>
   );
@@ -128,9 +128,9 @@ function Guarded_economic_impact() {
 const LazyScreen_deal_pipeline = lazy(() => import('./presentation/containers/deal-pipeline.container'));
 function Guarded_deal_pipeline() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_deal_pipeline />
+    <AuthGuard data-vid="drt5xt5" loadingComponent={<LoadingFallback data-vid="okg8ztb" />} fallback={<Navigate data-vid="umc17cj" to="/login" replace />}>
+      <Suspense data-vid="ywrx4xp" fallback={<LoadingFallback data-vid="pq94r3k" />}>
+        <LazyScreen_deal_pipeline data-vid="ayxl2zo" />
       </Suspense>
     </AuthGuard>
   );
@@ -139,9 +139,9 @@ function Guarded_deal_pipeline() {
 const LazyScreen_partners = lazy(() => import('./presentation/containers/partners.container'));
 function Guarded_partners() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_partners />
+    <AuthGuard data-vid="hjd04ug" loadingComponent={<LoadingFallback data-vid="va73h3p" />} fallback={<Navigate data-vid="hn8o04a" to="/login" replace />}>
+      <Suspense data-vid="h4x1b8d" fallback={<LoadingFallback data-vid="5q9n9ha" />}>
+        <LazyScreen_partners data-vid="xomy0vc" />
       </Suspense>
     </AuthGuard>
   );
@@ -150,9 +150,9 @@ function Guarded_partners() {
 const LazyScreen_approvals = lazy(() => import('./presentation/containers/approvals.container'));
 function Guarded_approvals() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_approvals />
+    <AuthGuard data-vid="djsb68h" loadingComponent={<LoadingFallback data-vid="dwx7keu" />} fallback={<Navigate data-vid="zzemknf" to="/login" replace />}>
+      <Suspense data-vid="9q7nb4v" fallback={<LoadingFallback data-vid="3ui74l7" />}>
+        <LazyScreen_approvals data-vid="6ekd9s3" />
       </Suspense>
     </AuthGuard>
   );
@@ -161,9 +161,9 @@ function Guarded_approvals() {
 const LazyScreen_manager_approvals = lazy(() => import('./presentation/containers/manager-approvals.container'));
 function Guarded_manager_approvals() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_manager_approvals />
+    <AuthGuard data-vid="fxuz994" loadingComponent={<LoadingFallback data-vid="es7wn0q" />} fallback={<Navigate data-vid="wmyk2em" to="/login" replace />}>
+      <Suspense data-vid="yikq6bk" fallback={<LoadingFallback data-vid="q8vm321" />}>
+        <LazyScreen_manager_approvals data-vid="rtq2iu7" />
       </Suspense>
     </AuthGuard>
   );
@@ -172,9 +172,9 @@ function Guarded_manager_approvals() {
 const LazyScreen_my_tasks = lazy(() => import('./presentation/containers/my-tasks.container'));
 function Guarded_my_tasks() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_my_tasks />
+    <AuthGuard data-vid="h13gwjg" loadingComponent={<LoadingFallback data-vid="nsy0y4x" />} fallback={<Navigate data-vid="qldlta8" to="/login" replace />}>
+      <Suspense data-vid="alabyf8" fallback={<LoadingFallback data-vid="ozvgdaj" />}>
+        <LazyScreen_my_tasks data-vid="q2zcgfj" />
       </Suspense>
     </AuthGuard>
   );
@@ -183,9 +183,9 @@ function Guarded_my_tasks() {
 const LazyScreen_users = lazy(() => import('./presentation/containers/users.container'));
 function Guarded_users() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_users />
+    <AuthGuard data-vid="9sa180s" loadingComponent={<LoadingFallback data-vid="h62s6rf" />} fallback={<Navigate data-vid="jjql4vn" to="/login" replace />}>
+      <Suspense data-vid="jv3saau" fallback={<LoadingFallback data-vid="6eak7in" />}>
+        <LazyScreen_users data-vid="heyepx8" />
       </Suspense>
     </AuthGuard>
   );
@@ -194,9 +194,9 @@ function Guarded_users() {
 const LazyScreen_account = lazy(() => import('./presentation/containers/account.container'));
 function Guarded_account() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_account />
+    <AuthGuard data-vid="lhwbp9a" loadingComponent={<LoadingFallback data-vid="tapuump" />} fallback={<Navigate data-vid="vohnabd" to="/login" replace />}>
+      <Suspense data-vid="1xdbn0g" fallback={<LoadingFallback data-vid="63rxeh8" />}>
+        <LazyScreen_account data-vid="zj12ijh" />
       </Suspense>
     </AuthGuard>
   );
@@ -205,9 +205,9 @@ function Guarded_account() {
 const LazyScreen_audit = lazy(() => import('./presentation/containers/audit.container'));
 function Guarded_audit() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_audit />
+    <AuthGuard data-vid="g5420sx" loadingComponent={<LoadingFallback data-vid="jx85k58" />} fallback={<Navigate data-vid="wnwibk3" to="/login" replace />}>
+      <Suspense data-vid="q1uu5qr" fallback={<LoadingFallback data-vid="7koz9jn" />}>
+        <LazyScreen_audit data-vid="j4absxg" />
       </Suspense>
     </AuthGuard>
   );
@@ -216,9 +216,9 @@ function Guarded_audit() {
 const LazyScreen_notifications = lazy(() => import('./presentation/containers/notifications.container'));
 function Guarded_notifications() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_notifications />
+    <AuthGuard data-vid="r6u2rkj" loadingComponent={<LoadingFallback data-vid="vmnfq73" />} fallback={<Navigate data-vid="s3uwxpa" to="/login" replace />}>
+      <Suspense data-vid="cwwhjvd" fallback={<LoadingFallback data-vid="apsmwtz" />}>
+        <LazyScreen_notifications data-vid="zsz79ga" />
       </Suspense>
     </AuthGuard>
   );
@@ -227,9 +227,9 @@ function Guarded_notifications() {
 const LazyScreen_not_found = lazy(() => import('./presentation/containers/not-found.container'));
 function Guarded_not_found() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_not_found />
+    <AuthGuard data-vid="dvag11t" loadingComponent={<LoadingFallback data-vid="efsas6b" />} fallback={<Navigate data-vid="o69issq" to="/login" replace />}>
+      <Suspense data-vid="lcntaco" fallback={<LoadingFallback data-vid="ccfvgjg" />}>
+        <LazyScreen_not_found data-vid="pajcyek" />
       </Suspense>
     </AuthGuard>
   );
@@ -238,9 +238,9 @@ function Guarded_not_found() {
 const LazyScreen_help = lazy(() => import('./presentation/containers/help.container'));
 function Guarded_help() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_help />
+    <AuthGuard data-vid="14xplci" loadingComponent={<LoadingFallback data-vid="wqrk5e8" />} fallback={<Navigate data-vid="5g5r7v9" to="/login" replace />}>
+      <Suspense data-vid="04h9ssu" fallback={<LoadingFallback data-vid="ewnufh1" />}>
+        <LazyScreen_help data-vid="s6obaj4" />
       </Suspense>
     </AuthGuard>
   );
@@ -249,9 +249,9 @@ function Guarded_help() {
 const LazyScreen_staff_scheduling = lazy(() => import('./presentation/containers/staff-scheduling.container'));
 function Guarded_staff_scheduling() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_staff_scheduling />
+    <AuthGuard data-vid="ma6o35q" loadingComponent={<LoadingFallback data-vid="b5r8un8" />} fallback={<Navigate data-vid="fdm3fyf" to="/login" replace />}>
+      <Suspense data-vid="w24vs87" fallback={<LoadingFallback data-vid="ikjjoux" />}>
+        <LazyScreen_staff_scheduling data-vid="uou8aix" />
       </Suspense>
     </AuthGuard>
   );
@@ -260,8 +260,8 @@ function Guarded_staff_scheduling() {
 const LazyScreen_growth_diagnostic = lazy(() => import('./presentation/containers/growth-diagnostic.container'));
 function Screen_growth_diagnostic() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_growth_diagnostic />
+    <Suspense data-vid="w482pct" fallback={<LoadingFallback data-vid="12y8q0k" />}>
+      <LazyScreen_growth_diagnostic data-vid="fvz09dz" />
     </Suspense>
   );
 }
@@ -269,9 +269,9 @@ function Screen_growth_diagnostic() {
 const LazyScreen_inventory_waste = lazy(() => import('./presentation/containers/inventory-waste.container'));
 function Guarded_inventory_waste() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_inventory_waste />
+    <AuthGuard data-vid="d40ie5x" loadingComponent={<LoadingFallback data-vid="zalxpfj" />} fallback={<Navigate data-vid="txhab62" to="/login" replace />}>
+      <Suspense data-vid="0gkcfkc" fallback={<LoadingFallback data-vid="w2ufg31" />}>
+        <LazyScreen_inventory_waste data-vid="33bbnal" />
       </Suspense>
     </AuthGuard>
   );
@@ -280,9 +280,9 @@ function Guarded_inventory_waste() {
 const LazyScreen_admin_crm = lazy(() => import('./presentation/containers/admin-crm.container'));
 function Guarded_admin_crm() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_admin_crm />
+    <AuthGuard data-vid="o3mw0mj" loadingComponent={<LoadingFallback data-vid="40rlc0k" />} fallback={<Navigate data-vid="qtkvth6" to="/login" replace />}>
+      <Suspense data-vid="6unm3pz" fallback={<LoadingFallback data-vid="odbrodl" />}>
+        <LazyScreen_admin_crm data-vid="ajt1pop" />
       </Suspense>
     </AuthGuard>
   );
@@ -291,9 +291,9 @@ function Guarded_admin_crm() {
 const LazyScreen_network_map = lazy(() => import('./presentation/containers/network-map.container'));
 function Guarded_network_map() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_network_map />
+    <AuthGuard data-vid="wxey39g" loadingComponent={<LoadingFallback data-vid="nftg9bc" />} fallback={<Navigate data-vid="j7ts1tk" to="/login" replace />}>
+      <Suspense data-vid="3k2jso0" fallback={<LoadingFallback data-vid="dzt5wmp" />}>
+        <LazyScreen_network_map data-vid="yoe96z7" />
       </Suspense>
     </AuthGuard>
   );
@@ -302,9 +302,9 @@ function Guarded_network_map() {
 const LazyScreen_event_sourcing = lazy(() => import('./presentation/containers/event-sourcing.container'));
 function Guarded_event_sourcing() {
   return (
-    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_event_sourcing />
+    <AuthGuard data-vid="xxnnkd9" loadingComponent={<LoadingFallback data-vid="4wcllk4" />} fallback={<Navigate data-vid="jrq0ouv" to="/login" replace />}>
+      <Suspense data-vid="35sgx2c" fallback={<LoadingFallback data-vid="lm9hv6t" />}>
+        <LazyScreen_event_sourcing data-vid="fuw07ku" />
       </Suspense>
     </AuthGuard>
   );
@@ -313,9 +313,9 @@ function Guarded_event_sourcing() {
 const LazyScreen_login = lazy(() => import('./presentation/containers/login.container'));
 function Screen_login() {
   return (
-    <SignedInRedirect to="/">
-      <Suspense fallback={<LoadingFallback />}>
-        <LazyScreen_login />
+    <SignedInRedirect data-vid="ti0rfri" to="/">
+      <Suspense data-vid="xz340qu" fallback={<LoadingFallback data-vid="pbbp107" />}>
+        <LazyScreen_login data-vid="vuuw9bt" />
       </Suspense>
     </SignedInRedirect>
   );
@@ -324,8 +324,8 @@ function Screen_login() {
 const LazyScreen_forgot_password = lazy(() => import('./presentation/containers/forgot-password.container'));
 function Screen_forgot_password() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_forgot_password />
+    <Suspense data-vid="usdxc7w" fallback={<LoadingFallback data-vid="eaktu7c" />}>
+      <LazyScreen_forgot_password data-vid="h6ysljz" />
     </Suspense>
   );
 }
@@ -333,8 +333,8 @@ function Screen_forgot_password() {
 const LazyScreen_reset_password = lazy(() => import('./presentation/containers/reset-password.container'));
 function Screen_reset_password() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_reset_password />
+    <Suspense data-vid="7n75yia" fallback={<LoadingFallback data-vid="rav9ps7" />}>
+      <LazyScreen_reset_password data-vid="v7ll8te" />
     </Suspense>
   );
 }
@@ -342,8 +342,8 @@ function Screen_reset_password() {
 const LazyScreen_verify_email = lazy(() => import('./presentation/containers/verify-email.container'));
 function Screen_verify_email() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_verify_email />
+    <Suspense data-vid="5l37hne" fallback={<LoadingFallback data-vid="gmelc2r" />}>
+      <LazyScreen_verify_email data-vid="telfi24" />
     </Suspense>
   );
 }
@@ -351,8 +351,8 @@ function Screen_verify_email() {
 const LazyScreen_accept_invitation = lazy(() => import('./app/accept-invitation'));
 function Screen_accept_invitation() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_accept_invitation />
+    <Suspense data-vid="hy4661t" fallback={<LoadingFallback data-vid="07dkgk9" />}>
+      <LazyScreen_accept_invitation data-vid="clcj94j" />
     </Suspense>
   );
 }
@@ -360,8 +360,8 @@ function Screen_accept_invitation() {
 const LazyScreen_mfa = lazy(() => import('./presentation/views/mfa.view'));
 function Screen_mfa() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_mfa />
+    <Suspense data-vid="ku38blo" fallback={<LoadingFallback data-vid="6sdtmqx" />}>
+      <LazyScreen_mfa data-vid="cbbztpk" />
     </Suspense>
   );
 }
@@ -369,8 +369,8 @@ function Screen_mfa() {
 const LazyScreen_home = lazy(() => import('./presentation/containers/home.container'));
 function Screen_home() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_home />
+    <Suspense data-vid="au21m6h" fallback={<LoadingFallback data-vid="qunrh5f" />}>
+      <LazyScreen_home data-vid="dmtjrk0" />
     </Suspense>
   );
 }
@@ -378,20 +378,20 @@ function Screen_home() {
 const LazyScreen_contact_us = lazy(() => import('./presentation/containers/contact-us.container'));
 function Screen_contact_us() {
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <LazyScreen_contact_us />
+    <Suspense data-vid="bq5heqj" fallback={<LoadingFallback data-vid="z17tt6j" />}>
+      <LazyScreen_contact_us data-vid="idgythb" />
     </Suspense>
   );
 }
 
 /** ARCH-2675 (STATE.17): in-shell 404 for the "dashboard" layout group. */
 function NotFound_dashboard() {
-  return <NotFound inShell homeHref="/overview" />;
+  return <NotFound data-vid="z1m37bs" inShell homeHref="/overview" />;
 }
 
 /** ARCH-2675 (STATE.17): in-shell 404 for the "public" layout group. */
 function NotFound_public() {
-  return <NotFound inShell homeHref="/home" />;
+  return <NotFound data-vid="zlzo0q1" inShell homeHref="/home" />;
 }
 
 /** ARCH-2246 — ends the session through the app's auth port, then leaves for "/login". The shell's "Sign out" link points here. */
@@ -431,8 +431,8 @@ function SignOutRoute() {
   // with no sign-in screen the memory session re-seats the persona: the identity never clears, nothing to wait for
   const waitForIdentity = true;
   if (!done || (waitForIdentity && identity !== null && !grace))
-    return <LoadingFallback />;
-  return <Navigate to="/login" replace />;
+    return <LoadingFallback data-vid="gmjtwrm" />;
+  return <Navigate data-vid="huwd4ky" to="/login" replace />;
 }
 
 export const routes: AppRoute[] = [
@@ -878,7 +878,7 @@ export function toRouteObjects(rs: AppRoute[] = routes): RouteObject[] {
 /** A visitor who already has a session (e.g. the preview's "Signed in as" just opened one) leaves the sign-in form. */
 function SignedInRedirect(props: { to: string; children: ReactNode }) {
   const { identity, pending } = useIdentity();
-  if (pending) return <LoadingFallback />;
-  if (identity !== null) return <Navigate to={props.to} replace />;
+  if (pending) return <LoadingFallback data-vid="qd84vgn" />;
+  if (identity !== null) return <Navigate data-vid="6f5xbbk" to={props.to} replace />;
   return <>{props.children}</>;
 }

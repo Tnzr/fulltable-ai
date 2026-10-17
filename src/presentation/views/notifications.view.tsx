@@ -63,13 +63,13 @@ export function NotificationsView(props: NotificationsScreenViewModel): React.Re
 
   if (props.error) {
     return (
-      <div className="flex flex-col gap-(--section-gap) p-(--container-padding)">
-        <Alert variant="destructive">
-          <TriangleAlert />
-          <AlertTitle>{t("notifications.8bc70a0f")}</AlertTitle>
-          <AlertDescription>
+      <div data-vid="htdetdu" className="flex flex-col gap-(--section-gap) p-(--container-padding)">
+        <Alert data-vid="3owatz9" variant="destructive">
+          <TriangleAlert data-vid="cum600d" />
+          <AlertTitle data-vid="j8e2ez1">{t("notifications.8bc70a0f")}</AlertTitle>
+          <AlertDescription data-vid="zy47z49">
             {t("notifications.196b46d9")}
-            <Button variant="outline" size="sm" className="mt-2 min-h-11 md:min-h-0" disabled>
+            <Button data-vid="8qkag3j" variant="outline" size="sm" className="mt-2 min-h-11 md:min-h-0" disabled>
               {t("notifications.a0f859bc")}
             </Button>
           </AlertDescription>
@@ -80,10 +80,10 @@ export function NotificationsView(props: NotificationsScreenViewModel): React.Re
 
   if (props.loading) {
     return (
-      <div className="flex flex-col gap-(--section-gap) p-(--container-padding)">
-        <Skeleton className="h-8 w-48" />
-        <Skeleton className="h-14 w-full" />
-        <Skeleton className="h-14 w-full" />
+      <div data-vid="tjnba67" className="flex flex-col gap-(--section-gap) p-(--container-padding)">
+        <Skeleton data-vid="y4p590d" className="h-8 w-48" />
+        <Skeleton data-vid="ynspjyj" className="h-14 w-full" />
+        <Skeleton data-vid="n8q8aqu" className="h-14 w-full" />
       </div>
     );
   }
@@ -98,44 +98,44 @@ export function NotificationsView(props: NotificationsScreenViewModel): React.Re
           : t("notifications.38da1505");
 
   return (
-    <MotionConfig reducedMotion="user">
-      <div className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
-        <header className="flex flex-col gap-(--component-gap) sm:flex-row sm:items-end sm:justify-between">
-          <div className="flex min-w-0 flex-col gap-1">
-            <h1 className="type-page-title text-foreground">{t("notifications.78801183")}</h1>
-            <p className="type-meta text-text-muted tabular-nums">
+    <MotionConfig data-vid="29vlmzu" reducedMotion="user">
+      <div data-vid="szt063u" className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
+        <header data-vid="5zjti8p" className="flex flex-col gap-(--component-gap) sm:flex-row sm:items-end sm:justify-between">
+          <div data-vid="fkh3ylx" className="flex min-w-0 flex-col gap-1">
+            <h1 data-vid="a02n3da" className="type-page-title text-foreground">{t("notifications.78801183")}</h1>
+            <p data-vid="q8r7bpq" className="type-meta text-text-muted tabular-nums">
               {unreadCount === 0
                 ? t("notifications.5c03ba6d")
                 : `${unreadCount} ${t("notifications.50cc2b76")} ${totalCount}${t("notifications.87095d1d")}`}
             </p>
           </div>
-          <Button
+          <Button data-vid="xiu9i1v"
             variant="outline"
             className="min-h-11 shrink-0 self-start border-border-strong md:min-h-9 sm:self-auto"
             disabled={unreadCount === 0}
             onClick={markAll}
           >
-            <CheckCheck className="size-4" />
+            <CheckCheck data-vid="kricw90" className="size-4" />
             {t("notifications.3bc62a9e")}
           </Button>
         </header>
 
-        <div className="flex flex-col gap-(--component-gap) lg:flex-row lg:items-center lg:justify-between">
-          <div className="min-w-0 overflow-x-auto">
-            <Tabs value={tab} onValueChange={setTab}>
-              <TabsList variant="line">
-                <TabsTrigger value="all" className="min-h-11 whitespace-nowrap md:min-h-9">{t("notifications.a52ace42")}</TabsTrigger>
-                <TabsTrigger value="unread" className="min-h-11 whitespace-nowrap md:min-h-9">
-                  {t("notifications.1b9f384c.tabstrigger")} <span className="type-caption tabular-nums">{unreadCount}</span>
+        <div data-vid="mppyw4m" className="flex flex-col gap-(--component-gap) lg:flex-row lg:items-center lg:justify-between">
+          <div data-vid="g6v79d3" className="min-w-0 overflow-x-auto">
+            <Tabs data-vid="p7ch23u" value={tab} onValueChange={setTab}>
+              <TabsList data-vid="8kr6smu" variant="line">
+                <TabsTrigger data-vid="5hcsude" value="all" className="min-h-11 whitespace-nowrap md:min-h-9">{t("notifications.a52ace42")}</TabsTrigger>
+                <TabsTrigger data-vid="z7ssapj" value="unread" className="min-h-11 whitespace-nowrap md:min-h-9">
+                  {t("notifications.1b9f384c.tabstrigger")} <span data-vid="eshej1g" className="type-caption tabular-nums">{unreadCount}</span>
                 </TabsTrigger>
-                <TabsTrigger value="account" className="min-h-11 whitespace-nowrap md:min-h-9">{t("notifications.4fc94a35")}</TabsTrigger>
-                <TabsTrigger value="activity" className="min-h-11 whitespace-nowrap md:min-h-9">{t("notifications.38da1505")}</TabsTrigger>
+                <TabsTrigger data-vid="rq7vbbk" value="account" className="min-h-11 whitespace-nowrap md:min-h-9">{t("notifications.4fc94a35")}</TabsTrigger>
+                <TabsTrigger data-vid="ibfjie5" value="activity" className="min-h-11 whitespace-nowrap md:min-h-9">{t("notifications.38da1505")}</TabsTrigger>
               </TabsList>
             </Tabs>
           </div>
-          <div className="flex min-h-11 w-full items-center gap-2 rounded-control border border-border-strong bg-card px-3 focus-within:ring-2 focus-within:ring-ring md:min-h-9 lg:max-w-sm">
-            <Search className="size-4 shrink-0 text-text-muted" />
-            <Input
+          <div data-vid="nmp3c9v" className="flex min-h-11 w-full items-center gap-2 rounded-control border border-border-strong bg-card px-3 focus-within:ring-2 focus-within:ring-ring md:min-h-9 lg:max-w-sm">
+            <Search data-vid="0erv16d" className="size-4 shrink-0 text-text-muted" />
+            <Input data-vid="33mv7ac"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={t("notifications.8dcdcf59")}
@@ -145,36 +145,36 @@ export function NotificationsView(props: NotificationsScreenViewModel): React.Re
           </div>
         </div>
 
-        <section aria-label={t("notifications.f21d907b")} className="flex flex-col gap-(--component-gap)">
+        <section data-vid="xalq6ra" aria-label={t("notifications.f21d907b")} className="flex flex-col gap-(--component-gap)">
           {rows.length === 0 ? (
-            <EmptyState
-              icon={<Bell />}
+            <EmptyState data-vid="xno1x1j"
+              icon={<Bell data-vid="r1f10jw" />}
               title={t("notifications.1a60b097")}
               description={t("notifications.94356087")}
             />
           ) : visible.length === 0 ? (
-            <EmptyState
+            <EmptyState data-vid="j5f558n"
               filtered
-              icon={<Bell />}
+              icon={<Bell data-vid="aglskpb" />}
               title={t("notifications.cf6925a5")}
               description={`${t("notifications.52d8fdaa")} ${tabLabel}${t("notifications.924baeb6")}`}
               onAction={clear}
             />
           ) : (
-            <ul className="flex flex-col">
-              <AnimatePresence initial={false}>
+            <ul data-vid="fflp972" className="flex flex-col">
+              <AnimatePresence data-vid="v9us8fv" initial={false}>
                 {visible.map((n) => {
                   const read = isRead(n);
                   const expanded = open === n.id;
                   return (
-                    <motion.li
+                    <motion.li data-vid="83fp4x4"
                       key={n.id}
                       layout
                       transition={{ duration: 0.2 }}
                       className="border-b border-border"
                     >
-                      <div className="grid min-h-14 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 py-2">
-                        <span
+                      <div data-vid="a0bz61f" className="grid min-h-14 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 py-2">
+                        <span data-vid="f9aut58"
                           aria-label={read ? t("notifications.9b9a8d05.span-attr-aria-label") : t("notifications.1b9f384c.span-attr-aria-label")}
                           className={
                             read
@@ -182,7 +182,7 @@ export function NotificationsView(props: NotificationsScreenViewModel): React.Re
                               : "size-2 rounded-full bg-primary"
                           }
                         />
-                        <button
+                        <button data-vid="cq9ix26"
                           type="button"
                           aria-expanded={expanded}
                           onClick={() => {
@@ -191,35 +191,35 @@ export function NotificationsView(props: NotificationsScreenViewModel): React.Re
                           }}
                           className="flex min-h-11 min-w-0 flex-col items-start gap-0.5 rounded-sm text-left focus-visible:ring-2 focus-visible:ring-ring md:min-h-0"
                         >
-                          <span className={`type-row-title min-w-0 max-w-full whitespace-normal break-words ${read ? "text-text-body" : "text-foreground"}`}>
+                          <span data-vid="9qs91r6" className={`type-row-title min-w-0 max-w-full whitespace-normal break-words ${read ? "text-text-body" : "text-foreground"}`}>
                             {n.title}
                           </span>
-                          <span className="type-meta flex min-w-0 max-w-full flex-wrap items-center gap-x-2 gap-y-0.5 text-text-muted">
-                            <span className="min-w-0 break-words">{n.category}</span>
-                            <span className="type-mono-id tabular-nums">
+                          <span data-vid="de9r1mk" className="type-meta flex min-w-0 max-w-full flex-wrap items-center gap-x-2 gap-y-0.5 text-text-muted">
+                            <span data-vid="xfv03ft" className="min-w-0 break-words">{n.category}</span>
+                            <span data-vid="k3j67vl" className="type-mono-id tabular-nums">
                               {formatDate(n.createdAt)} · {formatTime(n.createdAt)}
                             </span>
                           </span>
                         </button>
-                        <div className="flex min-w-0 max-w-full items-center gap-1 justify-self-end">
+                        <div data-vid="z513duy" className="flex min-w-0 max-w-full items-center gap-1 justify-self-end">
                           {n.actionText && (
-                            <a
+                            <a data-vid="64ebti2"
                               href={n.actionUrl || undefined}
                               onClick={() => markRead(n.id)}
                               className="type-meta inline-flex min-h-11 items-center gap-1 rounded-sm px-2 text-text-link hover:underline focus-visible:ring-2 focus-visible:ring-ring md:min-h-9"
                             >
                               {n.actionText}
-                              <ArrowRight className="size-4" />
+                              <ArrowRight data-vid="esjpdr0" className="size-4" />
                             </a>
                           )}
-                          <ChevronDown
+                          <ChevronDown data-vid="zgmepb0"
                             className={`size-4 text-text-muted transition-transform ${expanded ? "rotate-180" : ""}`}
                             aria-hidden="true"
                           />
                         </div>
                       </div>
                       {expanded && (
-                        <motion.p
+                        <motion.p data-vid="xecglph"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ duration: 0.15 }}
@@ -239,8 +239,8 @@ export function NotificationsView(props: NotificationsScreenViewModel): React.Re
           )}
         </section>
 
-        <section aria-label={t("notifications.9c03d5f0")} className="flex flex-col gap-(--component-gap)">
-          <Queue
+        <section data-vid="3hnpdip" aria-label={t("notifications.9c03d5f0")} className="flex flex-col gap-(--component-gap)">
+          <Queue data-vid="wqehjz7"
             rows={visible}
             id="id"
             title={t("notifications.aaf23206")}

@@ -703,5 +703,5 @@ export function PublicShellContainer({ children }: { readonly children: ReactNod
         }
       : {}),
   };
-  return <PublicShell vm={vm}>{children}</PublicShell>;
+  return <PublicShell data-vid="y1k018q" vm={vm}>{children}</PublicShell>;
 }

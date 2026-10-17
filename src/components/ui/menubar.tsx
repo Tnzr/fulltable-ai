@@ -10,7 +10,7 @@ function Menubar({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Root>) {
   return (
-    <MenubarPrimitive.Root
+    <MenubarPrimitive.Root data-vid="i4oay5s"
       data-slot="menubar"
       className={cn(
         "flex h-8 items-center gap-0.5 rounded-lg border p-[3px]",
@@ -24,26 +24,26 @@ function Menubar({
 function MenubarMenu({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Menu>) {
-  return <MenubarPrimitive.Menu data-slot="menubar-menu" {...props} />
+  return <MenubarPrimitive.Menu data-vid="ha6ge95" data-slot="menubar-menu" {...props} />
 }
 
 function MenubarGroup({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Group>) {
-  return <MenubarPrimitive.Group data-slot="menubar-group" {...props} />
+  return <MenubarPrimitive.Group data-vid="00mithf" data-slot="menubar-group" {...props} />
 }
 
 function MenubarPortal({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Portal>) {
-  return <MenubarPrimitive.Portal data-slot="menubar-portal" {...props} />
+  return <MenubarPrimitive.Portal data-vid="sd1t8rl" data-slot="menubar-portal" {...props} />
 }
 
 function MenubarRadioGroup({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.RadioGroup>) {
   return (
-    <MenubarPrimitive.RadioGroup data-slot="menubar-radio-group" {...props} />
+    <MenubarPrimitive.RadioGroup data-vid="c2yljda" data-slot="menubar-radio-group" {...props} />
   )
 }
 
@@ -52,7 +52,7 @@ function MenubarTrigger({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Trigger>) {
   return (
-    <MenubarPrimitive.Trigger
+    <MenubarPrimitive.Trigger data-vid="uljmjnj"
       data-slot="menubar-trigger"
       className={cn(
         "flex items-center rounded-sm px-1.5 py-[2px] text-sm font-medium outline-hidden select-none hover:bg-muted aria-expanded:bg-muted",
@@ -71,8 +71,8 @@ function MenubarContent({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Content>) {
   return (
-    <MenubarPortal>
-      <MenubarPrimitive.Content
+    <MenubarPortal data-vid="dqsnntb">
+      <MenubarPrimitive.Content data-vid="p6vkwmg"
         data-slot="menubar-content"
         align={align}
         alignOffset={alignOffset}
@@ -94,7 +94,7 @@ function MenubarItem({
   variant?: "default" | "destructive"
 }) {
   return (
-    <MenubarPrimitive.Item
+    <MenubarPrimitive.Item data-vid="lc8khkn"
       data-slot="menubar-item"
       data-inset={inset}
       data-variant={variant}
@@ -117,7 +117,7 @@ function MenubarCheckboxItem({
   inset?: boolean
 }) {
   return (
-    <MenubarPrimitive.CheckboxItem
+    <MenubarPrimitive.CheckboxItem data-vid="iygyx09"
       data-slot="menubar-checkbox-item"
       data-inset={inset}
       className={cn(
@@ -127,9 +127,9 @@ function MenubarCheckboxItem({
       checked={checked}
       {...props}
     >
-      <span className="pointer-events-none absolute left-1.5 flex size-4 items-center justify-center [&_svg:not([class*='size-'])]:size-4">
-        <MenubarPrimitive.ItemIndicator>
-          <CheckIcon
+      <span data-vid="1hgyvpv" className="pointer-events-none absolute left-1.5 flex size-4 items-center justify-center [&_svg:not([class*='size-'])]:size-4">
+        <MenubarPrimitive.ItemIndicator data-vid="lp7p66q">
+          <CheckIcon data-vid="dgcos5q"
           />
         </MenubarPrimitive.ItemIndicator>
       </span>
@@ -147,7 +147,7 @@ function MenubarRadioItem({
   inset?: boolean
 }) {
   return (
-    <MenubarPrimitive.RadioItem
+    <MenubarPrimitive.RadioItem data-vid="1qamfbt"
       data-slot="menubar-radio-item"
       data-inset={inset}
       className={cn(
@@ -156,9 +156,9 @@ function MenubarRadioItem({
       )}
       {...props}
     >
-      <span className="pointer-events-none absolute left-1.5 flex size-4 items-center justify-center [&_svg:not([class*='size-'])]:size-4">
-        <MenubarPrimitive.ItemIndicator>
-          <CheckIcon
+      <span data-vid="lva0oji" className="pointer-events-none absolute left-1.5 flex size-4 items-center justify-center [&_svg:not([class*='size-'])]:size-4">
+        <MenubarPrimitive.ItemIndicator data-vid="8c7kd82">
+          <CheckIcon data-vid="yovjtnm"
           />
         </MenubarPrimitive.ItemIndicator>
       </span>
@@ -175,7 +175,7 @@ function MenubarLabel({
   inset?: boolean
 }) {
   return (
-    <MenubarPrimitive.Label
+    <MenubarPrimitive.Label data-vid="y4j45dk"
       data-slot="menubar-label"
       data-inset={inset}
       className={cn(
@@ -192,7 +192,7 @@ function MenubarSeparator({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Separator>) {
   return (
-    <MenubarPrimitive.Separator
+    <MenubarPrimitive.Separator data-vid="onox0e4"
       data-slot="menubar-separator"
       className={cn("-mx-1 my-1 h-px bg-border", className)}
       {...props}
@@ -205,7 +205,7 @@ function MenubarShortcut({
   ...props
 }: React.ComponentProps<"span">) {
   return (
-    <span
+    <span data-vid="cxabphe"
       data-slot="menubar-shortcut"
       className={cn(
         "ml-auto text-xs tracking-widest text-muted-foreground group-focus/menubar-item:text-accent-foreground",
@@ -219,7 +219,7 @@ function MenubarShortcut({
 function MenubarSub({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Sub>) {
-  return <MenubarPrimitive.Sub data-slot="menubar-sub" {...props} />
+  return <MenubarPrimitive.Sub data-vid="63sscbs" data-slot="menubar-sub" {...props} />
 }
 
 function MenubarSubTrigger({
@@ -231,7 +231,7 @@ function MenubarSubTrigger({
   inset?: boolean
 }) {
   return (
-    <MenubarPrimitive.SubTrigger
+    <MenubarPrimitive.SubTrigger data-vid="2gp3c3i"
       data-slot="menubar-sub-trigger"
       data-inset={inset}
       className={cn(
@@ -241,7 +241,7 @@ function MenubarSubTrigger({
       {...props}
     >
       {children}
-      <ChevronRightIcon className="ml-auto size-4" />
+      <ChevronRightIcon data-vid="3056wnb" className="ml-auto size-4" />
     </MenubarPrimitive.SubTrigger>
   )
 }
@@ -251,7 +251,7 @@ function MenubarSubContent({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.SubContent>) {
   return (
-    <MenubarPrimitive.SubContent
+    <MenubarPrimitive.SubContent data-vid="dykgs5m"
       data-slot="menubar-sub-content"
       className={cn("z-50 min-w-32 origin-(--radix-menubar-content-transform-origin) overflow-hidden rounded-lg bg-popover p-1 text-popover-foreground shadow-lg ring-1 ring-foreground/10 duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95", className )}
       {...props}

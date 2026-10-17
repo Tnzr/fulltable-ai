@@ -40,34 +40,34 @@ function WindowForm(props: {
     mode: "onTouched",
   });
   return (
-    <form onSubmit={(e) => e.preventDefault()} noValidate className="flex flex-col gap-(--component-gap) px-4">
-      <FieldGroup>
-        <Controller
+    <form data-vid="o2j89g9" onSubmit={(e) => e.preventDefault()} noValidate className="flex flex-col gap-(--component-gap) px-4">
+      <FieldGroup data-vid="pz7pd4k">
+        <Controller data-vid="fl9s393"
           name="seatCapacity"
           control={form.control}
           render={({ field, fieldState }) => (
-            <Field data-invalid={fieldState.invalid}>
-              <FieldLabel htmlFor="seatCapacity">{t("restaurant-settings.de3e89c1")}</FieldLabel>
-              <Input id="seatCapacity" type="number" inputMode="numeric" value={Number.isNaN(field.value) ? "" : field.value} onBlur={field.onBlur} onChange={(e) => field.onChange(e.target.valueAsNumber)} aria-invalid={fieldState.invalid} className="min-h-11 border-border-strong" />
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            <Field data-vid="qtag3wx" data-invalid={fieldState.invalid}>
+              <FieldLabel data-vid="dau0udj" htmlFor="seatCapacity">{t("restaurant-settings.de3e89c1")}</FieldLabel>
+              <Input data-vid="ecssjad" id="seatCapacity" type="number" inputMode="numeric" value={Number.isNaN(field.value) ? "" : field.value} onBlur={field.onBlur} onChange={(e) => field.onChange(e.target.valueAsNumber)} aria-invalid={fieldState.invalid} className="min-h-11 border-border-strong" />
+              {fieldState.invalid && <FieldError data-vid="q4myaec" errors={[fieldState.error]} />}
             </Field>
           )}
         />
-        <Controller
+        <Controller data-vid="8lzwapx"
           name="regularGuestBuffer"
           control={form.control}
           render={({ field, fieldState }) => (
-            <Field data-invalid={fieldState.invalid}>
-              <FieldLabel htmlFor="regularGuestBuffer">{t("restaurant-settings.3042ada5")}</FieldLabel>
-              <Input id="regularGuestBuffer" type="number" inputMode="numeric" value={Number.isNaN(field.value) ? "" : field.value} onBlur={field.onBlur} onChange={(e) => field.onChange(e.target.valueAsNumber)} aria-invalid={fieldState.invalid} className="min-h-11 border-border-strong" />
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            <Field data-vid="2dgpcty" data-invalid={fieldState.invalid}>
+              <FieldLabel data-vid="wvcs2hc" htmlFor="regularGuestBuffer">{t("restaurant-settings.3042ada5")}</FieldLabel>
+              <Input data-vid="p2d0sms" id="regularGuestBuffer" type="number" inputMode="numeric" value={Number.isNaN(field.value) ? "" : field.value} onBlur={field.onBlur} onChange={(e) => field.onChange(e.target.valueAsNumber)} aria-invalid={fieldState.invalid} className="min-h-11 border-border-strong" />
+              {fieldState.invalid && <FieldError data-vid="k16k6yn" errors={[fieldState.error]} />}
             </Field>
           )}
         />
       </FieldGroup>
-      <SheetFooter className="px-0">
-        <Button type="button" disabled aria-disabled="true" className="min-h-11">{t("restaurant-settings.71b3a5be")}</Button>
-        <p className="type-caption text-text-muted">{props.reason}</p>
+      <SheetFooter data-vid="2ylal4f" className="px-0">
+        <Button data-vid="39nhubg" type="button" disabled aria-disabled="true" className="min-h-11">{t("restaurant-settings.71b3a5be")}</Button>
+        <p data-vid="j041s9p" className="type-caption text-text-muted">{props.reason}</p>
       </SheetFooter>
     </form>
   );
@@ -95,45 +95,45 @@ function MenuForm(props: {
     mode: "onTouched",
   });
   return (
-    <form onSubmit={(e) => e.preventDefault()} noValidate>
-      <FieldGroup>
-        <Controller
+    <form data-vid="uq6z519" onSubmit={(e) => e.preventDefault()} noValidate>
+      <FieldGroup data-vid="5seq1jd">
+        <Controller data-vid="z1r267v"
           name="pricePerPerson"
           control={form.control}
           render={({ field, fieldState }) => (
-            <Field data-invalid={fieldState.invalid}>
-              <FieldLabel htmlFor="m-pricePerPerson">{t("restaurant-settings.b27297b2")}</FieldLabel>
-              <Input id="m-pricePerPerson" type="number" inputMode="decimal" value={Number.isNaN(field.value) ? "" : field.value} onBlur={field.onBlur} onChange={(e) => field.onChange(e.target.valueAsNumber)} aria-invalid={fieldState.invalid} className="min-h-11 border-border-strong" />
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            <Field data-vid="riepfb5" data-invalid={fieldState.invalid}>
+              <FieldLabel data-vid="6g7s9bc" htmlFor="m-pricePerPerson">{t("restaurant-settings.b27297b2")}</FieldLabel>
+              <Input data-vid="2ub9cef" id="m-pricePerPerson" type="number" inputMode="decimal" value={Number.isNaN(field.value) ? "" : field.value} onBlur={field.onBlur} onChange={(e) => field.onChange(e.target.valueAsNumber)} aria-invalid={fieldState.invalid} className="min-h-11 border-border-strong" />
+              {fieldState.invalid && <FieldError data-vid="byg22ql" errors={[fieldState.error]} />}
             </Field>
           )}
         />
-        <Controller
+        <Controller data-vid="sqzt4a1"
           name="minimumSpend"
           control={form.control}
           render={({ field, fieldState }) => (
-            <Field data-invalid={fieldState.invalid}>
-              <FieldLabel htmlFor="m-minimumSpend">{t("restaurant-settings.cdaec0d9")}</FieldLabel>
-              <Input id="m-minimumSpend" type="number" inputMode="decimal" value={Number.isNaN(field.value) ? "" : field.value} onBlur={field.onBlur} onChange={(e) => field.onChange(e.target.valueAsNumber)} aria-invalid={fieldState.invalid} className="min-h-11 border-border-strong" />
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            <Field data-vid="n825ftz" data-invalid={fieldState.invalid}>
+              <FieldLabel data-vid="ka65ai9" htmlFor="m-minimumSpend">{t("restaurant-settings.cdaec0d9")}</FieldLabel>
+              <Input data-vid="iano1gi" id="m-minimumSpend" type="number" inputMode="decimal" value={Number.isNaN(field.value) ? "" : field.value} onBlur={field.onBlur} onChange={(e) => field.onChange(e.target.valueAsNumber)} aria-invalid={fieldState.invalid} className="min-h-11 border-border-strong" />
+              {fieldState.invalid && <FieldError data-vid="ut0bef2" errors={[fieldState.error]} />}
             </Field>
           )}
         />
-        <Controller
+        <Controller data-vid="m2idtd2"
           name="maxDiscount"
           control={form.control}
           render={({ field, fieldState }) => (
-            <Field data-invalid={fieldState.invalid}>
-              <FieldLabel htmlFor="m-maxDiscount">{t("restaurant-settings.711ad997")}</FieldLabel>
-              <Input id="m-maxDiscount" type="number" inputMode="decimal" value={Number.isNaN(field.value) ? "" : field.value} onBlur={field.onBlur} onChange={(e) => field.onChange(e.target.valueAsNumber)} aria-invalid={fieldState.invalid} className="min-h-11 border-border-strong" />
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            <Field data-vid="ef9jx21" data-invalid={fieldState.invalid}>
+              <FieldLabel data-vid="j2pv1oc" htmlFor="m-maxDiscount">{t("restaurant-settings.711ad997")}</FieldLabel>
+              <Input data-vid="ak51pjj" id="m-maxDiscount" type="number" inputMode="decimal" value={Number.isNaN(field.value) ? "" : field.value} onBlur={field.onBlur} onChange={(e) => field.onChange(e.target.valueAsNumber)} aria-invalid={fieldState.invalid} className="min-h-11 border-border-strong" />
+              {fieldState.invalid && <FieldError data-vid="qy8g9ut" errors={[fieldState.error]} />}
             </Field>
           )}
         />
       </FieldGroup>
-      <DialogFooter className="mt-4">
-        <Button type="button" disabled aria-disabled="true" className="min-h-11">{t("restaurant-settings.a9564008")}</Button>
-        <p className="type-caption text-text-muted">{props.reason}</p>
+      <DialogFooter data-vid="dkz13br" className="mt-4">
+        <Button data-vid="pf437d8" type="button" disabled aria-disabled="true" className="min-h-11">{t("restaurant-settings.a9564008")}</Button>
+        <p data-vid="qk9eopc" className="type-caption text-text-muted">{props.reason}</p>
       </DialogFooter>
     </form>
   );
@@ -168,114 +168,114 @@ export function RestaurantSettingsView(props: RestaurantSettingsScreenViewModel)
   }, [props.windows, typeFilter, sortDay]);
 
   return (
-    <MotionConfig reducedMotion="user">
-      <div className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
-        <header className="flex flex-col gap-1">
-          <p className="type-eyebrow text-text-muted">{t("restaurant-settings.4147d63b")}</p>
-          <h1 className="type-page-title">{t("restaurant-settings.74a883a0")}</h1>
-          <p className="type-body text-text-muted">{t("restaurant-settings.182674ee")}</p>
+    <MotionConfig data-vid="e9aa3mh" reducedMotion="user">
+      <div data-vid="bvt8361" className="flex flex-col gap-(--section-gap) px-(--container-padding) py-(--section-gap)">
+        <header data-vid="cpexgdp" className="flex flex-col gap-1">
+          <p data-vid="ybtvfpy" className="type-eyebrow text-text-muted">{t("restaurant-settings.4147d63b")}</p>
+          <h1 data-vid="468cjdu" className="type-page-title">{t("restaurant-settings.74a883a0")}</h1>
+          <p data-vid="ql8k8fc" className="type-body text-text-muted">{t("restaurant-settings.182674ee")}</p>
         </header>
 
-        <section aria-labelledby="wf" className="flex flex-col gap-(--component-gap) rounded-card border border-border bg-card p-(--card-padding) md:flex-row md:items-center md:justify-between">
-          <div className="flex min-w-0 flex-col gap-2">
-            <h2 id="wf" className="type-card-title">{t("restaurant-settings.fd2f0cfa")}</h2>
-            <AnimatePresence initial={false} mode="popLayout">
-              <motion.p key="wf-unavailable" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.15 }} className="type-caption text-text-muted">{t("restaurant-settings.da1ce7cb.p")}</motion.p>
+        <section data-vid="u9o0tdu" aria-labelledby="wf" className="flex flex-col gap-(--component-gap) rounded-card border border-border bg-card p-(--card-padding) md:flex-row md:items-center md:justify-between">
+          <div data-vid="g8sckwn" className="flex min-w-0 flex-col gap-2">
+            <h2 data-vid="skzpqbl" id="wf" className="type-card-title">{t("restaurant-settings.fd2f0cfa")}</h2>
+            <AnimatePresence data-vid="cqla838" initial={false} mode="popLayout">
+              <motion.p data-vid="11ej49f" key="wf-unavailable" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.15 }} className="type-caption text-text-muted">{t("restaurant-settings.da1ce7cb.p")}</motion.p>
             </AnimatePresence>
-            <p className="type-caption text-text-muted">{t("restaurant-settings.7967a2b9")}</p>
+            <p data-vid="yifkov1" className="type-caption text-text-muted">{t("restaurant-settings.7967a2b9")}</p>
           </div>
-          <Button variant="outline" className="min-h-11 shrink-0 border-border-strong" disabled aria-disabled="true" title={t("restaurant-settings.da1ce7cb.button-attr-title")}>
-            <Pause className="size-4" />
+          <Button data-vid="4rcegtv" variant="outline" className="min-h-11 shrink-0 border-border-strong" disabled aria-disabled="true" title={t("restaurant-settings.da1ce7cb.button-attr-title")}>
+            <Pause data-vid="xej5djb" className="size-4" />
             {t("restaurant-settings.e272a3ea")}
           </Button>
         </section>
 
-        <Tabs defaultValue="windows" className="flex flex-col gap-(--component-gap)">
-          <div className="overflow-x-auto">
-            <TabsList variant="line">
-              <TabsTrigger value="windows" className="min-h-11">{t("restaurant-settings.4419f6bc")}</TabsTrigger>
-              <TabsTrigger value="menus" className="min-h-11">{t("restaurant-settings.cab26c5c")}</TabsTrigger>
-              <TabsTrigger value="perms" className="min-h-11">{t("restaurant-settings.17d68aa8")}</TabsTrigger>
+        <Tabs data-vid="7lbg5ho" defaultValue="windows" className="flex flex-col gap-(--component-gap)">
+          <div data-vid="ixqbzhm" className="overflow-x-auto">
+            <TabsList data-vid="zbvj1gi" variant="line">
+              <TabsTrigger data-vid="gtrptzu" value="windows" className="min-h-11">{t("restaurant-settings.4419f6bc")}</TabsTrigger>
+              <TabsTrigger data-vid="jxtda9o" value="menus" className="min-h-11">{t("restaurant-settings.cab26c5c")}</TabsTrigger>
+              <TabsTrigger data-vid="x7l14qr" value="perms" className="min-h-11">{t("restaurant-settings.17d68aa8")}</TabsTrigger>
             </TabsList>
           </div>
 
-          <TabsContent value="windows" className="flex flex-col gap-(--component-gap)">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <ToggleGroup type="single" value={typeFilter} onValueChange={(v) => v && setTypeFilter(v)} variant="outline" aria-label={t("restaurant-settings.c70e8c94")} className="flex-wrap">
-                <ToggleGroupItem value="all" className="min-h-11 border-border-strong">{t("restaurant-settings.a52ace42")}</ToggleGroupItem>
+          <TabsContent data-vid="43kxfcb" value="windows" className="flex flex-col gap-(--component-gap)">
+            <div data-vid="ttxbalv" className="flex flex-wrap items-center justify-between gap-3">
+              <ToggleGroup data-vid="83p22ad" type="single" value={typeFilter} onValueChange={(v) => v && setTypeFilter(v)} variant="outline" aria-label={t("restaurant-settings.c70e8c94")} className="flex-wrap">
+                <ToggleGroupItem data-vid="zxr0vo4" value="all" className="min-h-11 border-border-strong">{t("restaurant-settings.a52ace42")}</ToggleGroupItem>
                 {typeOptions.map((wt) => (
-                  <ToggleGroupItem key={wt} value={wt} className="min-h-11 border-border-strong">{wt}</ToggleGroupItem>
+                  <ToggleGroupItem data-vid="j6d2syz" key={wt} value={wt} className="min-h-11 border-border-strong">{wt}</ToggleGroupItem>
                 ))}
               </ToggleGroup>
-              <button type="button" onClick={() => props.navigate(routes["service-calendar"]())} className="type-meta text-text-link hover:underline">{t("restaurant-settings.30c57c85")}</button>
+              <button data-vid="vaorqih" type="button" onClick={() => props.navigate(routes["service-calendar"]())} className="type-meta text-text-link hover:underline">{t("restaurant-settings.30c57c85")}</button>
             </div>
-            <div className="overflow-x-auto rounded-card border border-border bg-card">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>{t("restaurant-settings.19734a1b")}</TableHead>
-                    <TableHead>{t("restaurant-settings.baaddf70")}</TableHead>
-                    <TableHead aria-sort={sortDay ? "ascending" : "descending"}>
-                      <button type="button" onClick={() => setSortDay((s) => !s)} className="inline-flex min-h-11 items-center gap-1 focus-visible:ring-2 focus-visible:ring-ring">
-                        {t("restaurant-settings.8f2364e1")} <ArrowUpDown className="size-4" />
+            <div data-vid="jsp67cj" className="overflow-x-auto rounded-card border border-border bg-card">
+              <Table data-vid="yoj7ncs">
+                <TableHeader data-vid="xk8kuca">
+                  <TableRow data-vid="9t0gzrl">
+                    <TableHead data-vid="5a3fapn">{t("restaurant-settings.19734a1b")}</TableHead>
+                    <TableHead data-vid="rri0u2c">{t("restaurant-settings.baaddf70")}</TableHead>
+                    <TableHead data-vid="6l9sln7" aria-sort={sortDay ? "ascending" : "descending"}>
+                      <button data-vid="rcnl076" type="button" onClick={() => setSortDay((s) => !s)} className="inline-flex min-h-11 items-center gap-1 focus-visible:ring-2 focus-visible:ring-ring">
+                        {t("restaurant-settings.8f2364e1")} <ArrowUpDown data-vid="sqglmu8" className="size-4" />
                       </button>
                     </TableHead>
-                    <TableHead>{t("restaurant-settings.e4bb9f1e")}</TableHead>
-                    <TableHead className="text-right">{t("restaurant-settings.de3e89c1")}</TableHead>
-                    <TableHead className="text-right">{t("restaurant-settings.3042ada5")}</TableHead>
-                    <TableHead className="text-right"><span className="sr-only">{t("restaurant-settings.464c4ffd.span")}</span></TableHead>
+                    <TableHead data-vid="qav1nwe">{t("restaurant-settings.e4bb9f1e")}</TableHead>
+                    <TableHead data-vid="5siw0zp" className="text-right">{t("restaurant-settings.de3e89c1")}</TableHead>
+                    <TableHead data-vid="7cdn2ej" className="text-right">{t("restaurant-settings.3042ada5")}</TableHead>
+                    <TableHead data-vid="8ovv162" className="text-right"><span data-vid="77mcoui" className="sr-only">{t("restaurant-settings.464c4ffd.span")}</span></TableHead>
                   </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody data-vid="syq4640">
                   {rows.map((w) => (
-                    <TableRow key={w.id}>
-                      <TableCell className="max-w-72 truncate type-row-title">{w.name}</TableCell>
-                      <TableCell>
-                        <Badge variant="outline" className="whitespace-nowrap rounded-badge border-border-strong">{String(w.windowType)}</Badge>
+                    <TableRow data-vid="cirh3vh" key={w.id}>
+                      <TableCell data-vid="5acu533" className="max-w-72 truncate type-row-title">{w.name}</TableCell>
+                      <TableCell data-vid="nbedfr5">
+                        <Badge data-vid="72u2vq6" variant="outline" className="whitespace-nowrap rounded-badge border-border-strong">{String(w.windowType)}</Badge>
                       </TableCell>
-                      <TableCell className="whitespace-nowrap">{w.dayOfWeek}</TableCell>
-                      <TableCell className="whitespace-nowrap type-mono-id">{w.startTime ?? "—"}</TableCell>
-                      <TableCell className="whitespace-nowrap text-right tabular-nums">{w.seatCapacity ?? "—"}</TableCell>
-                      <TableCell className="whitespace-nowrap text-right tabular-nums">{w.regularGuestBuffer ?? "—"}</TableCell>
-                      <TableCell className="text-right">
-                        <Button variant="ghost" size="icon" aria-label={t("restaurant-settings.464c4ffd.button-attr-aria-label")} onClick={() => setEditWin(w)}>
-                          <Pencil className="size-4" />
+                      <TableCell data-vid="rw51je2" className="whitespace-nowrap">{w.dayOfWeek}</TableCell>
+                      <TableCell data-vid="61wig3o" className="whitespace-nowrap type-mono-id">{w.startTime ?? "—"}</TableCell>
+                      <TableCell data-vid="0anubim" className="whitespace-nowrap text-right tabular-nums">{w.seatCapacity ?? "—"}</TableCell>
+                      <TableCell data-vid="kaclfz0" className="whitespace-nowrap text-right tabular-nums">{w.regularGuestBuffer ?? "—"}</TableCell>
+                      <TableCell data-vid="pyj1c0h" className="text-right">
+                        <Button data-vid="pqns76f" variant="ghost" size="icon" aria-label={t("restaurant-settings.464c4ffd.button-attr-aria-label")} onClick={() => setEditWin(w)}>
+                          <Pencil data-vid="ctdlgej" className="size-4" />
                         </Button>
                       </TableCell>
                     </TableRow>
                   ))}
                   {rows.length === 0 && (
-                    <TableRow><TableCell colSpan={7} className="type-body text-text-muted">{t("restaurant-settings.ed1bf690")}</TableCell></TableRow>
+                    <TableRow data-vid="ym1xj0v"><TableCell data-vid="n4k2j3f" colSpan={7} className="type-body text-text-muted">{t("restaurant-settings.ed1bf690")}</TableCell></TableRow>
                   )}
                 </TableBody>
               </Table>
             </div>
           </TabsContent>
 
-          <TabsContent value="menus" className="flex flex-col gap-(--component-gap)">
-            <div className="overflow-x-auto rounded-card border border-border bg-card">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>{t("restaurant-settings.99af6606")}</TableHead>
-                    <TableHead className="text-right">{t("restaurant-settings.b27297b2")}</TableHead>
-                    <TableHead className="text-right">{t("restaurant-settings.cdaec0d9")}</TableHead>
-                    <TableHead className="text-right">{t("restaurant-settings.711ad997")}</TableHead>
-                    <TableHead className="text-right">{t("restaurant-settings.0a370d19")}</TableHead>
-                    <TableHead className="text-right"><span className="sr-only">{t("restaurant-settings.464c4ffd.span")}</span></TableHead>
+          <TabsContent data-vid="tzcmq1e" value="menus" className="flex flex-col gap-(--component-gap)">
+            <div data-vid="yazxaj0" className="overflow-x-auto rounded-card border border-border bg-card">
+              <Table data-vid="692vbhr">
+                <TableHeader data-vid="lc5tl5x">
+                  <TableRow data-vid="347qnti">
+                    <TableHead data-vid="e7o52zd">{t("restaurant-settings.99af6606")}</TableHead>
+                    <TableHead data-vid="trjmzva" className="text-right">{t("restaurant-settings.b27297b2")}</TableHead>
+                    <TableHead data-vid="coj7ees" className="text-right">{t("restaurant-settings.cdaec0d9")}</TableHead>
+                    <TableHead data-vid="zsgump5" className="text-right">{t("restaurant-settings.711ad997")}</TableHead>
+                    <TableHead data-vid="7zguey7" className="text-right">{t("restaurant-settings.0a370d19")}</TableHead>
+                    <TableHead data-vid="t3so3aj" className="text-right"><span data-vid="mycta2d" className="sr-only">{t("restaurant-settings.464c4ffd.span")}</span></TableHead>
                   </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody data-vid="xxjhlqa">
                   {props.menus.map((m) => (
-                    <TableRow key={m.id}>
-                      <TableCell className="max-w-72 truncate type-row-title">{m.name}</TableCell>
-                      <TableCell className="whitespace-nowrap text-right tabular-nums"><Money value={m.pricePerPerson} /></TableCell>
-                      <TableCell className="whitespace-nowrap text-right tabular-nums"><Money value={m.minimumSpend} /></TableCell>
-                      <TableCell className="whitespace-nowrap text-right tabular-nums">{m.maxDiscount ?? "—"}</TableCell>
-                      <TableCell className="whitespace-nowrap text-right tabular-nums"><Money value={m.servingCost} /></TableCell>
-                      <TableCell className="text-right">
-                        <Button variant="ghost" size="icon" aria-label={t("restaurant-settings.464c4ffd.button-attr-aria-label")} onClick={() => setEditMenu(m)}>
-                          <Pencil className="size-4" />
+                    <TableRow data-vid="it1d6dr" key={m.id}>
+                      <TableCell data-vid="jnc1wgt" className="max-w-72 truncate type-row-title">{m.name}</TableCell>
+                      <TableCell data-vid="141b73v" className="whitespace-nowrap text-right tabular-nums"><Money data-vid="chxscuq" value={m.pricePerPerson} /></TableCell>
+                      <TableCell data-vid="wsuth05" className="whitespace-nowrap text-right tabular-nums"><Money data-vid="pf5l2kg" value={m.minimumSpend} /></TableCell>
+                      <TableCell data-vid="k6hwhgy" className="whitespace-nowrap text-right tabular-nums">{m.maxDiscount ?? "—"}</TableCell>
+                      <TableCell data-vid="foo0xbc" className="whitespace-nowrap text-right tabular-nums"><Money data-vid="rq38ucz" value={m.servingCost} /></TableCell>
+                      <TableCell data-vid="ukqiuhm" className="text-right">
+                        <Button data-vid="2eqg39x" variant="ghost" size="icon" aria-label={t("restaurant-settings.464c4ffd.button-attr-aria-label")} onClick={() => setEditMenu(m)}>
+                          <Pencil data-vid="t2dx607" className="size-4" />
                         </Button>
                       </TableCell>
                     </TableRow>
@@ -283,38 +283,38 @@ export function RestaurantSettingsView(props: RestaurantSettingsScreenViewModel)
                 </TableBody>
               </Table>
             </div>
-            <p className="type-caption text-text-muted">{t("restaurant-settings.0742ec0b")}</p>
+            <p data-vid="gmfnc69" className="type-caption text-text-muted">{t("restaurant-settings.0742ec0b")}</p>
           </TabsContent>
 
-          <TabsContent value="perms">
-            <div className="flex flex-col gap-(--section-gap)">
-              <div className="flex flex-col gap-(--component-gap) rounded-card border border-border bg-card p-(--card-padding)">
-                <h3 className="type-card-title">{t("restaurant-settings.db514aef")}</h3>
-                <p className="type-body text-text-body">{t("restaurant-settings.6874a415")}</p>
-                <div className="flex flex-wrap items-center gap-3">
-                  <Button disabled aria-disabled="true" title={t("restaurant-settings.da1ce7cb.button-attr-title")} type="button" variant="outline" className="min-h-11 border-border-strong">{t("restaurant-settings.1eab372a")}</Button>
-                  <p className="type-caption text-text-muted">{t("restaurant-settings.cdfbe220")}</p>
+          <TabsContent data-vid="nuqqye2" value="perms">
+            <div data-vid="44acm0n" className="flex flex-col gap-(--section-gap)">
+              <div data-vid="b318a08" className="flex flex-col gap-(--component-gap) rounded-card border border-border bg-card p-(--card-padding)">
+                <h3 data-vid="b9l7mtb" className="type-card-title">{t("restaurant-settings.db514aef")}</h3>
+                <p data-vid="eh883ly" className="type-body text-text-body">{t("restaurant-settings.6874a415")}</p>
+                <div data-vid="keqbw6s" className="flex flex-wrap items-center gap-3">
+                  <Button data-vid="smmrrcw" disabled aria-disabled="true" title={t("restaurant-settings.da1ce7cb.button-attr-title")} type="button" variant="outline" className="min-h-11 border-border-strong">{t("restaurant-settings.1eab372a")}</Button>
+                  <p data-vid="zffxmbr" className="type-caption text-text-muted">{t("restaurant-settings.cdfbe220")}</p>
                 </div>
               </div>
-              <p role="status" className="type-body text-text-muted">{t("restaurant-settings.da1ce7cb.p")}</p>
+              <p data-vid="yi97dyi" role="status" className="type-body text-text-muted">{t("restaurant-settings.da1ce7cb.p")}</p>
             </div>
           </TabsContent>
         </Tabs>
 
-        <section className="flex flex-col gap-3 border-t border-border pt-(--section-gap) md:flex-row md:items-center md:justify-between">
-          <p className="type-body text-text-muted">{t("restaurant-settings.9fc76409")}</p>
-          <Button variant="outline" className="min-h-11 shrink-0 border-border-strong" onClick={() => setResetOpen(true)}>
-            <RotateCcw className="size-4" /> {t("restaurant-settings.fb54363a")}
+        <section data-vid="2votiwp" className="flex flex-col gap-3 border-t border-border pt-(--section-gap) md:flex-row md:items-center md:justify-between">
+          <p data-vid="o1u9wul" className="type-body text-text-muted">{t("restaurant-settings.9fc76409")}</p>
+          <Button data-vid="wdvmouv" variant="outline" className="min-h-11 shrink-0 border-border-strong" onClick={() => setResetOpen(true)}>
+            <RotateCcw data-vid="8at1b1j" className="size-4" /> {t("restaurant-settings.fb54363a")}
           </Button>
         </section>
 
-        <Sheet open={!!editWin} onOpenChange={(o) => !o && setEditWin(null)}>
-          <SheetContent className="rounded-modal">
-            <SheetHeader>
-              <SheetTitle>{editWin?.name}</SheetTitle>
+        <Sheet data-vid="ryiy45a" open={!!editWin} onOpenChange={(o) => !o && setEditWin(null)}>
+          <SheetContent data-vid="1wlvwjc" className="rounded-modal">
+            <SheetHeader data-vid="f2jnlr9">
+              <SheetTitle data-vid="tj2x21a">{editWin?.name}</SheetTitle>
             </SheetHeader>
             {editWin && (
-              <WindowForm
+              <WindowForm data-vid="vcbhyit"
                 key={editWin.id}
                 seatCapacity={editWin.seatCapacity}
                 regularGuestBuffer={editWin.regularGuestBuffer}
@@ -324,14 +324,14 @@ export function RestaurantSettingsView(props: RestaurantSettingsScreenViewModel)
           </SheetContent>
         </Sheet>
 
-        <Dialog open={!!editMenu} onOpenChange={(o) => !o && setEditMenu(null)}>
-          <DialogContent className="rounded-modal">
-            <DialogHeader>
-              <DialogTitle>{editMenu?.name}</DialogTitle>
-              <DialogDescription>{t("restaurant-settings.e61f5272")}</DialogDescription>
+        <Dialog data-vid="bigtwir" open={!!editMenu} onOpenChange={(o) => !o && setEditMenu(null)}>
+          <DialogContent data-vid="eont1sg" className="rounded-modal">
+            <DialogHeader data-vid="tbx2o8q">
+              <DialogTitle data-vid="dqm6lwd">{editMenu?.name}</DialogTitle>
+              <DialogDescription data-vid="umrqe7g">{t("restaurant-settings.e61f5272")}</DialogDescription>
             </DialogHeader>
             {editMenu && (
-              <MenuForm
+              <MenuForm data-vid="u6jvzj0"
                 key={editMenu.id}
                 pricePerPerson={editMenu.pricePerPerson}
                 minimumSpend={editMenu.minimumSpend}
@@ -342,17 +342,17 @@ export function RestaurantSettingsView(props: RestaurantSettingsScreenViewModel)
           </DialogContent>
         </Dialog>
 
-        <Dialog open={resetOpen} onOpenChange={setResetOpen}>
-          <DialogContent className="rounded-modal">
-            <DialogHeader>
-              <DialogTitle>{t("restaurant-settings.c631b704")}</DialogTitle>
-              <DialogDescription>{t("restaurant-settings.176940d8")}</DialogDescription>
+        <Dialog data-vid="ebcx9a9" open={resetOpen} onOpenChange={setResetOpen}>
+          <DialogContent data-vid="9u14672" className="rounded-modal">
+            <DialogHeader data-vid="ft10g04">
+              <DialogTitle data-vid="gjvi1lh">{t("restaurant-settings.c631b704")}</DialogTitle>
+              <DialogDescription data-vid="5ka4xpg">{t("restaurant-settings.176940d8")}</DialogDescription>
             </DialogHeader>
-            <DialogFooter>
-              <Button variant="outline" className="min-h-11 border-border-strong" onClick={() => setResetOpen(false)}>{t("restaurant-settings.08416421")}</Button>
-              <Button variant="destructive" className="min-h-11" disabled>{t("restaurant-settings.fb54363a")}</Button>
+            <DialogFooter data-vid="ajtzace">
+              <Button data-vid="0rpobar" variant="outline" className="min-h-11 border-border-strong" onClick={() => setResetOpen(false)}>{t("restaurant-settings.08416421")}</Button>
+              <Button data-vid="l209cmj" variant="destructive" className="min-h-11" disabled>{t("restaurant-settings.fb54363a")}</Button>
             </DialogFooter>
-            <p className="type-caption text-text-muted">{t("restaurant-settings.6b95b801")}</p>
+            <p data-vid="yf395q0" className="type-caption text-text-muted">{t("restaurant-settings.6b95b801")}</p>
           </DialogContent>
         </Dialog>
       </div>

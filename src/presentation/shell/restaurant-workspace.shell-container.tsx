@@ -802,5 +802,5 @@ export function RestaurantWorkspaceShellContainer({ children }: { readonly child
         }
       : {}),
   };
-  return <RestaurantWorkspaceShell vm={vm}>{children}</RestaurantWorkspaceShell>;
+  return <RestaurantWorkspaceShell data-vid="3aqfo1t" vm={vm}>{children}</RestaurantWorkspaceShell>;
 }

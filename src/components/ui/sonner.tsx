@@ -9,24 +9,24 @@ const Toaster = ({
   const { theme = "system" } = useTheme()
 
   return (
-    <Sonner
+    <Sonner data-vid="72jcm30"
       theme={theme as ToasterProps["theme"]}
       className="toaster group"
       icons={{
         success: (
-          <CircleCheckIcon className="size-4" />
+          <CircleCheckIcon data-vid="j6eqomm" className="size-4" />
         ),
         info: (
-          <InfoIcon className="size-4" />
+          <InfoIcon data-vid="7pcrw77" className="size-4" />
         ),
         warning: (
-          <TriangleAlertIcon className="size-4" />
+          <TriangleAlertIcon data-vid="29tuzds" className="size-4" />
         ),
         error: (
-          <OctagonXIcon className="size-4" />
+          <OctagonXIcon data-vid="ltqnp5v" className="size-4" />
         ),
         loading: (
-          <Loader2Icon className="size-4 animate-spin" />
+          <Loader2Icon data-vid="5v9tqfk" className="size-4 animate-spin" />
         ),
       }}
       style={

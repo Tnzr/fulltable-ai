@@ -480,11 +480,11 @@ export function OverviewScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="pfz3t8q" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="x1m4slc" error={loadError} onRetry={reload} />
       ) : (
-        <View {...vm} />
+        <View data-vid="adf7l25" {...vm} />
       )}
     </>
   );
@@ -493,5 +493,5 @@ export function OverviewScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function OverviewScreenRoute(): React.ReactElement {
-  return <OverviewScreenContainer view={OverviewView} />;
+  return <OverviewScreenContainer data-vid="j927zxb" view={OverviewView} />;
 }

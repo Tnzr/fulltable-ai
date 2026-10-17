@@ -179,11 +179,11 @@ export function RestaurantSettingsScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="ensdjhk" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="grot6ve" error={loadError} onRetry={reload} />
       ) : (
-        <View {...vm} />
+        <View data-vid="nyw33d9" {...vm} />
       )}
     </>
   );
@@ -192,5 +192,5 @@ export function RestaurantSettingsScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function RestaurantSettingsScreenRoute(): React.ReactElement {
-  return <RestaurantSettingsScreenContainer view={RestaurantSettingsView} />;
+  return <RestaurantSettingsScreenContainer data-vid="lgqd4j6" view={RestaurantSettingsView} />;
 }

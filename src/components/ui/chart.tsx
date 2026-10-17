@@ -62,8 +62,8 @@ function ChartContainer({
   const chartId = `chart-${id ?? uniqueId.replace(/:/g, "")}`
 
   return (
-    <ChartContext.Provider value={{ config }}>
-      <div
+    <ChartContext.Provider data-vid="98m80tq" value={{ config }}>
+      <div data-vid="pc8fdww"
         data-slot="chart"
         data-chart={chartId}
         className={cn(
@@ -72,8 +72,8 @@ function ChartContainer({
         )}
         {...props}
       >
-        <ChartStyle id={chartId} config={config} />
-        <RechartsPrimitive.ResponsiveContainer
+        <ChartStyle data-vid="8hs75sr" id={chartId} config={config} />
+        <RechartsPrimitive.ResponsiveContainer data-vid="qcwod0j"
           initialDimension={initialDimension}
         >
           {children}
@@ -93,7 +93,7 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   }
 
   return (
-    <style
+    <style data-vid="wmnmj9i"
       dangerouslySetInnerHTML={{
         __html: Object.entries(THEMES)
           .map(
@@ -163,7 +163,7 @@ function ChartTooltipContent({
 
     if (labelFormatter) {
       return (
-        <div className={cn("font-medium", labelClassName)}>
+        <div data-vid="qmhmnb5" className={cn("font-medium", labelClassName)}>
           {labelFormatter(value, payload)}
         </div>
       )
@@ -173,7 +173,7 @@ function ChartTooltipContent({
       return null
     }
 
-    return <div className={cn("font-medium", labelClassName)}>{value}</div>
+    return <div data-vid="ge0beba" className={cn("font-medium", labelClassName)}>{value}</div>
   }, [
     label,
     labelFormatter,
@@ -191,14 +191,14 @@ function ChartTooltipContent({
   const nestLabel = payload.length === 1 && indicator !== "dot"
 
   return (
-    <div
+    <div data-vid="3pmtgrt"
       className={cn(
         "grid min-w-32 items-start gap-1.5 rounded-lg border border-border/50 bg-background px-2.5 py-1.5 text-xs shadow-xl",
         className
       )}
     >
       {!nestLabel ? tooltipLabel : null}
-      <div className="grid gap-1.5">
+      <div data-vid="b27rl83" className="grid gap-1.5">
         {payload
           .filter((item) => item.type !== "none")
           .map((item, index) => {
@@ -207,7 +207,7 @@ function ChartTooltipContent({
             const indicatorColor = color ?? item.payload?.fill ?? item.color
 
             return (
-              <div
+              <div data-vid="awiahgx"
                 key={index}
                 className={cn(
                   "flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5 [&>svg]:text-muted-foreground",
@@ -219,10 +219,10 @@ function ChartTooltipContent({
                 ) : (
                   <>
                     {itemConfig?.icon ? (
-                      <itemConfig.icon />
+                      <itemConfig.icon data-vid="82vyg0m" />
                     ) : (
                       !hideIndicator && (
-                        <div
+                        <div data-vid="3eu0caj"
                           className={cn(
                             "shrink-0 rounded-[2px] border-(--color-border) bg-(--color-bg)",
                             {
@@ -242,20 +242,20 @@ function ChartTooltipContent({
                         />
                       )
                     )}
-                    <div
+                    <div data-vid="a9hu28c"
                       className={cn(
                         "flex flex-1 justify-between leading-none",
                         nestLabel ? "items-end" : "items-center"
                       )}
                     >
-                      <div className="grid gap-1.5">
+                      <div data-vid="uszjej7" className="grid gap-1.5">
                         {nestLabel ? tooltipLabel : null}
-                        <span className="text-muted-foreground">
+                        <span data-vid="em76ama" className="text-muted-foreground">
                           {itemConfig?.label ?? item.name}
                         </span>
                       </div>
                       {item.value != null && (
-                        <span className="font-mono font-medium text-foreground tabular-nums">
+                        <span data-vid="4ijw09a" className="font-mono font-medium text-foreground tabular-nums">
                           {typeof item.value === "number"
                             ? formatNumber(item.value)
                             : String(item.value)}
@@ -293,7 +293,7 @@ function ChartLegendContent({
   }
 
   return (
-    <div
+    <div data-vid="efcp8jk"
       className={cn(
         "flex items-center justify-center gap-4",
         verticalAlign === "top" ? "pb-3" : "pt-3",
@@ -307,16 +307,16 @@ function ChartLegendContent({
           const itemConfig = getPayloadConfigFromPayload(config, item, key)
 
           return (
-            <div
+            <div data-vid="b6ip3cu"
               key={index}
               className={cn(
                 "flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-muted-foreground"
               )}
             >
               {itemConfig?.icon && !hideIcon ? (
-                <itemConfig.icon />
+                <itemConfig.icon data-vid="alr4azh" />
               ) : (
-                <div
+                <div data-vid="f48oixb"
                   className="h-2 w-2 shrink-0 rounded-[2px]"
                   style={{
                     backgroundColor: item.color,

@@ -8,7 +8,7 @@ function BubbleGroup({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div
+    <div data-vid="uorbeid"
       data-slot="bubble-group"
       className={cn("flex min-w-0 flex-col gap-2", className)}
       {...props}
@@ -53,7 +53,7 @@ function Bubble({
     align?: "start" | "end"
   }) {
   return (
-    <div
+    <div data-vid="wxockk2"
       data-slot="bubble"
       data-variant={variant}
       data-align={align}
@@ -73,7 +73,7 @@ function BubbleContent({
   const Comp = asChild ? Slot.Root : "div"
 
   return (
-    <Comp
+    <Comp data-vid="esulpzo"
       data-slot="bubble-content"
       className={cn(
         "w-fit max-w-full min-w-0 overflow-hidden rounded-xl border border-transparent px-3 py-2 text-sm leading-relaxed wrap-break-word group-data-[align=end]/bubble:self-end [button]:text-left [button,a]:transition-colors [button,a]:outline-none [button,a]:focus-visible:border-ring [button,a]:focus-visible:ring-3 [button,a]:focus-visible:ring-ring/50",
@@ -112,7 +112,7 @@ function BubbleReactions({
 }: React.ComponentProps<"div"> &
   VariantProps<typeof bubbleReactionsVariants>) {
   return (
-    <div
+    <div data-vid="l1ioe0l"
       data-slot="bubble-reactions"
       data-align={align}
       data-side={side}

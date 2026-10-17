@@ -17,19 +17,19 @@ const bag: ShellActions = {
 function body(over: Partial<React.ComponentProps<typeof ShellIdentityMenuBody>> = {}, dict?: Record<string, string>) {
   const actions = over.actions ?? bag
   const node = (
-    <Menu.Root open modal={false}>
-      <Menu.Trigger>open</Menu.Trigger>
-      <Menu.Content forceMount>
-        <ShellIdentityMenuBody persona={persona} actions={actions} has={hasShellActions(actions)} darkAvailable onHelp={() => {}} onAbout={() => {}} {...over} />
+    <Menu.Root data-vid="7jfyvnp" open modal={false}>
+      <Menu.Trigger data-vid="zserjfc">open</Menu.Trigger>
+      <Menu.Content data-vid="yzxe9h7" forceMount>
+        <ShellIdentityMenuBody data-vid="5aj0k3t" persona={persona} actions={actions} has={hasShellActions(actions)} darkAvailable onHelp={() => {}} onAbout={() => {}} {...over} />
       </Menu.Content>
     </Menu.Root>
   )
-  return renderToStaticMarkup(dict ? <ChromeProvider value={dict}>{node}</ChromeProvider> : node)
+  return renderToStaticMarkup(dict ? <ChromeProvider data-vid="3hzykf1" value={dict}>{node}</ChromeProvider> : node)
 }
 const texts = (html: string, role: string) => [...html.matchAll(new RegExp(`role="${role}"[^>]*>(.*?)</(?:a|div)>`, "g"))].map((m) => m[1]!.replace(/<[^>]+>/g, "").trim())
 
 describe("ShellIdentityMenu trigger", () => {
-  const html = renderToStaticMarkup(<ShellIdentityMenu persona={persona} actions={bag} data-fidelity-mask="" />)
+  const html = renderToStaticMarkup(<ShellIdentityMenu data-vid="jg0jf7h" persona={persona} actions={bag} data-fidelity-mask="" />)
   test("is a menu button with the initials of the persona's name", () => {
     expect(html).toContain('aria-haspopup="menu"')
     expect(html).toContain('aria-expanded="false"')
@@ -39,15 +39,15 @@ describe("ShellIdentityMenu trigger", () => {
   })
   test("carries the fidelity mask (gv2's IDENTITY_MASK is spread on it) only when given", () => {
     expect(html).toContain('data-fidelity-mask=""')
-    expect(renderToStaticMarkup(<ShellIdentityMenu persona={persona} actions={bag} />)).not.toContain("data-fidelity-mask")
+    expect(renderToStaticMarkup(<ShellIdentityMenu data-vid="lfowtek" persona={persona} actions={bag} />)).not.toContain("data-fidelity-mask")
   })
   test("without a name there is no initials and the label has no name", () => {
-    const anon = renderToStaticMarkup(<ShellIdentityMenu persona={null} actions={bag} />)
+    const anon = renderToStaticMarkup(<ShellIdentityMenu data-vid="ciqj77g" persona={null} actions={bag} />)
     expect(anon).toContain('aria-label="Account menu"')
     expect(anon).not.toContain(">AS<")
   })
   test("a persona with host-computed initials uses them", () => {
-    expect(renderToStaticMarkup(<ShellIdentityMenu persona={{ name: "Albert Santalo", initials: "AX" }} />)).toContain(">AX<")
+    expect(renderToStaticMarkup(<ShellIdentityMenu data-vid="dkz1tjw" persona={{ name: "Albert Santalo", initials: "AX" }} />)).toContain(">AX<")
   })
 })
 

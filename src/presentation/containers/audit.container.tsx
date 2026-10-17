@@ -129,11 +129,11 @@ export function AuditScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="i1ptmoi" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="a3bbg4m" error={loadError} onRetry={reload} />
       ) : (
-        <View {...vm} />
+        <View data-vid="cw5yayq" {...vm} />
       )}
     </>
   );
@@ -142,5 +142,5 @@ export function AuditScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function AuditScreenRoute(): React.ReactElement {
-  return <AuditScreenContainer view={AuditView} />;
+  return <AuditScreenContainer data-vid="eaxu2bm" view={AuditView} />;
 }

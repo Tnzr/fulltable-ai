@@ -703,5 +703,5 @@ export function AuthShellContainer({ children }: { readonly children: ReactNode 
         }
       : {}),
   };
-  return <AuthShell vm={vm}>{children}</AuthShell>;
+  return <AuthShell data-vid="haquhub" vm={vm}>{children}</AuthShell>;
 }

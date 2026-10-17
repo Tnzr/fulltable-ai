@@ -44,9 +44,9 @@ export function landingFor(
 export function RoleLandingRedirect(): React.ReactElement {
   const { identity, pending } = useIdentity();
   const activeKey = useActiveRoleKey(identity?.roles ?? []);
-  if (pending) return <LoadingFallback />;
+  if (pending) return <LoadingFallback data-vid="nv0dsk1" />;
   return (
-    <Navigate
+    <Navigate data-vid="dyvz9bo"
       to={identity === null ? '/home' : landingFor(identity.roles, activeKey)}
       replace
     />

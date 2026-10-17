@@ -258,11 +258,11 @@ export function AccountScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="8y81bbs" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="vt8l5ix" error={loadError} onRetry={reload} />
       ) : (
-        <View {...vm} />
+        <View data-vid="3ow04a4" {...vm} />
       )}
     </>
   );
@@ -271,5 +271,5 @@ export function AccountScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function AccountScreenRoute(): React.ReactElement {
-  return <AccountScreenContainer view={AccountView} />;
+  return <AccountScreenContainer data-vid="c3qv9s5" view={AccountView} />;
 }

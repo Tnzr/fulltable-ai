@@ -186,13 +186,13 @@ export function HomeScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="b4cdzve" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="44nzybh" error={loadError} onRetry={reload} />
       ) : (
         <>
           {truncatedCap !== null && (
-            <div
+            <div data-vid="8gtehex"
               role="status"
               data-truncation-banner=""
               className="border-b border-amber-300 bg-amber-50 px-4 py-2 text-sm text-amber-900"
@@ -200,7 +200,7 @@ export function HomeScreenContainer(
               {t('_app.truncated', { limit: truncatedCap.toLocaleString() })}
             </div>
           )}
-          <View {...vm} />
+          <View data-vid="hjr8z5c" {...vm} />
         </>
       )}
     </>
@@ -220,7 +220,7 @@ export default function HomeScreenRoute(): React.ReactElement {
     [routeParams, searchParams],
   );
   return (
-    <HomeView
+    <HomeView data-vid="u16y8ac"
       BookingOccurrence={[]}
       BookingOccurrenceNotice={null}
       BookingSeries={[]}

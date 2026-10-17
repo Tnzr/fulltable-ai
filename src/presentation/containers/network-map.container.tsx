@@ -74,7 +74,7 @@ export default function NetworkMapContainer(): React.ReactElement {
   }, []);
 
   return (
-    <NetworkMapView
+    <NetworkMapView data-vid="x53phlg"
       tier={tier}
       onTier={setTier}
       radius={radius}

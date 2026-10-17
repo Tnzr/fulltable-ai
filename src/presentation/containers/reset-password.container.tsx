@@ -9,5 +9,5 @@ import { AuthContainer } from './auth.container';
 import { ResetPasswordView } from '../views/reset-password.view';
 
 export default function ResetPasswordRoute(): React.ReactElement {
-  return <AuthContainer intent="confirmReset" view={ResetPasswordView} />;
+  return <AuthContainer data-vid="ucthja8" intent="confirmReset" view={ResetPasswordView} />;
 }

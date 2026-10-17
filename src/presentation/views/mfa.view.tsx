@@ -9,14 +9,14 @@ import { useTranslation } from 'react-i18next';
 export default function MfaScreen(): React.ReactElement {
   const { t } = useTranslation();
   return (
-    <main data-archie-placeholder="sin-convertir" className="mx-auto w-full max-w-3xl space-y-4 p-6">
-      <h1 className="text-2xl font-semibold tracking-tight">{"Two-factor"}</h1>
-      <div
+    <main data-vid="1n7593z" data-archie-placeholder="sin-convertir" className="mx-auto w-full max-w-3xl space-y-4 p-6">
+      <h1 data-vid="dvnmwx5" className="text-2xl font-semibold tracking-tight">{"Two-factor"}</h1>
+      <div data-vid="62i21c7"
         role="status"
         className="flex flex-col gap-1 rounded-lg border border-border bg-card p-6 text-card-foreground"
       >
-        <p className="text-base font-semibold">{t('_app.pending.skeleton.note')}</p>
-        <p className="text-sm text-muted-foreground">{t('_app.pending.skeleton.sub')}</p>
+        <p data-vid="h6znb5k" className="text-base font-semibold">{t('_app.pending.skeleton.note')}</p>
+        <p data-vid="e9duoty" className="text-sm text-muted-foreground">{t('_app.pending.skeleton.sub')}</p>
       </div>
     </main>
   );

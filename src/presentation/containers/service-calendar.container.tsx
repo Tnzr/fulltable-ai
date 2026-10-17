@@ -238,13 +238,13 @@ export function ServiceCalendarScreenContainer(
   return (
     <>
       {loading ? (
-        <ScreenLoading />
+        <ScreenLoading data-vid="x21sdea" />
       ) : loadError !== null ? (
-        <ScreenError error={loadError} onRetry={reload} />
+        <ScreenError data-vid="7l46v4v" error={loadError} onRetry={reload} />
       ) : (
         <>
           {truncatedCap !== null && (
-            <div
+            <div data-vid="klu9q9i"
               role="status"
               data-truncation-banner=""
               className="border-b border-amber-300 bg-amber-50 px-4 py-2 text-sm text-amber-900"
@@ -252,7 +252,7 @@ export function ServiceCalendarScreenContainer(
               {t('_app.truncated', { limit: truncatedCap.toLocaleString() })}
             </div>
           )}
-          <View {...vm} />
+          <View data-vid="xlx1v5s" {...vm} />
         </>
       )}
     </>
@@ -262,5 +262,5 @@ export function ServiceCalendarScreenContainer(
 // THE ROUTE MODULE. `routes.config.tsx` lazy-imports this file and needs a prop-less
 // `export default`: it binds the container to its view and does nothing else.
 export default function ServiceCalendarScreenRoute(): React.ReactElement {
-  return <ServiceCalendarScreenContainer view={ServiceCalendarView} />;
+  return <ServiceCalendarScreenContainer data-vid="a3lsr4t" view={ServiceCalendarView} />;
 }

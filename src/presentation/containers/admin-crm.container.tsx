@@ -58,7 +58,7 @@ export default function AdminCrmContainer(): React.ReactElement {
   const directory = accounts.filter((a) => a.status !== 'APPLIED' && a.status !== 'VETTED');
 
   return (
-    <AdminCrmView
+    <AdminCrmView data-vid="vwqb18x"
       tab={tab}
       onTab={setTab}
       accounts={accounts}
