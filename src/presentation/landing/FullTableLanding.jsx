@@ -14,6 +14,7 @@ a{color:#492C48;text-decoration:none}
 a:hover{color:#2E1A2E}
 h1,h2,h3,h4,p{margin:0}
 @keyframes ftPulse{0%,100%{opacity:1}50%{opacity:.35}}
+[data-ft-landing] :is(h1,h2,h3,h4,p){color:inherit;line-height:inherit;letter-spacing:inherit;font-family:inherit;font-weight:inherit;font-size:inherit;margin:0}
 .fth-0:hover{background:#2E1A2E !important;color:#FFF7EB !important}
 .fth-1:hover{background:#4A6345 !important;color:#FFF7EB !important}
 .fth-2:hover{border-color:#492C48 !important}
