@@ -257,6 +257,17 @@ function Guarded_staff_scheduling() {
   );
 }
 
+const LazyScreen_network_map = lazy(() => import('./presentation/containers/network-map.container'));
+function Guarded_network_map() {
+  return (
+    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
+      <Suspense fallback={<LoadingFallback />}>
+        <LazyScreen_network_map />
+      </Suspense>
+    </AuthGuard>
+  );
+}
+
 const LazyScreen_event_sourcing = lazy(() => import('./presentation/containers/event-sourcing.container'));
 function Guarded_event_sourcing() {
   return (
@@ -744,6 +755,18 @@ export const routes: AppRoute[] = [
     order: null,
     visibility: null,
     Component: Guarded_event_sourcing,
+    ErrorBoundary: ErrorBoundary,
+  },
+  {
+    slug: "network-map",
+    path: "/network-map",
+    handle: { surface: "restaurant-workspace", frame: "desktop" },
+    layoutType: "dashboard",
+    name: "Network Map",
+    icon: null,
+    order: null,
+    visibility: null,
+    Component: Guarded_network_map,
     ErrorBoundary: ErrorBoundary,
   },
   {

@@ -110,6 +110,13 @@ const SURFACES: Readonly<Record<string, SurfaceData>> = {
           "label": "Event Sourcing",
           "order": 13,
           "icon": "Radio"
+        },
+        {
+          "slug": "network-map",
+          "href": "/network-map",
+          "label": "Network Map",
+          "order": 14,
+          "icon": "Map"
         }
       ],
       "30e7aab9-09cc-4e04-a748-9bbe383665ad": [
@@ -134,6 +141,13 @@ const SURFACES: Readonly<Record<string, SurfaceData>> = {
           "label": "Event Sourcing",
           "order": 13,
           "icon": "Radio"
+        },
+        {
+          "slug": "network-map",
+          "href": "/network-map",
+          "label": "Network Map",
+          "order": 14,
+          "icon": "Map"
         }
       ],
       "66f9b39f-1b6a-4241-8983-963d1158d0e6": [
@@ -238,6 +252,13 @@ const SURFACES: Readonly<Record<string, SurfaceData>> = {
           "label": "Event Sourcing",
           "order": 13,
           "icon": "Radio"
+        },
+        {
+          "slug": "network-map",
+          "href": "/network-map",
+          "label": "Network Map",
+          "order": 14,
+          "icon": "Map"
         }
       ]
     },
@@ -602,6 +623,11 @@ const ROUTES: readonly { readonly path: string; readonly slug: string; readonly 
   {
     "path": "/event-sourcing",
     "slug": "event-sourcing",
+    "surface": "restaurant-workspace"
+  },
+  {
+    "path": "/network-map",
+    "slug": "network-map",
     "surface": "restaurant-workspace"
   }
 ];

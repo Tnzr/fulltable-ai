@@ -130,6 +130,10 @@ const ROUTES: readonly { readonly path: string; readonly surface: string }[] = [
   {
     "path": "/event-sourcing",
     "surface": "restaurant-workspace"
+  },
+  {
+    "path": "/network-map",
+    "surface": "restaurant-workspace"
   }
 ];
 
