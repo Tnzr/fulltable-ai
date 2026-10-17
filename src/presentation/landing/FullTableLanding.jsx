@@ -159,7 +159,7 @@ class FullTableLandingInner extends React.Component {
           {" "}
           <div style={{ display: "flex", alignItems: "center", gap: "20px", flex: "none" }}>
             {" "}
-            <a href="#contact" style={{ fontSize: "15px", fontWeight: "500", color: "#492C48" }}>
+            <a href="/contact-us" style={{ fontSize: "15px", fontWeight: "500", color: "#492C48" }}>
               {"Contact us"}
             </a>
             {" "}
@@ -1180,7 +1180,7 @@ class FullTableLandingInner extends React.Component {
                 </span>
               </a>
               {" "}
-              <a href="#contact" style={{ fontFamily: "'Outfit',sans-serif", fontSize: "17px", fontWeight: "500", color: "#FFF7EB", padding: "17px 26px", borderRadius: "999px", border: "1.5px solid rgba(255,247,235,0.35)" }} className="fth-5">
+              <a href="/contact-us" style={{ fontFamily: "'Outfit',sans-serif", fontSize: "17px", fontWeight: "500", color: "#FFF7EB", padding: "17px 26px", borderRadius: "999px", border: "1.5px solid rgba(255,247,235,0.35)" }} className="fth-5">
                 {"Contact us"}
               </a>
               {" "}

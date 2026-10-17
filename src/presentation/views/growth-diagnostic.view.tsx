@@ -38,6 +38,7 @@ interface FieldProps {
   readonly id: DiagnosticField;
   readonly label: string;
   readonly hint?: string;
+  readonly slider?: { readonly min: number; readonly max: number; readonly step: number };
   readonly value: string;
   readonly onChange: (field: DiagnosticField, value: string) => void;
 }
@@ -56,6 +57,18 @@ function Field(props: FieldProps): React.ReactElement {
         onChange={(e) => props.onChange(props.id, e.target.value)}
         className="min-h-11 rounded-md border border-border bg-background px-3 type-body text-foreground"
       />
+      {props.slider !== undefined && (
+        <input
+          type="range"
+          aria-label={props.label + ' slider'}
+          min={props.slider.min}
+          max={props.slider.max}
+          step={props.slider.step}
+          value={Number(props.value) || 0}
+          onChange={(e) => props.onChange(props.id, e.target.value)}
+          className="w-full accent-primary"
+        />
+      )}
       {props.hint !== undefined && <span className="type-meta text-text-muted">{props.hint}</span>}
     </div>
   );
@@ -80,15 +93,15 @@ export function GrowthDiagnosticView(props: GrowthDiagnosticViewProps): React.Re
         <div className="flex flex-col gap-4">
           <h2 id="gd-inputs" className="type-row-title text-foreground">Your restaurant today</h2>
           <Field id="seats" label="Number of seats" value={values.seats} onChange={onChange} />
-          <Field id="sales" label="Average weekly sales ($)" value={values.sales} onChange={onChange} />
+          <Field id="sales" label="Average weekly sales ($)" slider={{ min: 5000, max: 200000, step: 500 }} value={values.sales} onChange={onChange} />
           <Field id="payroll" label="Average weekly payroll ($)" value={values.payroll} onChange={onChange} />
           <Field id="food" label="Average weekly food and beverage cost ($)" value={values.food} onChange={onChange} />
         </div>
         <div className="flex flex-col gap-4">
           <h2 className="type-row-title text-foreground">Assumptions with the service</h2>
-          <Field id="lift" label="Sales lift from filled slow periods (%)" hint="Illustrative example: 11" value={values.lift} onChange={onChange} />
-          <Field id="payrollCut" label="Payroll reduction from matching staff to demand (%)" hint="Illustrative example: 4" value={values.payrollCut} onChange={onChange} />
-          <Field id="foodCut" label="Food and beverage cost reduction from less waste (%)" hint="Illustrative example: 9" value={values.foodCut} onChange={onChange} />
+          <Field id="lift" label="Sales lift from filled slow periods (%)" hint="Illustrative example: 11" slider={{ min: 0, max: 30, step: 0.5 }} value={values.lift} onChange={onChange} />
+          <Field id="payrollCut" label="Payroll reduction from matching staff to demand (%)" hint="Illustrative example: 4" slider={{ min: 0, max: 20, step: 0.5 }} value={values.payrollCut} onChange={onChange} />
+          <Field id="foodCut" label="Food and beverage cost reduction from less waste (%)" hint="Illustrative example: 9" slider={{ min: 0, max: 30, step: 0.5 }} value={values.foodCut} onChange={onChange} />
           <button type="button" onClick={props.onReset} className="min-h-11 self-start rounded-md border border-border px-4 type-body text-foreground">
             Reset to the example
           </button>
