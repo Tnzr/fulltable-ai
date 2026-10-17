@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HOME_POINT, categories, events, organizers, setNetworkData, setRestaurants } from '@/lib/network-data';
+import { HOME_POINT, categories, events, organizers, setNetworkData, setRestaurants, getDataMode, useSampleRecords } from '@/lib/network-data';
 import { useNetworkData } from '@/infrastructure/archie/use-network-data';
 import {
   NetworkMapView,
@@ -36,9 +36,11 @@ export default function NetworkMapContainer(): React.ReactElement {
   const [, setVersion] = React.useState(0);
   React.useEffect(() => {
     let alive = true;
-    void network.load().then((data) => {
+    const mode = getDataMode();
+    void network.load(mode).then((data) => {
       if (!alive || data === null) return;
-      setNetworkData(data.events, data.organizers);
+      if (mode === 'sample') useSampleRecords();
+      else setNetworkData(data.events, data.organizers);
       setRestaurants(data.restaurants);
       setProfile((p) => ({ ...p, categories }));
       setVersion((v) => v + 1);

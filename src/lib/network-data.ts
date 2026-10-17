@@ -181,6 +181,28 @@ export function setRestaurants(next: readonly DirectoryRestaurant[]): void {
   restaurants = next;
 }
 
+export type DataMode = 'real' | 'sample';
+
+export function getDataMode(): DataMode {
+  try {
+    return window.localStorage.getItem('ft.dataMode') === 'sample' ? 'sample' : 'real';
+  } catch {
+    return 'real';
+  }
+}
+
+export function storeDataMode(mode: DataMode): void {
+  try {
+    window.localStorage.setItem('ft.dataMode', mode);
+  } catch {
+    // storage unavailable: the choice lasts only for this page load
+  }
+}
+
+export function useSampleRecords(): void {
+  setNetworkData(sampleEvents, sampleOrganizers);
+}
+
 export function setNetworkData(nextEvents: readonly NetworkEvent[], nextOrganizers: readonly NetworkOrganizer[]): void {
   events = nextEvents;
   organizers = nextOrganizers;

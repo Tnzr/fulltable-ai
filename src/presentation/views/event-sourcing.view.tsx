@@ -11,6 +11,8 @@ export interface EventSourcingViewProps {
   readonly onLinkChange: (value: string) => void;
   readonly onLinkSubmit: () => void;
   readonly linkNotice: string | null;
+  readonly dataMode: 'real' | 'sample';
+  readonly onDataMode: (mode: 'real' | 'sample') => void;
   readonly engine: EngineProps;
 }
 
@@ -170,6 +172,20 @@ export function EventSourcingView(props: EventSourcingViewProps): React.ReactEle
         </div>
         <button data-vid="8aqt581" type="submit" className="min-h-11 rounded-md bg-primary px-4 type-body text-primary-foreground">Add to registry</button>
       </form>
+      <div role="group" aria-label="Data shown" className="flex flex-wrap items-center gap-2">
+        <span className="type-meta text-text-muted">Data shown:</span>
+        {(['real', 'sample'] as const).map((m) => (
+          <button
+            key={m}
+            type="button"
+            aria-pressed={props.dataMode === m}
+            onClick={() => props.onDataMode(m)}
+            className={'min-h-11 rounded-md border px-4 type-body ' + (props.dataMode === m ? 'bg-primary text-primary-foreground' : 'bg-surface text-text-body')}
+          >
+            {m === 'real' ? 'Acquired data' : 'Sample data'}
+          </button>
+        ))}
+      </div>
       {props.linkNotice !== null && (
         <p data-vid="j13fxby" role="status" className="type-body text-text-body">{props.linkNotice}</p>
       )}

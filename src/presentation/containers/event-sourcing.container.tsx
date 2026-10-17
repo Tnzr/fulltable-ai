@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { EventSourcingView, type EventTab } from '../views/event-sourcing.view';
-import { setNetworkData } from '@/lib/network-data';
+import { setNetworkData, getDataMode, storeDataMode, useSampleRecords, type DataMode } from '@/lib/network-data';
 import { useNetworkData } from '@/infrastructure/archie/use-network-data';
 import { useLeadEngine, type LeadSource, type LeadRunLine } from '@/infrastructure/archie/use-lead-engine';
 
@@ -11,13 +11,23 @@ export default function EventSourcingContainer(): React.ReactElement {
   const engine = useLeadEngine();
   const network = useNetworkData();
   const [, setVersion] = React.useState(0);
+  const [mode, setMode] = React.useState<DataMode>(getDataMode);
   const refresh = React.useCallback(() => {
-    void network.load().then((data) => {
+    if (mode === 'sample') {
+      useSampleRecords();
+      setVersion((v) => v + 1);
+      return;
+    }
+    void network.load('real').then((data) => {
       if (data === null) return;
       setNetworkData(data.events, data.organizers);
       setVersion((v) => v + 1);
     });
-  }, [network]);
+  }, [network, mode]);
+  const changeMode = React.useCallback((next: DataMode) => {
+    storeDataMode(next);
+    setMode(next);
+  }, []);
   React.useEffect(() => {
     refresh();
   }, [refresh]);
@@ -88,6 +98,8 @@ export default function EventSourcingContainer(): React.ReactElement {
       onLinkChange={setLink}
       onLinkSubmit={submit}
       linkNotice={notice}
+      dataMode={mode}
+      onDataMode={changeMode}
       engine={{
         sources: sources.map((s) => ({ ...s, selected: picked.includes(s.id) })),
         maxListings,

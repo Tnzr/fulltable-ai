@@ -1,6 +1,8 @@
 import { useArchieClient } from '@archie/react-sdk'
 import { useMemo } from 'react'
-import type { DirectoryRestaurant, FunnelStage, NetworkEvent, NetworkOrganizer, Verification } from '@/lib/network-data'
+import { HOME_POINT, type DataMode, type DirectoryRestaurant, FunnelStage, NetworkEvent, NetworkOrganizer, Verification } from '@/lib/network-data'
+
+const isSample = (name: string): boolean => name.includes('(sample)')
 
 interface Row {
   restaurantAccount: { items: { id: string; name: string; tier: string | null; address: string | null; latitude: number | string | null; longitude: number | string | null; nearHotel: boolean | null }[] }
@@ -33,11 +35,12 @@ export function useNetworkData() {
   const client = useArchieClient()
   return useMemo(
     () => ({
-      async load(): Promise<{ events: NetworkEvent[]; organizers: NetworkOrganizer[]; restaurants: DirectoryRestaurant[] } | null> {
+      async load(mode: DataMode = 'real'): Promise<{ events: NetworkEvent[]; organizers: NetworkOrganizer[]; restaurants: DirectoryRestaurant[] } | null> {
         const res = await client.graphql.query<Row>(QUERY)
         if (res.error !== null || res.data === null) return null
         const orgs: NetworkOrganizer[] = []
         for (const o of res.data.organizer.items) {
+          if (isSample(o.name) === (mode === 'real')) continue
           const lat = num(o.latitude)
           const lng = num(o.longitude)
           if (lat === null || lng === null) continue
@@ -54,16 +57,19 @@ export function useNetworkData() {
         }
         const known = new Map(orgs.map((o) => [o.id, o]))
         const evs: NetworkEvent[] = []
+        let spread = 0
         for (const e of res.data.upcomingEvent.items) {
+          if (isSample(e.title) === (mode === 'real')) continue
           const org = e.organizer !== null ? known.get(e.organizer.id) : undefined
-          const lat = num(e.latitude) ?? org?.lat ?? null
-          const lng = num(e.longitude) ?? org?.lng ?? null
-          if (lat === null || lng === null || org === undefined) continue
+          spread += 1
+          const angle = spread * 2.4
+          const lat = num(e.latitude) ?? org?.lat ?? HOME_POINT.lat + Math.sin(angle) * 0.012
+          const lng = num(e.longitude) ?? org?.lng ?? HOME_POINT.lng + Math.cos(angle) * 0.012
           const stage = STAGES.find((s) => s === e.funnelStage) ?? 'discovered'
           evs.push({
             id: e.id,
             title: e.title,
-            organizerId: org.id,
+            organizerId: org?.id ?? '',
             date: label(e.startsAt),
             category: e.category ?? 'Other',
             size: e.expectedSize ?? 0,
@@ -72,7 +78,7 @@ export function useNetworkData() {
             why: e.matchExplanation ?? 'Newly discovered; dining demand not confirmed.',
             source: e.source?.name ?? 'Unknown source',
             verification: ver(e.verificationStatus),
-            missing: e.missingFields !== null && e.missingFields.length > 0 ? e.missingFields : 'None',
+            missing: e.missingFields !== null && e.missingFields.length > 0 ? e.missingFields : org === undefined ? 'Organizer, exact location' : 'None',
             lat,
             lng,
           })
@@ -84,8 +90,7 @@ export function useNetworkData() {
           if (lat === null || lng === null) continue
           rests.push({ id: r.id, name: r.name, tier: r.tier ?? 'BASIC', area: r.address ?? 'Miami, FL', lat, lng, nearHotel: r.nearHotel === true })
         }
-        if (evs.length === 0 && orgs.length === 0 && rests.length === 0) return null
-        return { events: evs, organizers: orgs, restaurants: rests }
+                return { events: evs, organizers: orgs, restaurants: rests }
       },
     }),
     [client],
