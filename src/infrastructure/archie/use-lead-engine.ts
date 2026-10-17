@@ -51,7 +51,8 @@ export function useLeadEngine() {
           }
           const res = await client.graphql.mutate<ScrapeData>(SCRAPE_MUTATION, { sourceId: s.id })
           if (res.error !== null || res.data === null || res.data.leadEngineScrapeEventSource === null) {
-            lines.push({ sourceName: s.name, events: 0, organizers: 0, note: 'The engine returned an error for this source.' })
+            const detail = res.error !== null ? res.error.message : 'no data returned';
+            lines.push({ sourceName: s.name, events: 0, organizers: 0, note: 'Engine error: ' + detail.slice(0, 300) })
             continue
           }
           const r = res.data.leadEngineScrapeEventSource
