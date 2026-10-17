@@ -10,6 +10,7 @@ import type { ComponentType, ReactNode } from 'react';
 import { matchPath, useLocation } from 'react-router';
 import { AuthShellContainer } from './auth.shell-container';
 import { PublicShellContainer } from './public.shell-container';
+import { AiAssistant } from './ai-assistant';
 import { RestaurantWorkspaceShellContainer } from './restaurant-workspace.shell-container';
 
 type ShellOf = ComponentType<{ readonly children: ReactNode }>;
@@ -139,6 +140,10 @@ const ROUTES: readonly { readonly path: string; readonly surface: string }[] = [
   {
     "path": "/growth-diagnostic",
     "surface": "public"
+  },
+  {
+    "path": "/inventory-waste",
+    "surface": "restaurant-workspace"
   }
 ];
 
@@ -160,5 +165,12 @@ export function ShellMount({ children }: { readonly children: ReactNode }) {
   const { pathname } = useLocation();
   const surface = surfaceOf(pathname);
   const Shell = surface === undefined ? undefined : SHELL_OF_SURFACE[surface];
-  return Shell === undefined ? <>{children}</> : <Shell>{children}</Shell>;
+  const showAssistant = surface !== 'auth' && pathname !== '/sign-out';
+  const body = Shell === undefined ? <>{children}</> : <Shell>{children}</Shell>;
+  return (
+    <>
+      {body}
+      {showAssistant && <AiAssistant signedIn={surface === 'restaurant-workspace'} />}
+    </>
+  );
 }

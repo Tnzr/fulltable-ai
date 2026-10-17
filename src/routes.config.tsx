@@ -266,6 +266,17 @@ function Screen_growth_diagnostic() {
   );
 }
 
+const LazyScreen_inventory_waste = lazy(() => import('./presentation/containers/inventory-waste.container'));
+function Guarded_inventory_waste() {
+  return (
+    <AuthGuard loadingComponent={<LoadingFallback />} fallback={<Navigate to="/login" replace />}>
+      <Suspense fallback={<LoadingFallback />}>
+        <LazyScreen_inventory_waste />
+      </Suspense>
+    </AuthGuard>
+  );
+}
+
 const LazyScreen_admin_crm = lazy(() => import('./presentation/containers/admin-crm.container'));
 function Guarded_admin_crm() {
   return (
@@ -799,6 +810,18 @@ export const routes: AppRoute[] = [
     order: null,
     visibility: null,
     Component: Guarded_admin_crm,
+    ErrorBoundary: ErrorBoundary,
+  },
+  {
+    slug: "inventory-waste",
+    path: "/inventory-waste",
+    handle: { surface: "restaurant-workspace", frame: "desktop" },
+    layoutType: "dashboard",
+    name: "Inventory & Waste",
+    icon: null,
+    order: null,
+    visibility: null,
+    Component: Guarded_inventory_waste,
     ErrorBoundary: ErrorBoundary,
   },
   {

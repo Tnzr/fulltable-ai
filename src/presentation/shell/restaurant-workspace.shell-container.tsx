@@ -121,6 +121,13 @@ const SURFACES: Readonly<Record<string, SurfaceData>> = {
           "label": "Network Map",
           "order": 14,
           "icon": "Map"
+        },
+        {
+          "slug": "inventory-waste",
+          "href": "/inventory-waste",
+          "label": "Inventory & Waste",
+          "order": 15,
+          "icon": "Package"
         }
       ],
       "30e7aab9-09cc-4e04-a748-9bbe383665ad": [
@@ -286,6 +293,13 @@ const SURFACES: Readonly<Record<string, SurfaceData>> = {
           "label": "Network Map",
           "order": 14,
           "icon": "Map"
+        },
+        {
+          "slug": "inventory-waste",
+          "href": "/inventory-waste",
+          "label": "Inventory & Waste",
+          "order": 15,
+          "icon": "Package"
         }
       ]
     },
@@ -667,6 +681,11 @@ const ROUTES: readonly { readonly path: string; readonly slug: string; readonly 
     "path": "/growth-diagnostic",
     "slug": "growth-diagnostic",
     "surface": "public"
+  },
+  {
+    "path": "/inventory-waste",
+    "slug": "inventory-waste",
+    "surface": "restaurant-workspace"
   }
 ];
 const FIRST_SURFACE = "restaurant-workspace";
