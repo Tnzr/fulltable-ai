@@ -23,6 +23,32 @@ const topics = [
   "Something else",
 ];
 
+const orgTypes = [
+  "Restaurant or hospitality",
+  "Club or association",
+  "Corporate team",
+  "School or alumni group",
+  "Nonprofit",
+  "Event organizer",
+  "Other",
+];
+
+const groupSizes = ["Under 10", "10 to 25", "26 to 50", "51 to 100", "Over 100"];
+
+const freeMailDomains = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com", "aol.com", "proton.me", "protonmail.com"];
+
+/** Simulated first-pass vetting: flags what a person must confirm. Nothing here approves or contacts anyone. */
+function vetContact(values) {
+  const domain = (values.email.split("@")[1] || "").toLowerCase();
+  const workEmail = domain.length > 0 && !freeMailDomains.includes(domain);
+  return [
+    { label: "Email domain", ok: workEmail, note: workEmail ? "Looks like an organization address." : "Personal mailbox. A person will confirm the organization." },
+    { label: "Organization and role", ok: values.organization.trim().length > 1 && values.role.trim().length > 1, note: "Name and role provided for the reviewer." },
+    { label: "Group profile", ok: Boolean(values.orgType && values.groupSize), note: values.orgType + ", " + values.groupSize + " people." },
+    { label: "Consent to be contacted", ok: values.consent === true, note: "Recorded. You can withdraw at any time." },
+  ];
+}
+
 const readers = [
   { role: "Owner / General Manager", note: "Reads every request and decides on demos and offers." },
   { role: "Partnership Coordinator", note: "Follows up on partner and organizer questions." },
@@ -32,6 +58,10 @@ const schema = z.object({
   topic: z.string().min(1, "Choose what you are interested in so the right person reads it first."),
   name: z.string().min(1, "Enter your name so the team knows who to answer."),
   organization: z.string().min(1, "Enter your restaurant or organization."),
+  role: z.string().min(2, "Enter your role so the reviewer knows who is asking.").max(80, "Keep the role under 80 characters."),
+  orgType: z.string().min(1, "Choose the type of organization."),
+  groupSize: z.string().min(1, "Choose the usual group size."),
+  consent: z.literal(true, { errorMap: () => ({ message: "Confirm that we may contact you about this request." }) }),
   email: z.string().email("Enter a valid email address, for example name@example.com."),
   phone: z.string().max(30, "Keep the phone number under 30 characters.").optional(),
   message: z.string().min(1, "Write a message before sending.").max(1000, "Keep the message under 1,000 characters."),
@@ -45,13 +75,13 @@ export function ContactUsView(props) {
   const [sent, setSent] = useState(null);
   const form = useForm({
     resolver: zodResolver(schema),
-    defaultValues: { topic: "", name: "", organization: "", email: "", phone: "", message: "", website: "" },
+    defaultValues: { topic: "", name: "", organization: "", role: "", orgType: "", groupSize: "", consent: false, email: "", phone: "", message: "", website: "" },
     mode: "onTouched",
   });
 
   function onSend(values) {
     if (values.website) return;
-    setSent(values);
+    setSent({ ...values, checks: vetContact(values) });
   }
 
   return (
@@ -95,6 +125,18 @@ export function ContactUsView(props) {
                   <p data-vid="2aea51a6" className="type-body text-text-body">
                     {t('contact-us.586e07f4')} {sent.email}.
                   </p>
+                  <div className="flex flex-col gap-2 rounded-card border border-border bg-surface-sunken p-(--card-padding)">
+                    <p className="type-row-title text-foreground">First-pass contact check</p>
+                    <ul className="flex flex-col gap-1">
+                      {sent.checks.map((c) => (
+                        <li key={c.label} className="type-body text-text-body">
+                          <span className="type-row-title">{c.label}: </span>
+                          {c.ok ? "Passed. " : "Needs a person. "}{c.note}
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="type-meta text-text-muted">A Partnership Coordinator reviews every request before any reply. This simulated check approves nothing and no outreach starts without approval.</p>
+                  </div>
                   <div data-vid="584217fa" className="flex flex-wrap gap-3">
                     <Button data-vid="bfe4aa39" variant="outline" className="min-h-11" onClick={() => { setSent(null); form.reset(); }}>
                       {t('contact-us.18a2302c')}
@@ -159,6 +201,57 @@ export function ContactUsView(props) {
                         </Field>
                       )}
                     />
+                    <Controller
+                      name="role"
+                      control={form.control}
+                      render={({ field, fieldState }) => (
+                        <Field data-invalid={fieldState.invalid}>
+                          <FieldLabel htmlFor="role">Your role</FieldLabel>
+                          <Input {...field} id="role" autoComplete="organization-title" maxLength={80} aria-invalid={fieldState.invalid} className="min-h-11 border-border-strong" />
+                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                        </Field>
+                      )}
+                    />
+                    <Controller
+                      name="orgType"
+                      control={form.control}
+                      render={({ field, fieldState }) => (
+                        <Field data-invalid={fieldState.invalid}>
+                          <FieldLabel htmlFor="orgType">Type of organization</FieldLabel>
+                          <Select value={field.value} onValueChange={field.onChange}>
+                            <SelectTrigger id="orgType" aria-invalid={fieldState.invalid} className="w-full min-h-11 border-border-strong">
+                              <SelectValue placeholder="Choose one" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {orgTypes.map((o) => (
+                                <SelectItem key={o} value={o}>{o}</SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                        </Field>
+                      )}
+                    />
+                    <Controller
+                      name="groupSize"
+                      control={form.control}
+                      render={({ field, fieldState }) => (
+                        <Field data-invalid={fieldState.invalid}>
+                          <FieldLabel htmlFor="groupSize">Usual group size</FieldLabel>
+                          <Select value={field.value} onValueChange={field.onChange}>
+                            <SelectTrigger id="groupSize" aria-invalid={fieldState.invalid} className="w-full min-h-11 border-border-strong">
+                              <SelectValue placeholder="Choose one" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {groupSizes.map((g) => (
+                                <SelectItem key={g} value={g}>{g}</SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+                        </Field>
+                      )}
+                    />
                     <Controller data-vid="db999fd1"
                       name="email"
                       control={form.control}
@@ -201,6 +294,27 @@ export function ContactUsView(props) {
                           <Textarea data-vid="eaabc631" {...field} id="message" rows={6} maxLength={1000} aria-invalid={fieldState.invalid} className="border-border-strong" />
                           <FieldDescription data-vid="6c613ddd">{t('contact-us.d23f26ab')}</FieldDescription>
                           {fieldState.invalid && <FieldError data-vid="c32ca1fa" errors={[fieldState.error]} />}
+                        </Field>
+                      )}
+                    />
+                    <Controller
+                      name="consent"
+                      control={form.control}
+                      render={({ field, fieldState }) => (
+                        <Field data-invalid={fieldState.invalid}>
+                          <div className="flex items-start gap-3">
+                            <input
+                              id="consent"
+                              type="checkbox"
+                              checked={field.value === true}
+                              onChange={(e) => field.onChange(e.target.checked)}
+                              onBlur={field.onBlur}
+                              aria-invalid={fieldState.invalid}
+                              className="mt-1 size-5 shrink-0 accent-primary"
+                            />
+                            <label htmlFor="consent" className="type-body text-text-body">I agree that the FullTable AI team may contact me about this request. It is reviewed by a person before any reply.</label>
+                          </div>
+                          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
                         </Field>
                       )}
                     />
