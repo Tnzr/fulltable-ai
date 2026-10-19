@@ -27,3 +27,18 @@ How it works, with no edits to sealed files:
 
 **Not secure.** Passwords are stored in plain text in the browser and nothing is checked server-side. Use the
 normal `bun run dev` with `VITE_ARCHIE_*` set for real accounts.
+
+## Event Sourcing, demand map and the walkthrough
+
+- **Event Sourcing** in demo mode answers the lead-engine GraphQL operations from `demo-graphql.ts`.
+  "Run engine" adds the next batch of real Miami-Dade organizations (IRS exempt-org registry) with a
+  recurring event each; they persist in `localStorage` and appear on the Network Map. Restaurants
+  come from the Florida DBPR licence file (40+ seats).
+- **Demand map** at `/demand-map` (button on Overview, Event Sourcing and Network Map): directable
+  group guests per area, coverage slider, revenue and fee estimates. Data: `data/demand.json`.
+- Rebuild both datasets: `python3 demo/geo/build_seed.py` (inputs in `demo/geo/data`, produced by
+  `demo/geo/analyze.py`; assumptions are listed at the top of `build_seed.py`).
+- Walkthrough (needs `pip install playwright && python3 -m playwright install chromium`):
+  `python3 demo/walkthrough/walkthrough.py` writes screenshots, `walkthrough.webm`, `timings.json`
+  and `summary.md` to `demo/walkthrough/out/`. Then `python3 demo/pitch/build_deck.py` builds the
+  pitch deck PDF from that run into `demo/pitch/out/`.

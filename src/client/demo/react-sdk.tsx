@@ -5,6 +5,8 @@ import * as React from 'react';
 import { ArchieProvider as RealArchieProvider, type ArchieProviderProps } from '@archie-real/react-sdk';
 import { createDemoAuth } from './demo-auth';
 import { DemoSignInPanel } from './demo-sign-in-panel';
+import { DemandMapOverlay } from './demand-map';
+import { wrapGraphql } from './demo-graphql';
 
 export * from '@archie-real/react-sdk';
 
@@ -12,17 +14,17 @@ const demoAuth = createDemoAuth();
 
 export function ArchieProvider(props: ArchieProviderProps): React.ReactElement {
   const { client, ...rest } = props;
-  const demoClient = React.useMemo(
-    () =>
-      new Proxy(client, {
-        get: (target, prop) => (prop === 'auth' ? demoAuth : Reflect.get(target, prop, target)),
-      }),
-    [client],
-  );
+  const demoClient = React.useMemo(() => {
+    const graphql = wrapGraphql(client.graphql);
+    return new Proxy(client, {
+      get: (target, prop) => (prop === 'auth' ? demoAuth : prop === 'graphql' ? graphql : Reflect.get(target, prop, target)),
+    });
+  }, [client]);
   return (
     <RealArchieProvider {...rest} client={demoClient}>
       {props.children}
       <DemoSignInPanel auth={demoAuth} />
+      <DemandMapOverlay />
     </RealArchieProvider>
   );
 }
