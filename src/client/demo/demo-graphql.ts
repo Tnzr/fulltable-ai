@@ -11,6 +11,8 @@ interface Resp<T> {
 interface PoolOrg {
   name: string; type: string; address: string; lat: number; lng: number; area: string; score: number;
   category: string; eventLabel: string; partySize: number; perYear: number; hasContact: boolean;
+  // Set on pools built from live event feeds (demo/ingest/ingest.py).
+  startsAt?: string | null; url?: string | null; isRecurring?: boolean; reason?: string; sizeBasis?: string | null; members?: number | null;
 }
 interface Org { id: string; name: string; organizerType: string; address: string; latitude: number; longitude: number; businessContactRoute: string | null; verificationStatus: string }
 interface Ev {
@@ -58,14 +60,18 @@ function scrape(sourceId: string, max: number): Resp<unknown> {
     const orgId = `${sourceId}-org-${i}`;
     s.organizers.push({
       id: orgId, name: o.name, organizerType: o.type, address: `${o.area} · ${o.address}`, latitude: o.lat, longitude: o.lng,
-      businessContactRoute: o.hasContact ? 'Public filing address; business line on IRS Form 990' : null,
+      businessContactRoute: o.startsAt !== undefined ? (o.hasContact ? `Message the organizer via ${o.type}` : null) : o.hasContact ? 'Public filing address; business line on IRS Form 990' : null,
       verificationStatus: o.hasContact && o.score >= 88 ? 'VERIFIED' : 'UNVERIFIED',
     });
+    const feed = o.startsAt !== undefined;
     s.events.push({
-      id: `${sourceId}-ev-${i}`, title: `${o.name}: ${o.eventLabel}`,
-      startsAt: new Date(today.getTime() + (3 + ((i * 5) % 40)) * DAY).toISOString(),
-      latitude: null, longitude: null, expectedSize: o.partySize, category: o.category, isRecurring: true, funnelStage: stage(o, i),
-      matchExplanation: `${o.type} in ${o.area} (fit score ${o.score}). About ${o.perYear} group meals a year of ~${o.partySize} guests; recurring ${o.eventLabel} that fits a slow weeknight.`,
+      id: `${sourceId}-ev-${i}`, title: feed ? o.eventLabel : `${o.name}: ${o.eventLabel}`,
+      startsAt: feed ? (o.startsAt ?? null) : new Date(today.getTime() + (3 + ((i * 5) % 40)) * DAY).toISOString(),
+      latitude: feed ? o.lat : null, longitude: feed ? o.lng : null, expectedSize: o.partySize > 0 ? o.partySize : null,
+      category: o.category, isRecurring: feed ? (o.isRecurring ?? false) : true, funnelStage: stage(o, i),
+      matchExplanation: feed
+        ? `${o.reason ?? o.area} (fit score ${o.score}).${o.partySize > 0 ? ` ${o.partySize} ${o.sizeBasis ?? 'attendees'}.` : ''}${o.members ? ` Group has ${o.members} members.` : ''}${o.url ? ` Listing: ${o.url}` : ''}`
+        : `${o.type} in ${o.area} (fit score ${o.score}). About ${o.perYear} group meals a year of ~${o.partySize} guests; recurring ${o.eventLabel} that fits a slow weeknight.`,
       verificationStatus: 'UNVERIFIED', missingFields: o.hasContact ? 'confirmed date' : 'contact route, confirmed date',
       organizer: { id: orgId }, source: { name: src.name },
     });
