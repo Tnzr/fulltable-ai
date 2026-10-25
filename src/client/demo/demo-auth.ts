@@ -2,14 +2,17 @@
 // (vite.config.demo.ts). Accounts and the session live in localStorage; passwords are not
 // hashed and nothing is verified server-side, so this is for demos only.
 import type { Session, User } from '@archie/js-sdk';
+import { COORDINATOR_ROLE_ID } from './group-store';
 
 export interface DemoRole {
   readonly id: string;
   readonly label: string;
   readonly blurb: string;
+  /** Where to go after sign-in when the generated role landing has no entry for this role. */
+  readonly landing?: string;
 }
 
-/** The app's three roles (ids from `role-nav.ts`), with where each one lands after sign-in. */
+/** The app's three roles (ids from `role-nav.ts`) plus the demo-only coordinator role, with where each lands. */
 export const DEMO_ROLES: readonly DemoRole[] = [
   {
     id: '66f9b39f-1b6a-4241-8983-963d1158d0e6',
@@ -25,6 +28,12 @@ export const DEMO_ROLES: readonly DemoRole[] = [
     id: '30e7aab9-09cc-4e04-a748-9bbe383665ad',
     label: 'Internal Marketing / Sales',
     blurb: 'FullTable team member working outreach tasks. Lands on My Tasks.',
+  },
+  {
+    id: COORDINATOR_ROLE_ID,
+    label: 'Organization / Event Coordinator',
+    blurb: 'Runs a club, team, company or event group: posts the group profile, sees matched restaurants and compares their offers.',
+    landing: '/coordinator',
   },
 ];
 

@@ -38,8 +38,8 @@ export function DemoSignInPanel(props: { auth: DemoAuth }): React.ReactElement |
 
   if (!SHOW_ON.has(path)) return null;
 
-  const enter = (): void => window.location.assign('/');
   const role = DEMO_ROLES.find((r) => r.id === roleId) ?? DEMO_ROLES[0]!;
+  const enter = (): void => window.location.assign(role.landing ?? '/');
 
   const onRegister = (e: React.FormEvent): void => {
     e.preventDefault();

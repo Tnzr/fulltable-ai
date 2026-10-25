@@ -44,10 +44,16 @@ export function DemandMapOverlay(): React.ReactElement | null {
   const path = usePath();
   if (SHORTCUT_ON.has(path)) {
     return (
-      <a href="/demand-map" data-testid="open-demand-map"
-        className="fixed bottom-4 right-4 z-[1000] rounded-md bg-primary px-4 py-3 type-body text-primary-foreground shadow-lg">
-        Open demand map
-      </a>
+      <div className="fixed bottom-4 right-4 z-[1000] flex gap-2">
+        <a href="/group-demand" data-testid="open-group-demand"
+          className="rounded-md border border-border bg-card px-4 py-3 type-body text-foreground shadow-lg">
+          Group demand
+        </a>
+        <a href="/demand-map" data-testid="open-demand-map"
+          className="rounded-md bg-primary px-4 py-3 type-body text-primary-foreground shadow-lg">
+          Open demand map
+        </a>
+      </div>
     );
   }
   if (path !== '/demand-map') return null;
