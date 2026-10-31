@@ -124,7 +124,7 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
   const seg = (active: boolean): string => 'min-h-11 rounded-md border px-4 type-body ' + (active ? 'border-primary bg-primary text-primary-foreground' : 'border-border text-text-body');
 
   return (
-    <div data-vid="cxgccno" className="flex flex-col gap-6 p-6">
+    <div data-vid="cxgccno" className="flex flex-col gap-3 p-4">
       <PageHead data-vid="dtmpond"
         title="Network Map"
         description="Groups and events around your restaurant in Miami, FL. Drag to move, zoom with the buttons, wheel or double-click, and select any pin or list entry for details. Records are the same ones shown in Event Sourcing."
@@ -148,14 +148,14 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
         </div>
       </div>
 
-      <div data-vid="wuvszcc" className="grid gap-6 lg:grid-cols-[2fr_1fr]">
-        <div data-vid="jfbwqix" className="flex flex-col gap-3">
+      <div data-vid="wuvszcc" className="grid gap-4 lg:grid-cols-[2fr_1fr]">
+        <div data-vid="jfbwqix" className="relative flex flex-col gap-2">
           <div data-vid="vkz7zyo"
             ref={props.mapRef}
             role="application"
             aria-label="Interactive map of Miami. Drag to move."
             className="relative w-full cursor-grab select-none overflow-hidden rounded-card border border-border bg-surface-sunken active:cursor-grabbing"
-            style={{ aspectRatio: VIEW_W + ' / ' + VIEW_H, touchAction: 'none' }}
+            style={{ aspectRatio: VIEW_W + ' / ' + VIEW_H, touchAction: 'none', width: 'min(100%, calc((100vh - 18.5rem) * ' + VIEW_W / VIEW_H + '))', marginInline: 'auto' }}
             onPointerMove={(e) => {
               if (e.buttons === 1) {
                 const r = e.currentTarget.getBoundingClientRect();
@@ -305,7 +305,7 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
           )}
 
           {(selectedEvent !== undefined || selectedOrganizer !== undefined) && (
-            <section data-vid="o2iaxm1" className="flex flex-col gap-2 rounded-card border border-border p-4" aria-live="polite">
+            <section data-vid="o2iaxm1" className="absolute left-2 top-2 z-10 flex max-w-md flex-col gap-2 rounded-card border border-border bg-background/95 p-3 shadow-lg" aria-live="polite">
               {selectedEvent !== undefined && (
                 <>
                   <div data-vid="4pfqo92" className="flex flex-wrap items-center gap-2">
@@ -334,11 +334,11 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
           )}
         </div>
 
-        <aside data-vid="jv5y78v" className="flex flex-col gap-4">
+        <aside data-vid="jv5y78v" className="flex flex-col gap-3 lg:max-h-[calc(100vh-14.5rem)] lg:overflow-y-auto lg:pr-1">
           {standard && (
-            <section data-vid="d7x8j4g" className="rounded-card border border-border p-4">
-              <h2 data-vid="hzkjwc6" className="type-row-title text-foreground">Profile preferences</h2>
-              <fieldset data-vid="njkr1j3" className="mt-3 flex flex-col gap-2">
+            <details data-vid="d7x8j4g" className="rounded-card border border-border p-3">
+              <summary data-vid="hzkjwc6" className="cursor-pointer type-row-title text-foreground">Profile preferences ({profile.categories.length} event types)</summary>
+              <fieldset data-vid="njkr1j3" className="mt-3 grid grid-cols-2 gap-x-3">
                 <legend data-vid="sb6gmi4" className="type-meta text-text-muted">Event types</legend>
                 {categories.map((c) => (
                   <label data-vid="koqnlrc" key={c} className="flex min-h-11 items-center gap-2 type-body text-text-body">
@@ -355,15 +355,15 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
                 <input data-vid="4wjq1bu" type="checkbox" checked={profile.verifiedOnly} onChange={(e) => props.onVerifiedOnly(e.target.checked)} />
                 Verified only
               </label>
-            </section>
+            </details>
           )}
 
-          <section data-vid="reqay5w" className="rounded-card border border-border p-4">
+          <section data-vid="reqay5w" className="rounded-card border border-border p-3">
             <h2 data-vid="75j1flp" className="type-row-title text-foreground">Events ({visibleEvents.length})</h2>
             {visibleEvents.length === 0 ? (
               <p data-vid="aodjd5w" className="mt-3 type-body text-text-muted">{standard ? 'No events match these preferences.' : 'Events unlock on Standard.'}</p>
             ) : (
-              <ul data-vid="7fzy435" className="mt-3 flex max-h-96 flex-col gap-2 overflow-y-auto pr-1">
+              <ul data-vid="7fzy435" className="mt-2 flex max-h-72 flex-col gap-2 overflow-y-auto pr-1">
                 {visibleEvents.map((e) => (
                   <li data-vid="8jyghsg" key={e.id}>
                     <button data-vid="nhtlihh"
@@ -381,9 +381,9 @@ export function NetworkMapView(props: NetworkMapViewProps): React.ReactElement {
             )}
           </section>
 
-          <section data-vid="dpm86ws" className="rounded-card border border-border p-4">
+          <section data-vid="dpm86ws" className="rounded-card border border-border p-3">
             <h2 data-vid="nssl3ga" className="type-row-title text-foreground">Organizers ({visibleOrganizers.length})</h2>
-            <ul data-vid="3v0kmxz" className="mt-3 flex max-h-80 flex-col gap-2 overflow-y-auto pr-1">
+            <ul data-vid="3v0kmxz" className="mt-2 flex max-h-56 flex-col gap-2 overflow-y-auto pr-1">
               {visibleOrganizers.map((o) => (
                 <li data-vid="nehjduf" key={o.id}>
                   <button data-vid="720qad5"

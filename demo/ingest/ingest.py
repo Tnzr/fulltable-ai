@@ -40,6 +40,7 @@ SOURCES = {
     'luma': ('Luma: Miami discover feed', 'Undocumented public JSON (luma.com/miami)', 0),
     'meetup': ('Meetup: Miami-Dade groups & events', 'Meetup GraphQL API (public read)', 0),
     'eventbrite': ('Eventbrite: Miami listings', 'schema.org JSON-LD on listing pages', 0),
+    'concerts': ('Concerts & live music: Miami (Eventbrite music listings)', 'schema.org JSON-LD on concert/music listing pages', 0),
     'ticketmaster': ('Ticketmaster Discovery: concerts & sports', 'Official API, free key', 1),
 }
 
@@ -151,10 +152,10 @@ def meetup():
     return len(seen), rows
 
 
-def eventbrite():
+def eventbrite(cats=('all-events', 'business--events', 'community--events', 'food-and-drink--events', 'sports-and-fitness--events'), pages=3, concert=False):
     seen = {}
-    for cat in ['all-events', 'music--events', 'business--events', 'community--events', 'food-and-drink--events', 'sports-and-fitness--events']:
-        for p in range(1, 4):
+    for cat in cats:
+        for p in range(1, pages + 1):
             h = get_text(f'https://www.eventbrite.com/d/fl--miami/{cat}/?page={p}')
             for x in re.findall(r'<script type="application/ld\+json"[^>]*>(.*?)</script>', h, re.S):
                 try:
@@ -175,7 +176,7 @@ def eventbrite():
             continue
         if not in_county(lat, lng):
             continue
-        cat = e['_cat'].split('--')[0].replace('-and-', ' & ').replace('-', ' ').title() if e['_cat'] != 'all-events' else 'Eventbrite'
+        cat = 'Concert' if concert else e['_cat'].split('--')[0].replace('-and-', ' & ').replace('-', ' ').title() if e['_cat'] != 'all-events' else 'Eventbrite'
         rows.append(dict(ext=e['url'].rsplit('-', 1)[-1], title=e['name'], starts=e.get('startDate'), category=cat, url=e['url'],
                          org=None, venue=dict(name=loc.get('name'), address=adr.get('streetAddress'), city=adr.get('addressLocality'), lat=lat, lng=lng),
                          size=None, basis=None, recurring=False, raw=e))
@@ -211,7 +212,11 @@ def ticketmaster():
     return total, rows
 
 
-FETCHERS = {'luma': luma, 'meetup': meetup, 'eventbrite': eventbrite, 'ticketmaster': ticketmaster}
+def concerts():
+    return eventbrite(cats=('concerts', 'music--events', 'music--events--this-weekend', 'nightlife--events'), pages=5, concert=True)
+
+
+FETCHERS = {'luma': luma, 'meetup': meetup, 'eventbrite': eventbrite, 'concerts': concerts, 'ticketmaster': ticketmaster}
 
 
 def store(con, sid, rows, now):
@@ -225,7 +230,7 @@ def store(con, sid, rows, now):
             o = r['org']; oid = f"{sid}:{o['ext']}"
             con.execute('INSERT INTO organizer VALUES(?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET last_seen=excluded.last_seen, members=excluded.members',
                         (oid, sid, o['name'], o['kind'], o['url'], o.get('members'), o.get('category'), v['lat'], v['lng'], now, now))
-        score, why = fit(r['title'], r['category'], r['size'], r['starts'], r['recurring'], concert=r['category'] in ('Music', 'Sports'))
+        score, why = fit(r['title'], r['category'], r['size'], r['starts'], r['recurring'], concert=r['category'] in ('Music', 'Sports', 'Concert'))
         con.execute('INSERT OR REPLACE INTO event VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
                     (f"{sid}:{r['ext']}", sid, r['ext'], r['title'], r['starts'], r['category'], r['url'], oid, vid, r['size'], r['basis'],
                      int(r['recurring']), score, f'{area}: {why}', now, json.dumps(r['raw'])[:20000]))
@@ -254,7 +259,7 @@ def seed_pools(con):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--sources', default='luma,meetup,eventbrite,ticketmaster')
+    ap.add_argument('--sources', default='luma,meetup,eventbrite,concerts,ticketmaster')
     ap.add_argument('--seed', action='store_true')
     a = ap.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
