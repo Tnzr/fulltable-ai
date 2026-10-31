@@ -7,6 +7,7 @@ import { createDemoAuth } from './demo-auth';
 import { DemoSignInPanel } from './demo-sign-in-panel';
 import { DemandMapOverlay } from './demand-map';
 import { GroupPortalOverlay } from './group-portal';
+import { CrmOverlay } from './crm';
 import { wrapGraphql } from './demo-graphql';
 
 export * from '@archie-real/react-sdk';
@@ -27,6 +28,7 @@ export function ArchieProvider(props: ArchieProviderProps): React.ReactElement {
       <DemoSignInPanel auth={demoAuth} />
       <DemandMapOverlay />
       <GroupPortalOverlay auth={demoAuth} />
+      <CrmOverlay auth={demoAuth} />
     </RealArchieProvider>
   );
 }

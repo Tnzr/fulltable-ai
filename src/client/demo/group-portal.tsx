@@ -19,7 +19,7 @@ import demand from './data/demand.json';
 const AREAS = demand.areas.filter((a) => a.lat !== null && a.lng !== null) as { area: string; lat: number; lng: number }[];
 const RADIUS_MI = 3;
 
-function usePath(): string {
+export function usePath(): string {
   const [path, setPath] = React.useState(() => window.location.pathname);
   React.useEffect(() => {
     const t = window.setInterval(() => setPath(window.location.pathname), 400);
@@ -46,7 +46,7 @@ export function GroupPortalOverlay(props: { auth: DemoAuth }): React.ReactElemen
   return null;
 }
 
-function Shell(props: { kicker: string; title: string; actions: React.ReactNode; children: React.ReactNode; testId: string }): React.ReactElement {
+export function Shell(props: { kicker: string; title: string; actions: React.ReactNode; children: React.ReactNode; testId: string }): React.ReactElement {
   return (
     <div className="fixed inset-0 z-[1000] overflow-auto bg-background" data-testid={props.testId}>
       <div className="mx-auto flex max-w-7xl flex-col gap-4 p-4 sm:p-6">
@@ -63,7 +63,7 @@ function Shell(props: { kicker: string; title: string; actions: React.ReactNode;
   );
 }
 
-function Panel(props: { title: string; children: React.ReactNode; testId?: string; className?: string }): React.ReactElement {
+export function Panel(props: { title: string; children: React.ReactNode; testId?: string; className?: string }): React.ReactElement {
   return (
     <section className={`flex flex-col gap-3 rounded-card border border-border bg-card p-4 ${props.className ?? ''}`} data-testid={props.testId}>
       <h2 className="type-row-title text-foreground">{props.title}</h2>
@@ -72,7 +72,7 @@ function Panel(props: { title: string; children: React.ReactNode; testId?: strin
   );
 }
 
-function Kpi(props: { label: string; value: string; note: string; testId: string }): React.ReactElement {
+export function Kpi(props: { label: string; value: string; note: string; testId: string }): React.ReactElement {
   return (
     <div className="flex flex-col gap-1 rounded-card border border-border bg-card p-3" data-testid={props.testId}>
       <span className="type-meta text-text-muted">{props.label}</span>
@@ -82,7 +82,7 @@ function Kpi(props: { label: string; value: string; note: string; testId: string
   );
 }
 
-function Field(props: { id: string; label: string; children: React.ReactNode }): React.ReactElement {
+export function Field(props: { id: string; label: string; children: React.ReactNode }): React.ReactElement {
   return (
     <div className="flex flex-col gap-1">
       <Label htmlFor={props.id}>{props.label}</Label>
@@ -290,10 +290,11 @@ function GroupDemand(): React.ReactElement {
     <Shell testId="group-demand" kicker={`FullTable AI · Group demand around ${me.name}`} title="Who dines in groups near you, and what to offer them"
       actions={<>
         <NativeSelect aria-label="Your restaurant" value={me.name} onChange={(e) => { setMyRestaurant(e.target.value); setMe(getMyRestaurant()); }}>
-          {[...RESTAURANTS].sort((a, b) => a.name.localeCompare(b.name)).map((r) => <NativeSelectOption key={r.name} value={r.name}>{r.name} · {r.area}</NativeSelectOption>)}
+          {[...RESTAURANTS].sort((a, b) => a.name.localeCompare(b.name)).map((r) => <NativeSelectOption key={r.name + r.address} value={r.name}>{r.name} · {r.area}</NativeSelectOption>)}
         </NativeSelect>
         <Button variant="outline" onClick={() => { window.location.href = '/overview'; }}>Overview</Button>
         <Button variant="outline" onClick={() => { window.location.href = '/demand-map'; }}>Demand map</Button>
+        <Button variant="outline" onClick={() => { window.location.href = '/crm'; }}>Group CRM</Button>
       </>}>
       <section className="grid grid-cols-2 gap-3 md:grid-cols-5">
         <Kpi testId="gd-groups" label={`Groups within ${RADIUS_MI} mi`} value={String(nearby.length)} note="coordinators + Meetup, Luma, IRS" />

@@ -233,3 +233,12 @@ export function themedCalendar(nearby: GroupProfile[]): ThemedNight[] {
     };
   });
 }
+
+/** Marketplace requests whose accepted offer went to this restaurant. */
+export function acceptedFor(restaurant: string): { request: DiningRequest; offer: Offer; profile: GroupProfile }[] {
+  return requests().flatMap((request) => {
+    const offer = offersFor(request.id).find((o) => o.id === request.acceptedOfferId && o.restaurant === restaurant);
+    const profile = profileById(request.profileId);
+    return request.status === 'booked' && offer && profile ? [{ request, offer, profile }] : [];
+  });
+}
