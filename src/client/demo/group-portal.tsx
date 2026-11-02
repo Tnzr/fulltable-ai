@@ -40,6 +40,7 @@ export function GroupPortalOverlay(props: { auth: DemoAuth }): React.ReactElemen
   }, [isCoordinator, path]);
   if (path === '/coordinator') {
     if (user === null) { window.location.replace('/login'); return null; }
+    if (!isCoordinator) { window.location.replace('/group-demand'); return null; }
     return <Coordinator auth={props.auth} owner={user.id} name={[user.firstName, user.lastName].filter(Boolean).join(' ')} />;
   }
   if (path === '/group-demand' && user !== null && !isCoordinator) return <GroupDemand />;
@@ -126,6 +127,7 @@ function Coordinator(props: { auth: DemoAuth; owner: string; name: string }): Re
     const a = AREAS.find((x) => x.area === draft.area) ?? AREAS[0]!;
     const p = { ...draft, lat: a.lat, lng: a.lng };
     saveProfile(p); setSaved(p); setDraft(p);
+    setReq((r) => ({ ...r, date: nextWeekday(p.days[0] ?? 'Tue'), size: p.size, budget: p.budget }));
   };
   const signOut = (): void => { void props.auth.signOut().then(() => window.location.assign('/login')); };
 

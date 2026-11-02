@@ -119,6 +119,12 @@ seed = {
                      "lng": round(r.lon, 5), "seats": int(r.seats), "area": r.area}
                     for r in rest.sort_values("score", ascending=False).head(150).itertuples()],
 }
+# keep the live-feed sources/pools that demo/ingest/ingest.py --seed added to the previous seed
+prev_path = OUT/"miami-seed.json"
+if prev_path.exists():
+    prev = json.loads(prev_path.read_text())
+    seed["sources"] += [s for s in prev.get("sources", []) if s["id"].startswith("src-feed-")]
+    seed["pools"].update({k: v for k, v in prev.get("pools", {}).items() if k.startswith("src-feed-")})
 OUT.mkdir(parents=True, exist_ok=True)
 (OUT/"miami-seed.json").write_text(json.dumps(seed, separators=(",", ":")))
 (OUT/"demand.json").write_text(json.dumps(demand, indent=1))

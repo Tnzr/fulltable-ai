@@ -122,10 +122,17 @@ export function demoGraphql(gql: string, vars: Vars): Resp<unknown> | null {
   return null;
 }
 
+const unsupported: Resp<null> = {
+  data: null,
+  error: Object.assign(new Error("This action isn't available in demo mode"), { code: 'UNSUPPORTED', name: 'ArchieError' }),
+};
+
 export function wrapGraphql<G extends { query: (...a: never[]) => unknown; mutate: (...a: never[]) => unknown }>(real: G): G {
   const handle = (method: 'query' | 'mutate') => async (gql: string, vars?: Record<string, unknown>, opts?: unknown) => {
     const hit = demoGraphql(gql, vars);
     if (hit !== null) return hit;
+    // writes never leave the browser in demo mode, even if a real backend is configured
+    if (method === 'mutate' || /^\s*mutation\b/.test(gql)) return unsupported;
     return (real[method] as unknown as (g: string, v?: unknown, o?: unknown) => Promise<unknown>).call(real, gql, vars, opts);
   };
   return new Proxy(real, {
