@@ -1,6 +1,6 @@
 // Browser-local stand-in for the Archie identity module, used only by the demo build
-// (vite.config.demo.ts). Accounts and the session live in localStorage; passwords are not
-// hashed and nothing is verified server-side, so this is for demos only.
+// (vite.config.demo.ts). Accounts and the session live in localStorage; passwords are stored as
+// salted SHA-256 hashes, but nothing is verified server-side, so this is for demos only.
 import type { Session, User } from '@archie/js-sdk';
 import { COORDINATOR_ROLE_ID } from './group-store';
 
@@ -39,8 +39,17 @@ export const DEMO_ROLES: readonly DemoRole[] = [
 
 interface DemoAccount {
   user: User;
-  password: string;
+  salt: string;
+  hash: string;
 }
+
+async function hashPassword(password: string, salt: string): Promise<string> {
+  const bytes = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(salt + ':' + password));
+  return Array.from(new Uint8Array(bytes), (b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+const newSalt = (): string =>
+  Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) => b.toString(16).padStart(2, '0')).join('');
 
 type Listener = (event: 'SIGNED_IN' | 'SIGNED_OUT', session: Session | null) => void;
 
@@ -89,13 +98,13 @@ export function createDemoAuth() {
     for (const l of [...listeners]) l(next === null ? 'SIGNED_OUT' : 'SIGNED_IN', next);
   }
 
-  function register(params: {
+  async function register(params: {
     email: string;
     password: string;
     firstName?: string;
     lastName?: string;
     roleId?: string;
-  }): User {
+  }): Promise<User> {
     const email = normalize(params.email);
     if (email === '' || params.password === '') throw demoError('VALIDATION', 'Email and password are required');
     const all = accounts();
@@ -108,14 +117,15 @@ export function createDemoAuth() {
       lastName: params.lastName,
       roles: [roleId],
     };
-    write(ACCOUNTS_KEY, { ...all, [email]: { user, password: params.password } });
+    const salt = newSalt();
+    write(ACCOUNTS_KEY, { ...all, [email]: { user, salt, hash: await hashPassword(params.password, salt) } });
     return user;
   }
 
   return {
     /** Demo-only: create the account (if new) and open its session in one step. */
-    registerAndSignIn(params: Parameters<typeof register>[0]): Session {
-      const s = makeSession(register(params));
+    async registerAndSignIn(params: Parameters<typeof register>[0]): Promise<Session> {
+      const s = makeSession(await register(params));
       setSession(s);
       return s;
     },
@@ -140,16 +150,20 @@ export function createDemoAuth() {
       return () => listeners.delete(cb);
     },
     waitForInit: async (): Promise<void> => undefined,
+    // Same contract as the js-sdk client: resolve with the payload, throw on failure. The react-sdk
+    // `useAuth` hook wraps these into its `{..., error}` envelopes.
     async signUp(params: Parameters<typeof register>[0]) {
-      const user = register(params);
+      const user = await register(params);
       setSession(makeSession(user));
       return { userId: user.id, message: 'Demo account created' };
     },
     async signIn(params: { email: string; password: string }) {
       const account = accounts()[normalize(params.email)];
-      if (account === undefined || account.password !== params.password) {
-        throw demoError('INVALID_CREDENTIALS', 'Invalid email or password');
-      }
+      const valid =
+        account !== undefined &&
+        typeof account.salt === 'string' &&
+        (await hashPassword(params.password, account.salt)) === account.hash;
+      if (!valid) throw demoError('INVALID_CREDENTIALS', 'Invalid email or password');
       const s = makeSession(account.user);
       setSession(s);
       return { session: s };

@@ -41,12 +41,12 @@ export function DemoSignInPanel(props: { auth: DemoAuth }): React.ReactElement |
   const role = DEMO_ROLES.find((r) => r.id === roleId) ?? DEMO_ROLES[0]!;
   const enter = (): void => window.location.assign(role.landing ?? '/');
 
-  const onRegister = (e: React.FormEvent): void => {
+  const onRegister = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
     setError(null);
     const [firstName, ...rest] = name.trim().split(/\s+/);
     try {
-      props.auth.registerAndSignIn({
+      await props.auth.registerAndSignIn({
         email,
         password,
         firstName: firstName || undefined,
@@ -108,7 +108,7 @@ export function DemoSignInPanel(props: { auth: DemoAuth }): React.ReactElement |
               Continue as {role.label}
             </Button>
           ) : (
-            <form className="flex flex-col gap-3" onSubmit={onRegister}>
+            <form className="flex flex-col gap-3" onSubmit={(e) => void onRegister(e)}>
               <div className="flex flex-col gap-1">
                 <Label htmlFor="demo-name">Full name</Label>
                 <Input id="demo-name" value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" />
