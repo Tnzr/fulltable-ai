@@ -48,3 +48,6 @@ bun.lockb
 
 # tarballs locales de desarrollo
 /vendor/
+
+# Event-feed proof-of-concept database (rebuild with demo/ingest/ingest.py)
+demo/ingest/out/

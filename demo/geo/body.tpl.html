@@ -1,0 +1,143 @@
+<style>
+.ft-map{width:100%;height:auto;display:block;background:rgb(var(--bg-wash));border-radius:var(--radius)}
+.ft-t{fill:rgb(var(--text-accent));stroke:rgb(var(--bg-page));stroke-width:.35;cursor:crosshair}
+.ft-t[data-q="0"]{fill-opacity:.06}.ft-t[data-q="1"]{fill-opacity:.22}.ft-t[data-q="2"]{fill-opacity:.42}.ft-t[data-q="3"]{fill-opacity:.65}.ft-t[data-q="4"]{fill-opacity:.92}
+.ft-t:hover{stroke:rgb(var(--text-primary));stroke-width:1}
+.ft-org{fill:rgb(var(--text-orange));stroke:rgb(var(--bg-page));stroke-width:1}
+.ft-ev{fill:rgb(var(--text-purple));fill-opacity:.35;stroke:rgb(var(--text-purple));stroke-width:1}
+.ft-hot{fill:rgb(var(--text-secondary))}
+.ft-rest{fill:rgb(var(--text-green));stroke:rgb(var(--bg-page));stroke-width:.8}
+.ft-org:focus,.ft-rest:focus{outline:none;stroke:rgb(var(--text-primary));stroke-width:2}
+.ft-chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.ft-chip,.ft-tog{font:inherit;font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid rgb(var(--border-primary));background:rgb(var(--bg-elevated));color:rgb(var(--text-primary));cursor:pointer}
+.ft-chip[aria-pressed="true"],.ft-tog[aria-pressed="true"]{background:rgb(var(--text-accent));color:rgb(var(--bg-page));border-color:rgb(var(--text-accent))}
+.ft-leg{display:flex;align-items:center;gap:4px;font-size:12px;color:rgb(var(--text-secondary));flex-wrap:wrap}
+.ft-leg i{display:inline-block;width:22px;height:12px;background:rgb(var(--text-accent))}
+.ft-key{display:inline-flex;align-items:center;gap:4px;margin-right:12px}
+.ft-sw{display:inline-block;width:10px;height:10px;border-radius:50%}
+.ft-filter{display:inline-flex;gap:8px;align-items:center;font-size:14px;margin:6px 0}
+.ft-filter select{font:inherit;padding:4px 8px;border-radius:6px;border:1px solid rgb(var(--border-primary));background:rgb(var(--bg-elevated));color:rgb(var(--text-primary))}
+.ft-pipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;counter-reset:s}
+.ft-pipe>div{border:1px solid rgb(var(--border-secondary));border-radius:var(--radius);padding:10px;background:rgb(var(--bg-elevated))}
+.ft-pipe b{display:block;margin-bottom:4px}
+.ft-pipe span{font-size:13px;color:rgb(var(--text-secondary))}
+.ft-bars{display:grid;grid-template-columns:max-content 1fr max-content;gap:4px 10px;align-items:center;font-size:13px}
+.ft-bars span.t{height:10px;background:rgb(var(--tint-secondary));border-radius:4px;overflow:hidden}.ft-bars span.t i{display:block;height:100%;background:rgb(var(--text-orange))}
+</style>
+
+<section class="a-section">
+<h2 class="a-section__title">The short answer</h2>
+<div class="a-prose">
+<p>Yes. Free public data is enough to build a good first version, and this prototype is that first version. It pulls six public sources (no paid APIs and no API keys) and scores <strong>{{N_TR}} Miami-Dade census tracts</strong>. It ranks <strong>{{N_IRS}} geocoded nonprofits and associations</strong> as people to contact, and <strong>{{N_REST}} licensed restaurants with 40+ seats</strong> as people to sell to.</p>
+<p>The strongest finding is Florida's state restaurant licence file. It lists every licensed restaurant with its address, phone number and <em>number of seats</em>, and it updates regularly. That gives FullTable a ready-made, legal sales list and an exact measure of restaurant capacity on the map.</p>
+<p>Best areas to start, by mean opportunity score: <strong>{{TOPZ}}</strong>. Areas with lots of group demand but few seats (gaps to expand into, or to pitch to restaurant groups): <strong>{{WS}}</strong>.</p>
+</div>
+<div class="a-grid">
+<div class="a-metric"><div class="a-metric__label">Tracts scored</div><div class="a-metric__value">{{N_TR}}</div><div class="a-metric__delta">Miami-Dade, ACS 5-year</div></div>
+<div class="a-metric"><div class="a-metric__label">Jobs mapped (daytime population)</div><div class="a-metric__value">{{N_JOBS}}</div><div class="a-metric__delta">LEHD LODES 2021</div></div>
+<div class="a-metric"><div class="a-metric__label">Licensed seats mapped</div><div class="a-metric__value">{{N_SEATS}}</div><div class="a-metric__delta">FL DBPR licence file</div></div>
+<div class="a-metric"><div class="a-metric__label">Organizations ranked</div><div class="a-metric__value">{{N_IRS}}</div><div class="a-metric__delta">IRS exempt-org registry</div></div>
+</div>
+</section>
+
+<section class="a-section">
+<h2 class="a-section__title">Map: where group-dining demand is in Miami-Dade</h2>
+<p class="a-section__note">Each shape is a census tract, shaded by percentile: darker means a higher score. Hover over or tap a tract to see its numbers. Choose a layer below, and switch the point overlays on or off. The far-western Everglades tracts are cropped out.</p>
+<div class="ft-chips" role="group" aria-label="Choropleth layer">{{OPTS}}</div>
+<div class="ft-chips" role="group" aria-label="Point overlays">
+<button type="button" class="ft-tog" data-ov="ft-org" aria-pressed="true"><span class="ft-sw" style="background:rgb(var(--text-orange))"></span> Top 100 organizations</button>
+<button type="button" class="ft-tog" data-ov="ft-rest" aria-pressed="true"><span class="ft-sw" style="background:rgb(var(--text-green))"></span> Top 60 restaurant targets</button>
+<button type="button" class="ft-tog" data-ov="ft-ev" aria-pressed="true"><span class="ft-sw" style="background:rgb(var(--text-purple))"></span> Upcoming events (app sample data)</button>
+<button type="button" class="ft-tog" data-ov="ft-hot" aria-pressed="false"><span class="ft-sw" style="background:rgb(var(--text-secondary))"></span> Hotels (OSM)</button>
+</div>
+<div class="a-diagram" data-a-diagram aria-label="Choropleth of Miami-Dade census tracts shaded by the selected score, with organization, restaurant, event and hotel overlays">
+<div class="a-toolbar"><button type="button" class="a-btn a-btn--outline" data-a-zoom="in">Zoom in</button><button type="button" class="a-btn a-btn--outline" data-a-zoom="out">Zoom out</button><button type="button" class="a-btn a-btn--outline" data-a-zoom="reset">Reset</button></div>
+<svg class="ft-map" data-a-diagram-canvas viewBox="0 0 {{W}} {{H}}" role="img" aria-labelledby="ftmapt"><title id="ftmapt">Miami-Dade tract scores</title>
+<g data-a-diagram-viewport>
+<g id="ft-tracts">{{PATHS}}</g>
+<g class="ov ft-hot-g" data-ovg="ft-hot" style="display:none">{{HOT}}</g>
+<g class="ov" data-ovg="ft-ev">{{EV}}</g>
+<g class="ov" data-ovg="ft-rest">{{REST}}</g>
+<g class="ov" data-ovg="ft-org">{{DOTS}}</g>
+</g></svg>
+</div>
+<div class="ft-leg" aria-hidden="true"><span id="ft-layername">FullTable opportunity</span>: low <i style="opacity:.06"></i><i style="opacity:.22"></i><i style="opacity:.42"></i><i style="opacity:.65"></i><i style="opacity:.92"></i> high (percentile quintiles across tracts)</div>
+<details class="a-disclosure"><summary>What each layer means</summary>
+<dl class="a-meta-list">
+<div><dt>FullTable opportunity</dt><dd>Demand × √(seat supply). High where many groups gather <em>and</em> there are restaurants to sell to. This is the main targeting layer.</dd></div>
+<div><dt>Group-dining demand</dt><dd>Weighted percentile, all counted within 1.5 km of the tract centre: jobs 25%, organizations 30%, residents 15%, hotels 10%, median income 10%, upcoming events 10%.</dd></div>
+<div><dt>Restaurant seat supply</dt><dd>Licensed seats within 1.5 km (60%) plus food-service jobs (40%).</dd></div>
+<div><dt>Demand minus supply</dt><dd>Gaps: groups exist but seats are scarce. Useful for pitching restaurant groups on expansion, less useful for selling to single restaurants.</dd></div>
+<div><dt>Upcoming events (sample)</dt><dd>The 36 sample events from the app's Network Map data. In production this layer reads the live <code>upcomingEvent</code> registry.</dd></div>
+</dl></details>
+</section>
+
+<section class="a-section">
+<h2 class="a-section__title">Where to launch</h2>
+{{ZCHART}}
+{{ZTAB}}
+<p class="a-section__note">Neighborhood is the nearest of about 50 hand-placed reference points. Tracts are grouped by that label, and labels with fewer than 2 tracts are left out.</p>
+</section>
+
+<section class="a-section">
+<h2 class="a-section__title">Who to contact: organizations ranked by location and fit</h2>
+<div class="a-prose"><p>Score = <strong>40% type fit</strong> (social clubs, business leagues and fraternal or veterans groups eat out together often; youth groups rarely do) + <strong>35% opportunity score of the organization's tract</strong> + <strong>25% size</strong> (reported income, as a percentile). Addresses were matched to map points with the free Census batch geocoder. 88% matched; the unmatched ones are mostly PO boxes.</p></div>
+<div class="a-grid a-grid--halves">
+<div class="a-panel"><div class="a-panel__head"><h3 class="a-panel__title">Types in the top 100</h3></div><div class="ft-bars">{{MIX}}</div></div>
+<div class="a-panel"><div class="a-panel__head"><h3 class="a-panel__title">How it plugs into the lead engine</h3></div><p class="a-prose">Each organization becomes an <code>organizer</code> candidate with <code>verificationStatus=UNVERIFIED</code>, the source name "IRS EO BMF" and its EIN as a stable ID, so duplicates merge. Then the existing <code>leadEngineScrapeEventSourceV2</code> crawls its website to find events and a business contact route. A person approves it before any outreach.</p></div>
+</div>
+{{OFILTER}}
+{{OTAB}}
+</section>
+
+<section class="a-section">
+<h2 class="a-section__title">Who to sell to: restaurants with 40+ seats near the most groups</h2>
+<div class="a-prose"><p>From the state licence file (licence type SEAT, Miami-Dade, 40+ seats; hotels, clubs, caterers and cafeterias removed). Score = 45% demand in the restaurant's tract + 35% organizations per competing 40+ seat restaurant + 20% size fit (40–250 seats). The file also includes a phone number for each restaurant.</p></div>
+{{RTAB}}
+</section>
+
+<section class="a-section">
+<h2 class="a-section__title">Datasets: what was pulled and what is worth adding</h2>
+<div class="a-table-scroll"><table class="a-table" data-a-sticky-columns="1"><caption>Data sources checked from this machine on 2026-10-19</caption>
+<thead><tr><th scope="col">Source</th><th scope="col">What it gives FullTable</th><th scope="col">Geography</th><th scope="col">Access</th><th scope="col">Refresh</th><th scope="col">Status</th></tr></thead><tbody>
+<tr><td>FL DBPR Hotels &amp; Restaurants licence extract (<code>hrfood1.csv</code>)</td><td>Every licensed food business: name, address, phone, <strong>seats</strong>, last inspection</td><td>Address</td><td>Free CSV download, no key</td><td>Regular (state extract)</td><td>Used</td></tr>
+<tr><td>IRS Exempt Organizations BMF (<code>eo_fl.csv</code>)</td><td>About 115k Florida nonprofits: type (501c subsection, NTEE), address, income, assets</td><td>Address</td><td>Free CSV, no key</td><td>Monthly</td><td>Used</td></tr>
+<tr><td>Census LEHD LODES 8 WAC</td><td>Jobs by workplace block and by industry (daytime population, food-service jobs)</td><td>Block</td><td>Free CSV, no key</td><td>Yearly (2-year lag)</td><td>Used</td></tr>
+<tr><td>ACS 5-year via Esri Living Atlas</td><td>Population, households, median income</td><td>Tract</td><td>Free ArcGIS REST, no key</td><td>Yearly</td><td>Used</td></tr>
+<tr><td>Census TIGERweb</td><td>Tract boundaries</td><td>Tract</td><td>Free REST</td><td>Yearly</td><td>Used</td></tr>
+<tr><td>Census batch geocoder</td><td>Turns addresses into map points, 10k addresses per request</td><td>Point</td><td>Free, no key</td><td>On demand</td><td>Used</td></tr>
+<tr><td>OpenStreetMap via Overpass</td><td>Hotels, places of worship, schools, sports centres, offices</td><td>Point</td><td>Free (ODbL, credit required). The public mirror timed out often</td><td>Live</td><td>Used (hotels, institutions)</td></tr>
+<tr><td>Census API (ACS detail, County/ZIP Business Patterns)</td><td>More detailed demographics; restaurant establishments by ZIP</td><td>Tract / ZIP</td><td>Free, but now <strong>needs a free key</strong></td><td>Yearly</td><td>Blocked: no key</td></tr>
+<tr><td>Ticketmaster Discovery API</td><td>Upcoming public events with venue latitude/longitude</td><td>Point</td><td>Free key, rate-limited</td><td>Live</td><td>Recommended next</td></tr>
+<tr><td>Overture Maps Places</td><td>About 50M places worldwide with categories (business directory)</td><td>Point</td><td>Free (CDLA/ODbL), bulk Parquet</td><td>Monthly</td><td>Recommended next</td></tr>
+<tr><td>Florida Sunbiz bulk data</td><td>Every FL company and nonprofit with registered and principal addresses and officers</td><td>Address</td><td>Free SFTP bulk files</td><td>Daily / quarterly</td><td>Recommended next</td></tr>
+<tr><td>Miami-Dade open data hub (ArcGIS)</td><td>Parks, county facilities, business tax receipts, permits</td><td>Point / parcel</td><td>Free REST</td><td>Varies</td><td>Optional</td></tr>
+<tr><td>Google Places, Foursquare</td><td>Ratings, opening hours, popularity</td><td>Point</td><td>Paid per call; terms limit storing data</td><td>Live</td><td>Use only for enrichment</td></tr>
+<tr><td>PredictHQ, Placer.ai, Advan</td><td>Expected event attendance; foot traffic by hour</td><td>Point / polygon</td><td>Paid (thousands of dollars a year)</td><td>Daily</td><td>Later, when there is revenue</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="a-section">
+<h2 class="a-section__title">How it would run inside the engine</h2>
+<div class="ft-pipe">
+<div><b>1 · Get the data</b><span>Weekly job downloads DBPR, IRS BMF, LODES and ACS files; nightly job calls the Ticketmaster API. Raw files stored with their download date.</span></div>
+<div><b>2 · Clean and geocode</b><span>Census batch geocoder, with Nominatim/Overture as fallback; IDs are EIN, licence number or GEOID; duplicates merged.</span></div>
+<div><b>3 · Score areas</b><span>Tract or H3 hexagon scores (demand, supply, opportunity) saved by date, so changes can be tracked over time.</span></div>
+<div><b>4 · Rank candidates</b><span>Organizations become <code>organizer</code> candidates and restaurants become sales leads, each with a score, the reason for it and the source.</span></div>
+<div><b>5 · Review and act</b><span>Network Map layer toggles; a person approves each candidate; then the lead engine scrape finds events and contacts.</span></div>
+</div>
+<div class="a-callout a-callout--decision"><strong>Decisions for you.</strong> (1) Unit of area: census tracts (works with demographic data) or H3 hexagons (even sizes, easier for heat maps). (2) Whether the restaurant list feeds FullTable's own sales pipeline, the restaurant-facing product, or both. (3) Whether to get a free Census API key and a Ticketmaster key now.</div>
+<div class="a-callout a-callout--risk"><strong>Caveats.</strong> The weights are my judgment, not fitted to results. Once there is pilot data, fit them to actual group bookings. IRS income measures how big an organization is, not how often it eats out. The LODES jobs data lags about two years. Sample events are the app's demo data, not real events. OSM has few restaurants in Miami, so restaurant supply uses DBPR seats instead. Licence data is public record, but cold outreach still has to follow the CAN-SPAM and TCPA rules.</div>
+</section>
+<script>
+(function(){
+var paths=document.querySelectorAll('#ft-tracts .ft-t');
+function setLayer(k,name){paths.forEach(function(p){p.setAttribute('data-q',p.getAttribute('data-'+k))});
+document.querySelectorAll('.ft-chip').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.layer===k?'true':'false')});
+var l=document.getElementById('ft-layername');if(l)l.textContent=name;}
+document.querySelectorAll('.ft-chip').forEach(function(b){b.addEventListener('click',function(){setLayer(b.dataset.layer,b.textContent)})});
+document.querySelectorAll('.ft-tog').forEach(function(b){b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on?'true':'false');
+var g=document.querySelector('[data-ovg="'+b.dataset.ov+'"]');if(g)g.style.display=on?'':'none';})});
+setLayer('opp','FullTable opportunity');
+})();
+</script>
