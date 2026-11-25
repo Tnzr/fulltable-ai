@@ -57,6 +57,5 @@ export default mergeConfig(
         },
       ],
     },
-    define: { "import.meta.env.VITE_FULLTABLE_DEMO": JSON.stringify("1") },
   }),
 );
