@@ -82,8 +82,6 @@ class FullTableLandingInner extends React.Component {
     const msgs = this.state.msgs.map(m => ({ ...m, align: m.who === 'me' ? 'flex-end' : 'flex-start', bg: m.who === 'me' ? '#492C48' : '#F6EBDD', fg: m.who === 'me' ? '#FFF7EB' : '#492C48' }));
     const prompts = ['How does approval work?', 'What is event sourcing?', 'Which groups book on Tuesdays?'].map(p => ({ p, ask: () => this.send(p) }));
     return {
-      showShapes: this.props.showShapes ?? true,
-      showAssistant: this.props.showAssistant ?? true,
       modelLabel: (this.props.assistantModel ?? 'claude-haiku-4-5').includes('sonnet') ? 'Sonnet' : 'Haiku',
       dates, cur, msgs, prompts, busy: this.state.busy,
       chatOpen: this.state.chatOpen, chatClosed: !this.state.chatOpen,
@@ -93,7 +91,7 @@ class FullTableLandingInner extends React.Component {
     };
   }
   render() {
-    const { busy, chatClosed, chatOpen, chatRef, closeChat, cur, dates, input, modelLabel, msgs, onInput, onKey, openChat, prompts, sendNow, showAssistant, showShapes } = this.renderVals();
+    const { busy, chatClosed, chatOpen, chatRef, closeChat, cur, dates, input, modelLabel, msgs, onInput, onKey, openChat, prompts, sendNow } = this.renderVals();
     const loginHref = this.props.loginHref ?? '/login';
     return (
       <div data-vid="9g34gzt" data-ft-landing="" style={{ background: '#FFF7EB', color: '#492C48', fontFamily: "'Figtree',system-ui,sans-serif", lineHeight: 'normal', WebkitFontSmoothing: 'antialiased', overflowX: 'hidden', minHeight: '100vh' }}>
@@ -217,7 +215,7 @@ class FullTableLandingInner extends React.Component {
         {" "}
         <div data-vid="tkhwars" style={{ position: "relative", padding: "clamp(0px,2vw,28px) clamp(0px,2vw,28px) 0 0" }}>
           {" "}
-          {(showShapes) && (
+          {(
             <>
               {" "}
               <span data-vid="0fzgrg5" style={{ position: "absolute", right: "0", top: "0", width: "clamp(70px,9vw,120px)", height: "clamp(70px,9vw,120px)", borderRadius: "50%", background: "#F2937A" }}></span>
@@ -604,7 +602,7 @@ class FullTableLandingInner extends React.Component {
         {" "}
         <div data-vid="wwlfug4" style={{ background: "#492C48", color: "#FFF7EB", borderRadius: "clamp(28px,3vw,44px)", position: "relative", overflow: "hidden" }}>
           {" "}
-          {(showShapes) && (
+          {(
             <>
               {" "}
               <span data-vid="wpexz9z" style={{ position: "absolute", right: "-60px", top: "-60px", width: "220px", height: "220px", borderRadius: "50%", background: "#5A3A58" }}></span>
@@ -1150,7 +1148,7 @@ class FullTableLandingInner extends React.Component {
         {" "}
         <div data-vid="7gshyv4" style={{ background: "#492C48", color: "#FFF7EB", borderRadius: "clamp(28px,3vw,44px)", position: "relative", overflow: "hidden", padding: "clamp(64px,9vw,128px) clamp(20px,4vw,48px)" }}>
           {" "}
-          {(showShapes) && (
+          {(
             <>
               {" "}
               <span data-vid="5an029d" style={{ position: "absolute", left: "-40px", bottom: "-40px", width: "180px", height: "180px", borderRadius: "50%", background: "#F3B58C" }}></span>
@@ -1239,7 +1237,7 @@ class FullTableLandingInner extends React.Component {
         {" "}
       </footer>
       {" "}
-      {(showAssistant) && (
+      {(
         <>
           {" "}
           {(chatClosed) && (
@@ -1340,7 +1338,7 @@ class FullTableLandingInner extends React.Component {
   }
 }
 
-/** @param {{ loginHref?: string, showShapes?: boolean, showAssistant?: boolean, assistantModel?: string }} props */
+/** @param {{ loginHref?: string, assistantModel?: string }} props */
 export function FullTableLanding(props) {
   const ask = useLandingAssistant();
   return <FullTableLandingInner data-vid="tuh1ebh" {...props} ask={ask} />;
