@@ -55,7 +55,7 @@ const DIET_FRIENDLY: Record<string, string[]> = {
   'Café & brunch': ['Vegetarian', 'Vegan', 'Gluten-free', 'Alcohol-free'], Seafood: ['Gluten-free', 'Kosher'], Latin: ['Gluten-free'],
 };
 
-export function cuisineOf(r: Restaurant): string {
+function cuisineOf(r: Restaurant): string {
   return CUISINES.find(([re]) => re.test(r.name))?.[1] ?? 'American & other';
 }
 function hash(s: string): number {

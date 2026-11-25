@@ -114,7 +114,7 @@ function addLink(vars: Vars): Resp<unknown> {
 }
 
 /** Returns a demo response for the operations it knows, or null to fall through to the real client. */
-export function demoGraphql(gql: string, vars: Vars): Resp<unknown> | null {
+function demoGraphql(gql: string, vars: Vars): Resp<unknown> | null {
   if (/query\s+LeadSources/.test(gql)) return ok({ eventSource: { items: seed.sources } });
   if (/query\s+NetData/.test(gql)) return netData();
   if (/mutation\s+Scrape/.test(gql)) return scrape(String(vars?.sourceId ?? ''), Number(vars?.maxListings ?? 25));
