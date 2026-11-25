@@ -42,7 +42,7 @@ export function useLeadEngine() {
         return res.data.eventSource.items.map((s) => ({ id: s.id, name: s.name, committed: s.committed === true }))
       },
       async addLink(url: string): Promise<string | null> {
-        let host = url
+        let host: string
         try {
           host = new URL(url).hostname.replace(/^www\./, '')
         } catch {
